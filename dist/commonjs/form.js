@@ -50,6 +50,13 @@ var Form = (function () {
   }
 
   _createDecoratedClass(Form, [{
+    key: 'attached',
+    value: function attached() {
+      if (this.data.hasValidation()) {
+        this.validation = this.data.getValidation();
+      }
+    }
+  }, {
     key: 'submit',
     value: function submit() {
       return this.onSubmit();
@@ -59,11 +66,11 @@ var Form = (function () {
     value: function onSubmit() {
       var _this = this;
 
-      if (!this.data.validation) {
+      if (!this.data.hasValidation()) {
         return this.element.dispatchEvent(new CustomEvent('complete', this.data.asObject()));
       }
 
-      this.data.validation.validate().then(function (result) {
+      this.validation.validate().then(function () {
         _this.element.dispatchEvent(new CustomEvent('complete', _this.data.asObject()));
       })['catch'](function (error) {});
     }
