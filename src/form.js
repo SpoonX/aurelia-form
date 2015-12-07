@@ -12,17 +12,23 @@ export class Form {
     this.element = formElement;
   }
 
+  attached () {
+    if (this.data.hasValidation()) {
+      this.validation = this.data.getValidation();
+    }
+  }
+
   submit () {
     return this.onSubmit();
   }
 
   onSubmit () {
-    if (!this.data.validation) {
+    if (!this.data.hasValidation()) {
       return this.element.dispatchEvent(new CustomEvent('complete', this.data.asObject()));
     }
 
-    this.data.validation.validate()
-      .then(result => {
+    this.validation.validate()
+      .then(() => {
         this.element.dispatchEvent(new CustomEvent('complete', this.data.asObject()));
       })
       .catch(error => {});
