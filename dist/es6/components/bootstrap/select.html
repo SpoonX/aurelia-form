@@ -1,0 +1,6 @@
+<template>
+  <select value.bind="value" class="form-control">
+    <option selected disabled value="0">- select a value -</option>
+    <option repeat.for="option of schema.options" model.bind="option.value">${option.name}</option>
+  </select>
+</template>

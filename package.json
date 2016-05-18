@@ -1,6 +1,6 @@
 {
   "name": "aurelia-form",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Makes working with forms just a tad more pleasant.",
   "keywords": [
     "aurelia",
@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "author": "RWOverdijk <wesley@spoonx.nl> (http://spoonx.nl/)",
-  "main": "dist/commonjs/index.js",
+  "main": "dist/commonjs/aurelia-form.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/SpoonX/aurelia-form"
@@ -42,7 +42,8 @@
     "yargs": "^2.1.1"
   },
   "jspm": {
-    "main": "index",
+    "main": "aurelia-form",
+    "registry": "jspm",
     "format": "amd",
     "directories": {
       "lib": "dist/amd"

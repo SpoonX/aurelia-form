@@ -1,0 +1,15 @@
+<template>
+
+<div class="radio" repeat.for="option of schema.options">
+  <label>
+    <input
+    attrs
+    type="radio"
+    name.bind="schema.name"
+    model.bind="option.value"
+    checked.bind="value">
+    ${option.name}
+  </label>
+</div>
+
+</template>

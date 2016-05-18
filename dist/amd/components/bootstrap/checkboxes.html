@@ -1,0 +1,15 @@
+<template>
+
+<div class="checkbox" repeat.for="option of schema.options">
+  <label>
+    <input
+    attrs
+    type="checkbox"
+    name.bind="schema.name"
+    model.bind="option.value"
+    checked.bind="value">
+    ${option.name}
+  </label>
+</div>
+
+</template>
