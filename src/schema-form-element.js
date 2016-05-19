@@ -39,10 +39,6 @@ export class schemaFormElementCustomElement {
 
   @computedFrom('schema')
   get component() {
-    if (!this.schema.type) { /* use text when type is not defined */
-      this.schema.type = 'text';
-    }
-
     return customComponent(this.config, this.schema) || frameworkComponent(this.config, this.schema) || defaultComponent(this.config, this.schema);
 
     function defaultComponent(config, schema) {
