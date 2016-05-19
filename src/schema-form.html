@@ -1,12 +1,12 @@
 <template>
 
-  <require from="./schema-form-elements"></require>
+  <form role="form" submit.delegate="onSubmit()">
 
-  <form role="form" submit.delegate="submit()">
     <fieldset>
       <content select="schema-form-header"></content>
-      <schema-form-elements model.two-way="model" schema.one-time="schema"></schema-form-elements>
+      <schema-form-elements model.bind="model" schema.bind="schema"></schema-form-elements>
       <content select="schema-form-footer"></content>
     </fieldset>
+
   </form>
 </template>

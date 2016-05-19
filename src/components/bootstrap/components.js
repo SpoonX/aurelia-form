@@ -1,29 +1,22 @@
 export default {
+  fieldset: 'fieldset.html',
   button: 'input.html',
   checkbox: 'checkbox.html',
-
   bool: 'checkbox.html',
   boolean: 'checkbox.html',
-
   color: 'input.html',
-
   date: 'input.html',
   datetime: 'input.html',
   'datetime-local': 'input.html',
-
   email: 'input.html',
   month: 'input.html',
-
   number: 'input.html',
   int: 'input.html',
   integer: 'input.html',
-
   password: 'input.html',
-
   radios: 'radios.html',
   checkboxes: 'checkboxes.html',
   select: 'select.html',
-
   range: 'input.html',
   file: 'file.html',
   search: 'input.html',

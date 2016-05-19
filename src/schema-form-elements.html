@@ -1,4 +1,9 @@
 <template>
-  <require from="./schema-form-element"></require>
-  <schema-form-element value.two-way="model[def.name]" schema.one-way="def" repeat.for="def of schema"></schema-form-element>
+
+  <schema-form-element
+    value.bind="model[def.name]"
+    schema.bind="def"
+    repeat.for="def of schema">
+  </schema-form-element>
+
 </template>
