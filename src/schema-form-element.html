@@ -3,17 +3,14 @@
     <label if.bind="!schema.hide_label">${label}</label>
 
     <compose
-    model.bind="errors"
-    view.bind="errorsComponent"></compose>
+        if.bind="isHtmlComponent"
+        model.bind="{schema: schema, value: value}"
+        view.bind="component"></compose>
 
     <compose
-    if.bind="isHtmlComponent"
-    view.bind="component"></compose>
-
-    <compose
-    if.bind="!isHtmlComponent"
-    model.bind="{schema: schema, value: value}"
-    view-model.bind="component"></compose>
+        if.bind="!isHtmlComponent"
+        model.bind="{schema: schema, value: value}"
+        view-model.bind="component"></compose>
 
   </div>
 </template>

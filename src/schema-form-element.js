@@ -1,4 +1,5 @@
 import {Config} from './config';
+import {component} from './component';
 import {bindingMode, bindable, computedFrom, inject} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
 
@@ -39,27 +40,7 @@ export class schemaFormElementCustomElement {
 
   @computedFrom('schema')
   get component() {
-    return customComponent(this.config, this.schema) || frameworkComponent(this.config, this.schema) || defaultComponent(this.config, this.schema);
-
-    function defaultComponent(config, schema) {
-      schema.type = 'text';
-      return frameworkComponent(config, schema);
-    }
-
-    function customComponent(config, schema) {
-      let component = config.components[schema.type]; // has custom component?
-      return component ? component.replace('{{location}}', config.location) : false;
-    }
-
-    function frameworkComponent(config, schema) {
-      let components = config.frameworkComponents[schema.type];
-      return components ? `${frameworkDir(config.framework)}/${components}` : false;
-    }
-  }
-
-  @computedFrom('config')
-  get errorsComponent() {
-    return `${frameworkDir(this.config.framework)}/errors.html`;
+    return component(this.config, this.schema.type);
   }
 
   /**
@@ -73,16 +54,4 @@ export class schemaFormElementCustomElement {
   get isHtmlComponent() {
     return (this.component.endsWith('.html'));
   }
-
-  @computedFrom('value')
-  get errors() {
-    if (!this.value) {
-      return [];
-    }
-    return this.value.validate ? this.value.validate() : [];
-  }
-}
-
-function frameworkDir(framework) {
-  return `./components/${framework}`;
 }
