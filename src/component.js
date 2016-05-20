@@ -1,20 +1,17 @@
 /**
- * returns contains the logic for getting the path of the component of a
- * specfic type
+ * return the location of the component to be used for that type. If custom
+ * components are defined, the path to them are returned instead of the
+ * framework component.
  *
- * @param {String} type
- * @returns {String} which represents the path of either a custom, framework or
+ * @param {object} config
+ * @param {object} schema
+ * @returns {string} which represents the path of either a custom, framework or
  * default component
  */
 export function component(config, schema) {
   let type = schema.type;
 
-  return customComponent() || frameworkComponent() || defaultComponent();
-
-  function defaultComponent() {
-    type = 'text';
-    return customComponent() || frameworkComponent();
-  }
+  return customComponent() || frameworkComponent();
 
   function customComponent() {
     let comp = config.components[type]; // has custom component?
