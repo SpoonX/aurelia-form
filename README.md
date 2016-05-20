@@ -3,7 +3,7 @@
 [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
 [![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-> Makes working with forms just a tad more pleasant. 
+> Makes working with forms just a tad more pleasant.
 
 This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) platform.
 
@@ -12,13 +12,35 @@ This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) p
 ## Features (currently)
 
 - Generates forms based on a form schema
-- Select what framework you would want to use (currently only bootstrap)
+- Select what framework you would want to use
 - Use the form elements belonging to the chosen framework or
-- Quickly overwrite the framework elements with a custom one.
+- Overwrite the framework elements with a custom one.
 - Custom elements for defining where and with what you would want to generate
   forms
 - Always defaults to a input text element
 - Two-way data binding by default.
+- Nest schemas in schemas using the fieldset type
+
+### Types
+
+Depending on the framework your using, the available types might differ.
+
+Choose one of the frameworks and see what aurelia-form has to offer.
+*looking for others to support other frameworks*
+
+- [Bootstrap](https://github.com/bas080/aurelia-form/tree/master/src/components/bootstrap)
+
+## Installation
+
+Make sure to execute these commands from project root.
+
+### webpack
+
+`npm install aurelia-form`
+
+### jspm
+
+`jspm install github:spoonx/aurelia-form`
 
 ## Configure
 
@@ -43,18 +65,86 @@ use the defaults that might not fit your project's needs.
 ### Schema
 
 Think of the schema as a standard way of describing what we want aurelia-form to
-render. The shape of aurelia-form's schema is as follows.
+render. A schema is an array containing several attributes. The following is an
+exaggerated example of a schema which shows all possible properties one could
+define on the schema.
 
 ```js
-  var schema = [        //is always an array
-    {
-      name: 'firstName', // points to the property in the view model
-      type: 'text',     // the type of element to render
-    },{
-      name: 'lastName',  // points to the property in the view model
-      type: 'text',     // the type of element to render
+
+  /* attributes of the schema are objects */
+  let nameAttribute = {
+
+    /* the name of the property in the model */
+    name: 'name',
+
+    /* read more if you want to know what types are supported */
+    type: 'string',
+
+    /* when true hides the label in the form-field */
+    hide_label: false,
+
+    /* when defined shows this as the label instead of the name property */
+    label: 'user.name',
+
+    /* these are set as actual html attributes on the dom element */
+    attributes: {
     }
+
+  };
+
+  let typeAttribute = {
+    name: 'type',
+
+    /* will create a select element with options */
+    type: 'select',
+
+    /***
+     * types that enable users to select one of the options require for the
+     * options property to be defined in the attribute.
+     */
+    options: [
+      {value: 'ice', name: 'Ice man'},
+      {value: 'fire', name: 'Fire girl'},
+      {value: 'earth', name: 'Earh mirl'},
+      {value: 'air', name: 'Air gam'}
+    ],
+
+    hide_label: false,
+    label: 'user.name'
+  };
+
+  /* the schema is always an array */
+  let userSchema = [
+    nameAttribute,
+    typeAttribute
   ];
+
+  /***
+   * Nesting schemas is a feature. The type that enables you to nest
+   * schema's is the fieldset type. Let's assume that a user is part of a group
+   */
+
+  let groupName = {...};
+
+  let groupOwner = {
+
+    /***
+     * fieldset knows it is not getting bound to a property of a model. It's
+     * expecting a new model/object
+     */
+    type: 'fieldset',
+
+    /* add the userSchema to the schema property (required) */
+    schema: userSchema,
+
+    attributes: {...}
+  }
+
+  let groupSchema = [
+    groupName,
+    groupOwner
+  ];
+
 ```
 
 Having a schema is not enough. We also need data to populate it. That is where
@@ -63,20 +153,30 @@ model for our view. Nohing new here, just javascript and Aurelia
 
 ### Model
 
+A schema is not enough though. If you define the model/object with properties
+defined, the generated form will show these values and update the property
+values. If the properties are not defined it will work too. **However**, if the
+object is not defined, it will throw an error which means that the object of
+which it was trying to set the property is undefined. Just like javascript
+would. Makes sense?
+
 ```js
   /* ./person.js */
 
   export class Person {
-    @bindable firstName
-    @bindable lastName
-  }
 
-  /* ./page.js */
+    userSchema = userSchema // assuming we defined userSchema
 
-  export class Page {
-    constructor() {
-      this.person = new Person();
+    groupSchema = groupSchema  // assuming we defined groupSchema
+
+    /* minimal required models (just the objects) */
+
+    userModel = {}
+
+    groupModel = {
+      owner = {}
     }
+
   }
 ```
 
@@ -92,64 +192,64 @@ model but would only want several of the elements to be rendered. Or you want
 a fancy layout that requires you to have a form element here and there.
 Aurelia-form let's you decide.
 
-```html
-  <schema-form
-    schema="schema"
-    model="person">
-  </schema-form>
-```
-But what about validation?
+#### <schema-form>
 
-### Validation 
-
-This section is a work in progress. It might contain some suggestions as the
-aurelia-form might not have validation builtin.
-
-### schema-form-element
-
-Creates just a single element which is part of a larger form. This element
-should be placed in a form element.
+Generate a complete form using the schema
 
 ```html
 
-  <schema-form-element
-    value.bind="prop"
-    schema.bind="schema">
-
   <schema-form
-    schemas=""
-    model=""
-    validation="">
+    schema="userSchema"
+    model="userModel">
   </schema-form>
 
 ```
 
-```html
-<schema-form-elements
-  model.bind="instanceOrObject"
-  schema.bind="schema">
+#### <form-fields>
 
-</schema-form-elements>
+Generates all the form fields without the form and fieldset around it. Handy for
+when you want more control when composing a single form.
+
+```html
+
+  <form-fields
+    model.bind="userModel"
+    schema.bind="userSchema">
+  </form-fields>
+
 ```
 
-## Used By
+#### <form-field>
 
-This library is used directly by applications only.
+When things get really detailed you can choose to only generate a single form
+field. Only generates a label (if hide_label is not true) and an "input" like
+field.
+
+```html
+
+  <form-field
+    value.bind="userSchema.name"
+    schema.bind="userSchema">
+  </form-field>
+
+```
+
+### Translations
+
+Aurelia-form uses aurelia-i18n to perform translations. It uses either the key
+or the label property on the schema's attributes as keys to find the
+translations. You can read more about aurelia-i18n here:
+https://github.com/aurelia/i18n
+
+### Validation
+
+This section is a work in progress. A good candidate might be aurelia-validatejs
+to perform validation and append errors to the form fields
 
 ## Platform Support
 
-This library can be used in the **browser** only.
-
-## Installation
-
-**webpack**
-TODO: does this really work?
-`npm install aurelia-form`
-
-**jspm**
-*from your project root*
-
-`jspm install github:spoonx/aurelia-form`
+Aurelia-form is built on aurelia. Wherever aurelia runs, aurelia-form should run
+also.
 
 ## Roadmap
 
@@ -157,6 +257,16 @@ TODO: does this really work?
   two-way all the time
 - check if everything works when validation is not being used
 - Could rename the name property in the schema to key which makes more sense
+- Start using DOM.Element instead of the Element
+  https://leanpub.com/aurelia-for-real-world-applications/read#leanpub-auto-difference-between-element-and-domelement
 
-## Usage
-[TBD]
+## Contributing
+
+You can help by reporting and/or fixing bugs.
+
+Help with implementing and improving support for your favorite html, css and js
+framework. Anyone using Foundation, Polymer or other cool stuff?
+
+## License
+
+MIT
