@@ -4,7 +4,7 @@ import {bindingMode, bindable, computedFrom, inject} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
 
 @inject(Config, I18N, Element)
-export class schemaFormElementCustomElement {
+export class FormFieldCustomElement {
 
   @bindable schema
 
@@ -32,15 +32,18 @@ export class schemaFormElementCustomElement {
 
   @computedFrom('schema')
   get label() {
+    let str = this.schema.label || this.schema.name;
     if (this.config.translate) {
-      return this.i18n.tr(this.schema.name);
+      return this.i18n.tr(str);
     }
-    return this.schema.name;
+    return str;
   }
 
   @computedFrom('schema')
   get component() {
-    return component(this.config, this.schema.type);
+    this.schema.type = aliasOf(this.config, this.schema.type);
+    console.log(this.schema);
+    return component(this.config, this.schema);
   }
 
   /**
@@ -54,4 +57,19 @@ export class schemaFormElementCustomElement {
   get isHtmlComponent() {
     return (this.component.endsWith('.html'));
   }
+}
+
+/**
+ * returns a string that represents the type of which it is an alias of. If it
+ * is not registered as an alias it returns itself(identity).
+ *
+ *
+ * @param {object} config
+ * @param {string} type
+ * @returns {string}
+ */
+function aliasOf(config, type) {
+  return config.aliases[type] ?
+    config.aliases[type] :
+    type;
 }

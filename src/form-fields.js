@@ -1,6 +1,6 @@
 import {bindable, bindingMode} from 'aurelia-framework';
 
-export class SchemaFormElementsCustomElement {
+export class FormFieldsCustomElement {
   @bindable schema
 
   @bindable({defaultBindingMode: bindingMode.twoWay})

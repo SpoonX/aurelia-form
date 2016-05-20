@@ -6,9 +6,8 @@
  * @returns {String} which represents the path of either a custom, framework or
  * default component
  */
-export function component(config, type){
-
-  var type = type;
+export function component(config, schema) {
+  let type = schema.type;
 
   return customComponent() || frameworkComponent() || defaultComponent();
 
@@ -18,13 +17,13 @@ export function component(config, type){
   }
 
   function customComponent() {
-    let component = config.components[type]; // has custom component?
-    return component ? component.replace('{{location}}', config.location) : false;
+    let comp = config.components[type]; // has custom component?
+    return comp ? comp.replace('{{location}}', config.location) : false;
   }
 
   function frameworkComponent() {
-    let components = config.frameworkComponents[type];
-    return components ? `${frameworkDir(config.framework)}/${components}` : false;
+    let comp = config.frameworkComponents[type];
+    return comp ? `${frameworkDir(config.framework)}/${comp}` : false;
   }
 }
 
