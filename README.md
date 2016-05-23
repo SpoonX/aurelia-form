@@ -262,7 +262,7 @@ field.
 
   <form-field
     value.bind="userSchema.name"
-    schema.bind="userSchema">
+    attribute.bind="nameAttribute">
   </form-field>
 
 ```
@@ -285,10 +285,6 @@ also.
 
 ## Roadmap
 
-- define two-way databinding in the view model and not make users have to write
-  two-way all the time
-- check if everything works when validation is not being used
-- Could rename the name property in the schema to key which makes more sense
 - Start using DOM.Element instead of the Element
   https://leanpub.com/aurelia-for-real-world-applications/read#leanpub-auto-difference-between-element-and-domelement
 
