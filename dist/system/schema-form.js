@@ -24,8 +24,6 @@ System.register(['aurelia-framework'], function (_export) {
           _defineDecoratedPropertyDescriptor(this, 'schema', _instanceInitializers);
 
           _defineDecoratedPropertyDescriptor(this, 'model', _instanceInitializers);
-
-          _defineDecoratedPropertyDescriptor(this, 'submit', _instanceInitializers);
         }
 
         _createDecoratedClass(schemaFormCustomElement, [{
@@ -36,11 +34,6 @@ System.register(['aurelia-framework'], function (_export) {
         }, {
           key: 'model',
           decorators: [bindable({ defaultBindingMode: bindingMode.twoWay })],
-          initializer: null,
-          enumerable: true
-        }, {
-          key: 'submit',
-          decorators: [bindable],
           initializer: null,
           enumerable: true
         }], null, _instanceInitializers);

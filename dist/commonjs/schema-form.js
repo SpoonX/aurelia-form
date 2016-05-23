@@ -21,8 +21,6 @@ var schemaFormCustomElement = (function () {
     _defineDecoratedPropertyDescriptor(this, 'schema', _instanceInitializers);
 
     _defineDecoratedPropertyDescriptor(this, 'model', _instanceInitializers);
-
-    _defineDecoratedPropertyDescriptor(this, 'submit', _instanceInitializers);
   }
 
   _createDecoratedClass(schemaFormCustomElement, [{
@@ -33,11 +31,6 @@ var schemaFormCustomElement = (function () {
   }, {
     key: 'model',
     decorators: [(0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay })],
-    initializer: null,
-    enumerable: true
-  }, {
-    key: 'submit',
-    decorators: [_aureliaFramework.bindable],
     initializer: null,
     enumerable: true
   }], null, _instanceInitializers);

@@ -7,8 +7,8 @@ function configure(aurelia, configCallback) {
 
   aurelia.globalResources(
     './schema-form',
-    './schema-form-elements',
-    './schema-form-element'
+    './form-fields',
+    './form-field'
   );
 }
 

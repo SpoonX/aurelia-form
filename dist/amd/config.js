@@ -1,4 +1,4 @@
-define(['exports', 'extend', './components/frameworks'], function (exports, _extend, _componentsFrameworks) {
+define(['exports', 'extend', './frameworks/frameworks'], function (exports, _extend, _frameworksFrameworks) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {
@@ -13,7 +13,7 @@ define(['exports', 'extend', './components/frameworks'], function (exports, _ext
 
   var _extend2 = _interopRequireDefault(_extend);
 
-  var _frameworks = _interopRequireDefault(_componentsFrameworks);
+  var _frameworks = _interopRequireDefault(_frameworksFrameworks);
 
   var Config = (function () {
     function Config() {
@@ -22,16 +22,29 @@ define(['exports', 'extend', './components/frameworks'], function (exports, _ext
       var defaultFramework = 'bootstrap';
 
       (0, _extend2['default'])(this, {
+
         translate: false,
+
         components: {},
+
         framework: defaultFramework,
-        frameworkComponents: _frameworks['default'][defaultFramework] || {} });
+
+        frameworkComponents: _frameworks['default'][defaultFramework] || {},
+        aliases: {
+          int: 'number',
+          integer: 'number',
+          float: 'number',
+          string: 'text',
+          bool: 'checkbox',
+          boolean: 'checkbox'
+        }
+      });
     }
 
     _createClass(Config, [{
       key: 'configure',
       value: function configure(configs) {
-        return (0, _extend2['default'])(this, configs);
+        return (0, _extend2['default'])(true, this, configs);
       }
     }]);
 

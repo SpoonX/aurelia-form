@@ -10,7 +10,7 @@ define(['exports', './config'], function (exports, _config) {
 
     configCallback(config);
 
-    aurelia.globalResources('./schema-form', './schema-form-elements', './schema-form-element');
+    aurelia.globalResources('./schema-form', './form-fields', './form-field');
   }
 
   exports.configure = configure;

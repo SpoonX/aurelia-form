@@ -14,9 +14,9 @@ var _extend = require('extend');
 
 var _extend2 = _interopRequireDefault(_extend);
 
-var _componentsFrameworks = require('./components/frameworks');
+var _frameworksFrameworks = require('./frameworks/frameworks');
 
-var _componentsFrameworks2 = _interopRequireDefault(_componentsFrameworks);
+var _frameworksFrameworks2 = _interopRequireDefault(_frameworksFrameworks);
 
 var Config = (function () {
   function Config() {
@@ -25,16 +25,29 @@ var Config = (function () {
     var defaultFramework = 'bootstrap';
 
     (0, _extend2['default'])(this, {
+
       translate: false,
+
       components: {},
+
       framework: defaultFramework,
-      frameworkComponents: _componentsFrameworks2['default'][defaultFramework] || {} });
+
+      frameworkComponents: _frameworksFrameworks2['default'][defaultFramework] || {},
+      aliases: {
+        int: 'number',
+        integer: 'number',
+        float: 'number',
+        string: 'text',
+        bool: 'checkbox',
+        boolean: 'checkbox'
+      }
+    });
   }
 
   _createClass(Config, [{
     key: 'configure',
     value: function configure(configs) {
-      return (0, _extend2['default'])(this, configs);
+      return (0, _extend2['default'])(true, this, configs);
     }
   }]);
 

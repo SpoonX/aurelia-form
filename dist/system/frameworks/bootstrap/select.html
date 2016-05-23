@@ -1,0 +1,6 @@
+<template>
+  <select attrs value.bind="value" class="form-control">
+    <option selected disabled value="-1"></option>
+    <option repeat.for="option of attribute.options" model.bind="option.value">${option.name}</option>
+  </select>
+</template>

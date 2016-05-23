@@ -1,4 +1,4 @@
-System.register(['extend', './components/frameworks'], function (_export) {
+System.register(['extend', './frameworks/frameworks'], function (_export) {
   'use strict';
 
   var extend, frameworks, Config;
@@ -10,8 +10,8 @@ System.register(['extend', './components/frameworks'], function (_export) {
   return {
     setters: [function (_extend) {
       extend = _extend['default'];
-    }, function (_componentsFrameworks) {
-      frameworks = _componentsFrameworks['default'];
+    }, function (_frameworksFrameworks) {
+      frameworks = _frameworksFrameworks['default'];
     }],
     execute: function () {
       Config = (function () {
@@ -21,16 +21,29 @@ System.register(['extend', './components/frameworks'], function (_export) {
           var defaultFramework = 'bootstrap';
 
           extend(this, {
+
             translate: false,
+
             components: {},
+
             framework: defaultFramework,
-            frameworkComponents: frameworks[defaultFramework] || {} });
+
+            frameworkComponents: frameworks[defaultFramework] || {},
+            aliases: {
+              int: 'number',
+              integer: 'number',
+              float: 'number',
+              string: 'text',
+              bool: 'checkbox',
+              boolean: 'checkbox'
+            }
+          });
         }
 
         _createClass(Config, [{
           key: 'configure',
           value: function configure(configs) {
-            return extend(this, configs);
+            return extend(true, this, configs);
           }
         }]);
 
