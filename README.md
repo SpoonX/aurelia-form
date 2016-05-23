@@ -21,15 +21,6 @@ This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) p
 - Two-way data binding by default.
 - Nest schemas in schemas using the fieldset type
 
-### Types
-
-Depending on the framework your using, the available types might differ.
-
-Choose one of the frameworks and see what aurelia-form has to offer.
-*looking for others to support other frameworks*
-
-- [Bootstrap](https://github.com/bas080/aurelia-form/tree/master/src/components/bootstrap)
-
 ## Installation
 
 Make sure to execute these commands from project root.
@@ -44,21 +35,63 @@ Make sure to execute these commands from project root.
 
 ## Configure
 
-To get started some configurations are required. You could skip this step and
-use the defaults that might not fit your project's needs.
+To get started some configurations are required.
 
 ```js
   aurelia.use
     .plugin('aurelia-form', config => {
       config.configure({
+
+        /* will only work if i18n is defined */
         translate: true,
+
+        /* this will determine what framework is to be used */
         framework: 'bootstrap',
-        components: {}
+
+        /* used to define the location of custom components */
+        location: './my/components',
+
+        /* set your custom components */
+        components: {
+
+          /* key is the type and value the location of the component*/
+          date: '{{location}}/datepicker'
+
+        }
+
+        /***
+         * Aliases are used to avoid having to define a custom component because
+         * there is no component registered for that type. When interpreting the
+         * schema, it checks if the type is an alias, and uses the aliased type
+         * instead when rendering the forms.
+         *
+         * It is also necessary to leverage the input field to it's fullest. The
+         * input field needs a valid type-attribute value. Imagine you use the
+         * letter 's' to define that a value is a string value. 's' is not a
+         * valid type for the input field. In that case it would be best to
+         * define the alias `s: 'text'`.
+         */
+        aliases: {
+          s: 'text',
+        }
+
       });
     })
     .standardConfiguration()
     .developmentLogging();
 ```
+
+### Types
+
+Think of types aa
+ma 23 mei 2016 13:20:26 CEST
+
+Depending on the framework your using, the available types might differ.
+
+Choose one of the frameworks and see what aurelia-form has to offer.
+*looking for others to support other frameworks*
+
+- [Bootstrap](https://github.com/bas080/aurelia-form/tree/master/src/components/bootstrap)
 
 ## Usage
 
@@ -75,7 +108,7 @@ define on the schema.
   let nameAttribute = {
 
     /* the name of the property in the model */
-    name: 'name',
+    key: 'name',
 
     /* read more if you want to know what types are supported */
     type: 'string',
@@ -93,7 +126,7 @@ define on the schema.
   };
 
   let typeAttribute = {
-    name: 'type',
+    key: 'type',
 
     /* will create a select element with options */
     type: 'select',
@@ -148,8 +181,8 @@ define on the schema.
 ```
 
 Having a schema is not enough. We also need data to populate it. That is where
-the name property in our schema definitions come into play. Let's make a simple
-model for our view. Nohing new here, just javascript and Aurelia
+the key property in our schema definitions come into play. Let's make a simple
+model for our view. Nohing new here, just Javascript and Aurelia.
 
 ### Model
 
@@ -238,8 +271,7 @@ field.
 
 Aurelia-form uses aurelia-i18n to perform translations. It uses either the key
 or the label property on the schema's attributes as keys to find the
-translations. You can read more about aurelia-i18n here:
-https://github.com/aurelia/i18n
+translations. Read more about [aurelia-i18n](https://github.com/aurelia/i18n).
 
 ### Validation
 
