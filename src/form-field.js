@@ -6,7 +6,7 @@ import {I18N} from 'aurelia-i18n';
 @inject(Config, I18N, Element)
 export class FormFieldCustomElement {
 
-  @bindable schema
+  @bindable attribute
 
   @bindable({defaultBindingMode: bindingMode.twoWay})
   value
@@ -21,23 +21,23 @@ export class FormFieldCustomElement {
     // consider: using aurelia DOM pal
     let attrsElmnt = $(this.element).find('[attrs]');
     if (attrsElmnt) {
-      attrsElmnt.attr(this.schema.attributes || {});
+      attrsElmnt.attr(this.attribute.attributes || {});
     }
   }
 
-  @computedFrom('schema')
+  @computedFrom('attribute')
   get label() {
-    let str = this.schema.label || this.schema.name;
+    let str = this.attribute.label || this.attribute.key;
     if (this.config.translate) {
       return this.i18n.tr(str);
     }
     return str;
   }
 
-  @computedFrom('schema')
+  @computedFrom('attribute')
   get component() {
-    this.schema.type = aliasOf(this.config, this.schema.type);
-    return component(this.config, this.schema);
+    this.attribute.type = aliasOf(this.config, this.attribute.type);
+    return component(this.config, this.attribute);
   }
 
   /**

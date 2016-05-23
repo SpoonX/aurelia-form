@@ -4,12 +4,12 @@
  * framework component.
  *
  * @param {object} config
- * @param {object} schema
+ * @param {object} attribute
  * @returns {string} which represents the path of either a custom, framework or
  * default component
  */
-export function component(config, schema) {
-  let type = schema.type;
+export function component(config, attribute) {
+  let type = attribute.type;
 
   return customComponent() || frameworkComponent();
 
