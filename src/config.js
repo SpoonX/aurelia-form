@@ -1,5 +1,5 @@
 import extend from 'extend';
-import frameworks from './components/frameworks';
+import frameworks from './frameworks/frameworks';
 
 export class Config {
   constructor() {

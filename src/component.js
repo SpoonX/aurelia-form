@@ -25,5 +25,5 @@ export function component(config, schema) {
 }
 
 function frameworkDir(framework) {
-  return `./components/${framework}`;
+  return `./frameworks/${framework}`;
 }
