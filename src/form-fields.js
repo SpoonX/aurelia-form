@@ -5,4 +5,11 @@ export class FormFieldsCustomElement {
 
   @bindable({defaultBindingMode: bindingMode.twoWay})
   model
+
+  attached() {
+    if (typeof this.model !== 'object') {
+      // eslint-disable-next-line
+      console.warn(`model is not an object`);
+    }
+  }
 }

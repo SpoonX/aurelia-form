@@ -25,11 +25,6 @@ export class FormFieldCustomElement {
     }
   }
 
-  valueChanged(a, b) {
-    //TODO: this is where we could validate
-    return a;
-  }
-
   @computedFrom('schema')
   get label() {
     let str = this.schema.label || this.schema.name;
@@ -42,7 +37,6 @@ export class FormFieldCustomElement {
   @computedFrom('schema')
   get component() {
     this.schema.type = aliasOf(this.config, this.schema.type);
-    console.log(this.schema);
     return component(this.config, this.schema);
   }
 
@@ -69,7 +63,8 @@ export class FormFieldCustomElement {
  * @returns {string}
  */
 function aliasOf(config, type) {
-  return config.aliases[type] ?
-    config.aliases[type] :
-    type;
+  if (type === undefined) {
+    return 'text';
+  }
+  return (config.aliases[type] !== undefined) ? config.aliases[type] : type;
 }
