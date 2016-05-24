@@ -4,8 +4,16 @@
   "description": "Makes working with forms just a tad more pleasant.",
   "keywords": [
     "aurelia",
+    "bootstrap",
+    "component",
+    "components",
+    "custom components",
+    "form",
+    "forms",
+    "input",
     "plugin",
-    "form"
+    "schema",
+    "translation"
   ],
   "homepage": "https://github.com/SpoonX/aurelia-form",
   "bugs": {
@@ -42,8 +50,8 @@
     "yargs": "^2.1.1"
   },
   "jspm": {
-    "main": "aurelia-form",
     "registry": "jspm",
+    "main": "aurelia-form",
     "format": "amd",
     "directories": {
       "lib": "dist/amd"
