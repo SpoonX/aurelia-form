@@ -11,18 +11,18 @@ define(['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
 
   function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer ? descriptor.initializer.call(target) : undefined; Object.defineProperty(target, key, descriptor); }
 
-  var schemaFormCustomElement = (function () {
+  var SchemaFormCustomElement = (function () {
     var _instanceInitializers = {};
 
-    function schemaFormCustomElement() {
-      _classCallCheck(this, schemaFormCustomElement);
+    function SchemaFormCustomElement() {
+      _classCallCheck(this, SchemaFormCustomElement);
 
       _defineDecoratedPropertyDescriptor(this, 'schema', _instanceInitializers);
 
       _defineDecoratedPropertyDescriptor(this, 'model', _instanceInitializers);
     }
 
-    _createDecoratedClass(schemaFormCustomElement, [{
+    _createDecoratedClass(SchemaFormCustomElement, [{
       key: 'schema',
       decorators: [_aureliaFramework.bindable],
       initializer: null,
@@ -34,8 +34,8 @@ define(['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
       enumerable: true
     }], null, _instanceInitializers);
 
-    return schemaFormCustomElement;
+    return SchemaFormCustomElement;
   })();
 
-  exports.schemaFormCustomElement = schemaFormCustomElement;
+  exports.SchemaFormCustomElement = SchemaFormCustomElement;
 });

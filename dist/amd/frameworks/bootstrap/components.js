@@ -2,6 +2,7 @@ define(['exports', 'module'], function (exports, module) {
   'use strict';
 
   module.exports = {
+    actions: 'actions',
     fieldset: 'fieldset.html',
     button: 'input.html',
     checkbox: 'checkbox.html',

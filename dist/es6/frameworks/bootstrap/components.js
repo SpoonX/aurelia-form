@@ -1,4 +1,5 @@
 export default {
+  actions: 'actions',
   fieldset: 'fieldset.html',
   button: 'input.html',
   checkbox: 'checkbox.html',

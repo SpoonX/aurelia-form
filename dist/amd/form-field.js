@@ -68,7 +68,7 @@ define(['exports', './config', './component', 'aurelia-framework', 'aurelia-i18n
       key: 'isHtmlComponent',
       decorators: [(0, _aureliaFramework.computedFrom)('component')],
       get: function get() {
-        return this.component.endsWith('.html');
+        return this.component ? this.component.endsWith('.html') : true;
       }
     }], null, _instanceInitializers);
 

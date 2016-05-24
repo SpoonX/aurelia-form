@@ -12,18 +12,18 @@ function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _des
 
 var _aureliaFramework = require('aurelia-framework');
 
-var schemaFormCustomElement = (function () {
+var SchemaFormCustomElement = (function () {
   var _instanceInitializers = {};
 
-  function schemaFormCustomElement() {
-    _classCallCheck(this, schemaFormCustomElement);
+  function SchemaFormCustomElement() {
+    _classCallCheck(this, SchemaFormCustomElement);
 
     _defineDecoratedPropertyDescriptor(this, 'schema', _instanceInitializers);
 
     _defineDecoratedPropertyDescriptor(this, 'model', _instanceInitializers);
   }
 
-  _createDecoratedClass(schemaFormCustomElement, [{
+  _createDecoratedClass(SchemaFormCustomElement, [{
     key: 'schema',
     decorators: [_aureliaFramework.bindable],
     initializer: null,
@@ -35,7 +35,7 @@ var schemaFormCustomElement = (function () {
     enumerable: true
   }], null, _instanceInitializers);
 
-  return schemaFormCustomElement;
+  return SchemaFormCustomElement;
 })();
 
-exports.schemaFormCustomElement = schemaFormCustomElement;
+exports.SchemaFormCustomElement = SchemaFormCustomElement;

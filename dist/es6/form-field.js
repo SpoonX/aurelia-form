@@ -49,7 +49,7 @@ export class FormFieldCustomElement {
    */
   @computedFrom('component')
   get isHtmlComponent() {
-    return (this.component.endsWith('.html'));
+    return this.component ? (this.component.endsWith('.html')) : true;
   }
 }
 

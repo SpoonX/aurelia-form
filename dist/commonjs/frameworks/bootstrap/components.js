@@ -4,6 +4,7 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports['default'] = {
+  actions: 'actions',
   fieldset: 'fieldset.html',
   button: 'input.html',
   checkbox: 'checkbox.html',

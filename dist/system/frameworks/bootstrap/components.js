@@ -5,6 +5,7 @@ System.register([], function (_export) {
     setters: [],
     execute: function () {
       _export('default', {
+        actions: 'actions',
         fieldset: 'fieldset.html',
         button: 'input.html',
         checkbox: 'checkbox.html',

@@ -8,7 +8,7 @@ exports.component = component;
 function component(config, attribute) {
   var type = attribute.type;
 
-  return customComponent() || frameworkComponent();
+  return customComponent() || frameworkComponent() || console.warn('type ' + type + ' does not have a component registered for it.');
 
   function customComponent() {
     var comp = config.components[type];

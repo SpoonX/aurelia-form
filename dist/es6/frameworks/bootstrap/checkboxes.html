@@ -1,15 +1,13 @@
 <template>
-
-<div class="checkbox" repeat.for="option of attribute.options">
-  <label>
-    <input
-    attrs
-    type="checkbox"
-    name.bind="attribute.key"
-    model.bind="option.value"
-    checked.bind="value">
-    ${option.name}
-  </label>
-</div>
-
+  <div class="checkbox" repeat.for="option of attribute.options">
+    <label>
+      <input
+      attrs
+      type="checkbox"
+      name.bind="option.name"
+      model.bind="option.value"
+      checked.bind="value">
+      ${option.name}
+    </label>
+  </div>
 </template>
