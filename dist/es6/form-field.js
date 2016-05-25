@@ -1,9 +1,8 @@
 import {Config} from './config';
 import {component} from './component';
 import {bindingMode, bindable, computedFrom, inject} from 'aurelia-framework';
-import {I18N} from 'aurelia-i18n';
 
-@inject(Config, I18N, Element)
+@inject(Config, Element)
 export class FormFieldCustomElement {
 
   @bindable attribute
@@ -11,8 +10,7 @@ export class FormFieldCustomElement {
   @bindable({defaultBindingMode: bindingMode.twoWay})
   value
 
-  constructor(config, i18n, element) {
-    this.i18n = i18n;
+  constructor(config, element) {
     this.config = config;
     this.element = element;
   }
@@ -27,11 +25,7 @@ export class FormFieldCustomElement {
 
   @computedFrom('attribute')
   get label() {
-    let str = this.attribute.label || this.attribute.key;
-    if (this.config.translate) {
-      return this.i18n.tr(str);
-    }
-    return str;
+    return this.attribute.label || this.attribute.key;
   }
 
   @computedFrom('attribute')

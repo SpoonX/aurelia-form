@@ -1,4 +1,4 @@
-define(['exports', './config', './component', 'aurelia-framework', 'aurelia-i18n'], function (exports, _config, _component, _aureliaFramework, _aureliaI18n) {
+define(['exports', './config', './component', 'aurelia-framework'], function (exports, _config, _component, _aureliaFramework) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {
@@ -27,14 +27,13 @@ define(['exports', './config', './component', 'aurelia-framework', 'aurelia-i18n
       enumerable: true
     }], null, _instanceInitializers);
 
-    function FormFieldCustomElement(config, i18n, element) {
+    function FormFieldCustomElement(config, element) {
       _classCallCheck(this, _FormFieldCustomElement);
 
       _defineDecoratedPropertyDescriptor(this, 'attribute', _instanceInitializers);
 
       _defineDecoratedPropertyDescriptor(this, 'value', _instanceInitializers);
 
-      this.i18n = i18n;
       this.config = config;
       this.element = element;
     }
@@ -51,11 +50,7 @@ define(['exports', './config', './component', 'aurelia-framework', 'aurelia-i18n
       key: 'label',
       decorators: [(0, _aureliaFramework.computedFrom)('attribute')],
       get: function get() {
-        var str = this.attribute.label || this.attribute.key;
-        if (this.config.translate) {
-          return this.i18n.tr(str);
-        }
-        return str;
+        return this.attribute.label || this.attribute.key;
       }
     }, {
       key: 'component',
@@ -73,7 +68,7 @@ define(['exports', './config', './component', 'aurelia-framework', 'aurelia-i18n
     }], null, _instanceInitializers);
 
     var _FormFieldCustomElement = FormFieldCustomElement;
-    FormFieldCustomElement = (0, _aureliaFramework.inject)(_config.Config, _aureliaI18n.I18N, Element)(FormFieldCustomElement) || FormFieldCustomElement;
+    FormFieldCustomElement = (0, _aureliaFramework.inject)(_config.Config, Element)(FormFieldCustomElement) || FormFieldCustomElement;
     return FormFieldCustomElement;
   })();
 

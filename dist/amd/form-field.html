@@ -1,10 +1,9 @@
 <template>
   <div class="form-group">
-    <label if.bind="!attribute.hide_label">${label}</label>
+    <label t.bind="label" if.bind="!attribute.hide_label">${label}</label>
 
     <compose
         if.bind="isHtmlComponent"
-        model.bind="{attribute: attribute, value: value}"
         view.bind="component"></compose>
 
     <compose

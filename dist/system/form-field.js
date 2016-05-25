@@ -1,7 +1,7 @@
-System.register(['./config', './component', 'aurelia-framework', 'aurelia-i18n'], function (_export) {
+System.register(['./config', './component', 'aurelia-framework'], function (_export) {
   'use strict';
 
-  var Config, component, bindingMode, bindable, computedFrom, inject, I18N, FormFieldCustomElement;
+  var Config, component, bindingMode, bindable, computedFrom, inject, FormFieldCustomElement;
 
   var _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === 'function') { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError('The decorator for method ' + descriptor.key + ' is of the invalid type ' + typeof decorator); } } if (descriptor.initializer !== undefined) { initializers[key] = descriptor; continue; } } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
 
@@ -25,8 +25,6 @@ System.register(['./config', './component', 'aurelia-framework', 'aurelia-i18n']
       bindable = _aureliaFramework.bindable;
       computedFrom = _aureliaFramework.computedFrom;
       inject = _aureliaFramework.inject;
-    }, function (_aureliaI18n) {
-      I18N = _aureliaI18n.I18N;
     }],
     execute: function () {
       FormFieldCustomElement = (function () {
@@ -45,14 +43,13 @@ System.register(['./config', './component', 'aurelia-framework', 'aurelia-i18n']
           enumerable: true
         }], null, _instanceInitializers);
 
-        function FormFieldCustomElement(config, i18n, element) {
+        function FormFieldCustomElement(config, element) {
           _classCallCheck(this, _FormFieldCustomElement);
 
           _defineDecoratedPropertyDescriptor(this, 'attribute', _instanceInitializers);
 
           _defineDecoratedPropertyDescriptor(this, 'value', _instanceInitializers);
 
-          this.i18n = i18n;
           this.config = config;
           this.element = element;
         }
@@ -69,11 +66,7 @@ System.register(['./config', './component', 'aurelia-framework', 'aurelia-i18n']
           key: 'label',
           decorators: [computedFrom('attribute')],
           get: function get() {
-            var str = this.attribute.label || this.attribute.key;
-            if (this.config.translate) {
-              return this.i18n.tr(str);
-            }
-            return str;
+            return this.attribute.label || this.attribute.key;
           }
         }, {
           key: 'component',
@@ -91,7 +84,7 @@ System.register(['./config', './component', 'aurelia-framework', 'aurelia-i18n']
         }], null, _instanceInitializers);
 
         var _FormFieldCustomElement = FormFieldCustomElement;
-        FormFieldCustomElement = inject(Config, I18N, Element)(FormFieldCustomElement) || FormFieldCustomElement;
+        FormFieldCustomElement = inject(Config, Element)(FormFieldCustomElement) || FormFieldCustomElement;
         return FormFieldCustomElement;
       })();
 
