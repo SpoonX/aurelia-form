@@ -1,6 +1,6 @@
 <template>
   <div class="form-group">
-    <label if.bind="!attribute.hide_label">${label}</label>
+    <label t.bind="label" if.bind="!attribute.hide_label">${label}</label>
 
     <compose
         if.bind="isHtmlComponent"
