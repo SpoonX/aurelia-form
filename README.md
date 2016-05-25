@@ -57,7 +57,7 @@ To get started some configurations are required.
           /* key is the type and value the location of the component*/
           date: '{{location}}/datepicker'
 
-        }
+        },
 
         /***
          * Aliases are used to avoid having to define a custom component because
