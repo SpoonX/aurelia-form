@@ -11,7 +11,7 @@
 export function component(config, attribute) {
   let type = attribute.type;
 
-  return customComponent() || frameworkComponent();
+  return customComponent() || frameworkComponent() || console.warn(`type ${type} does not have a component registered for it.`);
 
   function customComponent() {
     let comp = config.components[type]; // has custom component?
