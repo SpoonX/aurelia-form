@@ -9,14 +9,18 @@ System.config({
   },
   paths: {
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
+    "npm:*": "jspm_packages/npm/*",
+    "jspm:*": "jspm_packages/jspm/*"
   },
 
   map: {
+    "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.5",
+    "aurelia-view": "jspm:aurelia-view@0.0.2",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.6",
+    "extend": "npm:extend@3.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.0"
     },
