@@ -1,7 +1,7 @@
-System.register(['./config'], function (_export) {
+System.register(['./config', './entity-schema'], function (_export) {
   'use strict';
 
-  var Config;
+  var Config, entitySchema;
 
   function configure(aurelia, configCallback) {
     var config = aurelia.container.get(Config);
@@ -14,9 +14,13 @@ System.register(['./config'], function (_export) {
   return {
     setters: [function (_config) {
       Config = _config.Config;
+    }, function (_entitySchema) {
+      entitySchema = _entitySchema.entitySchema;
     }],
     execute: function () {
       _export('configure', configure);
+
+      _export('entitySchema', entitySchema);
     }
   };
 });

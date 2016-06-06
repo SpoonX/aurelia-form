@@ -1,4 +1,5 @@
 import {Config} from './config';
+import {entitySchema} from './entity-schema';
 
 function configure(aurelia, configCallback) {
   let config = aurelia.container.get(Config);
@@ -13,5 +14,6 @@ function configure(aurelia, configCallback) {
 }
 
 export {
-  configure
+  configure,
+  entitySchema
 };

@@ -6,6 +6,8 @@ Object.defineProperty(exports, '__esModule', {
 
 var _config = require('./config');
 
+var _entitySchema = require('./entity-schema');
+
 function configure(aurelia, configCallback) {
   var config = aurelia.container.get(_config.Config);
 
@@ -15,3 +17,4 @@ function configure(aurelia, configCallback) {
 }
 
 exports.configure = configure;
+exports.entitySchema = _entitySchema.entitySchema;

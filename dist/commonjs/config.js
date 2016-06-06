@@ -14,26 +14,53 @@ var _extend = require('extend');
 
 var _extend2 = _interopRequireDefault(_extend);
 
-var _frameworksFrameworks = require('./frameworks/frameworks');
+var _aureliaDependencyInjection = require('aurelia-dependency-injection');
 
-var _frameworksFrameworks2 = _interopRequireDefault(_frameworksFrameworks);
+var _aureliaViewManager = require('aurelia-view-manager');
+
+var DEFAULT_FRAMEWORK = 'bootstrap';
 
 var Config = (function () {
-  function Config() {
-    _classCallCheck(this, Config);
+  function Config(viewManagerConfig) {
+    _classCallCheck(this, _Config);
 
-    var defaultFramework = 'bootstrap';
+    this.configurations = {};
 
-    (0, _extend2['default'])(this, {
+    viewManagerConfig.configureNamespace('aurelia-form', {
+      base: './frameworks/{{framework}}',
+      location: '{{base}}/{{view}}.html',
+      framework: DEFAULT_FRAMEWORK,
+      map: {
+        actions: '{{base}}/actions',
+        collection: '{{base}}/collection',
+
+        text: '{{base}}/input.html',
+        button: '{{base}}/input.html',
+        color: '{{base}}/input.html',
+        date: '{{base}}/input.html',
+        datetime: '{{base}}/input.html',
+        'datetime-local': '{{base}}/input.html',
+        email: '{{base}}/input.html',
+        month: '{{base}}/input.html',
+        number: '{{base}}/input.html',
+        password: '{{base}}/input.html',
+        range: '{{base}}/input.html',
+        search: '{{base}}/input.html',
+        tel: '{{base}}/input.html',
+        time: '{{base}}/input.html',
+        url: '{{base}}/input.html',
+        week: '{{base}}/input.html'
+      }
+    });
+
+    this.configure({
 
       translate: false,
 
-      components: {},
-
-      framework: defaultFramework,
-
-      frameworkComponents: _frameworksFrameworks2['default'][defaultFramework] || {},
       aliases: {
+        nested: 'fieldset',
+        undefined: 'text',
+        'null': 'text',
         int: 'number',
         integer: 'number',
         float: 'number',
@@ -45,12 +72,28 @@ var Config = (function () {
   }
 
   _createClass(Config, [{
+    key: 'get',
+    value: function get(props) {
+      var result = this.configurations;
+      for (var index in arguments) {
+        var key = arguments[index];
+        var value = result[key];
+        if (!value) {
+          return value;
+        }
+        result = result[key];
+      }
+      return result;
+    }
+  }, {
     key: 'configure',
     value: function configure(configs) {
-      return (0, _extend2['default'])(true, this, configs);
+      return (0, _extend2['default'])(true, this.configurations, configs);
     }
   }]);
 
+  var _Config = Config;
+  Config = (0, _aureliaDependencyInjection.inject)(_aureliaViewManager.Config)(Config) || Config;
   return Config;
 })();
 

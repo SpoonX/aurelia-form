@@ -12,9 +12,9 @@ function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _des
 
 var _config = require('./config');
 
-var _component = require('./component');
-
 var _aureliaFramework = require('aurelia-framework');
+
+var _aureliaViewManager = require('aurelia-view-manager');
 
 var FormFieldCustomElement = (function () {
   var _instanceInitializers = {};
@@ -32,7 +32,7 @@ var FormFieldCustomElement = (function () {
     enumerable: true
   }], null, _instanceInitializers);
 
-  function FormFieldCustomElement(config, element) {
+  function FormFieldCustomElement(config, element, viewManager) {
     _classCallCheck(this, _FormFieldCustomElement);
 
     _defineDecoratedPropertyDescriptor(this, 'attribute', _instanceInitializers);
@@ -41,14 +41,15 @@ var FormFieldCustomElement = (function () {
 
     this.config = config;
     this.element = element;
+    this.viewManager = viewManager;
   }
 
   _createDecoratedClass(FormFieldCustomElement, [{
     key: 'attached',
     value: function attached() {
-      var attrsElmnt = $(this.element).find('[attrs]');
-      if (attrsElmnt) {
-        attrsElmnt.attr(this.attribute.attributes || {});
+      var attributeElements = $(this.element).find('[attrs]');
+      if (attributeElements) {
+        attributeElements.attr(this.attribute.attributes || {});
       }
     }
   }, {
@@ -58,30 +59,39 @@ var FormFieldCustomElement = (function () {
       return this.attribute.label || this.attribute.key;
     }
   }, {
-    key: 'component',
+    key: 'view',
     decorators: [(0, _aureliaFramework.computedFrom)('attribute')],
     get: function get() {
-      this.attribute.type = aliasOf(this.config, this.attribute.type);
-      return (0, _component.component)(this.config, this.attribute);
+      var type = this.type;
+      this.attribute.type = type;
+      return this.viewManager.resolve('aurelia-form', type);
     }
   }, {
-    key: 'isHtmlComponent',
-    decorators: [(0, _aureliaFramework.computedFrom)('component')],
+    key: 'hasViewModel',
+    decorators: [(0, _aureliaFramework.computedFrom)('view')],
     get: function get() {
-      return this.component ? this.component.endsWith('.html') : true;
+      return !this.view.endsWith('.html');
+    }
+  }, {
+    key: 'type',
+    decorators: [(0, _aureliaFramework.computedFrom)('attribute')],
+    get: function get() {
+      var type = this.attribute.type;
+      var alias = this.config.get('aliases', type);
+      var previous = [];
+      while (alias && previous.indexOf(alias) === -1) {
+        type = alias;
+        previous.push(type);
+        alias = this.config.get('aliases', type);
+      }
+
+      return type;
     }
   }], null, _instanceInitializers);
 
   var _FormFieldCustomElement = FormFieldCustomElement;
-  FormFieldCustomElement = (0, _aureliaFramework.inject)(_config.Config, Element)(FormFieldCustomElement) || FormFieldCustomElement;
+  FormFieldCustomElement = (0, _aureliaFramework.inject)(_config.Config, Element, _aureliaViewManager.ViewManager)(FormFieldCustomElement) || FormFieldCustomElement;
   return FormFieldCustomElement;
 })();
 
 exports.FormFieldCustomElement = FormFieldCustomElement;
-
-function aliasOf(config, type) {
-  if (type === undefined) {
-    return 'text';
-  }
-  return config.aliases[type] !== undefined ? config.aliases[type] : type;
-}

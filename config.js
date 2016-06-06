@@ -16,7 +16,7 @@ System.config({
   map: {
     "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.5",
-    "aurelia-view": "jspm:aurelia-view@0.0.2",
+    "aurelia-view-manager": "jspm:aurelia-view-manager@0.0.3",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.6",
@@ -35,6 +35,11 @@ System.config({
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
+    },
+    "jspm:aurelia-view-manager@0.0.3": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7",
+      "extend": "npm:extend@3.0.0"
     },
     "npm:assert@1.4.0": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",

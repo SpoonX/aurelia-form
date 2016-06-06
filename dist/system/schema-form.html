@@ -1,13 +1,12 @@
 <template>
-  <form role="form">
+
+  <form role="form" submit.delegate="onSubmit()">
+
     <fieldset>
       <content select="schema-form-header"></content>
-
-      <form-fields
-        model.bind="model"
-        schema.bind="schema"></form-fields>
-
+      <form-fields model.bind="model" schema.bind="schema"></form-fields>
       <content select="schema-form-footer"></content>
     </fieldset>
+
   </form>
 </template>

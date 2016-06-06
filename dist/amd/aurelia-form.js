@@ -1,4 +1,4 @@
-define(['exports', './config'], function (exports, _config) {
+define(['exports', './config', './entity-schema'], function (exports, _config, _entitySchema) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {
@@ -14,4 +14,5 @@ define(['exports', './config'], function (exports, _config) {
   }
 
   exports.configure = configure;
+  exports.entitySchema = _entitySchema.entitySchema;
 });

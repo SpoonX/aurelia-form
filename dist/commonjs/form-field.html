@@ -1,15 +1,12 @@
 <template>
-  <div class="form-group">
-    <label t.bind="label" if.bind="!attribute.hide_label">${label}</label>
+  <!-- does not have a view model, meaning that it is a html only element -->
+  <compose
+    if.bind="!hasViewModel"
+    view.bind="view"></compose>
 
-    <compose
-        if.bind="isHtmlComponent"
-        view.bind="component"></compose>
-
-    <compose
-        if.bind="!isHtmlComponent"
-        model.bind="{attribute: attribute, value: value}"
-        view-model.bind="component"></compose>
-
-  </div>
+  <!-- has a view model this is an custom element with view model -->
+  <compose
+    if.bind="hasViewModel"
+    model.bind="{attribute: attribute, value: value}"
+    view-model.bind="view"></compose>
 </template>

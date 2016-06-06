@@ -1,8 +1,8 @@
 import {Config} from './config';
-import {component} from './component';
 import {bindingMode, bindable, computedFrom, inject} from 'aurelia-framework';
+import {ViewManager} from 'aurelia-view-manager';
 
-@inject(Config, Element)
+@inject(Config, Element, ViewManager)
 export class FormFieldCustomElement {
 
   @bindable attribute
@@ -10,55 +10,79 @@ export class FormFieldCustomElement {
   @bindable({defaultBindingMode: bindingMode.twoWay})
   value
 
-  constructor(config, element) {
+  constructor(config, element, viewManager) {
     this.config = config;
     this.element = element;
+    this.viewManager = viewManager;
   }
 
   attached() {
     // consider: using aurelia DOM pal
-    let attrsElmnt = $(this.element).find('[attrs]');
-    if (attrsElmnt) {
-      attrsElmnt.attr(this.attribute.attributes || {});
+    let attributeElements = $(this.element).find('[attrs]');
+    if (attributeElements) {
+      attributeElements.attr(this.attribute.attributes || {});
     }
   }
 
+  /**
+   * Used to determine the what to display
+   *
+   * @returns {string} the label and otherwise the key string
+   */
   @computedFrom('attribute')
   get label() {
     return this.attribute.label || this.attribute.key;
   }
 
+  /**
+   * Returns the string that points to the template file of that specific form
+   * element type.
+   * @returns {string}
+   */
   @computedFrom('attribute')
-  get component() {
-    this.attribute.type = aliasOf(this.config, this.attribute.type);
-    return component(this.config, this.attribute);
+  get view() {
+    let type = this.type;
+    this.attribute.type = type;
+    return this.viewManager.resolve('aurelia-form', type);
   }
 
   /**
-   * Calculates what to use for component.
+   * Calculates what component to use
    *
    * Checks if the user has defined a custom component and uses that one when
    * that is the case. Otherwise fallback to the framework it's components. If
    * none of them are defined it warns the developer of this.
+   * @returns {boolean} true when has a viewModel
    */
-  @computedFrom('component')
-  get isHtmlComponent() {
-    return this.component ? (this.component.endsWith('.html')) : true;
+  @computedFrom('view')
+  get hasViewModel() {
+    return (!this.view.endsWith('.html'));
   }
-}
 
-/**
- * returns a string that represents the type of which it is an alias of. If it
- * is not registered as an alias it returns itself(identity).
- *
- *
- * @param {object} config
- * @param {string} type
- * @returns {string}
- */
-function aliasOf(config, type) {
-  if (type === undefined) {
-    return 'text';
+  /**
+  * returns a string that represents the type of which it is an alias of. If it
+  * is not registered as an alias it returns itself(identity).
+  *
+  * It also resolves recursively and makes sure it does not end up in a infinite
+  * loop because of a config malformed config.
+  * @returns {string}
+  */
+  @computedFrom('attribute')
+  get type() {
+    let type = this.attribute.type;
+    let alias = this.config.get('aliases', type); /* get an alias if it has one */
+    let previous = []; /* used to avoid an infinite loop */
+
+    /***
+     * if it does have and alias, and has not resolved that alias previously,
+     * check if that alias points to another type or alias.
+     */
+    while (alias && (previous.indexOf(alias) === -1)) {
+      type = alias;
+      previous.push(type);
+      alias = this.config.get('aliases', type);
+    }
+
+    return type;
   }
-  return (config.aliases[type] !== undefined) ? config.aliases[type] : type;
 }
