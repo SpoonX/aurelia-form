@@ -4,7 +4,7 @@ The type determines how a property in the model should be rendered. When not
 defining a type, the type is defaulted to the 'text' type.
 
 This document explains the types, what frameworks support what types and the
-aliases of the types. It does so using the following format.
+aliases of the types.
 
 
 ## `text` `button` `color` `date` `datetime` `'datetime-local'` `email` `month` `number` `password` `range` `search` `tel` `time` `url` `week`
@@ -228,3 +228,28 @@ a question might be what you want.
 
 ## `textarea`
 > bootstrap
+
+## `actions` `buttons`
+> bootstrap
+
+You might want to do something with your form. Buttons are ideal for doing
+something when they are pressed.
+
+This is how you define a button.
+
+```js
+    let actionsElement = {
+      type: 'buttons',
+
+      /* each item in the array is a new button */
+      actions: [{
+        label: 'Console log the `this`',
+        action: (event) => {console.log(this)}
+      }]
+    };
+
+    let bigSchema = [
+      /* ... */
+      actionsElement
+    ];
+```
