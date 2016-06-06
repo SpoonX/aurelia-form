@@ -1,10 +1,12 @@
 <template>
 
-  <button
-    class="btn"
-    repeat.for="action of attribute.actions"
-    click.delegate="onClick(action)">
-    ${action.label}
-  </button>
+  <div class="btn-group">
+    <button
+      class="btn btn-default"
+      repeat.for="action of attribute.actions"
+      click.delegate="onClick(action)">
+      ${action.label}
+    </button>
+</div>
 
 </template>
