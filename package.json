@@ -15,6 +15,9 @@
     "schema",
     "translation"
   ],
+  "contributors": [
+    "bas080 <bas080@hotmail.com> (http://spoonx.nl)"
+  ],
   "homepage": "https://github.com/SpoonX/aurelia-form",
   "bugs": {
     "url": "https://github.com/SpoonX/aurelia-form/issues"
