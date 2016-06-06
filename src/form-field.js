@@ -1,6 +1,6 @@
 import {Config} from './config';
 import {bindingMode, bindable, computedFrom, inject} from 'aurelia-framework';
-import {ViewManager} from 'aurelia-view';
+import {ViewManager} from 'aurelia-view-manager';
 
 @inject(Config, Element, ViewManager)
 export class FormFieldCustomElement {
@@ -9,9 +9,6 @@ export class FormFieldCustomElement {
 
   @bindable({defaultBindingMode: bindingMode.twoWay})
   value
-
-  @bindable
-  errors
 
   constructor(config, element, viewManager) {
     this.config = config;
@@ -37,11 +34,6 @@ export class FormFieldCustomElement {
     let type = this.type;
     this.attribute.type = type;
     return this.viewManager.resolve('aurelia-form', type);
-  }
-
-  @computedFrom('errors')
-  get showErrors() {
-    return (this.errors && this.errors.length > 0);
   }
 
   /**

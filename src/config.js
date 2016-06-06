@@ -1,15 +1,14 @@
 import extend from 'extend';
 import {inject} from 'aurelia-dependency-injection';
-import {Config as ViewManagerConfig} from 'aurelia-view';
+import {Config as ViewManagerConfig} from 'aurelia-view-manager';
 
 const DEFAULT_FRAMEWORK = 'bootstrap';
 
 @inject(ViewManagerConfig)
 export class Config {
   constructor(viewManagerConfig) {
-
     /* should these configs be moved? Maybe in a*/
-    viewManagerConfig.register('aurelia-form', {
+    viewManagerConfig.configureNamespace('aurelia-form', {
       base: './frameworks/{{framework}}',
       location: '{{base}}/{{view}}.html',
       framework: DEFAULT_FRAMEWORK,
@@ -19,6 +18,7 @@ export class Config {
         actions: '{{base}}/actions',
         collection: '{{base}}/collection',
 
+        /* all input components */
         text: '{{base}}/input.html',
         button: '{{base}}/input.html',
         color: '{{base}}/input.html',
