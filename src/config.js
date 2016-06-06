@@ -52,6 +52,7 @@ export class Config {
        * variant is changed to the main type.
        */
       aliases: {
+        buttons: 'actions',
         nested: 'fieldset',
         undefined: 'text',
         null: 'text',
