@@ -19,7 +19,7 @@ This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) p
   forms
 - Always defaults to a input text element
 - Two-way data binding by default.
-- Nest schemas in schemas using the fieldset type
+- Nest schemas in schemas using the `fieldset` type
 
 ## Installation
 
@@ -39,25 +39,15 @@ To get started some configurations are required.
 
 ```js
   aurelia.use
+
     .plugin('aurelia-form', config => {
       config.configure({
 
-        /* will only work if i18n is defined */
+        /* will only work if i18n is plugged in and uses attribute t */
         translate: true,
 
-        /* this will determine what framework is to be used */
+        /* choose what framework you want to use */
         framework: 'bootstrap',
-
-        /* used to define the location of custom components */
-        location: './my/components',
-
-        /* set your custom components */
-        components: {
-
-          /* key is the type and value the location of the component*/
-          date: '{{location}}/datepicker'
-
-        },
 
         /***
          * Aliases are used to avoid having to define a custom component because
@@ -72,26 +62,41 @@ To get started some configurations are required.
          * define the alias `s: 'text'`.
          */
         aliases: {
-          s: 'text',
-        }
 
+          s: 'text',
+          /* or */
+          b: 'boolean'
+
+        }
       });
     })
+
+    /* aurelia-form leverages aurelia-view-manager to select elements */
+    .plugin('aurelia-view-manager', config => {
+      config.configureNamespace('aurelia-form', {
+
+        /* used to determine what type points to what element */
+        map: {
+
+          /* you can overwrite the default elements aurelia-form uses */
+          date: './my/awesome/datepicker',
+
+        }
+      })
+    })
+
     .standardConfiguration()
     .developmentLogging();
 ```
 
 ### Types
 
-Think of types aa
-ma 23 mei 2016 13:20:26 CEST
+They determine what custom element should be used when rendering a form field/element.
 
-Depending on the framework your using, the available types might differ.
+Depending on the framework your using, the available types might differ. It is
+the intention to keep the functionality between framework elements the same.
 
-Choose one of the frameworks and see what aurelia-form has to offer.
-*looking for others to support other frameworks*
-
-- [Bootstrap](https://github.com/bas080/aurelia-form/tree/master/src/components/bootstrap)
+Read more about the element types: [Types](https://github.com/bas080/aurelia-form/tree/master/src/components/bootstrap)
 
 ## Usage
 
@@ -113,14 +118,15 @@ define on the schema.
     /* read more if you want to know what types are supported */
     type: 'string',
 
-    /* when true hides the label in the form-field */
-    hide_label: false,
-
-    /* when defined shows this as the label instead of the name property */
+    /* when defined shows this as the label instead of the key property */
     label: 'user.name',
+
+    /* set label to false when hiding the the label */
+    label: false,
 
     /* these are set as actual html attributes on the dom element */
     attributes: {
+      readonly: true
     }
 
   };
@@ -146,7 +152,7 @@ define on the schema.
     label: 'user.name'
   };
 
-  /* the schema is always an array */
+  /* the schema is an array containing the element definitions */
   let userSchema = [
     nameAttribute,
     typeAttribute
@@ -154,7 +160,7 @@ define on the schema.
 
   /***
    * Nesting schemas is a feature. The type that enables you to nest
-   * schema's is the fieldset type. Let's assume that a user is part of a group
+   * schemas is the fieldset type. Let's assume that a user is part of a group
    */
 
   let groupName = {...};
@@ -182,7 +188,7 @@ define on the schema.
 
 Having a schema is not enough. We also need data to populate it. That is where
 the key property in our schema definitions come into play. Let's make a simple
-model for our view. Nohing new here, just Javascript and Aurelia.
+model for our view. Nothing new here, just JavaScript and Aurelia.
 
 ### Model
 
@@ -190,7 +196,7 @@ A schema is not enough though. If you define the model/object with properties
 defined, the generated form will show these values and update the property
 values. If the properties are not defined it will work too. **However**, if the
 object is not defined, it will throw an error which means that the object of
-which it was trying to set the property is undefined. Just like javascript
+which it was trying to set the property is undefined. Just like JavaScript
 would. Makes sense?
 
 ```js
@@ -217,7 +223,7 @@ Now that we have both a schema to define what the form should look like, and the
 view model that will bind to the form elements, we now can use a custom element
 to generate this form.
 
-### View
+### Elements
 
 Aurelia-form provides several custom elements. They give different levels of
 granularity when building a form. You might want to reuse the schema and the
@@ -273,27 +279,18 @@ Aurelia-form uses aurelia-i18n to perform translations. It uses either the key
 or the label property on the schema's attributes as keys to find the
 translations. Read more about [aurelia-i18n](https://github.com/aurelia/i18n).
 
+Aurelia-form uses the `t` attribute for translations. To enable translations it
+is required to set the translation attribute to "t"
+
 ### Validation
 
 This section is a work in progress. A good candidate might be aurelia-validatejs
 to perform validation and append errors to the form fields
 
-## Platform Support
-
-Aurelia-form is built on aurelia. Wherever aurelia runs, aurelia-form should run
-also.
-
-## Roadmap
-
-- Start using DOM.Element instead of the Element
-  https://leanpub.com/aurelia-for-real-world-applications/read#leanpub-auto-difference-between-element-and-domelement
-
 ## Contributing
 
-You can help by reporting and/or fixing bugs.
-
-Help with implementing and improving support for your favorite html, css and js
-framework. Anyone using Foundation, Polymer or other cool stuff?
+Report bugs, request features, send pull requests for fixes and features and
+read the [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## License
 
