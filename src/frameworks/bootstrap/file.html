@@ -1,7 +1,10 @@
 <template>
-  <input
-    attrs
-    type="file"
-    name.bind="attribute.key"
-    value.bind="attribute.value">
+  <require from="./form-group.html"></require>
+  <form-group attribute.bind="attribute">
+    <input
+      attrs
+      type="file"
+      name.bind="attribute.key"
+      value.bind="attribute.value">
+  </form-group>
 </template>

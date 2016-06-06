@@ -24,11 +24,21 @@ export class FormFieldCustomElement {
     }
   }
 
+  /**
+   * Used to determine the what to display
+   *
+   * @returns {string} the label and otherwise the key string
+   */
   @computedFrom('attribute')
   get label() {
     return this.attribute.label || this.attribute.key;
   }
 
+  /**
+   * Returns the string that points to the template file of that specific form
+   * element type.
+   * @returns {string}
+   */
   @computedFrom('attribute')
   get view() {
     let type = this.type;
@@ -44,9 +54,9 @@ export class FormFieldCustomElement {
    * none of them are defined it warns the developer of this.
    * @returns {boolean} true when has a viewModel
    */
-  @computedFrom('type', 'view')
+  @computedFrom('view')
   get hasViewModel() {
-    return !this.view.endsWith('.html');
+    return (!this.view.endsWith('.html'));
   }
 
   /**
@@ -55,9 +65,6 @@ export class FormFieldCustomElement {
   *
   * It also resolves recursively and makes sure it does not end up in a infinite
   * loop because of a config malformed config.
-  *
-  * @param {object} config
-  * @param {string} type
   * @returns {string}
   */
   @computedFrom('attribute')
@@ -79,4 +86,3 @@ export class FormFieldCustomElement {
     return type;
   }
 }
-

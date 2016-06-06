@@ -1,9 +1,10 @@
 <template>
-
-  <form-fields
-    repeat.for="model of models"
-    model.bind="model"
-    schema.bind="schema">
-  </form-fields>
-
+  <require from="./form-group.html"></require>
+  <form-group attribute.bind="attribute">
+    <form-fields
+      repeat.for="model of models"
+      model.bind="model"
+      schema.bind="schema">
+    </form-fields>
+  </form-group>
 </template>
