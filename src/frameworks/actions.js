@@ -1,6 +1,5 @@
-import {Actions} from '../actions';
-
-export class ActionsCustomElement extends Actions {
+//import {bindable, bindingMode} from 'aurelia-framework';
+export class Actions {
 
   activate(model) {
     this.attribute = model.attribute;
