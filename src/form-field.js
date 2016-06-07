@@ -43,6 +43,7 @@ export class FormFieldCustomElement {
   get view() {
     let type = this.type;
     this.attribute.type = type;
+
     return this.viewManager.resolve('aurelia-form', type);
   }
 
