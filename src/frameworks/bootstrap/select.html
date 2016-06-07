@@ -3,7 +3,9 @@
   <form-group attribute.bind="attribute">
     <select attrs value.bind="value" class="form-control">
       <option selected disabled value="-1"></option>
-      <option repeat.for="option of attribute.options" model.bind="option.value">${option.name}</option>
+      <option repeat.for="option of attribute.options"
+        name.bind="attribute.key"
+        model.bind="option.value">${option.name}</option>
     </select>
   </form-group>
 </template>
