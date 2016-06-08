@@ -164,10 +164,16 @@ Requires an array as value
       type: 'checkboxes',
       label: "Extra Toppings",
       options: {
-        {value: 'cheese', name: 'Extra cheese'},
+        {value: 'cheese',    name: 'Extra cheese'},
         {value: 'pepperoni', name: 'Pepperoni'},
-        {value: 'salsa', name: 'Salsa'},
-        {value: 'olives', name: 'Olives'}
+        {value: 'salsa',     name: 'Salsa'},
+        {
+          value: 'olives',
+          name: 'Olives', 
+          attributes: {
+            disabled: true,
+          }
+        }
       }
     };
 
