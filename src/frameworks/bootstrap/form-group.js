@@ -1,4 +1,4 @@
-import {FormGroup} from '../form-group';
+import {FormGroup} from './../form-group';
 
 export class FormGroupCustomElement extends FormGroup {
 
