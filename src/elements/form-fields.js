@@ -6,6 +6,9 @@ export class FormFieldsCustomElement {
   @bindable({defaultBindingMode: bindingMode.twoWay})
   model
 
+  @bindable
+  messages
+
   attached() {
     if (typeof this.model !== 'object') {
       // eslint-disable-next-line

@@ -1,4 +1,4 @@
-import {Config} from './config';
+import {Config} from '../config';
 import {bindingMode, bindable, computedFrom, inject} from 'aurelia-framework';
 import {ViewManager} from 'aurelia-view-manager';
 
@@ -9,6 +9,9 @@ export class FormFieldCustomElement {
 
   @bindable({defaultBindingMode: bindingMode.twoWay})
   value
+
+  @bindable
+  message
 
   constructor(config, element, viewManager) {
     this.config = config;
@@ -41,7 +44,7 @@ export class FormFieldCustomElement {
    */
   @computedFrom('attribute')
   get view() {
-    let type = this.type;
+    let type            = this.type;
     this.attribute.type = type;
 
     return this.viewManager.resolve('aurelia-form', type);
@@ -70,8 +73,8 @@ export class FormFieldCustomElement {
   */
   @computedFrom('attribute')
   get type() {
-    let type = this.attribute.type;
-    let alias = this.config.get('aliases', type); /* get an alias if it has one */
+    let type     = this.attribute.type;
+    let alias    = this.config.fetch('aliases', type); /* get an alias if it has one */
     let previous = []; /* used to avoid an infinite loop */
 
     /***
@@ -81,9 +84,10 @@ export class FormFieldCustomElement {
     while (alias && (previous.indexOf(alias) === -1)) {
       type = alias;
       previous.push(type);
-      alias = this.config.get('aliases', type);
+      alias = this.config.fetch('aliases', type);
     }
 
     return type;
   }
+
 }

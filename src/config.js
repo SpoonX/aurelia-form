@@ -9,7 +9,7 @@ export class Config {
   constructor(viewManagerConfig) {
     /* should these configs be moved? Maybe in a*/
     viewManagerConfig.configureNamespace('aurelia-form', {
-      base: './frameworks/{{framework}}',
+      base: './../frameworks/{{framework}}',
       location: '{{base}}/{{view}}.html',
       framework: DEFAULT_FRAMEWORK,
       map: {
@@ -68,16 +68,16 @@ export class Config {
 
   configurations = {}
 
- /**
-  * convenient for getting a (nested) property in the configurations
-  * object.
-  *
-  * @param {...string} props when prop is falsy it returns the whole
-  * configurations object
-  *
-  * @returns {*} the value of that property
-  */
-  get(props) {
+  /**
+   * convenient for getting a (nested) property in the configurations
+   * object.
+   *
+   * @param {...string} props when prop is falsy it returns the whole
+   * configurations object
+   *
+   * @returns {*} the value of that property
+   */
+  fetch(props) {
     let result = this.configurations;
     for (let index in arguments) {
       let key = arguments[index];
