@@ -4,9 +4,8 @@
     attributes.bind="attribute.attributes"
     class="form-group">
     <label
-      class="controle-label"
-      t.bind="attribute.key || attribute.label"
-      if.bind="showsLabel">${attribute.key || attribute.label}</label>
+      t.bind="labelText"
+      if.bind="showsLabel">${labelText}</label>
     <content></content>
     <span class="help-block">${message}</span>
   </div>

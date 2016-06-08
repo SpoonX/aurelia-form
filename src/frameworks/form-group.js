@@ -18,4 +18,14 @@ export class FormGroup {
     return (this.message !== false);
   }
 
+  /**
+   * first check if a label was defined and if not fallback to the key property
+   *
+   * @returns {string}
+   */
+  @computedFrom('attribute')
+  get labelText() {
+    return this.attribute.label || this.attribute.key;
+  }
+
 }
