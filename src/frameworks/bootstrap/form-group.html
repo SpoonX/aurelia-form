@@ -1,6 +1,13 @@
-<template bindable="attribute">
-  <div class="form-group">
-    <label t.bind="attribute.key || attribute.label" if.bind="attribute.label !== false">${attribute.key || attribute.label}</label>
+<template bindable="attribute, message">
+  <require from="./../../attributes"></require>
+  <div 
+    attributes.bind="attribute.attributes"
+    class="form-group">
+    <label
+      class="controle-label"
+      t.bind="attribute.key || attribute.label"
+      if.bind="attribute.label !== false">${attribute.key || attribute.label}</label>
     <content></content>
+    <span class="help-block">${message}</span>
   </div>
 </template>

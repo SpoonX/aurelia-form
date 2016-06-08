@@ -1,15 +1,16 @@
 <template>
+  <require from="./../../attributes"></require>
   <require from="./form-group.html"></require>
   <form-group attribute.bind="attribute">
     <div class="radio" repeat.for="option of attribute.options">
       <label>
         <input
-        attrs
-        type="radio"
-        name.bind="option.name"
-        model.bind="option.value"
-        checked.bind="value">
-        ${option.name}
+          attributes.bind="attribute.attributes"
+          type="radio"
+          name.bind="option.name"
+          model.bind="option.value"
+          checked.bind="value">
+          ${option.name}
       </label>
     </div>
   </form-group>

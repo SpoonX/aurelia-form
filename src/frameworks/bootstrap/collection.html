@@ -1,7 +1,9 @@
 <template>
+  <require from="./../..//attributes"></require>
   <require from="./form-group.html"></require>
   <form-group attribute.bind="attribute">
     <form-fields
+      attributes.bind="attribute.attributes"
       repeat.for="model of models"
       model.bind="model"
       schema.bind="attribute.schema">

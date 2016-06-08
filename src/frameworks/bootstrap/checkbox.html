@@ -1,14 +1,16 @@
 <template>
   <require from="./form-group.html"></require>
-
+  <require from="./../../attributes"></require>
   <form-group attribute.bind="attribute">
     <div class="checkbox">
       <label>
         <input
-        attrs
-        type="checkbox"
-        name.bind="attribute.key"
-        checked.bind="attribute.value">
+          attributes.bind="attribute.attributes"
+          type="checkbox"
+          t.bind="label"
+          name.bind="attribute.key"
+          checked.bind="attribute.value">
+          ${label}
       </label>
     </div>
   </form-group>

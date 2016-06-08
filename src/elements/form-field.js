@@ -19,14 +19,6 @@ export class FormFieldCustomElement {
     this.viewManager = viewManager;
   }
 
-  attached() {
-    // consider: using aurelia DOM pal
-    let attributeElements = $(this.element).find('[attrs]');
-    if (attributeElements) {
-      attributeElements.attr(this.attribute.attributes || {});
-    }
-  }
-
   /**
    * Used to determine the what to display
    *

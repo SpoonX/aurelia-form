@@ -2,7 +2,7 @@
   <require from="./form-group.html"></require>
   <form-group attribute.bind="attribute">
     <input
-      attrs
+      attributes.bind="attribute.attributes"
       type="file"
       name.bind="attribute.key"
       value.bind="attribute.value">

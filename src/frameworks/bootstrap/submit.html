@@ -1,8 +1,11 @@
 <template>
-  <input
-    attrs
-    class="pull-right btn btn-primary"
-    type.bind="attribute.type"
-    name.bind="attribute.key"
-    value.bind="attribute.key">
+  <require from="./form-group.html"></require>
+  <form-group attribute.bind="attribute">
+    <input
+      attributes.bind="attribute.attributes"
+      class="pull-right btn btn-primary"
+      type.bind="attribute.type"
+      name.bind="attribute.key"
+      value.bind="attribute.key">
+  </form-group>
 </template>

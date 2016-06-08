@@ -1,10 +1,9 @@
 <template>
-
-  <fieldset attrs>
+  <require from="./../../attributes"></require>
+  <fieldset attributes.bind="attribute.attributes">
     <form-fields
       model.bind="value"
       schema.bind="attribute.schema">
     </form-fields>
   </fieldset>
-
 </template>
