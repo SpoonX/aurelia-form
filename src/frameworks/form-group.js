@@ -1,17 +1,21 @@
-import {bindable, inject} from 'aurelia-framework';
-
+import {bindable, inject, computedFrom} from 'aurelia-framework';
 
 @inject(Element)
 export class FormGroup {
-
-  constructor(element) {
-    this.element = element;
-  }
 
   @bindable
   attribute
 
   @bindable
   message
+
+  constructor(element) {
+    this.element = element;
+  }
+
+  @computedFrom('message')
+  get showsLabel() {
+    return (this.message !== false);
+  }
 
 }
