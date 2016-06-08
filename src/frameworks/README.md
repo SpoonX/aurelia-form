@@ -235,7 +235,7 @@ a question might be what you want.
 You might want to do something with your form. Buttons are ideal for doing
 something when they are pressed.
 
-This is how you define a button.
+This is how you define buttons
 
 ```js
     let actionsElement = {
@@ -245,6 +245,10 @@ This is how you define a button.
       actions: [{
         label: 'Console log the `this`',
         action: (event) => {console.log(this)}
+        attributes: {
+          class: 'btn-primary'
+          disabled: true
+        }
       }]
     };
 
