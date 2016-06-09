@@ -3,11 +3,9 @@ import {bindable, inject, computedFrom} from 'aurelia-framework';
 @inject(Element)
 export class FormGroup {
 
-  @bindable
-  attribute
+  @bindable attribute
 
-  @bindable
-  message
+  @bindable message
 
   constructor(element) {
     this.element = element;

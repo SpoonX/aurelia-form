@@ -10,8 +10,7 @@ export class FormFieldCustomElement {
   @bindable({defaultBindingMode: bindingMode.twoWay})
   value
 
-  @bindable
-  message
+  @bindable message
 
   constructor(config, element, viewManager) {
     this.config = config;

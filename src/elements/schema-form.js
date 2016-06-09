@@ -6,6 +6,5 @@ export class SchemaFormCustomElement {
   @bindable({defaultBindingMode: bindingMode.twoWay})
   model
 
-  @bindable
-  messages
+  @bindable messages
 }

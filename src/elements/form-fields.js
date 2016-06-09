@@ -6,8 +6,7 @@ export class FormFieldsCustomElement {
   @bindable({defaultBindingMode: bindingMode.twoWay})
   model
 
-  @bindable
-  messages
+  @bindable messages
 
   attached() {
     if (typeof this.model !== 'object') {
