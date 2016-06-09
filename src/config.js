@@ -7,7 +7,6 @@ const DEFAULT_FRAMEWORK = 'bootstrap';
 @inject(ViewManagerConfig)
 export class Config {
   constructor(viewManagerConfig) {
-
     /***
      * It might be best to store these configurations in a configuration file
      * that is bootstrap specific.
