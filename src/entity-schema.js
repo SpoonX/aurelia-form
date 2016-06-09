@@ -5,15 +5,16 @@
  * @returns {object[]} the schema with the attributes.
  */
 export function entitySchema(entity) {
-  const keys = Object.keys(entity);
+  const keys  = Object.keys(entity);
   let typeMap = entity.getMeta().metadata.types;
+  let schema  = [];
 
-  let schema = [];
   for (let key of keys) {
     schema.push({
-      key: key,
-      type: typeMap[key] || 'string' //defaults to string
+      key : key,
+      type: typeMap[key]
     });
   }
+
   return schema;
 }

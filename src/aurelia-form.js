@@ -3,9 +3,11 @@ import {entitySchema} from './entity-schema';
 import {Form} from './form';
 
 function configure(aurelia, configCallback) {
-  let config = aurelia.container.get(Config);
-
-  configCallback(config);
+  if (typeof configCallback === 'function') {
+    /* only perform configurations when providing a configCallback */
+    let config = aurelia.container.get(Config);
+    configCallback(config);
+  }
 
   aurelia.globalResources(
     './elements/schema-form',

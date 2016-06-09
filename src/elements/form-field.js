@@ -13,8 +13,8 @@ export class FormFieldCustomElement {
   @bindable message
 
   constructor(config, element, viewManager) {
-    this.config = config;
-    this.element = element;
+    this.config      = config;
+    this.element     = element;
     this.viewManager = viewManager;
   }
 
@@ -73,9 +73,10 @@ export class FormFieldCustomElement {
      * check if that alias points to another type or alias.
      */
     while (alias && (previous.indexOf(alias) === -1)) {
-      type = alias;
-      previous.push(type);
+      type  = alias;
       alias = this.config.fetch('aliases', type);
+
+      previous.push(type);
     }
 
     return type;

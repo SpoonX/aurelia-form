@@ -7,34 +7,38 @@ const DEFAULT_FRAMEWORK = 'bootstrap';
 @inject(ViewManagerConfig)
 export class Config {
   constructor(viewManagerConfig) {
-    /* should these configs be moved? Maybe in a*/
+
+    /***
+     * It might be best to store these configurations in a configuration file
+     * that is bootstrap specific.
+     */
     viewManagerConfig.configureNamespace('aurelia-form', {
-      base: './../frameworks/{{framework}}',
-      location: '{{base}}/{{view}}.html',
+      base     : './../frameworks/{{framework}}',
+      location : '{{base}}/{{view}}.html',
       framework: DEFAULT_FRAMEWORK,
-      map: {
+      map      : {
 
         /* custom elements with a view model do not end with .html */
-        actions: '{{base}}/actions',
-        collection: '{{base}}/collection',
+        actions         : '{{base}}/actions',
+        collection      : '{{base}}/collection',
 
         /* all input components */
-        text: '{{base}}/input.html',
-        button: '{{base}}/input.html',
-        color: '{{base}}/input.html',
-        date: '{{base}}/input.html',
-        datetime: '{{base}}/input.html',
+        text            : '{{base}}/input.html',
+        button          : '{{base}}/input.html',
+        color           : '{{base}}/input.html',
+        date            : '{{base}}/input.html',
+        datetime        : '{{base}}/input.html',
         'datetime-local': '{{base}}/input.html',
-        email: '{{base}}/input.html',
-        month: '{{base}}/input.html',
-        number: '{{base}}/input.html',
-        password: '{{base}}/input.html',
-        range: '{{base}}/input.html',
-        search: '{{base}}/input.html',
-        tel: '{{base}}/input.html',
-        time: '{{base}}/input.html',
-        url: '{{base}}/input.html',
-        week: '{{base}}/input.html'
+        email           : '{{base}}/input.html',
+        month           : '{{base}}/input.html',
+        number          : '{{base}}/input.html',
+        password        : '{{base}}/input.html',
+        range           : '{{base}}/input.html',
+        search          : '{{base}}/input.html',
+        tel             : '{{base}}/input.html',
+        time            : '{{base}}/input.html',
+        url             : '{{base}}/input.html',
+        week            : '{{base}}/input.html'
       }
     });
 
@@ -51,17 +55,17 @@ export class Config {
        * on the name of a type, it is easier to alias that variant so the
        * variant is changed to the main type.
        */
-      aliases: {
-        buttons: 'actions',
-        nested: 'fieldset',
+      aliases  : {
+        buttons  : 'actions',
+        nested   : 'fieldset',
         undefined: 'text',
-        null: 'text',
-        int: 'number',
-        integer: 'number',
-        float: 'number',
-        string: 'text',
-        bool: 'checkbox',
-        boolean: 'checkbox'
+        null     : 'text',
+        int      : 'number',
+        integer  : 'number',
+        float    : 'number',
+        string   : 'text',
+        bool     : 'checkbox',
+        boolean  : 'checkbox'
       }
     });
   }
@@ -79,9 +83,11 @@ export class Config {
    */
   fetch(props) {
     let result = this.configurations;
+
     for (let index in arguments) {
-      let key = arguments[index];
+      let key   = arguments[index];
       let value = result[key];
+
       if (!value) {
         return value;
       }
