@@ -1,12 +1,7 @@
 import {FormGroup} from './../form-group';
 
-export class FormGroupCustomElement extends FormGroup {
+/***
+ * in case behaviour has to be altered
+ */
 
-  /**
-   * @returns {string} represents the error type for the bootstrap framework
-   */
-  messageChanged() {
-    $(this.element).toggleClass('has-error', !!this.message);
-  }
-
-}
+export class FormGroupCustomElement extends FormGroup { }
