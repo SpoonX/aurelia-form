@@ -13,11 +13,11 @@ export class FormGroup {
    */
   @computedFrom('label')
   get showsLabel() {
-    return (this.label !== false);
+    return (this.attribute.label !== false);
   }
 
   /**
-   * @returns {boolean} true if message is empty or null
+   * @returns {boolean} false if message is empty or null
    */
   @computedFrom('message')
   get showsMessage() {
