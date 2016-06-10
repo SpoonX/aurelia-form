@@ -1,19 +1,27 @@
-import {bindable, inject, computedFrom} from 'aurelia-framework';
+import {bindable, computedFrom} from 'aurelia-framework';
 
-@inject(Element)
 export class FormGroup {
 
   @bindable attribute
 
   @bindable message
 
-  constructor(element) {
-    this.element = element;
+  /**
+   * users can set label to false if they do not want to show the label
+   *
+   * @returns {boolean} true label is not false
+   */
+  @computedFrom('label')
+  get showsLabel() {
+    return (this.label !== false);
   }
 
+  /**
+   * @returns {boolean} true if message is empty or null
+   */
   @computedFrom('message')
-  get showsLabel() {
-    return (this.message !== false);
+  get showsMessage() {
+    return (!!this.message);
   }
 
   /**
