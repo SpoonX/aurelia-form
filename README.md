@@ -1,25 +1,19 @@
 # aurelia-form
 
-[![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
-[![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/SpoonX/aurelia-form.svg?branch=master)](https://travis-ci.org/SpoonX/aurelia-form)
+[![Known Vulnerabilities](https://snyk.io/test/npm/name/badge.svg)](https://snyk.io/test/npm/aurelia-form)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=plastic)](https://gitter.im/SpoonX/Dev)
 
-> Makes working with forms just a tad more pleasant.
+> This library is a plugin for the [Aurelia](http://www.aurelia.io/) platform.
 
-This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) platform.
+Makes working with forms just a tad more pleasant.
 
-> To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to [join us on Gitter](https://gitter.im/aurelia/discuss). If you would like to have deeper insight into our development process, please install the [ZenHub](https://zenhub.io) Chrome Extension and visit any of our repository's boards. You can get an overview of all Aurelia work by visiting [the framework board](https://github.com/aurelia/framework#boards).
-
-## Features (currently)
-
-- Generates forms based on a form schema
-- Select what framework you would want to use
-- Use the form elements belonging to the chosen framework or
-- Overwrite the framework elements with a custom one.
-- Custom elements for defining where and with what you would want to generate
-  forms
-- Always defaults to a input text element
-- Two-way data binding by default.
-- Nest schemas in schemas using the `fieldset` type
+- A standardized schema for describing forms
+- Elements for generating forms with two way databinding by default
+- Support for multiple css frameworks enabled by view manager
+- Ability to define your own custom elements and overwrite the default elements
+- Aliases for types so you can reuse elements for similar or different types
+- A descent amount of types so you can start generating forms out of the box
 
 ## Installation
 
@@ -31,7 +25,7 @@ Make sure to execute these commands from project root.
 
 ### jspm
 
-`jspm install github:spoonx/aurelia-form`
+`jspm install npm:aurelia-form
 
 ## Configure
 
@@ -96,7 +90,7 @@ They determine what custom element should be used when rendering a form field/el
 Depending on the framework your using, the available types might differ. It is
 the intention to keep the functionality between framework elements the same.
 
-Read more about the element types: [Types](https://github.com/bas080/aurelia-form/tree/master/src/components/bootstrap)
+Read more about the element types: [Types](./frameworks/README.md)
 
 ## Schema
 
@@ -445,6 +439,65 @@ problem.
       schema.bind   = "credentials.schema"
       model.bind    = "credentials.model">
 ```
+
+## Custom Form Fields
+
+A form field is is a piece of a form. The text input field is an example of
+this. The default form field has a label at the top, an input field in the
+middle and a help block at the bottom of the input field. To populate the
+elements with the correct data we use aurelia's bindables.
+
+**value** is the value of the property on the model that matches the key
+property value in the schema. This is what one uses to populate the input
+element.
+
+**attribute** is an item of the schema. The attribute object describes the form
+field.
+
+**message** just a string which enables one to update the user about invalid
+data or anything really.
+
+When putting it all together you get this.
+
+> example of a custom html element that works with aurelia-form. An example of
+> a different type of options select. *Not tested*
+
+```html
+    <template>
+      <div class="form-group">
+        <label>${label}
+        <div class="btn-group">
+          <button repeat.for="option in attribute.options"
+            class="btn-group ${value === option.value && btn-default } ${!(value === option.value) && btn-primary}"
+            click.delegate="value = options.value">
+        </div>
+        <div class="help-block">${message}</div>
+      </div>
+    </template>
+```
+
+## Registering your custom element
+
+Aurelia form uses `aurelia-view-manager` to resolve what view it is going to use,
+allowing you to alter the view it will require for a `type`. Let's say you have
+a custom select element which you would like to use instead. Open your main.js
+and reconfigure the `aurelia-form` namespace.
+
+```js
+    .plugin('aurelia-view-manager', view => {
+      view.configureNamespace('aurelia-form', {
+        templates: '/elements',
+        map: {
+          select: '{{templates}}/select.html'
+        }
+      });
+    })
+```
+
+Next time when aurelia-view-manager tries to resolve what view to use for
+`select` It will return your template. Calling
+`viewManager.resolve('aurelia-form', 'select')` will return you the exact same
+string you chose to map to the aurelia-form's select view.
 
 ## Contributing
 
