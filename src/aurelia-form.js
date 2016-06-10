@@ -1,8 +1,9 @@
 import {Config} from './config';
-import {entitySchema} from './entity-schema';
-import {Form} from './form';
+export {entitySchema} from './entity-schema';
+export {Form} from './form';
+export {FormField} from './form-field';
 
-function configure(aurelia, configCallback) {
+export function configure(aurelia, configCallback) {
   if (typeof configCallback === 'function') {
     /* only perform configurations when providing a configCallback */
     let config = aurelia.container.get(Config);
@@ -16,8 +17,4 @@ function configure(aurelia, configCallback) {
   );
 }
 
-export {
-  Form,
-  configure,
-  entitySchema
-};
+export {Config};
