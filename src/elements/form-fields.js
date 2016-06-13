@@ -1,4 +1,5 @@
 import {bindable, bindingMode} from 'aurelia-framework';
+import {getLogger} from 'aurelia-logging';
 
 export class FormFieldsCustomElement {
   @bindable schema
@@ -10,8 +11,7 @@ export class FormFieldsCustomElement {
 
   attached() {
     if (typeof this.model !== 'object') {
-      // eslint-disable-next-line
-      console.warn(`model is not an object`);
+      getLogger('aurelia-form').warn(`model is not an object`);
     }
   }
 }
