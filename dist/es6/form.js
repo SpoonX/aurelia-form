@@ -1,36 +1,36 @@
-import {bindable, inject} from 'aurelia-framework';
+import {BindingSignaler} from 'aurelia-templating-resources';
 
-@inject(Element)
+/***
+ * This class is meant to be used for extending a view model that has form
+ * behaviour. It's features include checking if a field is dirty. Dirty meaning
+ * that it has bee touched/changed by the user. It also has a method that can be
+ * overwritten to enable on submit behavior.
+ *
+ * Usage of this class should stay optional.
+ */
+@inject(BindingSignaler)
 export class Form {
-  @bindable data;
 
-  @bindable working = false;
+  constructor(signaler) {
+    this.signaler = signaler;
+    this.dirtyProperties = {};
 
-  @bindable type = false;
-
-  constructor(formElement) {
-    this.element = formElement;
+    this.validator = new Validator();
+    this.reporter = ValidationEngine.getValidationReporter(this.user);
+    this.observer = this.reporter.subscribe(result => {
+      this.errors = result.reduce(function(acc, item) {
+        acc[item.propertyName] = [item.message];
+        return acc;
+      }, {});
+    });
   }
 
-  attached () {
-    if (this.data.hasValidation()) {
-      this.validation = this.data.getValidation();
-    }
+  onSubmit() {
+    console.warn('onSubmit');
   }
 
-  submit () {
-    return this.onSubmit();
+  validate() {
+    this.signaler.signal('aurelia-form:validate');
   }
 
-  onSubmit () {
-    if (!this.data.hasValidation()) {
-      return this.element.dispatchEvent(new CustomEvent('complete', this.data.asObject()));
-    }
-
-    this.validation.validate()
-      .then(() => {
-        this.element.dispatchEvent(new CustomEvent('complete', this.data.asObject()));
-      })
-      .catch(error => {});
-  }
 }

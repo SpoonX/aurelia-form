@@ -1,0 +1,9 @@
+<template>
+
+  <form-field
+    value.bind="model[attribute.key]"
+    attribute.bind="attribute"
+    repeat.for="attribute of schema">
+  </form-field>
+
+</template>

@@ -1,0 +1,10 @@
+<template>
+  <require from="./form-group"></require>
+  <form-group attribute.bind="attribute" message.bind="message">
+    <input
+      attributes.bind="attribute.attributes"
+      type="file"
+      name.bind="attribute.key"
+      value.bind="attribute.value">
+  </form-group>
+</template>

@@ -1,0 +1,15 @@
+<template bindable="attribute, message">
+  <require from="./../../attributes"></require>
+  <div 
+    class="form-group${!!message && ' has-error'}"
+    attributes.bind="attribute.attributes">
+    <label
+      t.bind="labelText"
+      if.bind="showsLabel">${labelText}</label>
+    <content></content>
+    <span
+      show.bind="showsMessage"
+      class="help-block">
+      ${message}</span>
+  </div>
+</template>
