@@ -1,18 +1,18 @@
 <template>
   <require from="./../../attributes"></require>
   <require from="./form-group"></require>
-  <form-group attribute.bind="attribute" message.bind="message">
+  <form-group element.bind="element" message.bind="message">
     <select
-      attributes.bind="attribute.attributes"
+      attributes.bind="element.attributes"
       value.bind="value"
       class="form-control">
       <option
         selected
         disabled
         value="-1"></option>
-      <option repeat.for="option of attribute.options"
-        attributes.bind="option.attributes"
-        name.bind="attribute.key"
+      <option repeat.for="option of element.options"
+        attributes.bind="element.attributes"
+        name.bind="element.key"
         model.bind="option.value">${option.name}</option>
     </select>
   </form-group>

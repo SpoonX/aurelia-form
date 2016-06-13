@@ -1,8 +1,8 @@
-<template bindable="attribute, message">
+<template bindable="element, message">
   <require from="./../../attributes"></require>
   <div 
     class="form-group${!!message && ' has-error'}"
-    attributes.bind="attribute.attributes">
+    attributes.bind="element.attributes">
     <label
       t.bind="labelText"
       if.bind="showsLabel">${labelText}</label>

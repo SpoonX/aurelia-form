@@ -2,7 +2,7 @@ import {bindable, computedFrom} from 'aurelia-framework';
 
 export class FormGroup {
 
-  @bindable attribute
+  @bindable element
 
   @bindable message
 
@@ -13,7 +13,7 @@ export class FormGroup {
    */
   @computedFrom('label')
   get showsLabel() {
-    return (this.attribute.label !== false);
+    return (this.element.label !== false);
   }
 
   /**
@@ -29,9 +29,9 @@ export class FormGroup {
    *
    * @returns {string}
    */
-  @computedFrom('attribute')
+  @computedFrom('element')
   get labelText() {
-    return this.attribute.label || this.attribute.key;
+    return this.element.label || this.element.key;
   }
 
 }

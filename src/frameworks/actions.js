@@ -1,7 +1,7 @@
 export class Actions {
 
   activate(model) {
-    this.attribute = model.attribute;
+    this.element = model.element;
     this.model     = model.value;
   }
 

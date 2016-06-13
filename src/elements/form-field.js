@@ -5,7 +5,7 @@ import {ViewManager} from 'aurelia-view-manager';
 @inject(Config, Element, ViewManager)
 export class FormFieldCustomElement {
 
-  @bindable attribute
+  @bindable element
 
   @bindable({defaultBindingMode: bindingMode.twoWay})
   value
@@ -23,9 +23,9 @@ export class FormFieldCustomElement {
    *
    * @returns {string} the label and otherwise the key string
    */
-  @computedFrom('attribute')
+  @computedFrom('element')
   get label() {
-    return this.attribute.label || this.attribute.key;
+    return this.element.label || this.element.key;
   }
 
   /**
@@ -33,10 +33,10 @@ export class FormFieldCustomElement {
    * element type.
    * @returns {string}
    */
-  @computedFrom('attribute')
+  @computedFrom('element')
   get view() {
     let type            = this.type;
-    this.attribute.type = type;
+    this.element.type = type;
 
     return this.viewManager.resolve('aurelia-form', type);
   }
@@ -62,9 +62,9 @@ export class FormFieldCustomElement {
   * loop because of a config malformed config.
   * @returns {string}
   */
-  @computedFrom('attribute')
+  @computedFrom('element')
   get type() {
-    let type     = this.attribute.type;
+    let type     = this.element.type;
     let alias    = this.config.fetch('aliases', type); /* get an alias if it has one */
     let previous = []; /* used to avoid an infinite loop */
 

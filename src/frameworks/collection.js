@@ -1,7 +1,7 @@
 export class Collection {
 
   activate(model) {
-    this.attribute = model.attribute;
+    this.element = model.element;
     this.models    = model.value;
   }
 

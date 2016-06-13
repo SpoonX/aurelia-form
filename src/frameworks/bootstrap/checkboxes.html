@@ -1,7 +1,7 @@
 <template>
   <require from="./form-group"></require>
   <require from="./../../attributes"></require>
-  <form-group attribute.bind="attribute" attributes.bind="attribute.attributes">
+  <form-group element.bind="element" attributes.bind="element.attributes">
     <div class="checkbox" repeat.for="option of attribute.options">
       <label>
         <input
