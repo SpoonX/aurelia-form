@@ -1,7 +1,10 @@
-import {bindable, bindingMode} from 'aurelia-framework';
+import {bindable, bindingMode, customElement} from 'aurelia-framework';
 import {getLogger} from 'aurelia-logging';
+import {resolvedView} from 'aurelia-view-manager';
 
-export class FormFieldsCustomElement {
+@customElement('form-fields')
+@resolvedView('spoonx/form', 'form-fields')
+export class FormFields {
   @bindable schema
 
   @bindable({defaultBindingMode: bindingMode.twoWay})

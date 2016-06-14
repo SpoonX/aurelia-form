@@ -1,9 +1,11 @@
 import {Config} from '../config';
-import {bindingMode, bindable, computedFrom, inject} from 'aurelia-framework';
-import {ViewManager} from 'aurelia-view-manager';
+import {bindingMode, bindable, computedFrom, inject, customElement} from 'aurelia-framework';
+import {resolvedView, ViewManager} from 'aurelia-view-manager';
 
-@inject(Config, Element, ViewManager)
-export class FormFieldCustomElement {
+@customElement('form-field')
+@resolvedView('spoonx/form', 'form-field')
+@inject(Config, ViewManager)
+export class FormField {
 
   @bindable element
 
@@ -12,9 +14,8 @@ export class FormFieldCustomElement {
 
   @bindable message
 
-  constructor(config, element, viewManager) {
+  constructor(config, viewManager) {
     this.config      = config;
-    this.element     = element;
     this.viewManager = viewManager;
   }
 
@@ -35,10 +36,10 @@ export class FormFieldCustomElement {
    */
   @computedFrom('element')
   get view() {
-    let type            = this.type;
+    let type          = this.type;
     this.element.type = type;
 
-    return this.viewManager.resolve('aurelia-form', type);
+    return this.viewManager.resolve('spoonx/form', type);
   }
 
   /**
@@ -59,7 +60,7 @@ export class FormFieldCustomElement {
   * is not registered as an alias it returns itself(identity).
   *
   * It also resolves recursively and makes sure it does not end up in a infinite
-  * loop because of a config malformed config.
+  * loop because of a malformed config.
   * @returns {string}
   */
   @computedFrom('element')
@@ -72,7 +73,7 @@ export class FormFieldCustomElement {
      * if it does have and alias, and has not resolved that alias previously,
      * check if that alias points to another type or alias.
      */
-    while (alias && (previous.indexOf(alias) === -1)) {
+    while (alias && !(alias in previous)) {
       type  = alias;
       alias = this.config.fetch('aliases', type);
 

@@ -11,7 +11,7 @@ export class FormGroup {
    *
    * @returns {boolean} true label is not false
    */
-  @computedFrom('label')
+  @computedFrom('element')
   get showsLabel() {
     return (this.element.label !== false);
   }

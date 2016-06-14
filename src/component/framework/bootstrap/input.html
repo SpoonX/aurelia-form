@@ -1,11 +1,12 @@
 <template>
+  <require from="./../../../attributes"></require>
   <require from="./form-group"></require>
-  <require from="./../../attributes"></require>
   <form-group element.bind="element" message.bind="message">
-    <textarea
+    <input
       attributes.bind="element.attributes"
       class="form-control"
+      type.bind="element.type"
       name.bind="element.key"
-      value.bind="value"></textarea>
+      value.bind="value">
   </form-group>
 </template>

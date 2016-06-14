@@ -1,10 +1,11 @@
 <template>
   <require from="./form-group"></require>
-  <require from="./../../attributes"></require>
-  <form-group element.bind="element" message.bind="message">
-    <div class="btn-group">
+  <require from="./../../../attributes"></require>
+  <form-group role="group" element.bind="element" message.bind="message">
+    <div class="btn-group" attributes.bind="element.attributes">
       <button repeat.for="action of element.actions"
         class="btn btn-default"
+        type="button"
         attributes.bind="action.attributes"
         click.delegate="action.action($event)">
         ${action.label}
