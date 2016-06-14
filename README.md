@@ -499,6 +499,14 @@ Next time when aurelia-view-manager tries to resolve what view to use for
 `viewManager.resolve('aurelia-form', 'select')` will return you the exact same
 string you chose to map to the aurelia-form's select view.
 
+## Folder structure
+
+```
+─── component         * files located here are aurelia-form specific
+    └── framework     *          ...           framework independent
+        └── bootstrap *          ...           bootstrap dependent
+```
+
 ## Contributing
 
 Report bugs, request features, send pull requests for fixes and features and
