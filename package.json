@@ -63,6 +63,7 @@
     "dependencies": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@^1.0.0-beta.1.2.3",
       "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.0.1",
+      "aurelia-logging": "npm:aurelia-logging@^1.0.0-beta.1.2.1",
       "aurelia-view-manager": "npm:aurelia-view-manager@^0.0.4",
       "extend": "npm:extend@^3.0.0"
     },
