@@ -16,6 +16,8 @@ export class Form {
 
   messages = {}
 
+  isValid
+
   /***
    * Used to get access to onSubmit and model changes could also wrap the
    * change and submit methods instead
@@ -31,7 +33,8 @@ export class Form {
       this.validator = new Validator(model);
       this.reporter  = ValidationEngine.getValidationReporter(model);
       this.observer  = this.reporter.subscribe(validationErrors => {
-        this.messages = validationErrors.reduce( (errors, error) => {
+        this.isValid = Object.keys(validationErrors).length === 0;
+        this.messages = validationErrors.reduce((errors, error) => {
           errors[error.propertyName] = error.message;
           return errors;
         }, {});
@@ -48,13 +51,13 @@ export class Form {
   }
 
   submit() {
-    this.onSubmit(this.model);
     this.validate();
+    this.onSubmit(this.model);
   }
 
   change() {
-    this.onChange(this.model);
     this.validate();
+    this.onChange(this.model);
   }
 
 }
