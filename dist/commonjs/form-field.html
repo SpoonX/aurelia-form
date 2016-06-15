@@ -1,0 +1,12 @@
+<template>
+  <!-- does not have a view model, meaning that it is a html only element -->
+  <compose
+    if.bind="!hasViewModel"
+    view.bind="view"></compose>
+
+  <!-- has a view model this is an custom element with view model -->
+  <compose
+    if.bind="hasViewModel"
+    model.bind="{attribute: attribute, value: value}"
+    view-model.bind="view"></compose>
+</template>

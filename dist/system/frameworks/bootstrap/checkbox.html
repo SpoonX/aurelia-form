@@ -1,0 +1,15 @@
+<template>
+  <require from="./form-group.html"></require>
+
+  <form-group attribute.bind="attribute">
+    <div class="checkbox">
+      <label>
+        <input
+        attrs
+        type="checkbox"
+        name.bind="attribute.key"
+        checked.bind="attribute.value">
+      </label>
+    </div>
+  </form-group>
+</template>
