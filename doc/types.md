@@ -1,11 +1,13 @@
 # Types
 
 The type determines how a property in the model should be rendered. When not
-defining a type, the type is defaulted to the 'text' type.
+defining a type, the form-field is defaulted to the `<input type='text'>`
+
+Depending on the framework your using, the available types might differ. It is
+the intention to keep the functionality between framework elements the same.
 
 This document explains the types, what frameworks support what types and the
 aliases of the types.
-
 
 ## `text` `button` `color` `date` `datetime` `'datetime-local'` `email` `month` `number` `password` `range` `search` `tel` `time` `url` `week`
 > bootstrap
@@ -169,7 +171,7 @@ Requires an array as value
         {value: 'salsa',     name: 'Salsa'},
         {
           value: 'olives',
-          name: 'Olives', 
+          name: 'Olives',
           attributes: {
             disabled: true,
           }
