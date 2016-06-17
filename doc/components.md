@@ -21,7 +21,7 @@ Generate a complete form using the schema
 
 ## <form-fields>
 
-Generates all the form fields without the form and fieldset around it. Handy for
+Generates all the form fields without the `<form>`  around it. Handy for
 when you want more control when composing a single form.
 
 ```html
@@ -36,7 +36,6 @@ when you want more control when composing a single form.
 ## <form-field>
 
 When things get really detailed you can choose to only generate a single form
-field. Only generates a label (if hide_label is not true) and an "input" like
 field.
 
 ```html

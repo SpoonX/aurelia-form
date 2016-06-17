@@ -29,4 +29,3 @@ trying to access was undefined. Just like JavaScript would.
 Now that we have both a schema to define what the form should look like, and the
 view model that will bind to the form elements, we now can use a custom element
 to generate this form.
-
