@@ -60,8 +60,8 @@ checkbox, number, date, time etc.
 
 ### Attributes
 
-A object representation of the attributes to be put on a element. Many features
-areinput are accesible by setting attributes on the `input` element. This is
+An object representation of the attributes to be put on a DOM-element. Many
+`<input>` features are enabled by setting attributes on the `input` element. This is
 why aurelia-form allows you to leverage this by defining the attributes object
 in the element definitions.
 
@@ -77,7 +77,7 @@ in the element definitions.
 
 ## Aliases
 
-It is possble to define aliases for types. Imagine you have a project that uses
+It is possible to define aliases for types. Imagine you have a project that uses
 the string 'dt' to represent 'date-time' type values. The `dt` string is not
 supported by the `<input>` element. By defining an aliases, the dt string is
 resolved to the 'date-time' type.
@@ -92,8 +92,8 @@ the form.
 
 ## Model
 
-The thing that contains the data is the model. The model is seperate from the
+The thing that contains the data is the model. The model is separate from the
 form definition(schema). When rendering the form using the `<schema-form>`
-component, it is required to provide both the schema as the element.
+component, it is required to provide both the schema as the element definition.
 
 
