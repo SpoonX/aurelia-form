@@ -1,7 +1,9 @@
 # Types
 
 The type determines how a property in the model should be rendered. When not
-defining a type, the form-field is defaulted to the `<input type='text'>`
+defining a type, the form-field is defaulted to `text` type. The defaulting
+behavior can be altered by letting the `undefined` value be the alias of your
+preferred type.
 
 Depending on the framework your using, the available types might differ. It is
 the intention to keep the functionality between framework elements the same.
@@ -12,13 +14,8 @@ aliases of the types.
 ## `text` `button` `color` `date` `datetime` `'datetime-local'` `email` `month` `number` `password` `range` `search` `tel` `time` `url` `week`
 > bootstrap
 
-All these types fall under the same element, the input element. They leverage
-the builtin functionality of the HTML input element.
-
-In case you want to have a more advanced date picker you would have to write
-the custom element yourself and point to it by defining a what custom element to
-load for the `date` type. You can read more about mapping types to custom
-elements [here](./routing).
+All these types fall under the same component, the input component. They
+leverage the builtin functionality of the HTML input element.
 
 ```js
     /* model */
@@ -56,6 +53,7 @@ example would be a `shoppingCart` and `products`.
     /* model */
 
     let shoppingCart = {
+      name: 'Mario',
       products: [
         {name: 'cheesy pizza' 10, amount: 2},
         {name: 'meat pizza' 10, amount: 2},
@@ -86,17 +84,21 @@ example would be a `shoppingCart` and `products`.
       }
     };
 
+    let productSchema = [
+      nameElement,
+      amountElement
+    ];
+
     let productElement = {
       type: 'collection',
-      schema: [
-        nameElement,
-        amountElement,
-      ]
+      key: 'products'
+      schema: productSchema
     };
 
     let shoppingCartSchema = [
+      nameElement,
       productElement
-    ]
+    ];
 ```
 
 
@@ -228,11 +230,66 @@ a question might be what you want.
 ## `file`
 > bootstrap
 
+A file picker.
+
+```js
+
+  let title = {
+    type: 'text',
+    key: 'title'
+  };
+
+  let video = {
+    type: 'file',
+    key: 'video'
+  };
+
+  let submitVideoSchema = [
+    title,
+    video
+  ];
+
+```
+
 ## `select`
 > bootstrap
 
+It is possible to set multiple on the attribute, allowing users to select
+multiple items provided by the options property.
+
+```js
+
+  let selectedCat = {
+    type: 'string',
+    attributes: {
+      readonly: true
+    }
+  };
+
+  let cats = {
+    key: 'cat',
+    type: 'select',
+    options: [
+      {name: "Thai",              value: "thai"},
+      {name: "Napoleon",          value: "napoleon"},
+      {name: "Peterbald",         value: "peterbald"},
+      {name: "American Wirehair", value: "american wirehair"},
+      {name: "Cymric",            value: "cymric"}
+    ]
+  };
+
+  this.schema = [
+    selectedCat,
+    cats
+  ];
+
+```
+
 ## `submit`
 > bootstrap
+
+Convenient way of defining a submit button. Does nothing more then trigger
+a bubbling submit event.
 
 ## `textarea`
 > bootstrap
@@ -243,7 +300,7 @@ a question might be what you want.
 You might want to do something with your form. Buttons are ideal for doing
 something when they are pressed.
 
-This is how you define buttons
+This is how you define buttons.
 
 ```js
     let actionsElement = {
