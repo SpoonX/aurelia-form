@@ -1,3 +1,4 @@
+# Terminology
 
 ## Form
 
@@ -7,7 +8,8 @@ and submit the inserted information. It also shows validation errors.
 ### Form Field
 
 The form is composed out of form fields. A form field visualizes just one
-property in the model. In Aurelia the form-fields are components.
+property in the model. In Aurelia the form-fields are components. An example of
+a form field is the input field with type `text` or `number`.
 
 ## Element
 
