@@ -1,7 +1,7 @@
 <template>
   <form role="form">
-    <content select="schema-form-header"></content>
+    <slot name="schema-form-header"></slot>
     <form-fields messages.bind="messages" model.bind="model" schema.bind="schema"></form-fields>
-    <content select="schema-form-footer"></content>
+    <slot name="schema-form-footer"></slot>
   </form>
 </template>
