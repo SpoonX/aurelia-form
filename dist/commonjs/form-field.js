@@ -10,18 +10,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer ? descriptor.initializer.call(target) : undefined; Object.defineProperty(target, key, descriptor); }
 
-var _config = require('./config');
-
 var _aureliaFramework = require('aurelia-framework');
 
-var _aureliaViewManager = require('aurelia-view-manager');
-
-var FormFieldCustomElement = (function () {
-  var _instanceInitializers = {};
+var FormField = (function () {
   var _instanceInitializers = {};
 
-  _createDecoratedClass(FormFieldCustomElement, [{
-    key: 'attribute',
+  function FormField() {
+    _classCallCheck(this, FormField);
+
+    _defineDecoratedPropertyDescriptor(this, 'element', _instanceInitializers);
+
+    _defineDecoratedPropertyDescriptor(this, 'message', _instanceInitializers);
+
+    _defineDecoratedPropertyDescriptor(this, 'value', _instanceInitializers);
+  }
+
+  _createDecoratedClass(FormField, [{
+    key: 'activate',
+    value: function activate(model) {
+      this.element = model.element;
+      this.value = model.value;
+    }
+  }, {
+    key: 'element',
+    decorators: [_aureliaFramework.bindable],
+    initializer: null,
+    enumerable: true
+  }, {
+    key: 'message',
     decorators: [_aureliaFramework.bindable],
     initializer: null,
     enumerable: true
@@ -32,66 +48,7 @@ var FormFieldCustomElement = (function () {
     enumerable: true
   }], null, _instanceInitializers);
 
-  function FormFieldCustomElement(config, element, viewManager) {
-    _classCallCheck(this, _FormFieldCustomElement);
-
-    _defineDecoratedPropertyDescriptor(this, 'attribute', _instanceInitializers);
-
-    _defineDecoratedPropertyDescriptor(this, 'value', _instanceInitializers);
-
-    this.config = config;
-    this.element = element;
-    this.viewManager = viewManager;
-  }
-
-  _createDecoratedClass(FormFieldCustomElement, [{
-    key: 'attached',
-    value: function attached() {
-      var attributeElements = $(this.element).find('[attrs]');
-      if (attributeElements) {
-        attributeElements.attr(this.attribute.attributes || {});
-      }
-    }
-  }, {
-    key: 'label',
-    decorators: [(0, _aureliaFramework.computedFrom)('attribute')],
-    get: function get() {
-      return this.attribute.label || this.attribute.key;
-    }
-  }, {
-    key: 'view',
-    decorators: [(0, _aureliaFramework.computedFrom)('attribute')],
-    get: function get() {
-      var type = this.type;
-      this.attribute.type = type;
-      return this.viewManager.resolve('aurelia-form', type);
-    }
-  }, {
-    key: 'hasViewModel',
-    decorators: [(0, _aureliaFramework.computedFrom)('view')],
-    get: function get() {
-      return !this.view.endsWith('.html');
-    }
-  }, {
-    key: 'type',
-    decorators: [(0, _aureliaFramework.computedFrom)('attribute')],
-    get: function get() {
-      var type = this.attribute.type;
-      var alias = this.config.get('aliases', type);
-      var previous = [];
-      while (alias && previous.indexOf(alias) === -1) {
-        type = alias;
-        previous.push(type);
-        alias = this.config.get('aliases', type);
-      }
-
-      return type;
-    }
-  }], null, _instanceInitializers);
-
-  var _FormFieldCustomElement = FormFieldCustomElement;
-  FormFieldCustomElement = (0, _aureliaFramework.inject)(_config.Config, Element, _aureliaViewManager.ViewManager)(FormFieldCustomElement) || FormFieldCustomElement;
-  return FormFieldCustomElement;
+  return FormField;
 })();
 
-exports.FormFieldCustomElement = FormFieldCustomElement;
+exports.FormField = FormField;

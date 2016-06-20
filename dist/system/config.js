@@ -1,7 +1,7 @@
 System.register(['extend', 'aurelia-dependency-injection', 'aurelia-view-manager'], function (_export) {
   'use strict';
 
-  var extend, inject, ViewManagerConfig, DEFAULT_FRAMEWORK, Config;
+  var extend, inject, ViewManagerConfig, ViewManager, Config;
 
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -14,73 +14,31 @@ System.register(['extend', 'aurelia-dependency-injection', 'aurelia-view-manager
       inject = _aureliaDependencyInjection.inject;
     }, function (_aureliaViewManager) {
       ViewManagerConfig = _aureliaViewManager.Config;
+      ViewManager = _aureliaViewManager.ViewManager;
     }],
     execute: function () {
-      DEFAULT_FRAMEWORK = 'bootstrap';
-
       Config = (function () {
-        function Config(viewManagerConfig) {
+        function Config(viewManager, viewManagerConfig) {
           _classCallCheck(this, _Config);
 
           this.configurations = {};
-
-          viewManagerConfig.configureNamespace('aurelia-form', {
-            base: './frameworks/{{framework}}',
-            location: '{{base}}/{{view}}.html',
-            framework: DEFAULT_FRAMEWORK,
-            map: {
-              actions: '{{base}}/actions',
-              collection: '{{base}}/collection',
-
-              text: '{{base}}/input.html',
-              button: '{{base}}/input.html',
-              color: '{{base}}/input.html',
-              date: '{{base}}/input.html',
-              datetime: '{{base}}/input.html',
-              'datetime-local': '{{base}}/input.html',
-              email: '{{base}}/input.html',
-              month: '{{base}}/input.html',
-              number: '{{base}}/input.html',
-              password: '{{base}}/input.html',
-              range: '{{base}}/input.html',
-              search: '{{base}}/input.html',
-              tel: '{{base}}/input.html',
-              time: '{{base}}/input.html',
-              url: '{{base}}/input.html',
-              week: '{{base}}/input.html'
-            }
-          });
-
-          this.configure({
-
-            translate: false,
-
-            aliases: {
-              nested: 'fieldset',
-              undefined: 'text',
-              'null': 'text',
-              int: 'number',
-              integer: 'number',
-              float: 'number',
-              string: 'text',
-              bool: 'checkbox',
-              boolean: 'checkbox'
-            }
-          });
         }
 
         _createClass(Config, [{
-          key: 'get',
-          value: function get(props) {
+          key: 'fetch',
+          value: function fetch(props) {
             var result = this.configurations;
+
             for (var index in arguments) {
               var key = arguments[index];
               var value = result[key];
+
               if (!value) {
                 return value;
               }
               result = result[key];
             }
+
             return result;
           }
         }, {
@@ -91,7 +49,7 @@ System.register(['extend', 'aurelia-dependency-injection', 'aurelia-view-manager
         }]);
 
         var _Config = Config;
-        Config = inject(ViewManagerConfig)(Config) || Config;
+        Config = inject(ViewManager, ViewManagerConfig)(Config) || Config;
         return Config;
       })();
 
