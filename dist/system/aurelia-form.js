@@ -1,4 +1,4 @@
-System.register(['./config', 'aurelia-view-manager', './entity-schema', './form', './form-field'], function (_export) {
+System.register(['./config', 'aurelia-view-manager', './entity-schema', './form'], function (_export) {
   'use strict';
 
   var Config, ViewManagerConfig;
@@ -73,8 +73,6 @@ System.register(['./config', 'aurelia-view-manager', './entity-schema', './form'
       _export('entitySchema', _entitySchema.entitySchema);
     }, function (_form) {
       _export('Form', _form.Form);
-    }, function (_formField) {
-      _export('FormField', _formField.FormField);
     }],
     execute: function () {
       _export('Config', Config);

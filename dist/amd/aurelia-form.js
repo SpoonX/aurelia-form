@@ -1,4 +1,4 @@
-define(['exports', './config', 'aurelia-view-manager', './entity-schema', './form', './form-field'], function (exports, _config, _aureliaViewManager, _entitySchema, _form, _formField) {
+define(['exports', './config', 'aurelia-view-manager', './entity-schema', './form'], function (exports, _config, _aureliaViewManager, _entitySchema, _form) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {
@@ -15,12 +15,6 @@ define(['exports', './config', 'aurelia-view-manager', './entity-schema', './for
     enumerable: true,
     get: function get() {
       return _form.Form;
-    }
-  });
-  Object.defineProperty(exports, 'FormField', {
-    enumerable: true,
-    get: function get() {
-      return _formField.FormField;
     }
   });
 
