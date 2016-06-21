@@ -17,6 +17,7 @@ export function configure(aurelia, configCallback) {
       'form-field'    : './form-field.html',
       'form-fields'   : './form-fields.html',
       'schema-form'   : './schema-form.html',
+      'entity-form'   : './schema-form.html',
 
       /* custom elements with a view model do not end with .html */
       actions         : '{{framepath}}/actions',
@@ -68,6 +69,7 @@ export function configure(aurelia, configCallback) {
   }
 
   aurelia.globalResources(
+    './component/entity-form',
     './component/schema-form',
     './component/form-fields',
     './component/form-field'
