@@ -36,6 +36,7 @@ define(['exports', './config', 'aurelia-view-manager', './entity-schema', './for
         'form-field': './form-field.html',
         'form-fields': './form-fields.html',
         'schema-form': './schema-form.html',
+        'entity-form': './schema-form.html',
 
         actions: '{{framepath}}/actions',
         collection: '{{framepath}}/collection',
@@ -79,7 +80,7 @@ define(['exports', './config', 'aurelia-view-manager', './entity-schema', './for
       configCallback(formConfig);
     }
 
-    aurelia.globalResources('./component/schema-form', './component/form-fields', './component/form-field');
+    aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');
   }
 
   exports.Config = _config.Config;
