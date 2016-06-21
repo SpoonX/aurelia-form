@@ -19,6 +19,19 @@ Generate a complete form using the schema
 
 ```
 
+## <entity-form>
+
+Aurelia-form supports the *aurelia-orm* project. It does so by providing a public
+custom component named `entity-form`. To use it you must create an entity and
+pass it to the entity bindable. Read more about entities in the
+[aurelia-orm docs](http://aurelia-orm.spoonx.org/entities.html).
+
+```html
+
+    <entity-form entity.bind="entity"></entity-form>
+
+```
+
 ## <form-fields>
 
 Generates all the form fields without the `<form>`  around it. Handy for
