@@ -2,7 +2,6 @@ import {Config} from './config';
 import {Config as ViewManagerConfig} from 'aurelia-view-manager';
 export {entitySchema} from './entity-schema';
 export {Form} from './form';
-export {FormField} from './form-field';
 
 export function configure(aurelia, configCallback) {
   let viewManagerConfig = aurelia.container.get(ViewManagerConfig);
