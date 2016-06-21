@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](introduction.md)
+* [Introduction](readme.md)
 * [Installation](installation.md)
 * [Configuration](configuration.md)
 * [Terminology](terminology.md)
