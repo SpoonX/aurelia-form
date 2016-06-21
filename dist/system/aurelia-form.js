@@ -17,6 +17,7 @@ System.register(['./config', 'aurelia-view-manager', './entity-schema', './form'
         'form-field': './form-field.html',
         'form-fields': './form-fields.html',
         'schema-form': './schema-form.html',
+        'entity-form': './schema-form.html',
 
         actions: '{{framepath}}/actions',
         collection: '{{framepath}}/collection',
@@ -60,7 +61,7 @@ System.register(['./config', 'aurelia-view-manager', './entity-schema', './form'
       configCallback(formConfig);
     }
 
-    aurelia.globalResources('./component/schema-form', './component/form-fields', './component/form-field');
+    aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');
   }
 
   return {

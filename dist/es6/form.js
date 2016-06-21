@@ -7,7 +7,7 @@ import {Validator, ValidationEngine} from 'aurelia-validatejs';
  * This class is optional and serves as a convenience class.
  *
  * - creates a messages property for storing error strings
- * - allows you to set the model which automaticall
+ * - allows you to set the model which
  * - automatically triggers validation
  * - convenient methods that can be overwritten to perform action on submit and
  *   change
