@@ -4,21 +4,33 @@ System.register([], function (_export) {
   _export('entitySchema', entitySchema);
 
   function entitySchema(entity) {
-    var keys = Object.keys(entity);
-    var typeMap = entity.getMeta().metadata.types;
-
+    var metadata = entity.getMeta();
+    var types = metadata.fetch('types') || {};
+    var associations = metadata.fetch('associations');
     var schema = [];
+
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
     var _iteratorError = undefined;
 
     try {
-      for (var _iterator = keys[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      for (var _iterator = Object.keys(entity)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var key = _step.value;
 
-        schema.push({
+        if (key === '__validationReporter__') {
+          continue;
+        }
+        var element = {
           key: key,
-          type: typeMap[key] || 'string' });
+          type: types[key]
+        };
+
+        if (associations[key] && associations[key].type === 'collection') {
+          element.type = 'collection';
+          element.schema = entitySchema(entityManager.getEntity(key));
+        }
+
+        schema.push(element);
       }
     } catch (err) {
       _didIteratorError = true;

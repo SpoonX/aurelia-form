@@ -1,36 +1,63 @@
-import {BindingSignaler} from 'aurelia-templating-resources';
+import {Validator, ValidationEngine} from 'aurelia-validatejs';
 
 /***
- * This class is meant to be used for extending a view model that has form
- * behaviour. It's features include checking if a field is dirty. Dirty meaning
- * that it has bee touched/changed by the user. It also has a method that can be
- * overwritten to enable on submit behavior.
+ * Some functionalities are desired in a view model of a form. Responsibilites
+ * include validation and submit.
  *
- * Usage of this class should stay optional.
+ * This class is optional and serves as a convenience class.
+ *
+ * - creates a messages property for storing error strings
+ * - allows you to set the model which automaticall
+ * - automatically triggers validation
+ * - convenient methods that can be overwritten to perform action on submit and
+ *   change
  */
-@inject(BindingSignaler)
 export class Form {
 
-  constructor(signaler) {
-    this.signaler = signaler;
-    this.dirtyProperties = {};
+  messages = {}
 
-    this.validator = new Validator();
-    this.reporter = ValidationEngine.getValidationReporter(this.user);
-    this.observer = this.reporter.subscribe(result => {
-      this.errors = result.reduce(function(acc, item) {
-        acc[item.propertyName] = [item.message];
-        return acc;
-      }, {});
+  isValid
+
+  /***
+   * Used to get access to onSubmit and model changes could also wrap the
+   * change and submit methods instead
+   */
+  onChange() {}
+  onSubmit() {}
+
+  constructor() {
+    this.__defineSetter__('model', (model) => {
+      this.onChange(model, this.model);
+      this.__defineGetter__('model', () => model);
+      this.observer && this.observer.dispose();
+      this.validator = new Validator(model);
+      this.reporter  = ValidationEngine.getValidationReporter(model);
+      this.observer  = this.reporter.subscribe(validationErrors => {
+        this.isValid = Object.keys(validationErrors).length === 0;
+        this.messages = validationErrors.reduce((errors, error) => {
+          errors[error.propertyName] = error.message;
+          return errors;
+        }, {});
+      });
     });
   }
 
-  onSubmit() {
-    console.warn('onSubmit');
+  validate() {
+    this.validator.validate();
   }
 
-  validate() {
-    this.signaler.signal('aurelia-form:validate');
+  detached() {
+    this.observer.dispose();
+  }
+
+  submit() {
+    this.validate();
+    this.onSubmit(this.model);
+  }
+
+  change() {
+    this.validate();
+    this.onChange(this.model);
   }
 
 }
