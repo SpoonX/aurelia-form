@@ -27,15 +27,6 @@ Object.defineProperty(exports, 'Form', {
   }
 });
 
-var _formField = require('./form-field');
-
-Object.defineProperty(exports, 'FormField', {
-  enumerable: true,
-  get: function get() {
-    return _formField.FormField;
-  }
-});
-
 function configure(aurelia, configCallback) {
   var viewManagerConfig = aurelia.container.get(_aureliaViewManager.Config);
   var formConfig = aurelia.container.get(_config.Config);
