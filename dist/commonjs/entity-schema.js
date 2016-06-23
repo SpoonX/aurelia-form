@@ -1,52 +1,43 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.entitySchema = entitySchema;
-
 function entitySchema(entity) {
   var metadata = entity.getMeta();
   var types = metadata.fetch('types') || {};
   var associations = metadata.fetch('associations');
   var schema = [];
 
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+  for (var _iterator = Object.keys(entity), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+    var _ref;
 
-  try {
-    for (var _iterator = Object.keys(entity)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var key = _step.value;
-
-      if (key === '__validationReporter__') {
-        continue;
-      }
-      var element = {
-        key: key,
-        type: types[key]
-      };
-
-      if (associations[key] && associations[key].type === 'collection') {
-        element.type = 'collection';
-        element.schema = entitySchema(entityManager.getEntity(key));
-      }
-
-      schema.push(element);
+    if (_isArray) {
+      if (_i >= _iterator.length) break;
+      _ref = _iterator[_i++];
+    } else {
+      _i = _iterator.next();
+      if (_i.done) break;
+      _ref = _i.value;
     }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion && _iterator['return']) {
-        _iterator['return']();
-      }
-    } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
+
+    var key = _ref;
+
+    if (key === '__validationReporter__') {
+      continue;
     }
+    var element = {
+      key: key,
+      type: types[key]
+    };
+
+    if (associations[key] && associations[key].type === 'collection') {
+      element.type = 'collection';
+      element.schema = entitySchema(entityManager.getEntity(key));
+    }
+
+    schema.push(element);
   }
 
   return schema;
