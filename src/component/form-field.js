@@ -1,6 +1,8 @@
 import {Config} from '../config';
 import {bindingMode, bindable, computedFrom, inject, customElement} from 'aurelia-framework';
 import {resolvedView, ViewManager} from 'aurelia-view-manager';
+import {logger} from '../logger';
+import existy from 'existy';
 
 @customElement('form-field')
 @resolvedView('spoonx/form', 'form-field')
@@ -17,6 +19,12 @@ export class FormField {
   constructor(config, viewManager) {
     this.config      = config;
     this.viewManager = viewManager;
+  }
+
+  attached() {
+    if (!existy(this.element.key)) {
+      logger.error('an element key propery cannot be null or undefined');
+    }
   }
 
   /**
