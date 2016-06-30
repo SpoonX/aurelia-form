@@ -1,30 +1,31 @@
-System.register([], function (_export) {
+"use strict";
+
+System.register([], function (_export, _context) {
   "use strict";
 
   var Collection;
 
-  var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
 
   return {
     setters: [],
     execute: function () {
-      Collection = (function () {
+      _export("Collection", Collection = function () {
         function Collection() {
           _classCallCheck(this, Collection);
         }
 
-        _createClass(Collection, [{
-          key: "activate",
-          value: function activate(model) {
-            this.element = model.element;
-            this.models = model.value;
-          }
-        }]);
+        Collection.prototype.activate = function activate(model) {
+          this.element = model.element;
+          this.models = model.value;
+        };
 
         return Collection;
-      })();
+      }());
 
       _export("Collection", Collection);
     }

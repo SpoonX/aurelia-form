@@ -1,36 +1,11 @@
-'use strict';
+import { Config } from './config';
+import { Config as ViewManagerConfig } from 'aurelia-view-manager';
+export { entitySchema } from './entity-schema';
+export { Form } from './form';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Config = exports.Form = exports.entitySchema = undefined;
-
-var _entitySchema = require('./entity-schema');
-
-Object.defineProperty(exports, 'entitySchema', {
-  enumerable: true,
-  get: function get() {
-    return _entitySchema.entitySchema;
-  }
-});
-
-var _form = require('./form');
-
-Object.defineProperty(exports, 'Form', {
-  enumerable: true,
-  get: function get() {
-    return _form.Form;
-  }
-});
-exports.configure = configure;
-
-var _config = require('./config');
-
-var _aureliaViewManager = require('aurelia-view-manager');
-
-function configure(aurelia, configCallback) {
-  var viewManagerConfig = aurelia.container.get(_aureliaViewManager.Config);
-  var formConfig = aurelia.container.get(_config.Config);
+export function configure(aurelia, configCallback) {
+  let viewManagerConfig = aurelia.container.get(ViewManagerConfig);
+  let formConfig = aurelia.container.get(Config);
 
   viewManagerConfig.configureNamespace('spoonx/form', {
     framepath: '{{base}}/framework/{{framework}}',
@@ -87,4 +62,4 @@ function configure(aurelia, configCallback) {
   aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');
 }
 
-exports.Config = _config.Config;
+export { Config };
