@@ -1,59 +1,101 @@
 define(['exports', '../config', 'aurelia-framework', 'aurelia-view-manager'], function (exports, _config, _aureliaFramework, _aureliaViewManager) {
   'use strict';
 
-  Object.defineProperty(exports, '__esModule', {
+  Object.defineProperty(exports, "__esModule", {
     value: true
   });
+  exports.FormField = undefined;
 
-  var _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === 'function') { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError('The decorator for method ' + descriptor.key + ' is of the invalid type ' + typeof decorator); } } if (descriptor.initializer !== undefined) { initializers[key] = descriptor; continue; } } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
+  function _initDefineProp(target, property, descriptor, context) {
+    if (!descriptor) return;
+    Object.defineProperty(target, property, {
+      enumerable: descriptor.enumerable,
+      configurable: descriptor.configurable,
+      writable: descriptor.writable,
+      value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+    });
+  }
 
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
 
-  function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer ? descriptor.initializer.call(target) : undefined; Object.defineProperty(target, key, descriptor); }
+  var _createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
 
-  var FormField = (function () {
-    var _instanceInitializers = {};
-    var _instanceInitializers = {};
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
 
-    _createDecoratedClass(FormField, [{
-      key: 'element',
-      decorators: [_aureliaFramework.bindable],
-      initializer: null,
-      enumerable: true
-    }, {
-      key: 'value',
-      decorators: [(0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay })],
-      initializer: null,
-      enumerable: true
-    }, {
-      key: 'message',
-      decorators: [_aureliaFramework.bindable],
-      initializer: null,
-      enumerable: true
-    }], null, _instanceInitializers);
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+    var desc = {};
+    Object['ke' + 'ys'](descriptor).forEach(function (key) {
+      desc[key] = descriptor[key];
+    });
+    desc.enumerable = !!desc.enumerable;
+    desc.configurable = !!desc.configurable;
 
+    if ('value' in desc || desc.initializer) {
+      desc.writable = true;
+    }
+
+    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+      return decorator(target, property, desc) || desc;
+    }, desc);
+
+    if (context && desc.initializer !== void 0) {
+      desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+      desc.initializer = undefined;
+    }
+
+    if (desc.initializer === void 0) {
+      Object['define' + 'Property'](target, property, desc);
+      desc = null;
+    }
+
+    return desc;
+  }
+
+  function _initializerWarningHelper(descriptor, context) {
+    throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+  }
+
+  var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+
+  var FormField = exports.FormField = (_dec = (0, _aureliaFramework.customElement)('form-field'), _dec2 = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'form-field'), _dec3 = (0, _aureliaFramework.inject)(_config.Config, _aureliaViewManager.ViewManager), _dec4 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec5 = (0, _aureliaFramework.computedFrom)('element'), _dec6 = (0, _aureliaFramework.computedFrom)('element'), _dec7 = (0, _aureliaFramework.computedFrom)('view'), _dec8 = (0, _aureliaFramework.computedFrom)('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = function () {
     function FormField(config, viewManager) {
-      _classCallCheck(this, _FormField);
+      _classCallCheck(this, FormField);
 
-      _defineDecoratedPropertyDescriptor(this, 'element', _instanceInitializers);
+      _initDefineProp(this, 'element', _descriptor, this);
 
-      _defineDecoratedPropertyDescriptor(this, 'value', _instanceInitializers);
+      _initDefineProp(this, 'value', _descriptor2, this);
 
-      _defineDecoratedPropertyDescriptor(this, 'message', _instanceInitializers);
+      _initDefineProp(this, 'message', _descriptor3, this);
 
       this.config = config;
       this.viewManager = viewManager;
     }
 
-    _createDecoratedClass(FormField, [{
+    _createClass(FormField, [{
       key: 'label',
-      decorators: [(0, _aureliaFramework.computedFrom)('element')],
       get: function get() {
         return this.element.label || this.element.key;
       }
     }, {
       key: 'view',
-      decorators: [(0, _aureliaFramework.computedFrom)('element')],
       get: function get() {
         var type = this.type;
         this.element.type = type;
@@ -62,13 +104,11 @@ define(['exports', '../config', 'aurelia-framework', 'aurelia-view-manager'], fu
       }
     }, {
       key: 'hasViewModel',
-      decorators: [(0, _aureliaFramework.computedFrom)('view')],
       get: function get() {
         return !this.view.endsWith('.html');
       }
     }, {
       key: 'type',
-      decorators: [(0, _aureliaFramework.computedFrom)('element')],
       get: function get() {
         var type = this.element.type;
         var alias = this.config.fetch('aliases', type);
@@ -82,14 +122,17 @@ define(['exports', '../config', 'aurelia-framework', 'aurelia-view-manager'], fu
 
         return type;
       }
-    }], null, _instanceInitializers);
+    }]);
 
-    var _FormField = FormField;
-    FormField = (0, _aureliaFramework.inject)(_config.Config, _aureliaViewManager.ViewManager)(FormField) || FormField;
-    FormField = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'form-field')(FormField) || FormField;
-    FormField = (0, _aureliaFramework.customElement)('form-field')(FormField) || FormField;
     return FormField;
-  })();
-
-  exports.FormField = FormField;
+  }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'element', [_aureliaFramework.bindable], {
+    enumerable: true,
+    initializer: null
+  }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'value', [_dec4], {
+    enumerable: true,
+    initializer: null
+  }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'message', [_aureliaFramework.bindable], {
+    enumerable: true,
+    initializer: null
+  }), _applyDecoratedDescriptor(_class2.prototype, 'label', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'label'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'view', [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, 'view'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'hasViewModel', [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, 'hasViewModel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'type', [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, 'type'), _class2.prototype)), _class2)) || _class) || _class) || _class);
 });

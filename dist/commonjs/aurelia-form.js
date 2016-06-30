@@ -1,13 +1,9 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.configure = configure;
-
-var _config = require('./config');
-
-var _aureliaViewManager = require('aurelia-view-manager');
+exports.Config = exports.Form = exports.entitySchema = undefined;
 
 var _entitySchema = require('./entity-schema');
 
@@ -26,6 +22,11 @@ Object.defineProperty(exports, 'Form', {
     return _form.Form;
   }
 });
+exports.configure = configure;
+
+var _config = require('./config');
+
+var _aureliaViewManager = require('aurelia-view-manager');
 
 function configure(aurelia, configCallback) {
   var viewManagerConfig = aurelia.container.get(_aureliaViewManager.Config);
@@ -69,7 +70,7 @@ function configure(aurelia, configCallback) {
       buttons: 'actions',
       nested: 'fieldset',
       undefined: 'text',
-      'null': 'text',
+      null: 'text',
       int: 'number',
       integer: 'number',
       float: 'number',

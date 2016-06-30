@@ -1,23 +1,23 @@
-define(['exports', './config', 'aurelia-view-manager', './entity-schema', './form'], function (exports, _config, _aureliaViewManager, _entitySchema, _form) {
+define(['exports', './entity-schema', './form', './config', 'aurelia-view-manager'], function (exports, _entitySchema, _form, _config, _aureliaViewManager) {
   'use strict';
 
-  Object.defineProperty(exports, '__esModule', {
+  Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.configure = configure;
+  exports.Config = exports.Form = exports.entitySchema = undefined;
   Object.defineProperty(exports, 'entitySchema', {
     enumerable: true,
-    get: function get() {
+    get: function () {
       return _entitySchema.entitySchema;
     }
   });
   Object.defineProperty(exports, 'Form', {
     enumerable: true,
-    get: function get() {
+    get: function () {
       return _form.Form;
     }
   });
-
+  exports.configure = configure;
   function configure(aurelia, configCallback) {
     var viewManagerConfig = aurelia.container.get(_aureliaViewManager.Config);
     var formConfig = aurelia.container.get(_config.Config);
@@ -60,7 +60,7 @@ define(['exports', './config', 'aurelia-view-manager', './entity-schema', './for
         buttons: 'actions',
         nested: 'fieldset',
         undefined: 'text',
-        'null': 'text',
+        null: 'text',
         int: 'number',
         integer: 'number',
         float: 'number',
