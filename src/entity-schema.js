@@ -17,17 +17,25 @@ export function entitySchema(entity) {
   let schema       = [];
 
   for (let key of Object.keys(entity)) {
-    if (key === '__validationReporter__') {continue;} /* should be fixed in orm */
+    /* should be fixed in orm */
+    if (key === '__validationReporter__') {
+      continue;
+    }
 
     let element = {
-      key: key,
+      key : key,
       type: types[key]
     };
 
-    element = extend(true, element, data[key].form || {});
+    element = extend(true, element, data[key] ? data[key].form || {} : {});
+
+    if (associations[key]) {
+      element.key      = key;
+      element.resource = associations[key].entity;
+    }
 
     if (associations[key] && associations[key].type === 'collection') {
-      element.type = 'collection';
+      element.type   = 'collection';
       element.schema = entitySchema(entityManager.getEntity(key));
     }
 
