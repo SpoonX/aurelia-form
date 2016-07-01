@@ -1,8 +1,8 @@
 export class Actions {
 
   activate(model) {
-    this.element = model.element;
-    this.model   = model.value;
+    console.log(model);
+    this.value = model.value
   }
 
 }

@@ -17,4 +17,8 @@ export class FormFields {
       logger.warn(`model is not an object`);
     }
   }
+
+  hasKeyProp(element) {
+    return !!element.key;
+  }
 }

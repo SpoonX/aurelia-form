@@ -23,7 +23,7 @@ export class FormField {
 
   attached() {
     if (!existy(this.element.key)) {
-      logger.error('an element key propery cannot be null or undefined');
+      logger.debug(`are you sure ${this.element.type} does not have a key`);
     }
   }
 
