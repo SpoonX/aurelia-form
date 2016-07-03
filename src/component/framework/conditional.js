@@ -8,8 +8,7 @@ export class Conditional {
   }
 
   activate(field) {
-    this.model   = field.value;
-
+    this.model            = field.value;
     const calculateSchema = () => {
       this.schema = field.element.schema(this.model);
     };
