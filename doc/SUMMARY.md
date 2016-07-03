@@ -2,6 +2,7 @@
 
 * [Introduction](readme.md)
 * [Installation](installation.md)
+* [Quick start](usage.md)
 * [Configuration](configuration.md)
 * [Terminology](terminology.md)
 * [Schema](schema.md)
