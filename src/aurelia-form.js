@@ -23,7 +23,6 @@ export function configure(aurelia, configCallback) {
       collection      : '{{framepath}}/collection',
 
       /* all input components */
-      text            : '{{framepath}}/input.html',
       button          : '{{framepath}}/input.html',
       color           : '{{framepath}}/input.html',
       date            : '{{framepath}}/input.html',
@@ -59,7 +58,8 @@ export function configure(aurelia, configCallback) {
       float    : 'number',
       string   : 'text',
       bool     : 'checkbox',
-      boolean  : 'checkbox'
+      boolean  : 'checkbox',
+      text     : 'textarea'
     }
   });
 
