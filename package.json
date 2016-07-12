@@ -83,6 +83,7 @@
       "aurelia-logging": "npm:aurelia-logging@^1.0.0-beta.1.2.1",
       "aurelia-validatejs": "npm:aurelia-validatejs@^0.6.0",
       "aurelia-view-manager": "npm:aurelia-view-manager@^0.0.5",
+      "existy": "npm:existy@^1.0.1",
       "extend": "npm:extend@^3.0.0"
     },
     "devDependencies": {
