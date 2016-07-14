@@ -1,6 +1,6 @@
 import {bindable, bindingMode, customElement} from 'aurelia-framework';
 import {resolvedView} from 'aurelia-view-manager';
-import {logger} from '../logger';
+import {logger} from '../aurelia-form';
 
 @customElement('form-fields')
 @resolvedView('spoonx/form', 'form-fields')
