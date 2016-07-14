@@ -1,3 +1,4 @@
+import {getLogger} from 'aurelia-logging';
 import {Config} from './config';
 import {Config as ViewManagerConfig} from 'aurelia-view-manager';
 export {entitySchema} from './entity-schema';
@@ -76,4 +77,6 @@ export function configure(aurelia, configCallback) {
   );
 }
 
-export {Config};
+const logger = getLogger('aurelia-form');
+
+export {Config, logger};
