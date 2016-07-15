@@ -10,11 +10,12 @@ import extend from 'extend';
  * @returns {object[]} a schema consisting out of element objects
  */
 export function entitySchema(entity) {
-  let metadata     = entity.getMeta();
-  let types        = metadata.fetch('types') || {};
-  let associations = metadata.fetch('associations');
-  let data         = metadata.fetch('data') || {};
-  let schema       = [];
+  let metadata      = entity.getMeta();
+  let types         = metadata.fetch('types') || {};
+  let associations  = metadata.fetch('associations');
+  let data          = metadata.fetch('data') || {};
+  let schema        = [];
+  let entityManager = entity.getRepository().entityManager
 
   for (let key of Object.keys(entity)) {
     /* should be fixed in orm */
@@ -35,8 +36,9 @@ export function entitySchema(entity) {
     }
 
     if (associations[key] && associations[key].type === 'collection') {
-      element.type   = 'collection';
-      element.schema = entitySchema(entityManager.getEntity(key));
+      element.type     = 'association';
+      element.multiple = true;
+      element.schema   = entitySchema(entityManager.getEntity(key));
     }
 
     schema.push(element);
