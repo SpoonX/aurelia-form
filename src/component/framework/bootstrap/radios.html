@@ -2,7 +2,7 @@
   <require from="./../../../attributes"></require>
   <require from="./form-group"></require>
   <form-group element.bind="element" message.bind="message">
-    <div class="radio" repeat.for="option of element.options">
+    <div class="radio" repeat.for="option of options">
       <label>
         <input
           attributes.bind="element.attributes"

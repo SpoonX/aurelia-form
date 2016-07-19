@@ -3,6 +3,7 @@ import {Config} from './config';
 import {Config as ViewManagerConfig} from 'aurelia-view-manager';
 export {entitySchema} from './entity-schema';
 export {Form} from './form';
+export * from './utils';
 
 export function configure(aurelia, configCallback) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
@@ -24,6 +25,9 @@ export function configure(aurelia, configCallback) {
       actions         : '{{framepath}}/actions',
       collection      : '{{framepath}}/collection',
       conditional     : '{{framepath}}/conditional',
+      select          : '{{framepath}}/select',
+      radios          : '{{framepath}}/radios',
+      checkboxes      : '{{framepath}}/checkboxes',
 
       /* all input components */
       button          : '{{framepath}}/input.html',

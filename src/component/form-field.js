@@ -18,6 +18,7 @@ export class FormField {
   constructor(config, viewManager) {
     this.config      = config;
     this.viewManager = viewManager;
+    this.model       = this;
   }
 
   attached() {
