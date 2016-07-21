@@ -5,6 +5,7 @@ export {entitySchema} from './entity-schema';
 export {Form} from './form';
 
 export function configure(aurelia, configCallback) {
+  aurelia.aurelia.use.plugin('aurelia-view-manager');
   let viewManagerConfig = aurelia.container.get(ViewManagerConfig);
   let formConfig = aurelia.container.get(Config);
 
