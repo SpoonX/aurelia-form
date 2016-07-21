@@ -5,6 +5,7 @@
 * [Quick start](usage.md)
 * [Configuration](configuration.md)
 * [Terminology](terminology.md)
+* [Element](element.md)
 * [Schema](schema.md)
 * [Types](types.md)
 * [Model](model.md)
