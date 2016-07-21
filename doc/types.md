@@ -322,3 +322,17 @@ This is how you define buttons.
       actionsElement
     ];
 ```
+
+## `association`
+> bootstrap
+
+Association type plays nice with aurelia-orm's association select.
+
+```js
+
+  let tagElement = {
+    type: 'association',
+    multiple: true // defaults to false
+  };
+
+```
