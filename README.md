@@ -25,7 +25,7 @@ Make sure to execute these commands from project root.
 
 ### jspm
 
-`jspm install npm:aurelia-form
+`jspm install npm:aurelia-form`
 
 ## Documentation
 
