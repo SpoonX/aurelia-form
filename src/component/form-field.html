@@ -1,12 +1,12 @@
 <template>
   <!-- does not have a view model, meaning that it is a html only component -->
   <compose
-    if.bind="!hasViewModel"
+    if.bind="!hasViewModel && visible"
     view.bind="view"></compose>
 
   <!-- has a view model this is a component with view model -->
   <compose
-    if.bind="hasViewModel"
+    if.bind="hasViewModel && visible"
     model.bind="{element: element, value: value, message: message}"
     view-model.bind="view"></compose>
 </template>

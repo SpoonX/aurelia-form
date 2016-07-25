@@ -15,7 +15,7 @@ export function entitySchema(entity) {
   let associations  = metadata.fetch('associations');
   let data          = metadata.fetch('data') || {};
   let schema        = [];
-  let entityManager = entity.getRepository().entityManager
+  let entityManager = entity.getRepository().entityManager;
 
   for (let key of Object.keys(entity)) {
     /* should be fixed in orm */

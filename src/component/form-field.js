@@ -26,6 +26,19 @@ export class FormField {
     }
   }
 
+  @computedFrom('value', 'element')
+  get visible() {
+    if (this.element.hidden === 'function') {
+      return !this.element.hidden(this.value);
+    }
+
+    if (this.element.hidden === 'boolean') {
+      return !this.element.hidden;
+    }
+
+    return true;
+  }
+
   /**
    * Used to determine the what to display
    *
