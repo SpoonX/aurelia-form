@@ -8,6 +8,7 @@ registering aurelia-form as a plugin in your aurelia project.
 ## Configure
 
 > main.js
+
 ```js
 
   .plugin('aurelia-form')
