@@ -336,3 +336,44 @@ Association type plays nice with aurelia-orm's association select.
   };
 
 ```
+
+## `conditional`
+
+What if you would like to show, hide or change the schema based on the values
+in the model or other values also.
+
+```js
+    this.model = {};
+    this.model.owner = "secret"
+
+    let secretSchema = [
+      {
+        key: 'owner',
+        type: 'string',
+      },
+      {
+        key: 'pet_type',
+        type: 'string'
+      }
+    ];
+
+    this.schema = [{
+      key: 'owner',
+      type: 'text'
+    },{
+      key: 'pet_type',
+      type: 'options',
+      options: [
+        {value: 'cat', name: 'Cat'},
+        {value: 'dog', name: 'Dog'}
+      ],
+    },{
+      type: 'conditional',
+      observe: 'owner', /* necessary for triggering update when value on object changes */
+      schema: model => {
+        return (model.owner === 'secret') ? secretSchema : [];
+      }
+    }];
+```
+
+This will show the "secretSchema" when the value at `this.model.owner` equals "secret".
