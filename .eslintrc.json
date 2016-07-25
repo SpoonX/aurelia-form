@@ -1,0 +1,8 @@
+{
+  "extends": "./node_modules/aurelia-tools/.eslintrc.json",
+  "rules": {
+    "key-spacing": 0,
+    "newline-before-return": 2,
+    "consistent-return": 0
+  }
+}
