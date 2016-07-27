@@ -28,15 +28,7 @@ export class FormField {
 
   @computedFrom('value', 'element')
   get visible() {
-    if (this.element.hidden === 'function') {
-      return !this.element.hidden(this.value);
-    }
-
-    if (this.element.hidden === 'boolean') {
-      return !this.element.hidden;
-    }
-
-    return true;
+    return typeof this.element.hidden === 'function' ? this.element.hidden(this.value) : !this.element.hidden;
   }
 
   /**
