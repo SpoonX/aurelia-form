@@ -22,7 +22,7 @@ var paths = {
   useTypeScriptForDTS: false,
   importsToAdd: [], // eg. non-concated local imports in the main file as they will get removed during the build process
   importsToIgnoreForDts: ['extend'], // imports that are only used internally. no need to d.ts export them
-  jsResources: [appRoot + 'component/**/*.js'], // js to transpile, but not be concated and keeping their relative path
+  jsResources: [appRoot + '**/*.js'], // js to transpile, but not be concated and keeping their relative path
   resources: appRoot + '{**/*.css,**/*.html}',
   sort: true,
   concat: true
