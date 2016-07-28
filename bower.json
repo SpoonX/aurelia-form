@@ -1,0 +1,38 @@
+{
+  "name": "aurelia-form",
+  "version": "0.1.6",
+  "description": "Makes working with forms just a tad more pleasant.",
+  "keywords": [
+    "aurelia",
+    "bootstrap",
+    "component",
+    "components",
+    "custom components",
+    "form",
+    "forms",
+    "input",
+    "plugin",
+    "schema",
+    "translation"
+  ],
+  "homepage": "https://github.com/SpoonX/aurelia-form",
+  "main": "dist/commonjs/aurelia-form.js",
+  "moduleType": "node",
+  "license": "MIT",
+  "author": "RWOverdijk <wesley@spoonx.nl> (http://spoonx.nl/)",
+  "contributors": [
+    "bas080 <bas080@hotmail.com> (http://spoonx.nl)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpoonX/aurelia-form"
+  },
+  "dependencies": {
+    "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
+    "aurelia-framework": "^1.0.0-rc.1.0.0",
+    "aurelia-logging": "^1.0.0-rc.1.0.0",
+    "aurelia-validatejs": "^0.6.0",
+    "aurelia-view-manager": "^0.0.5",
+    "extend": "^3.0.0"
+  }
+}
