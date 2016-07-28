@@ -1,0 +1,7 @@
+{
+  "extends": "./node_modules/aurelia-tools/.eslintrc",
+  "rules": {
+    "key-spacing": 0,
+    "newline-before-return": 2
+  }
+}
