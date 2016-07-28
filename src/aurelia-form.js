@@ -78,6 +78,4 @@ export function configure(aurelia, configCallback) {
   );
 }
 
-const logger = getLogger('aurelia-form');
-
-export {Config, logger};
+export const logger = getLogger('aurelia-form');
