@@ -9,7 +9,8 @@
       <option repeat.for="option of element.options"
         attributes.bind="option.attributes"
         name.bind="element.key"
-        model.bind="option.value">${option.name}</option>
+        model.bind="option.value"
+        t="${option.name}">${option.name}</option>
     </select>
   </form-group>
 </template>
