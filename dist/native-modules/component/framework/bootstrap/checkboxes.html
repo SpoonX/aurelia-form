@@ -1,0 +1,17 @@
+<template>
+  <require from="./form-group"></require>
+  <require from="./../../../attributes"></require>
+  <form-group element.bind="element" attributes.bind="element.attributes">
+    <div class="checkbox" repeat.for="option of options">
+      <label>
+        <input
+          attributes.bind="option.attributes"
+          type="checkbox"
+          name.bind="option.name"
+          model.bind="option.value"
+          checked.bind="value">
+          ${option.name}
+      </label>
+    </div>
+  </form-group>
+</template>

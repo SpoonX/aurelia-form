@@ -1,51 +1,14 @@
-'use strict';
+import { getLogger } from 'aurelia-logging';
+import { Config } from './config';
+import { Config as ViewManagerConfig } from 'aurelia-view-manager';
+export { entitySchema } from './entity-schema';
+export { Form } from './form';
+export * from './utils';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.logger = exports.Form = exports.entitySchema = undefined;
-
-var _entitySchema = require('./entity-schema');
-
-Object.defineProperty(exports, 'entitySchema', {
-  enumerable: true,
-  get: function get() {
-    return _entitySchema.entitySchema;
-  }
-});
-
-var _form = require('./form');
-
-Object.defineProperty(exports, 'Form', {
-  enumerable: true,
-  get: function get() {
-    return _form.Form;
-  }
-});
-
-var _utils = require('./utils');
-
-Object.keys(_utils).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _utils[key];
-    }
-  });
-});
-exports.configure = configure;
-
-var _aureliaLogging = require('aurelia-logging');
-
-var _config = require('./config');
-
-var _aureliaViewManager = require('aurelia-view-manager');
-
-function configure(aurelia, configCallback) {
+export function configure(aurelia, configCallback) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
-  var viewManagerConfig = aurelia.container.get(_aureliaViewManager.Config);
-  var formConfig = aurelia.container.get(_config.Config);
+  var viewManagerConfig = aurelia.container.get(ViewManagerConfig);
+  var formConfig = aurelia.container.get(Config);
 
   viewManagerConfig.configureNamespace('spoonx/form', {
     framepath: '{{base}}/framework/{{framework}}',
@@ -106,4 +69,4 @@ function configure(aurelia, configCallback) {
   aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');
 }
 
-var logger = exports.logger = (0, _aureliaLogging.getLogger)('aurelia-form');
+export var logger = getLogger('aurelia-form');
