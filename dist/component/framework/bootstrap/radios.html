@@ -1,0 +1,17 @@
+<template>
+  <require from="./../../../attributes"></require>
+  <require from="./form-group"></require>
+  <form-group element.bind="element" message.bind="message">
+    <div class="radio" repeat.for="option of options">
+      <label>
+        <input
+          attributes.bind="element.attributes"
+          type="radio"
+          name.bind="option.name"
+          model.bind="option.value"
+          checked.bind="value">
+          ${option.name}
+      </label>
+    </div>
+  </form-group>
+</template>

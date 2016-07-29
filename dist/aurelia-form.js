@@ -1,62 +1,27 @@
-'use strict';
+import {getLogger} from 'aurelia-logging';
+import {Config} from './config';
+import {Config as ViewManagerConfig} from 'aurelia-view-manager';
+export {entitySchema} from './entity-schema';
+export {Form} from './form';
+export * from './utils';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.logger = exports.Form = exports.entitySchema = undefined;
-
-var _entitySchema = require('./entity-schema');
-
-Object.defineProperty(exports, 'entitySchema', {
-  enumerable: true,
-  get: function get() {
-    return _entitySchema.entitySchema;
-  }
-});
-
-var _form = require('./form');
-
-Object.defineProperty(exports, 'Form', {
-  enumerable: true,
-  get: function get() {
-    return _form.Form;
-  }
-});
-
-var _utils = require('./utils');
-
-Object.keys(_utils).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _utils[key];
-    }
-  });
-});
-exports.configure = configure;
-
-var _aureliaLogging = require('aurelia-logging');
-
-var _config = require('./config');
-
-var _aureliaViewManager = require('aurelia-view-manager');
-
-function configure(aurelia, configCallback) {
+export function configure(aurelia, configCallback) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
-  var viewManagerConfig = aurelia.container.get(_aureliaViewManager.Config);
-  var formConfig = aurelia.container.get(_config.Config);
+  let viewManagerConfig = aurelia.container.get(ViewManagerConfig);
+  let formConfig = aurelia.container.get(Config);
 
   viewManagerConfig.configureNamespace('spoonx/form', {
-    framepath: '{{base}}/framework/{{framework}}',
+    framepath: '{{base}}/framework/{{framework}}', // framework path
     base: './../component',
     location: '{{framepath}}/{{view}}.html',
     map: {
+      /* aurelia-form specific view are also overridable */
       'form-field': './form-field.html',
       'form-fields': './form-fields.html',
       'schema-form': './schema-form.html',
       'entity-form': './schema-form.html',
 
+      /* custom elements with a view model do not end with .html */
       actions: '{{framepath}}/actions',
       collection: '{{framepath}}/collection',
       conditional: '{{framepath}}/conditional',
@@ -64,6 +29,7 @@ function configure(aurelia, configCallback) {
       radios: '{{framepath}}/radios',
       checkboxes: '{{framepath}}/checkboxes',
 
+      /* all input components */
       button: '{{framepath}}/input.html',
       color: '{{framepath}}/input.html',
       date: '{{framepath}}/input.html',
@@ -84,6 +50,11 @@ function configure(aurelia, configCallback) {
   });
 
   formConfig.configure({
+    /*
+     * Instead of defining a framework or custom component for every variant
+     * on the name of a type, it is easier to alias that variant so the
+     * variant is changed to the main type.
+     */
     aliases: {
       options: 'select',
       buttons: 'actions',
@@ -103,7 +74,12 @@ function configure(aurelia, configCallback) {
     configCallback(formConfig);
   }
 
-  aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');
+  aurelia.globalResources(
+    './component/entity-form',
+    './component/schema-form',
+    './component/form-fields',
+    './component/form-field'
+  );
 }
 
-var logger = exports.logger = (0, _aureliaLogging.getLogger)('aurelia-form');
+export const logger = getLogger('aurelia-form');
