@@ -21,7 +21,7 @@ function _initDefineProp(target, property, descriptor, context) {
   });
 }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -58,7 +58,7 @@ function _initializerWarningHelper(descriptor, context) {
 
 var FormGroup = exports.FormGroup = (_dec = (0, _aureliaFramework.computedFrom)('element'), _dec2 = (0, _aureliaFramework.computedFrom)('message'), _dec3 = (0, _aureliaFramework.computedFrom)('element'), (_class = function () {
   function FormGroup() {
-    _classCallCheck(this, FormGroup);
+    
 
     _initDefineProp(this, 'element', _descriptor, this);
 

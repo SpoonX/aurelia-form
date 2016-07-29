@@ -17,11 +17,11 @@ var _aureliaViewManager = require('aurelia-view-manager');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 var Config = exports.Config = (_dec = (0, _aureliaDependencyInjection.inject)(_aureliaViewManager.ViewManager, _aureliaViewManager.Config), _dec(_class = function () {
   function Config(viewManager, viewManagerConfig) {
-    _classCallCheck(this, Config);
+    
 
     this.configurations = {};
   }

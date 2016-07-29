@@ -5,11 +5,7 @@ System.register(['./../collection'], function (_export, _context) {
 
   var Collection, CollectionCustomElement;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _possibleConstructorReturn(self, call) {
     if (!self) {
@@ -44,7 +40,7 @@ System.register(['./../collection'], function (_export, _context) {
         _inherits(CollectionCustomElement, _Collection);
 
         function CollectionCustomElement() {
-          _classCallCheck(this, CollectionCustomElement);
+          
 
           return _possibleConstructorReturn(this, _Collection.apply(this, arguments));
         }

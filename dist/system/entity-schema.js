@@ -1,16 +1,21 @@
 'use strict';
 
-System.register([], function (_export, _context) {
+System.register(['extend'], function (_export, _context) {
   "use strict";
 
+  var extend;
   return {
-    setters: [],
+    setters: [function (_extend) {
+      extend = _extend.default;
+    }],
     execute: function () {
       function entitySchema(entity) {
         var metadata = entity.getMeta();
         var types = metadata.fetch('types') || {};
         var associations = metadata.fetch('associations');
+        var data = metadata.fetch('data') || {};
         var schema = [];
+        var entityManager = entity.getRepository().entityManager;
 
         for (var _iterator = Object.keys(entity), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
           var _ref;
@@ -29,13 +34,22 @@ System.register([], function (_export, _context) {
           if (key === '__validationReporter__') {
             continue;
           }
+
           var element = {
             key: key,
             type: types[key]
           };
 
+          element = extend(true, element, data[key] ? data[key].form || {} : {});
+
+          if (associations[key]) {
+            element.key = key;
+            element.resource = associations[key].entity;
+          }
+
           if (associations[key] && associations[key].type === 'collection') {
-            element.type = 'collection';
+            element.type = 'association';
+            element.multiple = true;
             element.schema = entitySchema(entityManager.getEntity(key));
           }
 

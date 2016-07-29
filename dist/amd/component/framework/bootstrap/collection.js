@@ -6,11 +6,7 @@ define(['exports', './../collection'], function (exports, _collection) {
   });
   exports.CollectionCustomElement = undefined;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _possibleConstructorReturn(self, call) {
     if (!self) {
@@ -40,7 +36,7 @@ define(['exports', './../collection'], function (exports, _collection) {
     _inherits(CollectionCustomElement, _Collection);
 
     function CollectionCustomElement() {
-      _classCallCheck(this, CollectionCustomElement);
+      
 
       return _possibleConstructorReturn(this, _Collection.apply(this, arguments));
     }

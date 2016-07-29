@@ -4,16 +4,27 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 var Collection = exports.Collection = function () {
   function Collection() {
-    _classCallCheck(this, Collection);
+    
   }
 
   Collection.prototype.activate = function activate(model) {
-    this.element = model.element;
+    var _this = this;
+
     this.models = model.value;
+    this.element = model.element;
+
+    this.schema = function (index) {
+      return _this.element.schema.map(function (element) {
+        var el = Object.create(element);
+        el.index = index;
+
+        return el;
+      });
+    };
   };
 
   return Collection;

@@ -6,10 +6,11 @@
       attributes.bind="element.attributes"
       value.bind="value"
       class="form-control">
-      <option repeat.for="option of element.options"
+      <option repeat.for="option of options"
         attributes.bind="option.attributes"
         name.bind="element.key"
-        model.bind="option.value">${option.name}</option>
+        model.bind="option.value"
+        t="${option.name}">${option.name}</option>
     </select>
   </form-group>
 </template>

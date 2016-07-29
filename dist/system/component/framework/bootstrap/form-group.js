@@ -5,11 +5,7 @@ System.register(['./../form-group'], function (_export, _context) {
 
   var FormGroup, FormGroupCustomElement;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _possibleConstructorReturn(self, call) {
     if (!self) {
@@ -44,7 +40,7 @@ System.register(['./../form-group'], function (_export, _context) {
         _inherits(FormGroupCustomElement, _FormGroup);
 
         function FormGroupCustomElement() {
-          _classCallCheck(this, FormGroupCustomElement);
+          
 
           return _possibleConstructorReturn(this, _FormGroup.apply(this, arguments));
         }

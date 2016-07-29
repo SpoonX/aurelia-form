@@ -11,9 +11,9 @@ var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _aureliaLogging = require('aurelia-logging');
-
 var _aureliaViewManager = require('aurelia-view-manager');
+
+var _aureliaForm = require('../aurelia-form');
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -25,7 +25,7 @@ function _initDefineProp(target, property, descriptor, context) {
   });
 }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -62,7 +62,7 @@ function _initializerWarningHelper(descriptor, context) {
 
 var FormFields = exports.FormFields = (_dec = (0, _aureliaFramework.customElement)('form-fields'), _dec2 = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'form-fields'), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
   function FormFields() {
-    _classCallCheck(this, FormFields);
+    
 
     _initDefineProp(this, 'schema', _descriptor, this);
 
@@ -73,8 +73,12 @@ var FormFields = exports.FormFields = (_dec = (0, _aureliaFramework.customElemen
 
   FormFields.prototype.attached = function attached() {
     if (_typeof(this.model) !== 'object') {
-      (0, _aureliaLogging.getLogger)('aurelia-form').warn('model is not an object');
+      _aureliaForm.logger.warn('model is not an object');
     }
+  };
+
+  FormFields.prototype.hasKeyProp = function hasKeyProp(element) {
+    return !!element.key;
   };
 
   return FormFields;

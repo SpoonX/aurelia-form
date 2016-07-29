@@ -1,7 +1,7 @@
-import {Config} from '../../src/config';
+// import {Config} from '../../src/config';
 import {StageComponent} from 'aurelia-testing';
 import {bootstrap} from 'aurelia-bootstrapper';
-import {Container} from 'aurelia-dependency-injection';
+// import {Container} from 'aurelia-dependency-injection';
 
 describe('Component', () => {
   let component;
@@ -25,8 +25,8 @@ describe('Component', () => {
 
   describe('.constructor()', function() {
     it('Should create', function(done) {
-      let container = new Container();
-      let config = container.get(Config).configure();
+      // let container = new Container();
+      // let config = container.get(Config).configure();
 
       component.create(bootstrap).then( function() {
         done();
@@ -36,8 +36,8 @@ describe('Component', () => {
 
   describe('.note()', function() {
     it('Should xy', function(done) {
-      let container = new Container();
-      let config = container.get(Config).configure();
+      // let container = new Container();
+      // let config = container.get(Config).configure();
 
       component.create(bootstrap).then(function() {
         done();

@@ -16,11 +16,7 @@ define(['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
     });
   }
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   var _createClass = function () {
     function defineProperties(target, props) {
@@ -77,7 +73,7 @@ define(['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
 
   var FormGroup = exports.FormGroup = (_dec = (0, _aureliaFramework.computedFrom)('element'), _dec2 = (0, _aureliaFramework.computedFrom)('message'), _dec3 = (0, _aureliaFramework.computedFrom)('element'), (_class = function () {
     function FormGroup() {
-      _classCallCheck(this, FormGroup);
+      
 
       _initDefineProp(this, 'element', _descriptor, this);
 

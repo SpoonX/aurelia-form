@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['../config', 'aurelia-framework', 'aurelia-view-manager'], function (_export, _context) {
+System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../aurelia-form'], function (_export, _context) {
   "use strict";
 
-  var Config, bindingMode, bindable, computedFrom, inject, customElement, resolvedView, ViewManager, _createClass, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, FormField;
+  var Config, bindingMode, bindable, computedFrom, inject, customElement, resolvedView, ViewManager, logger, _createClass, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, FormField;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -15,11 +15,7 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager'], func
     });
   }
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
     var desc = {};
@@ -66,6 +62,8 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager'], func
     }, function (_aureliaViewManager) {
       resolvedView = _aureliaViewManager.resolvedView;
       ViewManager = _aureliaViewManager.ViewManager;
+    }, function (_aureliaForm) {
+      logger = _aureliaForm.logger;
     }],
     execute: function () {
       _createClass = function () {
@@ -86,9 +84,9 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager'], func
         };
       }();
 
-      _export('FormField', FormField = (_dec = customElement('form-field'), _dec2 = resolvedView('spoonx/form', 'form-field'), _dec3 = inject(Config, ViewManager), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = computedFrom('element'), _dec6 = computedFrom('element'), _dec7 = computedFrom('view'), _dec8 = computedFrom('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = function () {
+      _export('FormField', FormField = (_dec = customElement('form-field'), _dec2 = resolvedView('spoonx/form', 'form-field'), _dec3 = inject(Config, ViewManager), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = computedFrom('value', 'element'), _dec6 = computedFrom('element'), _dec7 = computedFrom('element'), _dec8 = computedFrom('view'), _dec9 = computedFrom('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = function () {
         function FormField(config, viewManager) {
-          _classCallCheck(this, FormField);
+          
 
           _initDefineProp(this, 'element', _descriptor, this);
 
@@ -98,9 +96,21 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager'], func
 
           this.config = config;
           this.viewManager = viewManager;
+          this.model = this;
         }
 
+        FormField.prototype.attached = function attached() {
+          if (!this.element.key) {
+            logger.error('an element key propery cannot be null or undefined');
+          }
+        };
+
         _createClass(FormField, [{
+          key: 'visible',
+          get: function get() {
+            return typeof this.element.hidden === 'function' ? this.element.hidden(this.value) : !this.element.hidden;
+          }
+        }, {
           key: 'label',
           get: function get() {
             return this.element.label || this.element.key;
@@ -145,7 +155,7 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager'], func
       }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'message', [bindable], {
         enumerable: true,
         initializer: null
-      }), _applyDecoratedDescriptor(_class2.prototype, 'label', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'label'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'view', [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, 'view'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'hasViewModel', [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, 'hasViewModel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'type', [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, 'type'), _class2.prototype)), _class2)) || _class) || _class) || _class));
+      }), _applyDecoratedDescriptor(_class2.prototype, 'visible', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'visible'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'label', [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, 'label'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'view', [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, 'view'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'hasViewModel', [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, 'hasViewModel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'type', [_dec9], Object.getOwnPropertyDescriptor(_class2.prototype, 'type'), _class2.prototype)), _class2)) || _class) || _class) || _class));
 
       _export('FormField', FormField);
     }

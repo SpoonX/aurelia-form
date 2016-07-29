@@ -6,11 +6,7 @@ define(['exports', '../actions'], function (exports, _actions) {
   });
   exports.ActionsCustomElement = undefined;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _possibleConstructorReturn(self, call) {
     if (!self) {
@@ -40,7 +36,7 @@ define(['exports', '../actions'], function (exports, _actions) {
     _inherits(ActionsCustomElement, _Actions);
 
     function ActionsCustomElement() {
-      _classCallCheck(this, ActionsCustomElement);
+      
 
       return _possibleConstructorReturn(this, _Actions.apply(this, arguments));
     }

@@ -5,11 +5,7 @@ System.register(['extend', 'aurelia-dependency-injection', 'aurelia-view-manager
 
   var extend, inject, ViewManagerConfig, ViewManager, _dec, _class, Config;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   return {
     setters: [function (_extend) {
@@ -23,7 +19,7 @@ System.register(['extend', 'aurelia-dependency-injection', 'aurelia-view-manager
     execute: function () {
       _export('Config', Config = (_dec = inject(ViewManager, ViewManagerConfig), _dec(_class = function () {
         function Config(viewManager, viewManagerConfig) {
-          _classCallCheck(this, Config);
+          
 
           this.configurations = {};
         }

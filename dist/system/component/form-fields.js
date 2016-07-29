@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', 'aurelia-logging', 'aurelia-view-manager'], function (_export, _context) {
+System.register(['aurelia-framework', 'aurelia-view-manager', '../aurelia-form'], function (_export, _context) {
   "use strict";
 
-  var bindable, bindingMode, customElement, getLogger, resolvedView, _typeof, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, FormFields;
+  var bindable, bindingMode, customElement, resolvedView, logger, _typeof, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, FormFields;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -15,11 +15,7 @@ System.register(['aurelia-framework', 'aurelia-logging', 'aurelia-view-manager']
     });
   }
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
     var desc = {};
@@ -59,10 +55,10 @@ System.register(['aurelia-framework', 'aurelia-logging', 'aurelia-view-manager']
       bindable = _aureliaFramework.bindable;
       bindingMode = _aureliaFramework.bindingMode;
       customElement = _aureliaFramework.customElement;
-    }, function (_aureliaLogging) {
-      getLogger = _aureliaLogging.getLogger;
     }, function (_aureliaViewManager) {
       resolvedView = _aureliaViewManager.resolvedView;
+    }, function (_aureliaForm) {
+      logger = _aureliaForm.logger;
     }],
     execute: function () {
       _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
@@ -73,7 +69,7 @@ System.register(['aurelia-framework', 'aurelia-logging', 'aurelia-view-manager']
 
       _export('FormFields', FormFields = (_dec = customElement('form-fields'), _dec2 = resolvedView('spoonx/form', 'form-fields'), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
         function FormFields() {
-          _classCallCheck(this, FormFields);
+          
 
           _initDefineProp(this, 'schema', _descriptor, this);
 
@@ -84,8 +80,12 @@ System.register(['aurelia-framework', 'aurelia-logging', 'aurelia-view-manager']
 
         FormFields.prototype.attached = function attached() {
           if (_typeof(this.model) !== 'object') {
-            getLogger('aurelia-form').warn('model is not an object');
+            logger.warn('model is not an object');
           }
+        };
+
+        FormFields.prototype.hasKeyProp = function hasKeyProp(element) {
+          return !!element.key;
         };
 
         return FormFields;

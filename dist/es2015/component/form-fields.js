@@ -44,8 +44,8 @@ function _initializerWarningHelper(descriptor, context) {
 }
 
 import { bindable, bindingMode, customElement } from 'aurelia-framework';
-import { getLogger } from 'aurelia-logging';
 import { resolvedView } from 'aurelia-view-manager';
+import { logger } from '../aurelia-form';
 
 export let FormFields = (_dec = customElement('form-fields'), _dec2 = resolvedView('spoonx/form', 'form-fields'), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = class FormFields {
   constructor() {
@@ -58,8 +58,12 @@ export let FormFields = (_dec = customElement('form-fields'), _dec2 = resolvedVi
 
   attached() {
     if (typeof this.model !== 'object') {
-      getLogger('aurelia-form').warn(`model is not an object`);
+      logger.warn('model is not an object');
     }
+  }
+
+  hasKeyProp(element) {
+    return !!element.key;
   }
 }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'schema', [bindable], {
   enumerable: true,

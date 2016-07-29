@@ -15,11 +15,7 @@ System.register(['../entity-schema', 'aurelia-framework', 'aurelia-view-manager'
     });
   }
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
     var desc = {};
@@ -67,7 +63,7 @@ System.register(['../entity-schema', 'aurelia-framework', 'aurelia-view-manager'
     execute: function () {
       _export('EntityForm', EntityForm = (_dec = customElement('entity-form'), _dec2 = resolvedView('spoonx/form', 'entity-form'), _dec3 = bindable({ defaultBindingMode: bindingMode.oneTime }), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
         function EntityForm() {
-          _classCallCheck(this, EntityForm);
+          
 
           _initDefineProp(this, 'entity', _descriptor, this);
 

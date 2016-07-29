@@ -6,11 +6,7 @@ define(['exports', './../form-group'], function (exports, _formGroup) {
   });
   exports.FormGroupCustomElement = undefined;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _possibleConstructorReturn(self, call) {
     if (!self) {
@@ -40,7 +36,7 @@ define(['exports', './../form-group'], function (exports, _formGroup) {
     _inherits(FormGroupCustomElement, _FormGroup);
 
     function FormGroupCustomElement() {
-      _classCallCheck(this, FormGroupCustomElement);
+      
 
       return _possibleConstructorReturn(this, _FormGroup.apply(this, arguments));
     }

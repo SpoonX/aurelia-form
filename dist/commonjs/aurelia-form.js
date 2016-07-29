@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Config = exports.Form = exports.entitySchema = undefined;
+exports.logger = exports.Form = exports.entitySchema = undefined;
 
 var _entitySchema = require('./entity-schema');
 
@@ -22,13 +22,28 @@ Object.defineProperty(exports, 'Form', {
     return _form.Form;
   }
 });
+
+var _utils = require('./utils');
+
+Object.keys(_utils).forEach(function (key) {
+  if (key === "default") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _utils[key];
+    }
+  });
+});
 exports.configure = configure;
+
+var _aureliaLogging = require('aurelia-logging');
 
 var _config = require('./config');
 
 var _aureliaViewManager = require('aurelia-view-manager');
 
 function configure(aurelia, configCallback) {
+  aurelia.aurelia.use.plugin('aurelia-view-manager');
   var viewManagerConfig = aurelia.container.get(_aureliaViewManager.Config);
   var formConfig = aurelia.container.get(_config.Config);
 
@@ -44,13 +59,17 @@ function configure(aurelia, configCallback) {
 
       actions: '{{framepath}}/actions',
       collection: '{{framepath}}/collection',
+      conditional: '{{framepath}}/conditional',
+      select: '{{framepath}}/select',
+      radios: '{{framepath}}/radios',
+      checkboxes: '{{framepath}}/checkboxes',
 
-      text: '{{framepath}}/input.html',
       button: '{{framepath}}/input.html',
       color: '{{framepath}}/input.html',
       date: '{{framepath}}/input.html',
       datetime: '{{framepath}}/input.html',
       'datetime-local': '{{framepath}}/input.html',
+      string: '{{framepath}}/input.html',
       email: '{{framepath}}/input.html',
       month: '{{framepath}}/input.html',
       number: '{{framepath}}/input.html',
@@ -69,14 +88,14 @@ function configure(aurelia, configCallback) {
       options: 'select',
       buttons: 'actions',
       nested: 'fieldset',
-      undefined: 'text',
-      null: 'text',
+      undefined: 'string',
+      null: 'string',
       int: 'number',
       integer: 'number',
       float: 'number',
-      string: 'text',
       bool: 'checkbox',
-      boolean: 'checkbox'
+      boolean: 'checkbox',
+      text: 'textarea'
     }
   });
 
@@ -87,4 +106,4 @@ function configure(aurelia, configCallback) {
   aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');
 }
 
-exports.Config = _config.Config;
+var logger = exports.logger = (0, _aureliaLogging.getLogger)('aurelia-form');

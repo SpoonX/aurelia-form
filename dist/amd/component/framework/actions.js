@@ -5,20 +5,15 @@ define(["exports"], function (exports) {
     value: true
   });
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   var Actions = exports.Actions = function () {
     function Actions() {
-      _classCallCheck(this, Actions);
+      
     }
 
     Actions.prototype.activate = function activate(model) {
-      this.element = model.element;
-      this.model = model.value;
+      this.value = model.value;
     };
 
     return Actions;

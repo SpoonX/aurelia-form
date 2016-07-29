@@ -5,11 +5,7 @@ System.register(['aurelia-validatejs'], function (_export, _context) {
 
   var Validator, ValidationEngine, Form;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   return {
     setters: [function (_aureliaValidatejs) {
@@ -25,7 +21,7 @@ System.register(['aurelia-validatejs'], function (_export, _context) {
         function Form() {
           var _this = this;
 
-          _classCallCheck(this, Form);
+          
 
           this.messages = {};
 
