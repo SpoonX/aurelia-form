@@ -7,7 +7,7 @@ exports.CollectionCustomElement = undefined;
 
 var _collection = require('./../collection');
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
@@ -17,7 +17,7 @@ var CollectionCustomElement = exports.CollectionCustomElement = function (_Colle
   _inherits(CollectionCustomElement, _Collection);
 
   function CollectionCustomElement() {
-    _classCallCheck(this, CollectionCustomElement);
+    
 
     return _possibleConstructorReturn(this, _Collection.apply(this, arguments));
   }

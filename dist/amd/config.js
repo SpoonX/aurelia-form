@@ -14,17 +14,13 @@ define(['exports', 'extend', 'aurelia-dependency-injection', 'aurelia-view-manag
     };
   }
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   var _dec, _class;
 
   var Config = exports.Config = (_dec = (0, _aureliaDependencyInjection.inject)(_aureliaViewManager.ViewManager, _aureliaViewManager.Config), _dec(_class = function () {
     function Config(viewManager, viewManagerConfig) {
-      _classCallCheck(this, Config);
+      
 
       this.configurations = {};
     }

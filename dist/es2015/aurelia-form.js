@@ -1,9 +1,12 @@
+import { getLogger } from 'aurelia-logging';
 import { Config } from './config';
 import { Config as ViewManagerConfig } from 'aurelia-view-manager';
 export { entitySchema } from './entity-schema';
 export { Form } from './form';
+export * from './utils';
 
 export function configure(aurelia, configCallback) {
+  aurelia.aurelia.use.plugin('aurelia-view-manager');
   let viewManagerConfig = aurelia.container.get(ViewManagerConfig);
   let formConfig = aurelia.container.get(Config);
 
@@ -19,13 +22,17 @@ export function configure(aurelia, configCallback) {
 
       actions: '{{framepath}}/actions',
       collection: '{{framepath}}/collection',
+      conditional: '{{framepath}}/conditional',
+      select: '{{framepath}}/select',
+      radios: '{{framepath}}/radios',
+      checkboxes: '{{framepath}}/checkboxes',
 
-      text: '{{framepath}}/input.html',
       button: '{{framepath}}/input.html',
       color: '{{framepath}}/input.html',
       date: '{{framepath}}/input.html',
       datetime: '{{framepath}}/input.html',
       'datetime-local': '{{framepath}}/input.html',
+      string: '{{framepath}}/input.html',
       email: '{{framepath}}/input.html',
       month: '{{framepath}}/input.html',
       number: '{{framepath}}/input.html',
@@ -44,14 +51,14 @@ export function configure(aurelia, configCallback) {
       options: 'select',
       buttons: 'actions',
       nested: 'fieldset',
-      undefined: 'text',
-      null: 'text',
+      undefined: 'string',
+      null: 'string',
       int: 'number',
       integer: 'number',
       float: 'number',
-      string: 'text',
       bool: 'checkbox',
-      boolean: 'checkbox'
+      boolean: 'checkbox',
+      text: 'textarea'
     }
   });
 
@@ -62,4 +69,4 @@ export function configure(aurelia, configCallback) {
   aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');
 }
 
-export { Config };
+export const logger = getLogger('aurelia-form');

@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -46,8 +46,9 @@ function _initializerWarningHelper(descriptor, context) {
 import { Config } from '../config';
 import { bindingMode, bindable, computedFrom, inject, customElement } from 'aurelia-framework';
 import { resolvedView, ViewManager } from 'aurelia-view-manager';
+import { logger } from '../aurelia-form';
 
-export let FormField = (_dec = customElement('form-field'), _dec2 = resolvedView('spoonx/form', 'form-field'), _dec3 = inject(Config, ViewManager), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = computedFrom('element'), _dec6 = computedFrom('element'), _dec7 = computedFrom('view'), _dec8 = computedFrom('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = class FormField {
+export let FormField = (_dec = customElement('form-field'), _dec2 = resolvedView('spoonx/form', 'form-field'), _dec3 = inject(Config, ViewManager), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = computedFrom('value', 'element'), _dec6 = computedFrom('element'), _dec7 = computedFrom('element'), _dec8 = computedFrom('view'), _dec9 = computedFrom('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = class FormField {
 
   constructor(config, viewManager) {
     _initDefineProp(this, 'element', _descriptor, this);
@@ -58,6 +59,17 @@ export let FormField = (_dec = customElement('form-field'), _dec2 = resolvedView
 
     this.config = config;
     this.viewManager = viewManager;
+    this.model = this;
+  }
+
+  attached() {
+    if (!this.element.key) {
+      logger.error('an element key propery cannot be null or undefined');
+    }
+  }
+
+  get visible() {
+    return typeof this.element.hidden === 'function' ? this.element.hidden(this.value) : !this.element.hidden;
   }
 
   get label() {
@@ -98,4 +110,4 @@ export let FormField = (_dec = customElement('form-field'), _dec2 = resolvedView
 }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'message', [bindable], {
   enumerable: true,
   initializer: null
-}), _applyDecoratedDescriptor(_class2.prototype, 'label', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'label'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'view', [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, 'view'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'hasViewModel', [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, 'hasViewModel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'type', [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, 'type'), _class2.prototype)), _class2)) || _class) || _class) || _class);
+}), _applyDecoratedDescriptor(_class2.prototype, 'visible', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'visible'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'label', [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, 'label'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'view', [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, 'view'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'hasViewModel', [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, 'hasViewModel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'type', [_dec9], Object.getOwnPropertyDescriptor(_class2.prototype, 'type'), _class2.prototype)), _class2)) || _class) || _class) || _class);

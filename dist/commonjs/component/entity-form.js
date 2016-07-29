@@ -23,7 +23,7 @@ function _initDefineProp(target, property, descriptor, context) {
   });
 }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -60,7 +60,7 @@ function _initializerWarningHelper(descriptor, context) {
 
 var EntityForm = exports.EntityForm = (_dec = (0, _aureliaFramework.customElement)('entity-form'), _dec2 = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'entity-form'), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.oneTime }), _dec4 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
   function EntityForm() {
-    _classCallCheck(this, EntityForm);
+    
 
     _initDefineProp(this, 'entity', _descriptor, this);
 

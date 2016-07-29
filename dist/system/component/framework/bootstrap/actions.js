@@ -5,11 +5,7 @@ System.register(['../actions'], function (_export, _context) {
 
   var Actions, ActionsCustomElement;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _possibleConstructorReturn(self, call) {
     if (!self) {
@@ -44,7 +40,7 @@ System.register(['../actions'], function (_export, _context) {
         _inherits(ActionsCustomElement, _Actions);
 
         function ActionsCustomElement() {
-          _classCallCheck(this, ActionsCustomElement);
+          
 
           return _possibleConstructorReturn(this, _Actions.apply(this, arguments));
         }

@@ -7,7 +7,7 @@ exports.Form = undefined;
 
 var _aureliaValidatejs = require('aurelia-validatejs');
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 var Form = exports.Form = function () {
   Form.prototype.onChange = function onChange() {};
@@ -17,7 +17,7 @@ var Form = exports.Form = function () {
   function Form() {
     var _this = this;
 
-    _classCallCheck(this, Form);
+    
 
     this.messages = {};
 

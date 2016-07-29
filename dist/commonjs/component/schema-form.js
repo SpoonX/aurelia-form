@@ -21,7 +21,7 @@ function _initDefineProp(target, property, descriptor, context) {
   });
 }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -57,7 +57,7 @@ function _initializerWarningHelper(descriptor, context) {
 }
 
 var SchemaForm = exports.SchemaForm = (_dec = (0, _aureliaFramework.customElement)('schema-form'), _dec2 = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'schema-form'), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function SchemaForm() {
-  _classCallCheck(this, SchemaForm);
+  
 
   _initDefineProp(this, 'schema', _descriptor, this);
 

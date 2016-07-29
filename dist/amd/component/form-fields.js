@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'aurelia-logging', 'aurelia-view-manager'], function (exports, _aureliaFramework, _aureliaLogging, _aureliaViewManager) {
+define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../aurelia-form'], function (exports, _aureliaFramework, _aureliaViewManager, _aureliaForm) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -22,11 +22,7 @@ define(['exports', 'aurelia-framework', 'aurelia-logging', 'aurelia-view-manager
     });
   }
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
     var desc = {};
@@ -65,7 +61,7 @@ define(['exports', 'aurelia-framework', 'aurelia-logging', 'aurelia-view-manager
 
   var FormFields = exports.FormFields = (_dec = (0, _aureliaFramework.customElement)('form-fields'), _dec2 = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'form-fields'), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
     function FormFields() {
-      _classCallCheck(this, FormFields);
+      
 
       _initDefineProp(this, 'schema', _descriptor, this);
 
@@ -76,8 +72,12 @@ define(['exports', 'aurelia-framework', 'aurelia-logging', 'aurelia-view-manager
 
     FormFields.prototype.attached = function attached() {
       if (_typeof(this.model) !== 'object') {
-        (0, _aureliaLogging.getLogger)('aurelia-form').warn('model is not an object');
+        _aureliaForm.logger.warn('model is not an object');
       }
+    };
+
+    FormFields.prototype.hasKeyProp = function hasKeyProp(element) {
+      return !!element.key;
     };
 
     return FormFields;

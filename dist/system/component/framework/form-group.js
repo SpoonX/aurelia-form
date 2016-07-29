@@ -15,11 +15,7 @@ System.register(['aurelia-framework'], function (_export, _context) {
     });
   }
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
     var desc = {};
@@ -80,7 +76,7 @@ System.register(['aurelia-framework'], function (_export, _context) {
 
       _export('FormGroup', FormGroup = (_dec = computedFrom('element'), _dec2 = computedFrom('message'), _dec3 = computedFrom('element'), (_class = function () {
         function FormGroup() {
-          _classCallCheck(this, FormGroup);
+          
 
           _initDefineProp(this, 'element', _descriptor, this);
 

@@ -1,11 +1,13 @@
 'use strict';
 
-System.register(['./config', 'aurelia-view-manager', './entity-schema', './form'], function (_export, _context) {
+System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entity-schema', './form', './utils'], function (_export, _context) {
   "use strict";
 
-  var Config, ViewManagerConfig;
+  var getLogger, Config, ViewManagerConfig, logger;
   return {
-    setters: [function (_config) {
+    setters: [function (_aureliaLogging) {
+      getLogger = _aureliaLogging.getLogger;
+    }, function (_config) {
       Config = _config.Config;
     }, function (_aureliaViewManager) {
       ViewManagerConfig = _aureliaViewManager.Config;
@@ -19,9 +21,18 @@ System.register(['./config', 'aurelia-view-manager', './entity-schema', './form'
       _exportObj2.Form = _form.Form;
 
       _export(_exportObj2);
+    }, function (_utils) {
+      var _exportObj3 = {};
+
+      for (var _key in _utils) {
+        if (_key !== "default") _exportObj3[_key] = _utils[_key];
+      }
+
+      _export(_exportObj3);
     }],
     execute: function () {
       function configure(aurelia, configCallback) {
+        aurelia.aurelia.use.plugin('aurelia-view-manager');
         var viewManagerConfig = aurelia.container.get(ViewManagerConfig);
         var formConfig = aurelia.container.get(Config);
 
@@ -37,13 +48,17 @@ System.register(['./config', 'aurelia-view-manager', './entity-schema', './form'
 
             actions: '{{framepath}}/actions',
             collection: '{{framepath}}/collection',
+            conditional: '{{framepath}}/conditional',
+            select: '{{framepath}}/select',
+            radios: '{{framepath}}/radios',
+            checkboxes: '{{framepath}}/checkboxes',
 
-            text: '{{framepath}}/input.html',
             button: '{{framepath}}/input.html',
             color: '{{framepath}}/input.html',
             date: '{{framepath}}/input.html',
             datetime: '{{framepath}}/input.html',
             'datetime-local': '{{framepath}}/input.html',
+            string: '{{framepath}}/input.html',
             email: '{{framepath}}/input.html',
             month: '{{framepath}}/input.html',
             number: '{{framepath}}/input.html',
@@ -62,14 +77,14 @@ System.register(['./config', 'aurelia-view-manager', './entity-schema', './form'
             options: 'select',
             buttons: 'actions',
             nested: 'fieldset',
-            undefined: 'text',
-            null: 'text',
+            undefined: 'string',
+            null: 'string',
             int: 'number',
             integer: 'number',
             float: 'number',
-            string: 'text',
             bool: 'checkbox',
-            boolean: 'checkbox'
+            boolean: 'checkbox',
+            text: 'textarea'
           }
         });
 
@@ -82,7 +97,9 @@ System.register(['./config', 'aurelia-view-manager', './entity-schema', './form'
 
       _export('configure', configure);
 
-      _export('Config', Config);
+      _export('logger', logger = getLogger('aurelia-form'));
+
+      _export('logger', logger);
     }
   };
 });

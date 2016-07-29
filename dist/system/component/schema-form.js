@@ -15,11 +15,7 @@ System.register(['aurelia-framework', 'aurelia-view-manager'], function (_export
     });
   }
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
     var desc = {};
@@ -64,7 +60,7 @@ System.register(['aurelia-framework', 'aurelia-view-manager'], function (_export
     }],
     execute: function () {
       _export('SchemaForm', SchemaForm = (_dec = customElement('schema-form'), _dec2 = resolvedView('spoonx/form', 'schema-form'), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function SchemaForm() {
-        _classCallCheck(this, SchemaForm);
+        
 
         _initDefineProp(this, 'schema', _descriptor, this);
 
