@@ -18,7 +18,7 @@ define(['exports', './entity-schema', './form', './utils', 'aurelia-logging', '.
     }
   });
   Object.keys(_utils).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
+    if (key === "default") return;
     Object.defineProperty(exports, key, {
       enumerable: true,
       get: function () {
