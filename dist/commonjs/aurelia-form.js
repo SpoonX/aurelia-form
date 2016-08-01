@@ -26,7 +26,7 @@ Object.defineProperty(exports, 'Form', {
 var _utils = require('./utils');
 
 Object.keys(_utils).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
+  if (key === "default") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
