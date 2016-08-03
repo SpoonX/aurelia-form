@@ -1,15 +1,16 @@
 <template>
   <require from="./../../../attributes"></require>
+  <require from="./../../../converter/normalizeOptions"></require>
   <require from="./form-group"></require>
-  <form-group element.bind="element" message.bind="message">
-    <div class="radio" repeat.for="option of options">
+  <form-group element.bind="model.element" message.bind="message">
+    <div class="radio" repeat.for="option of model.element.options | normalizeOptions">
       <label>
         <input
-          attributes.bind="element.attributes"
+          attributes.bind="model.element.attributes"
           type="radio"
           name.bind="option.name"
           model.bind="option.value"
-          checked.bind="value">
+          checked.bind="model.value">
           ${option.name}
       </label>
     </div>

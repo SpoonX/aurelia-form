@@ -4,6 +4,7 @@ import {Config as ViewManagerConfig} from 'aurelia-view-manager';
 export {entitySchema} from './entity-schema';
 export {Form} from './form';
 export * from './utils';
+export * from './converter/normalizeOptions';
 
 export function configure(aurelia, configCallback) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');

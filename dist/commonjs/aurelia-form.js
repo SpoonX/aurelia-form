@@ -26,11 +26,23 @@ Object.defineProperty(exports, 'Form', {
 var _utils = require('./utils');
 
 Object.keys(_utils).forEach(function (key) {
-  if (key === "default") return;
+  if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
       return _utils[key];
+    }
+  });
+});
+
+var _normalizeOptions = require('./converter/normalizeOptions');
+
+Object.keys(_normalizeOptions).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _normalizeOptions[key];
     }
   });
 });

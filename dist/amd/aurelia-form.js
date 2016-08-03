@@ -1,4 +1,4 @@
-define(['exports', './entity-schema', './form', './utils', 'aurelia-logging', './config', 'aurelia-view-manager'], function (exports, _entitySchema, _form, _utils, _aureliaLogging, _config, _aureliaViewManager) {
+define(['exports', './entity-schema', './form', './utils', './converter/normalizeOptions', 'aurelia-logging', './config', 'aurelia-view-manager'], function (exports, _entitySchema, _form, _utils, _normalizeOptions, _aureliaLogging, _config, _aureliaViewManager) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -18,11 +18,20 @@ define(['exports', './entity-schema', './form', './utils', 'aurelia-logging', '.
     }
   });
   Object.keys(_utils).forEach(function (key) {
-    if (key === "default") return;
+    if (key === "default" || key === "__esModule") return;
     Object.defineProperty(exports, key, {
       enumerable: true,
       get: function () {
         return _utils[key];
+      }
+    });
+  });
+  Object.keys(_normalizeOptions).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+      enumerable: true,
+      get: function () {
+        return _normalizeOptions[key];
       }
     });
   });
