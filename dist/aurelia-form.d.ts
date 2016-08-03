@@ -18,6 +18,7 @@ export declare {
   Form
 } from 'aurelia-form/form';
 export * from 'aurelia-form/utils';
+export * from 'aurelia-form/converter/normalizeOptions';
 export declare function configure(aurelia?: any, configCallback?: any): any;
 export declare const logger: any;
 export declare class Config {
@@ -109,6 +110,9 @@ export declare class SchemaForm {
   model: any;
   messages: any;
 }
+export declare class normalizeOptionsValueConverter {
+  toView(options?: any): any;
+}
 export declare class Actions {
   activate(model?: any): any;
 }
@@ -128,9 +132,7 @@ export declare class FormGroup {
   labelText: any;
 }
 export declare class Options {
-  constructor(bindingEngine?: any);
   activate(model?: any): any;
-  unbind(): any;
 }
 export declare class ActionsCustomElement extends Actions {
 

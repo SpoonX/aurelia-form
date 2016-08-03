@@ -1,3 +1,13 @@
+<a name="0.1.9"></a>
+## [0.1.9](https://github.com/SpoonX/aurelia-form/compare/0.1.8...v0.1.9) (2016-08-03)
+
+
+### Bug Fixes
+
+* **options:** use template and value converter for options ([8a62af6](https://github.com/SpoonX/aurelia-form/commit/8a62af6))
+
+
+
 <a name="0.1.8"></a>
 ## [0.1.8](https://github.com/SpoonX/aurelia-form/compare/0.0.2...v0.1.8) (2016-08-01)
 
