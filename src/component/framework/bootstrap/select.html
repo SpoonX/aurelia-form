@@ -2,14 +2,14 @@
   <require from="./../../../attributes"></require>
   <require from="./../../../converter/normalizeOptions"></require>
   <require from="./form-group"></require>
-  <form-group element.bind="element" message.bind="message">
+  <form-group element.bind="model.element" message.bind="message">
     <select
-      attributes.bind="element.attributes"
-      value.bind="value"
+      attributes.bind="model.element.attributes"
+      value.bind="model.value"
       class="form-control">
-      <option repeat.for="option of element.options | normalizeOptions"
+      <option repeat.for="option of model.element.options | normalizeOptions"
         attributes.bind="option.attributes"
-        name.bind="element.key"
+        name.bind="model.element.key"
         model.bind="option.value"
         t="${option.name}">${option.name}</option>
     </select>

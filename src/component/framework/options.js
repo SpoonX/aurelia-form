@@ -7,8 +7,7 @@ export class Options {
       logger.error('element \'s options should be an array');
     }
 
-    this.value   = model.value;
-    this.element = model.element;
+    this.model = model;
   }
 
 }
