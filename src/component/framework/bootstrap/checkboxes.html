@@ -2,15 +2,15 @@
   <require from="./../../../attributes"></require>
   <require from="./../../../converter/normalizeOptions"></require>
   <require from="./form-group"></require>
-  <form-group element.bind="element" attributes.bind="element.attributes">
-    <div class="checkbox" repeat.for="option of element.options | normalizeOptions">
+  <form-group element.bind="model.element" attributes.bind="model.element.attributes">
+    <div class="checkbox" repeat.for="option of model.element.options | normalizeOptions">
       <label>
         <input
           attributes.bind="option.attributes"
           type="checkbox"
           name.bind="option.name"
           model.bind="option.value"
-          checked.bind="value">
+          checked.bind="model.value">
           ${option.name}
       </label>
     </div>
