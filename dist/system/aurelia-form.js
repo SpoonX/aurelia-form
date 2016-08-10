@@ -25,7 +25,7 @@ System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entit
       var _exportObj3 = {};
 
       for (var _key in _utils) {
-        if (_key !== "default" && key !== "__esModule") _exportObj3[_key] = _utils[_key];
+        if (_key !== "default") _exportObj3[_key] = _utils[_key];
       }
 
       _export(_exportObj3);
@@ -33,7 +33,7 @@ System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entit
       var _exportObj4 = {};
 
       for (var _key2 in _converterNormalizeOptions) {
-        if (_key2 !== "default" && key !== "__esModule") _exportObj4[_key2] = _converterNormalizeOptions[_key2];
+        if (_key2 !== "default") _exportObj4[_key2] = _converterNormalizeOptions[_key2];
       }
 
       _export(_exportObj4);
