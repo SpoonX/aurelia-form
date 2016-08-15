@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entity-schema', './form', './utils'], function (_export, _context) {
+System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entity-schema', './form', './utils', './converter/normalizeOptions'], function (_export, _context) {
   "use strict";
 
   var getLogger, Config, ViewManagerConfig, logger;
@@ -29,6 +29,14 @@ System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entit
       }
 
       _export(_exportObj3);
+    }, function (_converterNormalizeOptions) {
+      var _exportObj4 = {};
+
+      for (var _key2 in _converterNormalizeOptions) {
+        if (_key2 !== "default") _exportObj4[_key2] = _converterNormalizeOptions[_key2];
+      }
+
+      _export(_exportObj4);
     }],
     execute: function () {
       function configure(aurelia, configCallback) {

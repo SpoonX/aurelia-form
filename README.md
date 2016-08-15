@@ -15,23 +15,77 @@ Makes working with forms just a tad more pleasant.
 - Aliases for types so you can reuse elements for similar or different types
 - A descent amount of types so you can start generating forms out of the box
 
-## Installation
-
-Make sure to execute these commands from project root.
-
-### webpack
-
-`npm install aurelia-form`
-
-### jspm
-
-`jspm install npm:aurelia-form`
-
 ## Documentation
 
 You can find usage examples and the documentation at [aurelia-form](http://aurelia-form.spoonx.org/).
 
 The [changelog](doc/CHANGELOG.md) provides you with information about important changes.
+
+## Uses
+
+Aurelia-form needs following plugins installed and configured:
+
+- [aurelia-view-manager](https://www.npmjs.com/package/aurelia-view-manager)
+- [aurelia-validatejs](https://www.npmjs.com/package/aurelia-validatejs)
+
+## Installation
+
+### Aureli-Cli
+
+Run `npm i aurelia-form --save` from your project root.
+
+Aurelia-form makes use of `extend`. So, add following to the `build.bundles.dependencies` section of `aurelia-project/aurelia.json`.
+
+```js
+"dependencies": [
+  // ...
+  "extend",
+  {
+    "name": "aurelia-form",
+    "path": "../node_modules/aurelia-form/dist/amd",
+    "main": "aurelia-form",
+    "resources": [
+      "component/**/*.html"
+    ]
+  },
+  // ...
+],
+```
+
+### Jspm
+
+Run `jspm i aurelia-form` from your project root.
+
+Add following to the desired `includes` section of `build/bundles.js`, eg:
+
+```js
+"aurelia": {
+  "includes": [
+    //...
+    "aurelia-form",
+    "[aurelia-form/**/*.js]",
+    "aurelia-form/**/*.html!text",
+    //...
+  ]
+}
+```
+
+If the installation results in having forks, try resolving them by running:
+
+```sh
+jspm inspect --forks
+jspm resolve --only registry:package-name@version
+```
+
+### Webpack
+
+Run `npm i aurelia-form --save` from your project root.
+
+And add `aurelia-form` in the `coreBundles.aurelia` section of your `webpack.config.js`.
+
+### Typescript
+
+Npm-based installations pick up the typings automatically. For Jspm-based installations, run `typings i github:spoonx/aurelia-form` or add `"aurelia-form": "github:spoonx/aurelia-form",` to your `typings.json` and run `typings i`.
 
 ## Contributing
 
