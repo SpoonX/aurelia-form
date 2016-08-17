@@ -4,6 +4,8 @@ import {Association} from '../association';
 @inject(BindingEngine)
 export class AssociationElement extends Association {
   constructor(bindingEngine) {
+    super();
+
     this.bindingEngine = bindingEngine;
   }
 }

@@ -1,19 +1,19 @@
 <template>
   <require from="./../../../attributes"></require>
   <require from="./form-group"></require>
-  <form-group role="group" model.element.bind="model.element" message.bind="message">
+  <form-group role="group" element.bind="vm.element" message.bind="message">
     <association-select
-      attributes.bind      = "model.element.attributes"
-      multiple.bind        = "model.element.multiple"
-      value.bind           = "model.value"
-      property.bind        = "model.element.property"
-      repository.bind      = "model.element.repository"
-      resource.bind        = "model.element.resource"
+      attributes.bind      = "vm.element.attributes"
+      multiple.bind        = "vm.element.multiple"
+      value.bind           = "vm.value"
+      property.bind        = "vm.element.property"
+      repository.bind      = "vm.element.repository"
+      resource.bind        = "vm.element.resource"
 
       association.bind     = "association"
       manyAssociation.bind = "manyAssociation"
 
-      criteria.bind        = "model.element.criteria"></association-select>
-    <span class="help-block">${messages[model.element.key]}</span>
+      criteria.bind        = "vm.element.criteria"></association-select>
+    <span class="help-block">${messages[vm.element.key]}</span>
   </form-group>
 </template>
