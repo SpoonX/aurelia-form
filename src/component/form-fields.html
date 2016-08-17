@@ -3,6 +3,7 @@
   <form-field repeat.for="element of schema"
     if.bind="hasKeyProp(element)"
     value.bind="model[element.key]"
+    model.bind="model"
     message.bind="messages[element.key]"
     element.bind="element">
   </form-field>

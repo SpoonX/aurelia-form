@@ -23,6 +23,7 @@ export function configure(aurelia, configCallback) {
       'entity-form': './schema-form.html',
 
       /* custom elements with a view model do not end with .html */
+      association: '{{framepath}}/association',
       actions: '{{framepath}}/actions',
       collection: '{{framepath}}/collection',
       conditional: '{{framepath}}/conditional',
