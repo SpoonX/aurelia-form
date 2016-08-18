@@ -100,3 +100,67 @@ export class SomeForm extends Form {
 ```
 
 This should render a form with only a select form field
+
+## Adding new elements
+
+Not only you can customize existing element but you can use the power of `aurelia-view-manager` to add new elements.
+
+```js
+    .plugin('aurelia-view-manager', view => {
+      view.configureNamespace('spoonx/form', {
+        templates: '/elements',
+        map: {
+          image-select: '{{templates}}/image-select'
+        }
+      });
+    })
+```
+
+
+```
+export class ImageSelectElement {
+
+  _data = null;
+
+  selectedColor = '#286090';
+  
+  @computedFrom('selectedColor')
+  get style () {
+    return `border-color: ${this.selectedColor};`;
+  }
+
+  load() {
+    // whatever
+  }
+
+  doSelect(item) {
+
+   //whatever
+  }
+  
+  activate (model) {
+    this.model = model;
+    this.load();
+  }
+
+}
+```
+
+```
+<template>
+  <require from="aurelia-form/attributes"></require>
+  <require from="aurelia-form/component/framework/bootstrap/form-group"></require>
+  <form-group role="group" element.bind="element" message.bind="message">
+      <option  value.bind="category.id" repeat.for="category of categories">${category.name}</option>
+    </select>
+    <div class="row">
+      <div class="col-xs-6 col-sm-4" repeat.for="item of _data">
+        <a click.delegate="doSelect(item)">
+          <img src.bind="item.whatever" style="border-width: 2px;" class="img-responsive img-thumbnail" style.bind="item.selected ? style : ''">
+        </a>
+      </div>
+    </div>
+    <span class="help-block">${messages[element.key]}</span>
+  </form-group>
+</template>
+```
