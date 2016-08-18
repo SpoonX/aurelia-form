@@ -101,29 +101,46 @@ export class SomeForm extends Form {
 
 This should render a form with only a select form field
 
-## Adding new elements
+## Adding an element
 
-Not only you can customize existing element but you can use the power of `aurelia-view-manager` to add new elements.
+Not only can you can customize existing form elements, but you can use the
+power of `aurelia-view-manager` to add new elements.
+
+> main.js
 
 ```js
+
+
     .plugin('aurelia-view-manager', view => {
       view.configureNamespace('spoonx/form', {
         templates: '/elements',
         map: {
+
+          /*
+           * This registers the image-select type and the path to the location
+           * of the component
+           */
           image-select: '{{templates}}/image-select'
         }
       });
     })
-```
-
 
 ```
+
+Besides registering the `image-select` component we also need to create it in
+the '/elements' directory.
+
+> /elements/image-select.js
+
+```js
+
+
 export class ImageSelectElement {
 
   _data = null;
 
   selectedColor = '#286090';
-  
+
   @computedFrom('selectedColor')
   get style () {
     return `border-color: ${this.selectedColor};`;
@@ -137,16 +154,20 @@ export class ImageSelectElement {
 
    //whatever
   }
-  
+
   activate (model) {
     this.model = model;
     this.load();
   }
 
 }
-```
 
 ```
+
+> /elements/image-select.html
+
+```html
+
 <template>
   <require from="aurelia-form/attributes"></require>
   <require from="aurelia-form/component/framework/bootstrap/form-group"></require>
@@ -163,4 +184,36 @@ export class ImageSelectElement {
     <span class="help-block">${messages[element.key]}</span>
   </form-group>
 </template>
+
+```
+
+You can now use this component when defining your schema.
+
+> someViewModel.js
+
+```js
+
+  this.userSettings = [{
+    key:  'nickname',
+    type: 'string',
+  }, {
+    key:  'email',
+    type:  'email'
+  }, {
+    key:  'picture',
+    type  'image-select'
+  }];
+
+  this.userSettingsModel = {/* ... */};
+
+```
+
+> someViewModelView.html
+```
+
+  <schema-form
+    schema.bind="userSettingsSchema"
+    model.bind ="userSettingsModel">
+  </schema-form>
+
 ```
