@@ -4,6 +4,7 @@
     class="form-group ${!!message && ' has-error'}"
     attributes.bind="element.attributes">
     <label
+      for="${element.uid}"
       t.bind="labelText"
       if.bind="showsLabel">${labelText}</label>
     <slot></slot>
