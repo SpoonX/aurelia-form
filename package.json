@@ -22,7 +22,60 @@
   "license": "MIT",
   "author": "RWOverdijk <wesley@spoonx.nl> (http://spoonx.nl/)",
   "contributors": [
-    "bas080 <bas080@hotmail.com> (http://spoonx.nl)"
+    {
+      "name": "Edouard Menayde",
+      "email": null,
+      "url": "https://github.com/Scrunshes",
+      "contributions": 1,
+      "additions": 2,
+      "deletions": 1,
+      "hireable": true
+    },
+    {
+      "name": "doktordirk",
+      "email": null,
+      "url": "https://github.com/doktordirk",
+      "contributions": 5,
+      "additions": 4192,
+      "deletions": 279,
+      "hireable": null
+    },
+    {
+      "name": "Vijay Bindraban",
+      "email": "marcovit66@gmail.com",
+      "url": "https://github.com/VMBindraban",
+      "contributions": 3,
+      "additions": 684,
+      "deletions": 377,
+      "hireable": null
+    },
+    {
+      "name": "Bas",
+      "email": "bassimhuis@gmail.com",
+      "url": "https://github.com/bas080",
+      "contributions": 130,
+      "additions": 16688,
+      "deletions": 10309,
+      "hireable": true
+    },
+    {
+      "name": null,
+      "email": null,
+      "url": "https://github.com/jeremyvergnas",
+      "contributions": 1,
+      "additions": 1,
+      "deletions": 9,
+      "hireable": null
+    },
+    {
+      "name": "Wesley Overdijk",
+      "email": "r.w.overdijk@gmail.com",
+      "url": "https://github.com/RWOverdijk",
+      "contributions": 11,
+      "additions": 888,
+      "deletions": 47,
+      "hireable": true
+    }
   ],
   "main": "dist/commonjs/aurelia-form.js",
   "typings": "dist/aurelia-form.d.ts",
