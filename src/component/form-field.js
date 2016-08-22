@@ -20,7 +20,7 @@ export class FormField {
   constructor(config, viewManager) {
     this.config      = config;
     this.viewManager = viewManager;
-    this.vm          = this;
+    this.formField   = this;
   }
 
   attached() {
