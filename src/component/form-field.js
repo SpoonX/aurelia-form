@@ -2,12 +2,13 @@ import {Config} from '../config';
 import {bindingMode, bindable, computedFrom, inject, customElement} from 'aurelia-framework';
 import {resolvedView, ViewManager} from 'aurelia-view-manager';
 import {logger} from '../aurelia-form';
-import {generatedUid} from '../utils';
 
 @customElement('form-field')
 @resolvedView('spoonx/form', 'form-field')
 @inject(Config, ViewManager)
 export class FormField {
+
+  static elementCount = 0;
 
   @bindable element
 
@@ -98,7 +99,8 @@ export class FormField {
   }
 
   elementChanged(element) {
-    this.element.uid = generatedUid(element.type);
+    this.element.id = `sx-form-${element.type}-${element.key}-${FormField.elementCount}`;
+    FormField.elementCount++;
 
     return this.element;
   }

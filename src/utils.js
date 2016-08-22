@@ -1,7 +1,11 @@
-const generatedUid = uidGenerator();
-
-export {generatedUid};
-
+/**
+ * Used to make options that are defined in schema element comply with a
+ * specific format which is used to render them
+ *
+ * @param {object[]|string[]} options
+ * @returns {array} which is transformed to an object with name and value
+ * properties
+ */
 export function normalizeOptions(options) {
   return options.map(option => {
     if (typeof option === 'string') {
@@ -22,33 +26,4 @@ export function normalizeOptions(options) {
       };
     }
   });
-}
-
-/**
- * creates a number incremetor which increments by one
- *
- * @returns {function} which returns an incremented value everytime it's called
- */
-export function incrementor() {
-  let num = -1;
-  return function increment() {
-    return num++;
-  };
-}
-
-/**
- * An uid generator specificly for aurelia form
- *
- * @returns {function}
- */
-export function uidGenerator() {
-  let incrementors = {};
-
-  return function uidGenerate(type) {
-    if (!incrementors[type]) {
-      incrementors[type] = incrementor();
-    }
-
-    return `au-form-${type}-${incrementors[type]()}`;
-  };
 }
