@@ -12,9 +12,8 @@ export class AttributesCustomAttribute {
   }
 
   valueChanged() {
-    Object.keys(this.value).forEach(attr => {
-      let value = this.value[attr];
-      this.element.setAttribute(attr, value);
+    Object.keys(this.value).forEach(attribute => {
+      this.element.setAttribute(attribute, this.value[attribute]);
     });
   }
 
