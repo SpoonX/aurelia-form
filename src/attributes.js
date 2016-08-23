@@ -12,7 +12,10 @@ export class AttributesCustomAttribute {
   }
 
   valueChanged() {
-    $(this.element).attr(this.value || {});
+    Object.keys(this.value).forEach(attr => {
+      let value = this.value[attr];
+      this.element.setAttribute(attr, value);
+    });
   }
 
 }
