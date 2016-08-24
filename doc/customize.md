@@ -110,7 +110,6 @@ power of `aurelia-view-manager` to add new elements.
 
 ```js
 
-
     .plugin('aurelia-view-manager', view => {
       view.configureNamespace('spoonx/form', {
         templates: '/elements',
@@ -133,7 +132,6 @@ the '/elements' directory.
 > /elements/image-select.js
 
 ```js
-
 
 export class ImageSelectElement {
 
@@ -209,7 +207,8 @@ You can now use this component when defining your schema.
 ```
 
 > someViewModelView.html
-```
+
+```html
 
   <schema-form
     schema.bind="userSettingsSchema"
