@@ -1,3 +1,25 @@
+<a name="0.1.11"></a>
+## [0.1.11](https://github.com/SpoonX/aurelia-form/compare/0.1.10...v0.1.11) (2016-08-26)
+
+
+### Bug Fixes
+
+* **attribute:** remove jQuery dependency ([3fc8641](https://github.com/SpoonX/aurelia-form/commit/3fc8641))
+* **bundle:** re-add imports for bundling ([2611828](https://github.com/SpoonX/aurelia-form/commit/2611828))
+* **checkbox:** Changed binding to value instead of element.value ([ad49477](https://github.com/SpoonX/aurelia-form/commit/ad49477))
+* **component:** actions and collection use form-field vm ([dbe2881](https://github.com/SpoonX/aurelia-form/commit/dbe2881))
+* **component:** enable the use of association select in form ([b685d4d](https://github.com/SpoonX/aurelia-form/commit/b685d4d))
+* **component:** file and checkbox id is set ([a217e1f](https://github.com/SpoonX/aurelia-form/commit/a217e1f))
+* **fileInput:** require attributes and use file binding ([dc13f12](https://github.com/SpoonX/aurelia-form/commit/dc13f12))
+* **permission:** form-field.js without execute permissions ([243d09d](https://github.com/SpoonX/aurelia-form/commit/243d09d))
+
+
+### Features
+
+* **component:** generate uids for the label and input fields ([db6ca39](https://github.com/SpoonX/aurelia-form/commit/db6ca39))
+
+
+
 <a name="0.1.10"></a>
 ## [0.1.10](https://github.com/SpoonX/aurelia-form/compare/0.1.9...v0.1.10) (2016-08-10)
 

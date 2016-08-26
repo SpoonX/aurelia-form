@@ -18,7 +18,11 @@ define(['exports', 'aurelia-dependency-injection'], function (exports, _aureliaD
     }
 
     AttributesCustomAttribute.prototype.valueChanged = function valueChanged() {
-      $(this.element).attr(this.value || {});
+      var _this = this;
+
+      Object.keys(this.value).forEach(function (attribute) {
+        _this.element.setAttribute(attribute, _this.value[attribute]);
+      });
     };
 
     return AttributesCustomAttribute;

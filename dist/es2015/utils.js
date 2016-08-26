@@ -1,3 +1,4 @@
+
 export function normalizeOptions(options) {
   return options.map(option => {
     if (typeof option === 'string') {

@@ -1,40 +1,10 @@
-define(['exports', './entity-schema', './form', './utils', './converter/normalizeOptions', 'aurelia-logging', './config', 'aurelia-view-manager'], function (exports, _entitySchema, _form, _utils, _normalizeOptions, _aureliaLogging, _config, _aureliaViewManager) {
+define(['exports', 'aurelia-logging', './config', 'aurelia-view-manager', './attributes', './entity-schema', './form', './utils', './converter/normalizeOptions', './component/entity-form', './component/schema-form', './component/form-fields', './component/form-field', './component/framework/options', './component/framework/form-group', './component/framework/conditional', './component/framework/collection', './component/framework/actions', './component/framework/bootstrap/actions', './component/framework/bootstrap/checkboxes', './component/framework/bootstrap/collection', './component/framework/bootstrap/conditional', './component/framework/bootstrap/form-group', './component/framework/bootstrap/radios', './component/framework/bootstrap/select'], function (exports, _aureliaLogging, _config, _aureliaViewManager, _attributes, _entitySchema, _form, _utils, _normalizeOptions, _entityForm, _schemaForm, _formFields, _formField, _options, _formGroup, _conditional, _collection, _actions, _actions2, _checkboxes, _collection2, _conditional2, _formGroup2, _radios, _select) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.logger = exports.Form = exports.entitySchema = undefined;
-  Object.defineProperty(exports, 'entitySchema', {
-    enumerable: true,
-    get: function () {
-      return _entitySchema.entitySchema;
-    }
-  });
-  Object.defineProperty(exports, 'Form', {
-    enumerable: true,
-    get: function () {
-      return _form.Form;
-    }
-  });
-  Object.keys(_utils).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-      enumerable: true,
-      get: function () {
-        return _utils[key];
-      }
-    });
-  });
-  Object.keys(_normalizeOptions).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-      enumerable: true,
-      get: function () {
-        return _normalizeOptions[key];
-      }
-    });
-  });
+  exports.entitySchema = exports.normalizeOptions = exports.Form = exports.Config = exports.logger = undefined;
   exports.configure = configure;
   function configure(aurelia, configCallback) {
     aurelia.aurelia.use.plugin('aurelia-view-manager');
@@ -51,6 +21,7 @@ define(['exports', './entity-schema', './form', './utils', './converter/normaliz
         'schema-form': './schema-form.html',
         'entity-form': './schema-form.html',
 
+        association: '{{framepath}}/association',
         actions: '{{framepath}}/actions',
         collection: '{{framepath}}/collection',
         conditional: '{{framepath}}/conditional',
@@ -101,4 +72,9 @@ define(['exports', './entity-schema', './form', './utils', './converter/normaliz
   }
 
   var logger = exports.logger = (0, _aureliaLogging.getLogger)('aurelia-form');
+
+  exports.Config = _config.Config;
+  exports.Form = _form.Form;
+  exports.normalizeOptions = _utils.normalizeOptions;
+  exports.entitySchema = _entitySchema.entitySchema;
 });

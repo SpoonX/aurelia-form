@@ -15,8 +15,8 @@ System.register([], function (_export, _context) {
           
         }
 
-        Actions.prototype.activate = function activate(model) {
-          this.value = model.value;
+        Actions.prototype.activate = function activate(vm) {
+          this.vm = vm;
         };
 
         return Actions;

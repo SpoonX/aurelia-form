@@ -5,11 +5,12 @@
     <div class="checkbox">
       <label>
         <input
+          id="${element.id}"
           attributes.bind="element.attributes"
           type="checkbox"
           t.bind="label"
           name.bind="element.key"
-          checked.bind="element.value">
+          checked.bind="value">
           ${label}
       </label>
     </div>

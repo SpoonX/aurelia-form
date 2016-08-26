@@ -3,49 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.logger = exports.Form = exports.entitySchema = undefined;
-
-var _entitySchema = require('./entity-schema');
-
-Object.defineProperty(exports, 'entitySchema', {
-  enumerable: true,
-  get: function get() {
-    return _entitySchema.entitySchema;
-  }
-});
-
-var _form = require('./form');
-
-Object.defineProperty(exports, 'Form', {
-  enumerable: true,
-  get: function get() {
-    return _form.Form;
-  }
-});
-
-var _utils = require('./utils');
-
-Object.keys(_utils).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _utils[key];
-    }
-  });
-});
-
-var _normalizeOptions = require('./converter/normalizeOptions');
-
-Object.keys(_normalizeOptions).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _normalizeOptions[key];
-    }
-  });
-});
+exports.entitySchema = exports.normalizeOptions = exports.Form = exports.Config = exports.logger = undefined;
 exports.configure = configure;
 
 var _aureliaLogging = require('aurelia-logging');
@@ -53,6 +11,48 @@ var _aureliaLogging = require('aurelia-logging');
 var _config = require('./config');
 
 var _aureliaViewManager = require('aurelia-view-manager');
+
+var _attributes = require('./attributes');
+
+var _entitySchema = require('./entity-schema');
+
+var _form = require('./form');
+
+var _utils = require('./utils');
+
+var _normalizeOptions = require('./converter/normalizeOptions');
+
+var _entityForm = require('./component/entity-form');
+
+var _schemaForm = require('./component/schema-form');
+
+var _formFields = require('./component/form-fields');
+
+var _formField = require('./component/form-field');
+
+var _options = require('./component/framework/options');
+
+var _formGroup = require('./component/framework/form-group');
+
+var _conditional = require('./component/framework/conditional');
+
+var _collection = require('./component/framework/collection');
+
+var _actions = require('./component/framework/actions');
+
+var _actions2 = require('./component/framework/bootstrap/actions');
+
+var _checkboxes = require('./component/framework/bootstrap/checkboxes');
+
+var _collection2 = require('./component/framework/bootstrap/collection');
+
+var _conditional2 = require('./component/framework/bootstrap/conditional');
+
+var _formGroup2 = require('./component/framework/bootstrap/form-group');
+
+var _radios = require('./component/framework/bootstrap/radios');
+
+var _select = require('./component/framework/bootstrap/select');
 
 function configure(aurelia, configCallback) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
@@ -69,6 +69,7 @@ function configure(aurelia, configCallback) {
       'schema-form': './schema-form.html',
       'entity-form': './schema-form.html',
 
+      association: '{{framepath}}/association',
       actions: '{{framepath}}/actions',
       collection: '{{framepath}}/collection',
       conditional: '{{framepath}}/conditional',
@@ -119,3 +120,8 @@ function configure(aurelia, configCallback) {
 }
 
 var logger = exports.logger = (0, _aureliaLogging.getLogger)('aurelia-form');
+
+exports.Config = _config.Config;
+exports.Form = _form.Form;
+exports.normalizeOptions = _utils.normalizeOptions;
+exports.entitySchema = _entitySchema.entitySchema;
