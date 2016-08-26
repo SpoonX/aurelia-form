@@ -10,6 +10,8 @@ export class FormField {
 
   @bindable element
 
+  @bindable model
+
   @bindable({defaultBindingMode: bindingMode.twoWay})
   value
 
@@ -18,7 +20,7 @@ export class FormField {
   constructor(config, viewManager) {
     this.config      = config;
     this.viewManager = viewManager;
-    this.model       = this;
+    this.formField   = this;
   }
 
   attached() {
