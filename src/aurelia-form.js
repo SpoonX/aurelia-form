@@ -12,18 +12,18 @@ import {EntityForm} from './component/entity-form'; // eslint-disable-line no-un
 import {SchemaForm} from './component/schema-form'; // eslint-disable-line no-unused-vars
 import {FormFields} from './component/form-fields'; // eslint-disable-line no-unused-vars
 import {FormField} from './component/form-field'; // eslint-disable-line no-unused-vars
-import {Options} from './component/framework/options';// eslint-disable-line no-unused-vars 
-import {FormGroup} from './component/framework/form-group';// eslint-disable-line no-unused-vars 
-import {Conditional} from './component/framework/conditional';// eslint-disable-line no-unused-vars 
-import {Collection} from './component/framework/collection';// eslint-disable-line no-unused-vars 
-import {Actions} from './component/framework/actions';// eslint-disable-line no-unused-vars 
-import {ActionsCustomElement} from './component/framework/bootstrap/actions';// eslint-disable-line no-unused-vars 
-import {CheckboxesElement} from './component/framework/bootstrap/checkboxes';// eslint-disable-line no-unused-vars 
-import {CollectionCustomElement} from './component/framework/bootstrap/collection';// eslint-disable-line no-unused-vars 
-import {ConditionalCustomElement} from './component/framework/bootstrap/conditional';// eslint-disable-line no-unused-vars 
-import {FormGroupCustomElement} from './component/framework/bootstrap/form-group';// eslint-disable-line no-unused-vars 
-import {RadiosElement} from './component/framework/bootstrap/radios';// eslint-disable-line no-unused-vars 
-import {SelectElement} from './component/framework/bootstrap/select';// eslint-disable-line no-unused-vars 
+import {Options} from './component/framework/options';// eslint-disable-line no-unused-vars
+import {FormGroup} from './component/framework/form-group';// eslint-disable-line no-unused-vars
+import {Conditional} from './component/framework/conditional';// eslint-disable-line no-unused-vars
+import {Collection} from './component/framework/collection';// eslint-disable-line no-unused-vars
+import {Actions} from './component/framework/actions';// eslint-disable-line no-unused-vars
+import {ActionsCustomElement} from './component/framework/bootstrap/actions';// eslint-disable-line no-unused-vars
+import {CheckboxesElement} from './component/framework/bootstrap/checkboxes';// eslint-disable-line no-unused-vars
+import {CollectionCustomElement} from './component/framework/bootstrap/collection';// eslint-disable-line no-unused-vars
+import {ConditionalCustomElement} from './component/framework/bootstrap/conditional';// eslint-disable-line no-unused-vars
+import {FormGroupCustomElement} from './component/framework/bootstrap/form-group';// eslint-disable-line no-unused-vars
+import {RadiosElement} from './component/framework/bootstrap/radios';// eslint-disable-line no-unused-vars
+import {SelectElement} from './component/framework/bootstrap/select';// eslint-disable-line no-unused-vars
 
 export function configure(aurelia, configCallback) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
