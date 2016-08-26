@@ -11,16 +11,36 @@ export declare class AttributesCustomAttribute {
   constructor(element?: any);
   valueChanged(): any;
 }
-export declare {
-  entitySchema
-} from 'aurelia-form/entity-schema';
-export declare {
-  Form
-} from 'aurelia-form/form';
-export * from 'aurelia-form/utils';
-export * from 'aurelia-form/converter/normalizeOptions';
+// added for bundling
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
 export declare function configure(aurelia?: any, configCallback?: any): any;
 export declare const logger: any;
+export declare {
+  Config,
+  Form,
+  normalizeOptions,
+  entitySchema
+};
 export declare class Config {
   configurations: any;
   constructor(viewManager?: any, viewManagerConfig?: any);
@@ -80,6 +100,15 @@ export declare class Form {
   submit(): any;
   change(): any;
 }
+
+/**
+ * Used to make options that are defined in schema element comply with a
+ * specific format which is used to render them
+ *
+ * @param {object[]|string[]} options
+ * @returns {array} which is transformed to an object with name and value
+ * properties
+ */
 export declare function normalizeOptions(options?: any): any;
 export declare class EntityForm {
   entity: any;
@@ -87,7 +116,9 @@ export declare class EntityForm {
   bind(): any;
 }
 export declare class FormField {
+  static elementCount: any;
   element: any;
+  model: any;
   value: any;
   message: any;
   constructor(config?: any, viewManager?: any);
@@ -97,6 +128,7 @@ export declare class FormField {
   view: any;
   hasViewModel: any;
   type: any;
+  elementChanged(element?: any): any;
 }
 export declare class FormFields {
   schema: any;
@@ -114,10 +146,30 @@ export declare class normalizeOptionsValueConverter {
   toView(options?: any): any;
 }
 export declare class Actions {
-  activate(model?: any): any;
+  activate(vm?: any): any;
+}
+
+/**
+ * @class used to extend the association components for each and every render strategy(framework)
+ */
+export declare class Association {
+  association: any;
+  manyAssociation: any;
+  activate(formField?: any): any;
 }
 export declare class Collection {
-  activate(model?: any): any;
+  activate(vm?: any): any;
+  
+  /**
+     * Generates a schema for each of the items in the collection. This is done
+     * to add an index to the each of the schema elements of the collection.
+     *
+     * @param {number} index
+     * @param {object[]} schema for a single item
+     *
+     * @returns {object[]} schema elements with an index property
+     */
+  itemSchema(schema?: any, index?: any): any;
 }
 export declare class Conditional {
   constructor(bindingEngine?: any);
@@ -135,6 +187,9 @@ export declare class Options {
   activate(model?: any): any;
 }
 export declare class ActionsCustomElement extends Actions {
+
+}
+export declare class AssociationElement extends Association {
 
 }
 export declare class CheckboxesElement extends Options {

@@ -1,10 +1,12 @@
 <template>
+  <require from="./../../../attributes"></require>
   <require from="./form-group"></require>
   <form-group element.bind="element" message.bind="message">
     <input
+      id="${element.id}"
       attributes.bind="element.attributes"
       type="file"
       name.bind="element.key"
-      value.bind="element.value">
+      files.bind="value">
   </form-group>
 </template>

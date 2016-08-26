@@ -1,10 +1,29 @@
 import {getLogger} from 'aurelia-logging';
 import {Config} from './config';
 import {Config as ViewManagerConfig} from 'aurelia-view-manager';
-export {entitySchema} from './entity-schema';
-export {Form} from './form';
-export * from './utils';
-export * from './converter/normalizeOptions';
+
+// added for bundling
+import {AttributesCustomAttribute} from './attributes'; // eslint-disable-line no-unused-vars
+import {entitySchema} from './entity-schema'; // eslint-disable-line no-unused-vars
+import {Form} from './form'; // eslint-disable-line no-unused-vars
+import {normalizeOptions} from './utils'; // eslint-disable-line no-unused-vars
+import {normalizeOptionsValueConverter} from './converter/normalizeOptions'; // eslint-disable-line no-unused-vars
+import {EntityForm} from './component/entity-form'; // eslint-disable-line no-unused-vars
+import {SchemaForm} from './component/schema-form'; // eslint-disable-line no-unused-vars
+import {FormFields} from './component/form-fields'; // eslint-disable-line no-unused-vars
+import {FormField} from './component/form-field'; // eslint-disable-line no-unused-vars
+import {Options} from './component/framework/options';// eslint-disable-line no-unused-vars
+import {FormGroup} from './component/framework/form-group';// eslint-disable-line no-unused-vars
+import {Conditional} from './component/framework/conditional';// eslint-disable-line no-unused-vars
+import {Collection} from './component/framework/collection';// eslint-disable-line no-unused-vars
+import {Actions} from './component/framework/actions';// eslint-disable-line no-unused-vars
+import {ActionsCustomElement} from './component/framework/bootstrap/actions';// eslint-disable-line no-unused-vars
+import {CheckboxesElement} from './component/framework/bootstrap/checkboxes';// eslint-disable-line no-unused-vars
+import {CollectionCustomElement} from './component/framework/bootstrap/collection';// eslint-disable-line no-unused-vars
+import {ConditionalCustomElement} from './component/framework/bootstrap/conditional';// eslint-disable-line no-unused-vars
+import {FormGroupCustomElement} from './component/framework/bootstrap/form-group';// eslint-disable-line no-unused-vars
+import {RadiosElement} from './component/framework/bootstrap/radios';// eslint-disable-line no-unused-vars
+import {SelectElement} from './component/framework/bootstrap/select';// eslint-disable-line no-unused-vars
 
 export function configure(aurelia, configCallback) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
@@ -23,6 +42,7 @@ export function configure(aurelia, configCallback) {
       'entity-form': './schema-form.html',
 
       /* custom elements with a view model do not end with .html */
+      association: '{{framepath}}/association',
       actions: '{{framepath}}/actions',
       collection: '{{framepath}}/collection',
       conditional: '{{framepath}}/conditional',
@@ -84,3 +104,10 @@ export function configure(aurelia, configCallback) {
 }
 
 export const logger = getLogger('aurelia-form');
+
+export {
+  Config,
+  Form,
+  normalizeOptions,
+  entitySchema
+};

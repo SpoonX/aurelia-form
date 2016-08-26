@@ -9,7 +9,9 @@ export let AttributesCustomAttribute = (_dec = inject(Element), _dec(_class = cl
   }
 
   valueChanged() {
-    $(this.element).attr(this.value || {});
+    Object.keys(this.value).forEach(attribute => {
+      this.element.setAttribute(attribute, this.value[attribute]);
+    });
   }
 
 }) || _class);

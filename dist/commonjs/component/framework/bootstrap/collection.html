@@ -1,11 +1,11 @@
 <template>
   <require from="./../../../attributes"></require>
   <require from="./form-group"></require>
-  <form-group element.bind="element" message.bind="message">
-    <form-fields repeat.for="model of models"
-      attributes.bind="element.schema.attributes"
+  <form-group element.bind="vm.element" message.bind="vm.message">
+    <form-fields repeat.for="model of vm.value"
+      attributes.bind="vm.element.schema.attributes"
       model.bind="model"
-      schema.bind="schema($index)">
+      schema.bind="itemSchema(vm.element.schema, $index)">
     </form-fields>
   </form-group>
 </template>

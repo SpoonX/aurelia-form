@@ -12,7 +12,11 @@ export var AttributesCustomAttribute = (_dec = inject(Element), _dec(_class = fu
   }
 
   AttributesCustomAttribute.prototype.valueChanged = function valueChanged() {
-    $(this.element).attr(this.value || {});
+    var _this = this;
+
+    Object.keys(this.value).forEach(function (attribute) {
+      _this.element.setAttribute(attribute, _this.value[attribute]);
+    });
   };
 
   return AttributesCustomAttribute;

@@ -5,20 +5,17 @@ export var Collection = function () {
     
   }
 
-  Collection.prototype.activate = function activate(model) {
-    var _this = this;
+  Collection.prototype.activate = function activate(vm) {
+    this.vm = vm;
+  };
 
-    this.models = model.value;
-    this.element = model.element;
+  Collection.prototype.itemSchema = function itemSchema(schema, index) {
+    return schema.map(function (element) {
+      var el = Object.create(element);
+      el.index = index;
 
-    this.schema = function (index) {
-      return _this.element.schema.map(function (element) {
-        var el = Object.create(element);
-        el.index = index;
-
-        return el;
-      });
-    };
+      return el;
+    });
   };
 
   return Collection;

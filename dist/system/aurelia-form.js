@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entity-schema', './form', './utils', './converter/normalizeOptions'], function (_export, _context) {
+System.register(['aurelia-logging', './config', 'aurelia-view-manager', './attributes', './entity-schema', './form', './utils', './converter/normalizeOptions', './component/entity-form', './component/schema-form', './component/form-fields', './component/form-field', './component/framework/options', './component/framework/form-group', './component/framework/conditional', './component/framework/collection', './component/framework/actions', './component/framework/bootstrap/actions', './component/framework/bootstrap/checkboxes', './component/framework/bootstrap/collection', './component/framework/bootstrap/conditional', './component/framework/bootstrap/form-group', './component/framework/bootstrap/radios', './component/framework/bootstrap/select'], function (_export, _context) {
   "use strict";
 
-  var getLogger, Config, ViewManagerConfig, logger;
+  var getLogger, Config, ViewManagerConfig, AttributesCustomAttribute, entitySchema, Form, normalizeOptions, normalizeOptionsValueConverter, EntityForm, SchemaForm, FormFields, FormField, Options, FormGroup, Conditional, Collection, Actions, ActionsCustomElement, CheckboxesElement, CollectionCustomElement, ConditionalCustomElement, FormGroupCustomElement, RadiosElement, SelectElement, logger;
   return {
     setters: [function (_aureliaLogging) {
       getLogger = _aureliaLogging.getLogger;
@@ -11,32 +11,48 @@ System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entit
       Config = _config.Config;
     }, function (_aureliaViewManager) {
       ViewManagerConfig = _aureliaViewManager.Config;
+    }, function (_attributes) {
+      AttributesCustomAttribute = _attributes.AttributesCustomAttribute;
     }, function (_entitySchema) {
-      var _exportObj = {};
-      _exportObj.entitySchema = _entitySchema.entitySchema;
-
-      _export(_exportObj);
+      entitySchema = _entitySchema.entitySchema;
     }, function (_form) {
-      var _exportObj2 = {};
-      _exportObj2.Form = _form.Form;
-
-      _export(_exportObj2);
+      Form = _form.Form;
     }, function (_utils) {
-      var _exportObj3 = {};
-
-      for (var _key in _utils) {
-        if (_key !== "default") _exportObj3[_key] = _utils[_key];
-      }
-
-      _export(_exportObj3);
+      normalizeOptions = _utils.normalizeOptions;
     }, function (_converterNormalizeOptions) {
-      var _exportObj4 = {};
-
-      for (var _key2 in _converterNormalizeOptions) {
-        if (_key2 !== "default") _exportObj4[_key2] = _converterNormalizeOptions[_key2];
-      }
-
-      _export(_exportObj4);
+      normalizeOptionsValueConverter = _converterNormalizeOptions.normalizeOptionsValueConverter;
+    }, function (_componentEntityForm) {
+      EntityForm = _componentEntityForm.EntityForm;
+    }, function (_componentSchemaForm) {
+      SchemaForm = _componentSchemaForm.SchemaForm;
+    }, function (_componentFormFields) {
+      FormFields = _componentFormFields.FormFields;
+    }, function (_componentFormField) {
+      FormField = _componentFormField.FormField;
+    }, function (_componentFrameworkOptions) {
+      Options = _componentFrameworkOptions.Options;
+    }, function (_componentFrameworkFormGroup) {
+      FormGroup = _componentFrameworkFormGroup.FormGroup;
+    }, function (_componentFrameworkConditional) {
+      Conditional = _componentFrameworkConditional.Conditional;
+    }, function (_componentFrameworkCollection) {
+      Collection = _componentFrameworkCollection.Collection;
+    }, function (_componentFrameworkActions) {
+      Actions = _componentFrameworkActions.Actions;
+    }, function (_componentFrameworkBootstrapActions) {
+      ActionsCustomElement = _componentFrameworkBootstrapActions.ActionsCustomElement;
+    }, function (_componentFrameworkBootstrapCheckboxes) {
+      CheckboxesElement = _componentFrameworkBootstrapCheckboxes.CheckboxesElement;
+    }, function (_componentFrameworkBootstrapCollection) {
+      CollectionCustomElement = _componentFrameworkBootstrapCollection.CollectionCustomElement;
+    }, function (_componentFrameworkBootstrapConditional) {
+      ConditionalCustomElement = _componentFrameworkBootstrapConditional.ConditionalCustomElement;
+    }, function (_componentFrameworkBootstrapFormGroup) {
+      FormGroupCustomElement = _componentFrameworkBootstrapFormGroup.FormGroupCustomElement;
+    }, function (_componentFrameworkBootstrapRadios) {
+      RadiosElement = _componentFrameworkBootstrapRadios.RadiosElement;
+    }, function (_componentFrameworkBootstrapSelect) {
+      SelectElement = _componentFrameworkBootstrapSelect.SelectElement;
     }],
     execute: function () {
       function configure(aurelia, configCallback) {
@@ -54,6 +70,7 @@ System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entit
             'schema-form': './schema-form.html',
             'entity-form': './schema-form.html',
 
+            association: '{{framepath}}/association',
             actions: '{{framepath}}/actions',
             collection: '{{framepath}}/collection',
             conditional: '{{framepath}}/conditional',
@@ -108,6 +125,14 @@ System.register(['aurelia-logging', './config', 'aurelia-view-manager', './entit
       _export('logger', logger = getLogger('aurelia-form'));
 
       _export('logger', logger);
+
+      _export('Config', Config);
+
+      _export('Form', Form);
+
+      _export('normalizeOptions', normalizeOptions);
+
+      _export('entitySchema', entitySchema);
     }
   };
 });
