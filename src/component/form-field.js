@@ -8,6 +8,8 @@ import {logger} from '../aurelia-form';
 @inject(Config, ViewManager)
 export class FormField {
 
+  static elementCount = 0;
+
   @bindable element
 
   @bindable model
@@ -71,18 +73,18 @@ export class FormField {
   }
 
   /**
-  * returns a string that represents the type of which it is an alias of. If it
-  * is not registered as an alias it returns itself(identity).
-  *
-  * It also resolves recursively and makes sure it does not end up in a infinite
-  * loop because of a malformed config.
-  * @returns {string}
-  */
+   * returns a string that represents the type of which it is an alias of. If it
+   * is not registered as an alias it returns itself(identity).
+   *
+   * It also resolves recursively and makes sure it does not end up in a infinite
+   * loop because of a malformed config.
+   * @returns {string}
+   */
   @computedFrom('element')
   get type() {
     let type     = this.element.type;
-    let alias    = this.config.fetch('aliases', type); /* get an alias if it has one */
-    let previous = []; /* used to avoid an infinite loop */
+    let alias    = this.config.fetch('aliases', type);
+    let previous = [];
 
     /***
      * if it does have and alias, and has not resolved that alias previously,
@@ -96,6 +98,13 @@ export class FormField {
     }
 
     return type;
+  }
+
+  elementChanged(element) {
+    this.element.id = `sx-form-${element.type}-${element.key}-${FormField.elementCount}`;
+    FormField.elementCount++;
+
+    return this.element;
   }
 
 }
