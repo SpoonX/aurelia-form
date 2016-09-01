@@ -15,7 +15,23 @@ Aurelia-form needs an installation of [aurelia-view-manager](https://www.npmjs.c
     "path": "../node_modules/aurelia-form/dist/amd",
     "main": "aurelia-form",
     "resources": [
-      "component/**/*.html"
+      "component/form-field.html",
+      "component/form-fields.html",
+      "component/schema-form.html",
+      "component/framework/bootstrap/actions.html",
+      "component/framework/bootstrap/association.html",
+      "component/framework/bootstrap/checkbox.html",
+      "component/framework/bootstrap/checkboxes.html",
+      "component/framework/bootstrap/collection.html",
+      "component/framework/bootstrap/conditional.html",
+      "component/framework/bootstrap/fieldset.html",
+      "component/framework/bootstrap/file.html",
+      "component/framework/bootstrap/form-group.html",
+      "component/framework/bootstrap/input.html",
+      "component/framework/bootstrap/radios.html",
+      "component/framework/bootstrap/select.html",
+      "component/framework/bootstrap/submit.html",
+      "component/framework/bootstrap/textarea.html"            
     ]
   }
   // ...
