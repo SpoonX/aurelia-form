@@ -4,8 +4,16 @@ export let Association = class Association {
   activate(formField) {
     this.formField = formField;
 
-    this.association = toArray(this.formField.element.association).map(association => this.formField.model[association]);
-    this.manyAssociation = this.formField.model[this.formField.element.manyAssociation];
+    let element = this.formField.element;
+    element.property = element.property || 'name';
+
+    if (this.association) {
+      this.association = toArray(this.formField.element.association).map(association => this.formField.model[association]);
+    }
+
+    if (this.manyAssociation) {
+      this.manyAssociation = this.formField.model[this.formField.element.manyAssociation];
+    }
   }
 };
 
