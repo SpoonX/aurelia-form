@@ -1,3 +1,13 @@
+<a name="0.1.12"></a>
+## [0.1.12](https://github.com/SpoonX/aurelia-form/compare/0.1.11...v0.1.12) (2016-09-05)
+
+
+### Bug Fixes
+
+* **association:** name as default property ([7ccb10a](https://github.com/SpoonX/aurelia-form/commit/7ccb10a))
+
+
+
 <a name="0.1.11"></a>
 ## [0.1.11](https://github.com/SpoonX/aurelia-form/compare/0.1.10...v0.1.11) (2016-08-26)
 
