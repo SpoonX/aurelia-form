@@ -27,10 +27,18 @@ System.register([], function (_export, _context) {
 
           this.formField = formField;
 
-          this.association = toArray(this.formField.element.association).map(function (association) {
-            return _this.formField.model[association];
-          });
-          this.manyAssociation = this.formField.model[this.formField.element.manyAssociation];
+          var element = this.formField.element;
+          element.property = element.property || 'name';
+
+          if (this.association) {
+            this.association = toArray(this.formField.element.association).map(function (association) {
+              return _this.formField.model[association];
+            });
+          }
+
+          if (this.manyAssociation) {
+            this.manyAssociation = this.formField.model[this.formField.element.manyAssociation];
+          }
         };
 
         return Association;
