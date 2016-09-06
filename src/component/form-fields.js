@@ -18,7 +18,7 @@ export class FormFields {
     }
   }
 
-  hasKeyProp(element) {
-    return !!element.key;
+  hasKeyProp(element) {    
+    return !!element && !!element.key;
   }
 }
