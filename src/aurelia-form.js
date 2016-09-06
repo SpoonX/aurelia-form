@@ -1,31 +1,41 @@
-import {getLogger} from 'aurelia-logging';
-import {Config} from './config';
+import {getLogger}                   from 'aurelia-logging';
+import {Config}                      from './config';
 import {Config as ViewManagerConfig} from 'aurelia-view-manager';
+export {Form}                        from './form';
+import once                          from 'once';
+import {normalizeOptions}            from './utils';
+import {entitySchema}                from './entity-schema';
 
-// added for bundling
-import {AttributesCustomAttribute} from './attributes'; // eslint-disable-line no-unused-vars
-import {entitySchema} from './entity-schema'; // eslint-disable-line no-unused-vars
-import {Form} from './form'; // eslint-disable-line no-unused-vars
-import {normalizeOptions} from './utils'; // eslint-disable-line no-unused-vars
-import {normalizeOptionsValueConverter} from './converter/normalizeOptions'; // eslint-disable-line no-unused-vars
-import {EntityForm} from './component/entity-form'; // eslint-disable-line no-unused-vars
-import {SchemaForm} from './component/schema-form'; // eslint-disable-line no-unused-vars
-import {FormFields} from './component/form-fields'; // eslint-disable-line no-unused-vars
-import {FormField} from './component/form-field'; // eslint-disable-line no-unused-vars
-import {Options} from './component/framework/options';// eslint-disable-line no-unused-vars
-import {FormGroup} from './component/framework/form-group';// eslint-disable-line no-unused-vars
-import {Conditional} from './component/framework/conditional';// eslint-disable-line no-unused-vars
-import {Collection} from './component/framework/collection';// eslint-disable-line no-unused-vars
-import {Actions} from './component/framework/actions';// eslint-disable-line no-unused-vars
-import {ActionsCustomElement} from './component/framework/bootstrap/actions';// eslint-disable-line no-unused-vars
-import {CheckboxesElement} from './component/framework/bootstrap/checkboxes';// eslint-disable-line no-unused-vars
-import {CollectionCustomElement} from './component/framework/bootstrap/collection';// eslint-disable-line no-unused-vars
-import {ConditionalCustomElement} from './component/framework/bootstrap/conditional';// eslint-disable-line no-unused-vars
-import {FormGroupCustomElement} from './component/framework/bootstrap/form-group';// eslint-disable-line no-unused-vars
-import {RadiosElement} from './component/framework/bootstrap/radios';// eslint-disable-line no-unused-vars
-import {SelectElement} from './component/framework/bootstrap/select';// eslint-disable-line no-unused-vars
 
-export function configure(aurelia, configCallback) {
+// added for bundling or extending
+export {AttributesCustomAttribute}      from './attributes';
+export {normalizeOptionsValueConverter} from './converter/normalizeOptions';
+export {EntityForm}                     from './component/entity-form';
+export {SchemaForm}                     from './component/schema-form';
+export {FormFields}                     from './component/form-fields';
+export {FormField}                      from './component/form-field';
+export {Options}                        from './component/framework/options';
+export {FormGroup}                      from './component/framework/form-group';
+export {Conditional}                    from './component/framework/conditional';
+export {Collection}                     from './component/framework/collection';
+export {Actions}                        from './component/framework/actions';
+export {ActionsCustomElement}           from './component/framework/bootstrap/actions';
+export {CheckboxesElement}              from './component/framework/bootstrap/checkboxes';
+export {CollectionCustomElement}        from './component/framework/bootstrap/collection';
+export {ConditionalCustomElement}       from './component/framework/bootstrap/conditional';
+export {FormGroupCustomElement}         from './component/framework/bootstrap/form-group';
+export {RadiosElement}                  from './component/framework/bootstrap/radios';
+export {SelectElement}                  from './component/framework/bootstrap/select';
+
+/**
+ * The body of this function is performed the first time regardless how often
+ * it is called.
+ *
+ * @param {Aurelia} aurelia - an aurelia application
+ *
+ * @returns {undefined}
+ */
+const configureOnce = once(function(aurelia) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
   let viewManagerConfig = aurelia.container.get(ViewManagerConfig);
   let formConfig = aurelia.container.get(Config);
@@ -70,6 +80,13 @@ export function configure(aurelia, configCallback) {
     }
   });
 
+  aurelia.globalResources(
+    './component/entity-form',
+    './component/schema-form',
+    './component/form-fields',
+    './component/form-field'
+  );
+
   formConfig.configure({
     /*
      * Instead of defining a framework or custom component for every variant
@@ -90,24 +107,22 @@ export function configure(aurelia, configCallback) {
       text: 'textarea'
     }
   });
+});
+
+export function configure(aurelia, configCallback) {
+  let formConfig = aurelia.container.get(Config);
+
+  configureOnce(aurelia);
 
   if (typeof configCallback === 'function') {
     configCallback(formConfig);
   }
-
-  aurelia.globalResources(
-    './component/entity-form',
-    './component/schema-form',
-    './component/form-fields',
-    './component/form-field'
-  );
 }
 
 export const logger = getLogger('aurelia-form');
 
 export {
   Config,
-  Form,
   normalizeOptions,
   entitySchema
 };
