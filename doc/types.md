@@ -337,7 +337,7 @@ Association type plays nice with aurelia-orm's association select.
 
 ```
 
-## `conditional`
+## `conditional` `computed`
 
 What if you would like to show, hide or change the schema based on the values
 in the model or other values also.
