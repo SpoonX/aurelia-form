@@ -25,7 +25,7 @@ import {FormGroupCustomElement} from './component/framework/bootstrap/form-group
 import {RadiosElement} from './component/framework/bootstrap/radios';// eslint-disable-line no-unused-vars
 import {SelectElement} from './component/framework/bootstrap/select';// eslint-disable-line no-unused-vars
 
-export function configure(aurelia, configCallback) {
+export function configure(aurelia, configCOrConfigure) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
   let viewManagerConfig = aurelia.container.get(ViewManagerConfig);
   let formConfig = aurelia.container.get(Config);
@@ -91,8 +91,10 @@ export function configure(aurelia, configCallback) {
     }
   });
 
-  if (typeof configCallback === 'function') {
-    configCallback(formConfig);
+  if (typeof configCOrConfigure === 'function') {
+    configCOrConfigure(formConfig);
+  } else if (configCOrConfigure) {
+    formConfig.configure(configCOrConfigure);
   }
 
   aurelia.globalResources(
