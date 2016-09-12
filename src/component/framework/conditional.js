@@ -45,5 +45,5 @@ export class Conditional {
 }
 
 function isPromise(value) {
-  return (value instanceof Promise)
+  return (value instanceof Promise);
 }
