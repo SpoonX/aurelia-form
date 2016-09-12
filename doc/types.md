@@ -396,16 +396,11 @@ The schema function also allows the returning of Promises. e.g.
     key   : 'language',
     type  : 'computed',
     schema: () => {
-      return Promise((resolve, reject) => {
-        http.get('languages').then(languages => {
-          let schema = [
-            type: 'options',
-            options: languages.map(language => language.name);
-          ];
-
-          resolve(sche,a);
-        })
-        .catch(reject);
+      return http.get('languages').then(languages => {
+        return [
+          type: 'options',
+          options: languages.map(language => language.name);
+        ];
       });
     }
   }];
