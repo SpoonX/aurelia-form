@@ -342,6 +342,9 @@ Association type plays nice with aurelia-orm's association select.
 What if you would like to show, hide or change the schema based on the values
 in the model or other values also.
 
+Conditional or computed element types allow one to define the schema
+programtically by defining a function on the element.schema.
+
 ```js
     this.model = {};
     this.model.owner = "secret"
@@ -377,3 +380,34 @@ in the model or other values also.
 ```
 
 This will show the "secretSchema" when the value at `this.model.owner` equals "secret".
+
+The schema function also allows the returning of Promises. e.g.
+
+```js
+
+  let model = {
+    name: 'Tom',
+    language: 'es'
+  };
+
+  let userSchema = [{
+    key: 'name',
+  }, {
+    key   : 'language',
+    type  : 'computed',
+    schema: () => {
+      return Promise((resolve, reject) => {
+        http.get('languages').then(languages => {
+          let schema = [
+            type: 'options',
+            options: languages.map(language => language.name);
+          ];
+
+          resolve(sche,a);
+        })
+        .catch(reject);
+      });
+    }
+  }];
+
+```
