@@ -20,8 +20,6 @@ export class Conditional {
         return schema;
       }
 
-      // support promise
-      // @todo check for type
       if (isPromise(schema)) {
         return schema.then(resolved => {
           this.schema = resolved;
@@ -47,5 +45,5 @@ export class Conditional {
 }
 
 function isPromise(value) {
-  return (typeof value === 'object' && value.then);
+  return (value instanceof Promise)
 }
