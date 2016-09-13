@@ -1,10 +1,16 @@
-import {bindable, computedFrom} from 'aurelia-framework';
+import {inject, bindable, computedFrom} from 'aurelia-framework';
+import {Config}                         from '../../config';
 
+@inject(Config)
 export class FormGroup {
 
   @bindable element
 
   @bindable message
+
+  constructor(config) {
+    this.labelFormat = config.fetch('labelFormat');
+  }
 
   /**
    * users can set label to false if they do not want to show the label
@@ -31,7 +37,7 @@ export class FormGroup {
    */
   @computedFrom('element')
   get labelText() {
-    return this.element.label || this.element.key;
+    return this.labelFormat(this.element);
   }
 
 }
