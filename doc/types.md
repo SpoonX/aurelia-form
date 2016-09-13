@@ -399,7 +399,7 @@ The schema function also allows the returning of Promises. e.g.
       return http.get('languages').then(languages => {
         return [
           type: 'options',
-          options: languages.map(language => language.name);
+          options: languages.map(language => language.name)
         ];
       });
     }
