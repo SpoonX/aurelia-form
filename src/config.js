@@ -8,6 +8,11 @@ export class Config {
   configurations = {}
 
   constructor(viewManager, viewManagerConfig) {
+    this.configure({
+      labelFormat: element => {
+        return element.label || element.key;
+      }
+    });
   }
 
   /**
