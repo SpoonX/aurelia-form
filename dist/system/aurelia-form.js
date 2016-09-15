@@ -55,7 +55,7 @@ System.register(['aurelia-logging', './config', 'aurelia-view-manager', './attri
       SelectElement = _componentFrameworkBootstrapSelect.SelectElement;
     }],
     execute: function () {
-      function configure(aurelia, configCallback) {
+      function configure(aurelia, configCOrConfigure) {
         aurelia.aurelia.use.plugin('aurelia-view-manager');
         var viewManagerConfig = aurelia.container.get(ViewManagerConfig);
         var formConfig = aurelia.container.get(Config);
@@ -101,6 +101,7 @@ System.register(['aurelia-logging', './config', 'aurelia-view-manager', './attri
           aliases: {
             options: 'select',
             buttons: 'actions',
+            computed: 'conditional',
             nested: 'fieldset',
             undefined: 'string',
             null: 'string',
@@ -113,8 +114,10 @@ System.register(['aurelia-logging', './config', 'aurelia-view-manager', './attri
           }
         });
 
-        if (typeof configCallback === 'function') {
-          configCallback(formConfig);
+        if (typeof configCOrConfigure === 'function') {
+          configCOrConfigure(formConfig);
+        } else if (configCOrConfigure) {
+          formConfig.configure(configCOrConfigure);
         }
 
         aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');

@@ -69,7 +69,7 @@ export var FormFields = (_dec = customElement('form-fields'), _dec2 = resolvedVi
   };
 
   FormFields.prototype.hasKeyProp = function hasKeyProp(element) {
-    return !!element.key;
+    return Boolean(element.key);
   };
 
   return FormFields;

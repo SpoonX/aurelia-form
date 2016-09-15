@@ -8,6 +8,10 @@ export function entitySchema(entity) {
   let schema = [];
   let entityManager = entity.getRepository().entityManager;
 
+  let isAssociation = key => Boolean(associations[key]);
+
+  let isCollectionAssociation = key => associations[key].type === 'collection';
+
   for (let key of Object.keys(entity)) {
     if (key === '__validationReporter__') {
       continue;
@@ -18,18 +22,18 @@ export function entitySchema(entity) {
       type: types[key]
     };
 
-    element = extend(true, element, data[key] ? data[key].form || {} : {});
-
-    if (associations[key]) {
-      element.key = key;
+    if (isAssociation(key)) {
+      element.type = 'association';
       element.resource = associations[key].entity;
+      element.property = 'name';
     }
 
-    if (associations[key] && associations[key].type === 'collection') {
-      element.type = 'association';
+    if (isAssociation(key) && isCollectionAssociation(key)) {
       element.multiple = true;
       element.schema = entitySchema(entityManager.getEntity(key));
     }
+
+    element = extend(true, element, data[key] ? data[key].form || {} : {});
 
     schema.push(element);
   }

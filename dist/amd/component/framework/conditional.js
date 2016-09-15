@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
+define(['exports', 'aurelia-framework', '../../aurelia-form'], function (exports, _aureliaFramework, _aureliaForm) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -27,8 +27,23 @@ define(['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
       var _this = this;
 
       this.model = field.value;
+      this.schema = [];
+
       var calculateSchema = function calculateSchema() {
-        _this.schema = field.element.schema(_this.model);
+        var schema = field.element.schema(_this.model);
+
+        if (Array.isArray(schema)) {
+          _this.schema = schema;
+          return schema;
+        }
+
+        if (isPromise(schema)) {
+          return schema.then(function (resolved) {
+            _this.schema = resolved;
+          });
+        }
+
+        _aureliaForm.logger.error(field.element.type + ' does not return a schema');
       };
 
       calculateSchema();
@@ -44,4 +59,9 @@ define(['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
 
     return Conditional;
   }()) || _class);
+
+
+  function isPromise(value) {
+    return value instanceof Promise;
+  }
 });

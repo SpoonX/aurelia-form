@@ -23,6 +23,12 @@ define(['exports', 'extend', 'aurelia-dependency-injection', 'aurelia-view-manag
       
 
       this.configurations = {};
+
+      this.configure({
+        labelFormat: function labelFormat(element) {
+          return element.label || element.key;
+        }
+      });
     }
 
     Config.prototype.fetch = function fetch(props) {

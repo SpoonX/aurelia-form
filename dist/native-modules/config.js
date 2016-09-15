@@ -11,6 +11,12 @@ export var Config = (_dec = inject(ViewManager, ViewManagerConfig), _dec(_class 
     
 
     this.configurations = {};
+
+    this.configure({
+      labelFormat: function labelFormat(element) {
+        return element.label || element.key;
+      }
+    });
   }
 
   Config.prototype.fetch = function fetch(props) {

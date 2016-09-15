@@ -5,6 +5,7 @@ var _dec, _class;
 
 
 import { BindingEngine, inject } from 'aurelia-framework';
+import { logger } from '../../aurelia-form';
 
 export var Conditional = (_dec = inject(BindingEngine), _dec(_class = function () {
   function Conditional(bindingEngine) {
@@ -17,8 +18,23 @@ export var Conditional = (_dec = inject(BindingEngine), _dec(_class = function (
     var _this = this;
 
     this.model = field.value;
+    this.schema = [];
+
     var calculateSchema = function calculateSchema() {
-      _this.schema = field.element.schema(_this.model);
+      var schema = field.element.schema(_this.model);
+
+      if (Array.isArray(schema)) {
+        _this.schema = schema;
+        return schema;
+      }
+
+      if (isPromise(schema)) {
+        return schema.then(function (resolved) {
+          _this.schema = resolved;
+        });
+      }
+
+      logger.error(field.element.type + ' does not return a schema');
     };
 
     calculateSchema();
@@ -34,3 +50,7 @@ export var Conditional = (_dec = inject(BindingEngine), _dec(_class = function (
 
   return Conditional;
 }()) || _class);
+
+function isPromise(value) {
+  return value instanceof Promise;
+}

@@ -6,7 +6,7 @@ define(['exports', 'aurelia-logging', './config', 'aurelia-view-manager', './att
   });
   exports.entitySchema = exports.normalizeOptions = exports.Form = exports.Config = exports.logger = undefined;
   exports.configure = configure;
-  function configure(aurelia, configCallback) {
+  function configure(aurelia, configCOrConfigure) {
     aurelia.aurelia.use.plugin('aurelia-view-manager');
     var viewManagerConfig = aurelia.container.get(_aureliaViewManager.Config);
     var formConfig = aurelia.container.get(_config.Config);
@@ -52,6 +52,7 @@ define(['exports', 'aurelia-logging', './config', 'aurelia-view-manager', './att
       aliases: {
         options: 'select',
         buttons: 'actions',
+        computed: 'conditional',
         nested: 'fieldset',
         undefined: 'string',
         null: 'string',
@@ -64,8 +65,10 @@ define(['exports', 'aurelia-logging', './config', 'aurelia-view-manager', './att
       }
     });
 
-    if (typeof configCallback === 'function') {
-      configCallback(formConfig);
+    if (typeof configCOrConfigure === 'function') {
+      configCOrConfigure(formConfig);
+    } else if (configCOrConfigure) {
+      formConfig.configure(configCOrConfigure);
     }
 
     aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');

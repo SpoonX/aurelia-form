@@ -54,7 +54,7 @@ var _radios = require('./component/framework/bootstrap/radios');
 
 var _select = require('./component/framework/bootstrap/select');
 
-function configure(aurelia, configCallback) {
+function configure(aurelia, configCOrConfigure) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
   var viewManagerConfig = aurelia.container.get(_aureliaViewManager.Config);
   var formConfig = aurelia.container.get(_config.Config);
@@ -100,6 +100,7 @@ function configure(aurelia, configCallback) {
     aliases: {
       options: 'select',
       buttons: 'actions',
+      computed: 'conditional',
       nested: 'fieldset',
       undefined: 'string',
       null: 'string',
@@ -112,8 +113,10 @@ function configure(aurelia, configCallback) {
     }
   });
 
-  if (typeof configCallback === 'function') {
-    configCallback(formConfig);
+  if (typeof configCOrConfigure === 'function') {
+    configCOrConfigure(formConfig);
+  } else if (configCOrConfigure) {
+    formConfig.configure(configCOrConfigure);
   }
 
   aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');
