@@ -79,6 +79,7 @@ export function configure(aurelia, configCOrConfigure) {
     aliases: {
       options: 'select',
       buttons: 'actions',
+      computed: 'conditional',
       nested: 'fieldset',
       undefined: 'string',
       null: 'string',
