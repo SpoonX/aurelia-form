@@ -1,3 +1,23 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/SpoonX/aurelia-form/compare/0.1.12...v0.2.0) (2016-09-15)
+
+
+### Bug Fixes
+
+* **computed:** check if instanceof Promise to check if is Promise ([95ccdf0](https://github.com/SpoonX/aurelia-form/commit/95ccdf0))
+* **entitySchema:** better defaults and association fix ([a0b8640](https://github.com/SpoonX/aurelia-form/commit/a0b8640))
+* **formFields:** no repeat and if on form-field element ([a35050c](https://github.com/SpoonX/aurelia-form/commit/a35050c))
+
+
+### Features
+
+* **attributes:** normalize attributes to an object ([e29ce5c](https://github.com/SpoonX/aurelia-form/commit/e29ce5c))
+* **conditional:** supports promises that are returned in the schema function ([5a0af48](https://github.com/SpoonX/aurelia-form/commit/5a0af48))
+* **labelFormat:** allow to configure the label formatter ([6072b8b](https://github.com/SpoonX/aurelia-form/commit/6072b8b))
+* **project:** allow configuration with an object ([9a75da0](https://github.com/SpoonX/aurelia-form/commit/9a75da0))
+
+
+
 <a name="0.1.12"></a>
 ## [0.1.12](https://github.com/SpoonX/aurelia-form/compare/0.1.11...v0.1.12) (2016-09-05)
 
