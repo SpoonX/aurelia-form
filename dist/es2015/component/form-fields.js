@@ -63,7 +63,7 @@ export let FormFields = (_dec = customElement('form-fields'), _dec2 = resolvedVi
   }
 
   hasKeyProp(element) {
-    return !!element.key;
+    return Boolean(element.key);
   }
 }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'schema', [bindable], {
   enumerable: true,

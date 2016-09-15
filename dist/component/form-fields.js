@@ -19,6 +19,6 @@ export class FormFields {
   }
 
   hasKeyProp(element) {
-    return !!element.key;
+    return Boolean(element.key);
   }
 }

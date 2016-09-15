@@ -22,6 +22,12 @@ System.register(['extend', 'aurelia-dependency-injection', 'aurelia-view-manager
           
 
           this.configurations = {};
+
+          this.configure({
+            labelFormat: function labelFormat(element) {
+              return element.label || element.key;
+            }
+          });
         }
 
         Config.prototype.fetch = function fetch(props) {

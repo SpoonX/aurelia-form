@@ -24,7 +24,7 @@ import { FormGroupCustomElement } from './component/framework/bootstrap/form-gro
 import { RadiosElement } from './component/framework/bootstrap/radios';
 import { SelectElement } from './component/framework/bootstrap/select';
 
-export function configure(aurelia, configCallback) {
+export function configure(aurelia, configCOrConfigure) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
   var viewManagerConfig = aurelia.container.get(ViewManagerConfig);
   var formConfig = aurelia.container.get(Config);
@@ -70,6 +70,7 @@ export function configure(aurelia, configCallback) {
     aliases: {
       options: 'select',
       buttons: 'actions',
+      computed: 'conditional',
       nested: 'fieldset',
       undefined: 'string',
       null: 'string',
@@ -82,8 +83,10 @@ export function configure(aurelia, configCallback) {
     }
   });
 
-  if (typeof configCallback === 'function') {
-    configCallback(formConfig);
+  if (typeof configCOrConfigure === 'function') {
+    configCOrConfigure(formConfig);
+  } else if (configCOrConfigure) {
+    formConfig.configure(configCOrConfigure);
   }
 
   aurelia.globalResources('./component/entity-form', './component/schema-form', './component/form-fields', './component/form-field');

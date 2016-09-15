@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _desc, _value, _class, _descriptor, _descriptor2;
+var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -43,13 +43,17 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-import { bindable, computedFrom } from 'aurelia-framework';
+import { inject, bindable, computedFrom } from 'aurelia-framework';
+import { Config } from '../../config';
 
-export let FormGroup = (_dec = computedFrom('element'), _dec2 = computedFrom('message'), _dec3 = computedFrom('element'), (_class = class FormGroup {
-  constructor() {
+export let FormGroup = (_dec = inject(Config), _dec2 = computedFrom('element'), _dec3 = computedFrom('message'), _dec4 = computedFrom('element'), _dec(_class = (_class2 = class FormGroup {
+
+  constructor(config) {
     _initDefineProp(this, 'element', _descriptor, this);
 
     _initDefineProp(this, 'message', _descriptor2, this);
+
+    this.labelFormat = config.fetch('labelFormat');
   }
 
   get showsLabel() {
@@ -61,13 +65,13 @@ export let FormGroup = (_dec = computedFrom('element'), _dec2 = computedFrom('me
   }
 
   get labelText() {
-    return this.element.label || this.element.key;
+    return this.labelFormat(this.element);
   }
 
-}, (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'element', [bindable], {
+}, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'element', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'message', [bindable], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'message', [bindable], {
   enumerable: true,
   initializer: null
-}), _applyDecoratedDescriptor(_class.prototype, 'showsLabel', [_dec], Object.getOwnPropertyDescriptor(_class.prototype, 'showsLabel'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'showsMessage', [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, 'showsMessage'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'labelText', [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, 'labelText'), _class.prototype)), _class));
+}), _applyDecoratedDescriptor(_class2.prototype, 'showsLabel', [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsLabel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'showsMessage', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsMessage'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'labelText', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'labelText'), _class2.prototype)), _class2)) || _class);

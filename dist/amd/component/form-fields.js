@@ -77,7 +77,7 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../aurelia-form
     };
 
     FormFields.prototype.hasKeyProp = function hasKeyProp(element) {
-      return !!element.key;
+      return Boolean(element.key);
     };
 
     return FormFields;

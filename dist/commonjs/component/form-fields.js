@@ -78,7 +78,7 @@ var FormFields = exports.FormFields = (_dec = (0, _aureliaFramework.customElemen
   };
 
   FormFields.prototype.hasKeyProp = function hasKeyProp(element) {
-    return !!element.key;
+    return Boolean(element.key);
   };
 
   return FormFields;

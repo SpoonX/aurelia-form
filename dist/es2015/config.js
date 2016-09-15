@@ -8,6 +8,12 @@ export let Config = (_dec = inject(ViewManager, ViewManagerConfig), _dec(_class 
 
   constructor(viewManager, viewManagerConfig) {
     this.configurations = {};
+
+    this.configure({
+      labelFormat: element => {
+        return element.label || element.key;
+      }
+    });
   }
 
   fetch(props) {

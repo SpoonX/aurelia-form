@@ -33,7 +33,7 @@ export declare class AttributesCustomAttribute {
 // eslint-disable-line no-unused-vars
 // eslint-disable-line no-unused-vars
 // eslint-disable-line no-unused-vars
-export declare function configure(aurelia?: any, configCallback?: any): any;
+export declare function configure(aurelia?: any, configCOrConfigure?: any): any;
 export declare const logger: any;
 export declare {
   Config,
@@ -179,6 +179,7 @@ export declare class Conditional {
 export declare class FormGroup {
   element: any;
   message: any;
+  constructor(config?: any);
   showsLabel: any;
   showsMessage: any;
   labelText: any;

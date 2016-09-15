@@ -7,6 +7,25 @@ System.register(['aurelia-dependency-injection'], function (_export, _context) {
 
   
 
+  function normalizeAtttibutes(value) {
+    var result = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+    if (typeof this.value === 'string') {
+      result[this.value] = true;
+
+      return result;
+    }
+
+    if (Array.isArray(this.value)) {
+      this.value.forEach(function (v) {
+        result = normalizeAtttibutes(v, result);
+      });
+
+      return result;
+    }
+
+    return result;
+  }
   return {
     setters: [function (_aureliaDependencyInjection) {
       inject = _aureliaDependencyInjection.inject;
@@ -22,7 +41,7 @@ System.register(['aurelia-dependency-injection'], function (_export, _context) {
         AttributesCustomAttribute.prototype.valueChanged = function valueChanged() {
           var _this = this;
 
-          Object.keys(this.value).forEach(function (attribute) {
+          Object.keys(normalizeAtttibutes(this.value)).forEach(function (attribute) {
             _this.element.setAttribute(attribute, _this.value[attribute]);
           });
         };

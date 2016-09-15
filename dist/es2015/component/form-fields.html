@@ -1,18 +1,21 @@
 <template>
 
-  <form-field repeat.for="element of schema"
-    if.bind="hasKeyProp(element)"
-    value.bind="model[element.key]"
-    model.bind="model"
-    message.bind="messages[element.key]"
-    element.bind="element">
-  </form-field>
+  <div repeat.for="element of schema">
+    <form-field
+      if.bind="hasKeyProp(element)"
+      value.bind="model[element.key]"
+      model.bind="model"
+      message.bind="messages[element.key]"
+      element.bind="element">
+    </form-field>
 
-  <form-field repeat.for="element of schema"
-    if.bind="!hasKeyProp(element)"
-    value.bind="model"
-    message.bind="messages[element.key]"
-    element.bind="element">
-  </form-field>
+    <form-field
+      if.bind="!hasKeyProp(element)"
+      value.bind="model"
+      model.bind="model"
+      message.bind="messages"
+      element.bind="element">
+    </form-field>
+  </div>
 
 </template>

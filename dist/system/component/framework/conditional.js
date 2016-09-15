@@ -1,16 +1,21 @@
 'use strict';
 
-System.register(['aurelia-framework'], function (_export, _context) {
+System.register(['aurelia-framework', '../../aurelia-form'], function (_export, _context) {
   "use strict";
 
-  var BindingEngine, inject, _typeof, _dec, _class, Conditional;
+  var BindingEngine, inject, logger, _typeof, _dec, _class, Conditional;
 
   
 
+  function isPromise(value) {
+    return value instanceof Promise;
+  }
   return {
     setters: [function (_aureliaFramework) {
       BindingEngine = _aureliaFramework.BindingEngine;
       inject = _aureliaFramework.inject;
+    }, function (_aureliaForm) {
+      logger = _aureliaForm.logger;
     }],
     execute: function () {
       _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
@@ -30,8 +35,23 @@ System.register(['aurelia-framework'], function (_export, _context) {
           var _this = this;
 
           this.model = field.value;
+          this.schema = [];
+
           var calculateSchema = function calculateSchema() {
-            _this.schema = field.element.schema(_this.model);
+            var schema = field.element.schema(_this.model);
+
+            if (Array.isArray(schema)) {
+              _this.schema = schema;
+              return schema;
+            }
+
+            if (isPromise(schema)) {
+              return schema.then(function (resolved) {
+                _this.schema = resolved;
+              });
+            }
+
+            logger.error(field.element.type + ' does not return a schema');
           };
 
           calculateSchema();

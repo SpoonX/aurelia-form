@@ -8,6 +8,14 @@ export function entitySchema(entity) {
   var schema = [];
   var entityManager = entity.getRepository().entityManager;
 
+  var isAssociation = function isAssociation(key) {
+    return Boolean(associations[key]);
+  };
+
+  var isCollectionAssociation = function isCollectionAssociation(key) {
+    return associations[key].type === 'collection';
+  };
+
   for (var _iterator = Object.keys(entity), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
     var _ref;
 
@@ -31,18 +39,18 @@ export function entitySchema(entity) {
       type: types[key]
     };
 
-    element = extend(true, element, data[key] ? data[key].form || {} : {});
-
-    if (associations[key]) {
-      element.key = key;
+    if (isAssociation(key)) {
+      element.type = 'association';
       element.resource = associations[key].entity;
+      element.property = 'name';
     }
 
-    if (associations[key] && associations[key].type === 'collection') {
-      element.type = 'association';
+    if (isAssociation(key) && isCollectionAssociation(key)) {
       element.multiple = true;
       element.schema = entitySchema(entityManager.getEntity(key));
     }
+
+    element = extend(true, element, data[key] ? data[key].form || {} : {});
 
     schema.push(element);
   }
