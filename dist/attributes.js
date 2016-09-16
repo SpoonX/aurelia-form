@@ -24,14 +24,14 @@ export class AttributesCustomAttribute {
  * @returns {object} where all the values are strings or boolean
  */
 function normalizeAtttibutes(value, result = {}) {
-  if (typeof this.value === 'string') {
-    result[this.value] = true;
+  if (typeof value === 'string') {
+    result[value] = true;
 
     return result;
   }
 
-  if (Array.isArray(this.value)) {
-    this.value.forEach(v => {
+  if (Array.isArray(value)) {
+    value.forEach(v => {
       result = normalizeAtttibutes(v, result);
     });
 

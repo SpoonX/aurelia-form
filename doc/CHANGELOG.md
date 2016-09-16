@@ -1,3 +1,13 @@
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/SpoonX/aurelia-form/compare/0.2.0...v0.2.1) (2016-09-16)
+
+
+### Bug Fixes
+
+* **attributes:** uses correct value in normalizeAttributes ([ca3df08](https://github.com/SpoonX/aurelia-form/commit/ca3df08))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/SpoonX/aurelia-form/compare/0.1.12...v0.2.0) (2016-09-15)
 
