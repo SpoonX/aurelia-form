@@ -32,14 +32,14 @@ var AttributesCustomAttribute = exports.AttributesCustomAttribute = (_dec = (0, 
 function normalizeAtttibutes(value) {
   var result = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
-  if (typeof this.value === 'string') {
-    result[this.value] = true;
+  if (typeof value === 'string') {
+    result[value] = true;
 
     return result;
   }
 
-  if (Array.isArray(this.value)) {
-    this.value.forEach(function (v) {
+  if (Array.isArray(value)) {
+    value.forEach(function (v) {
       result = normalizeAtttibutes(v, result);
     });
 
