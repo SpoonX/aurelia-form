@@ -12,8 +12,10 @@ export class AttributesCustomAttribute {
   }
 
   valueChanged() {
-    Object.keys(normalizeAtttibutes(this.value)).forEach(attribute => {
-      this.element.setAttribute(attribute, this.value[attribute]);
+    let attributes = normalizedAttributes(this.value);
+
+    Object.keys(attributes).forEach(attribute => {
+      this.element.setAttribute(attribute, attributes[attribute]);
     });
   }
 
@@ -23,20 +25,24 @@ export class AttributesCustomAttribute {
  * @param {object|string|string[]} value
  * @returns {object} where all the values are strings or boolean
  */
-function normalizeAtttibutes(value, result = {}) {
+function normalizedAttributes(value) {
   if (typeof value === 'string') {
-    result[value] = true;
-
-    return result;
+    value = {};
+    value[value] = true;
   }
 
   if (Array.isArray(value)) {
-    value.forEach(v => {
-      result = normalizeAtttibutes(v, result);
+    let obj = value.reduce(string => {
+      if (typeof value !== 'string') {
+        logger.error(`does not support ${typeof string} in a attributes array`);
+      }
+
+      value[string] = true;
     });
 
-    return result;
+    value = obj;
   }
 
-  return result;
+  return value;
 }
+
