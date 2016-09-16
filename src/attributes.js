@@ -25,7 +25,7 @@ export class AttributesCustomAttribute {
  * @param {object|string|string[]} value
  * @returns {object} where all the values are strings or boolean
  */
-function normalizedAttributes(value) {
+export function normalizedAttributes(value) {
   if (typeof value === 'string') {
     value = {};
     value[value] = true;
