@@ -1,10 +1,12 @@
-import {inject} from 'aurelia-dependency-injection';
+import {customAttribute, inject} from 'aurelia-framework';
+import {logger} from './logger';
 
 /***
  * is only used internally. In future might make this a seperate plugin
  */
 
 @inject(Element)
+@customAttribute('attributes')
 export class AttributesCustomAttribute {
 
   constructor(element) {
@@ -26,23 +28,23 @@ export class AttributesCustomAttribute {
  * @returns {object} where all the values are strings or boolean
  */
 export function normalizedAttributes(value) {
+  let result = {};
   if (typeof value === 'string') {
-    value = {};
-    value[value] = true;
+    result[value] = true;
   }
 
   if (Array.isArray(value)) {
-    let obj = value.reduce(string => {
-      if (typeof value !== 'string') {
+    value.forEach(string => {
+      if (typeof string !== 'string') {
         logger.error(`does not support ${typeof string} in a attributes array`);
       }
 
-      value[string] = true;
+      result[string] = true;
     });
-
-    value = obj;
+  } else if (typeof value === 'object') {
+    result = value;
   }
 
-  return value;
+  return result;
 }
 

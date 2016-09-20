@@ -9,7 +9,7 @@ describe('Component', () => {
 
   beforeEach( ()=> {
     component = StageComponent
-      .withResources('test/resources/dummy')
+      .withResources('test/unit/dummy')
       .inView('')
       .boundTo({});
 
