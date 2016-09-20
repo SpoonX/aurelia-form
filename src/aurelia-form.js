@@ -104,3 +104,7 @@ export function configure(aurelia, configOrConfigure) {
     './component/form-field'
   );
 }
+
+export {
+  Config
+};
