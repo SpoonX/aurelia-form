@@ -1,24 +1,19 @@
 'use strict';
 
-System.register(['extend', 'aurelia-dependency-injection', 'aurelia-view-manager'], function (_export, _context) {
+System.register(['extend'], function (_export, _context) {
   "use strict";
 
-  var extend, inject, ViewManagerConfig, ViewManager, _dec, _class, Config;
+  var extend, Config;
 
   
 
   return {
     setters: [function (_extend) {
       extend = _extend.default;
-    }, function (_aureliaDependencyInjection) {
-      inject = _aureliaDependencyInjection.inject;
-    }, function (_aureliaViewManager) {
-      ViewManagerConfig = _aureliaViewManager.Config;
-      ViewManager = _aureliaViewManager.ViewManager;
     }],
     execute: function () {
-      _export('Config', Config = (_dec = inject(ViewManager, ViewManagerConfig), _dec(_class = function () {
-        function Config(viewManager, viewManagerConfig) {
+      _export('Config', Config = function () {
+        function Config() {
           
 
           this.configurations = {};
@@ -51,7 +46,7 @@ System.register(['extend', 'aurelia-dependency-injection', 'aurelia-view-manager
         };
 
         return Config;
-      }()) || _class));
+      }());
 
       _export('Config', Config);
     }

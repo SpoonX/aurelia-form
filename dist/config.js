@@ -1,13 +1,10 @@
 import extend from 'extend';
-import {inject} from 'aurelia-dependency-injection';
-import {Config as ViewManagerConfig, ViewManager} from 'aurelia-view-manager';
 
-@inject(ViewManager, ViewManagerConfig)
 export class Config {
 
   configurations = {}
 
-  constructor(viewManager, viewManagerConfig) {
+  constructor() {
     this.configure({
       labelFormat: element => {
         return element.label || element.key;

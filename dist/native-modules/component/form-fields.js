@@ -49,7 +49,7 @@ function _initializerWarningHelper(descriptor, context) {
 
 import { bindable, bindingMode, customElement } from 'aurelia-framework';
 import { resolvedView } from 'aurelia-view-manager';
-import { logger } from '../aurelia-form';
+import { logger } from '../logger';
 
 export var FormFields = (_dec = customElement('form-fields'), _dec2 = resolvedView('spoonx/form', 'form-fields'), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
   function FormFields() {

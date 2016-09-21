@@ -13,7 +13,7 @@ var _aureliaFramework = require('aurelia-framework');
 
 var _aureliaViewManager = require('aurelia-view-manager');
 
-var _aureliaForm = require('../aurelia-form');
+var _logger = require('../logger');
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -73,7 +73,7 @@ var FormFields = exports.FormFields = (_dec = (0, _aureliaFramework.customElemen
 
   FormFields.prototype.attached = function attached() {
     if (_typeof(this.model) !== 'object') {
-      _aureliaForm.logger.warn('model is not an object');
+      _logger.logger.warn('model is not an object');
     }
   };
 

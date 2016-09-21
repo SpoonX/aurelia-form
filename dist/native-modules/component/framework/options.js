@@ -1,6 +1,6 @@
 
 
-import { logger } from '../../aurelia-form';
+import { logger } from '../../logger';
 
 export var Options = function () {
   function Options() {

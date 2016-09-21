@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../aurelia-form'], function (exports, _aureliaFramework, _aureliaViewManager, _aureliaForm) {
+define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../logger'], function (exports, _aureliaFramework, _aureliaViewManager, _logger) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -72,7 +72,7 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../aurelia-form
 
     FormFields.prototype.attached = function attached() {
       if (_typeof(this.model) !== 'object') {
-        _aureliaForm.logger.warn('model is not an object');
+        _logger.logger.warn('model is not an object');
       }
     };
 

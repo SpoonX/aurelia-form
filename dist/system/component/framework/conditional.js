@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['aurelia-framework', '../../aurelia-form'], function (_export, _context) {
+System.register(['aurelia-framework', '../../logger'], function (_export, _context) {
   "use strict";
 
   var BindingEngine, inject, logger, _typeof, _dec, _class, Conditional;
@@ -14,8 +14,8 @@ System.register(['aurelia-framework', '../../aurelia-form'], function (_export, 
     setters: [function (_aureliaFramework) {
       BindingEngine = _aureliaFramework.BindingEngine;
       inject = _aureliaFramework.inject;
-    }, function (_aureliaForm) {
-      logger = _aureliaForm.logger;
+    }, function (_logger) {
+      logger = _logger.logger;
     }],
     execute: function () {
       _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {

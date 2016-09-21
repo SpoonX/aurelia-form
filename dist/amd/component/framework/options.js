@@ -1,4 +1,4 @@
-define(['exports', '../../aurelia-form'], function (exports, _aureliaForm) {
+define(['exports', '../../logger'], function (exports, _logger) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -15,7 +15,7 @@ define(['exports', '../../aurelia-form'], function (exports, _aureliaForm) {
 
     Options.prototype.activate = function activate(model) {
       if (!Array.isArray(model.element.options)) {
-        _aureliaForm.logger.error('element \'s options should be an array');
+        _logger.logger.error('element \'s options should be an array');
       }
 
       this.model = model;
