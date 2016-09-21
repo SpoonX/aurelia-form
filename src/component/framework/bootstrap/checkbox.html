@@ -10,7 +10,7 @@
           type="checkbox"
           t.bind="label"
           name.bind="element.key"
-          checked.bind="value">
+          checked.bind="model[element.key]">
           ${label}
       </label>
     </div>
