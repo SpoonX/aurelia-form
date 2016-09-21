@@ -1,8 +1,7 @@
-import {inject} from 'aurelia-dependency-injection';
-import {getLogger} from 'aurelia-logging';
-import {Config as ViewManagerConfig,ViewManager,resolvedView} from 'aurelia-view-manager';
+import {customAttribute,inject,bindable,bindingMode,customElement,computedFrom,BindingEngine} from 'aurelia-framework';
+import {Config as ViewManagerConfig,resolvedView,ViewManager} from 'aurelia-view-manager';
 import {Validator,ValidationEngine} from 'aurelia-validatejs';
-import {bindable,bindingMode,customElement,computedFrom,inject,BindingEngine} from 'aurelia-framework';
+import {getLogger} from 'aurelia-logging';
 
 /***
  * is only used internally. In future might make this a seperate plugin
@@ -11,39 +10,83 @@ export declare class AttributesCustomAttribute {
   constructor(element?: any);
   valueChanged(): any;
 }
-// added for bundling
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-// eslint-disable-line no-unused-vars
-export declare function configure(aurelia?: any, configCOrConfigure?: any): any;
-export declare const logger: any;
+
+/**
+ * @param {object|string|string[]} value
+ * @returns {object} where all the values are strings or boolean
+ */
+export declare function normalizedAttributes(value?: any): any;
+// added for bundling and extending
 export declare {
-  Config,
-  Form,
-  normalizeOptions,
+  AttributesCustomAttribute
+} from 'aurelia-form/attributes';
+export declare {
   entitySchema
+} from 'aurelia-form/entity-schema';
+export declare {
+  Form
+} from 'aurelia-form/form';
+export declare {
+  normalizeOptions
+} from 'aurelia-form/utils';
+export declare {
+  normalizeOptionsValueConverter
+} from 'aurelia-form/converter/normalizeOptions';
+export declare {
+  EntityForm
+} from 'aurelia-form/component/entity-form';
+export declare {
+  SchemaForm
+} from 'aurelia-form/component/schema-form';
+export declare {
+  FormFields
+} from 'aurelia-form/component/form-fields';
+export declare {
+  FormField
+} from 'aurelia-form/component/form-field';
+export declare {
+  Options
+} from 'aurelia-form/component/framework/options';
+export declare {
+  FormGroup
+} from 'aurelia-form/component/framework/form-group';
+export declare {
+  Conditional
+} from 'aurelia-form/component/framework/conditional';
+export declare {
+  Collection
+} from 'aurelia-form/component/framework/collection';
+export declare {
+  Actions
+} from 'aurelia-form/component/framework/actions';
+export declare {
+  ActionsCustomElement
+} from 'aurelia-form/component/framework/bootstrap/actions';
+export declare {
+  CheckboxesElement
+} from 'aurelia-form/component/framework/bootstrap/checkboxes';
+export declare {
+  CollectionCustomElement
+} from 'aurelia-form/component/framework/bootstrap/collection';
+export declare {
+  ConditionalCustomElement
+} from 'aurelia-form/component/framework/bootstrap/conditional';
+export declare {
+  FormGroupCustomElement
+} from 'aurelia-form/component/framework/bootstrap/form-group';
+export declare {
+  RadiosElement
+} from 'aurelia-form/component/framework/bootstrap/radios';
+export declare {
+  SelectElement
+} from 'aurelia-form/component/framework/bootstrap/select';
+export declare function configure(aurelia?: any, configOrConfigure?: any): any;
+export declare {
+  Config
 };
 export declare class Config {
   configurations: any;
-  constructor(viewManager?: any, viewManagerConfig?: any);
+  constructor();
   
   /**
      * convenient for getting a (nested) property in the configurations
@@ -100,6 +143,7 @@ export declare class Form {
   submit(): any;
   change(): any;
 }
+export declare const logger: any;
 
 /**
  * Used to make options that are defined in schema element comply with a

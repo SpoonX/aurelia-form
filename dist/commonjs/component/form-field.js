@@ -15,7 +15,7 @@ var _aureliaFramework = require('aurelia-framework');
 
 var _aureliaViewManager = require('aurelia-view-manager');
 
-var _aureliaForm = require('../aurelia-form');
+var _logger = require('../logger');
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -81,7 +81,7 @@ var FormField = exports.FormField = (_dec = (0, _aureliaFramework.customElement)
 
   FormField.prototype.attached = function attached() {
     if (!this.element.key) {
-      _aureliaForm.logger.debug('key not defined in element of type ' + this.element.type + ' using model for value');
+      _logger.logger.debug('key not defined in element of type ' + this.element.type + ' using model for value');
     }
   };
 

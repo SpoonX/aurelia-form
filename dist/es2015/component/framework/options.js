@@ -1,4 +1,4 @@
-import { logger } from '../../aurelia-form';
+import { logger } from '../../logger';
 
 export let Options = class Options {
 

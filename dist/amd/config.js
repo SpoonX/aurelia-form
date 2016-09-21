@@ -1,4 +1,4 @@
-define(['exports', 'extend', 'aurelia-dependency-injection', 'aurelia-view-manager'], function (exports, _extend, _aureliaDependencyInjection, _aureliaViewManager) {
+define(['exports', 'extend'], function (exports, _extend) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -16,10 +16,8 @@ define(['exports', 'extend', 'aurelia-dependency-injection', 'aurelia-view-manag
 
   
 
-  var _dec, _class;
-
-  var Config = exports.Config = (_dec = (0, _aureliaDependencyInjection.inject)(_aureliaViewManager.ViewManager, _aureliaViewManager.Config), _dec(_class = function () {
-    function Config(viewManager, viewManagerConfig) {
+  var Config = exports.Config = function () {
+    function Config() {
       
 
       this.configurations = {};
@@ -52,5 +50,5 @@ define(['exports', 'extend', 'aurelia-dependency-injection', 'aurelia-view-manag
     };
 
     return Config;
-  }()) || _class);
+  }();
 });

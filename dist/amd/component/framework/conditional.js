@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', '../../aurelia-form'], function (exports, _aureliaFramework, _aureliaForm) {
+define(['exports', 'aurelia-framework', '../../logger'], function (exports, _aureliaFramework, _logger) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -43,7 +43,7 @@ define(['exports', 'aurelia-framework', '../../aurelia-form'], function (exports
           });
         }
 
-        _aureliaForm.logger.error(field.element.type + ' does not return a schema');
+        _logger.logger.error(field.element.type + ' does not return a schema');
       };
 
       calculateSchema();

@@ -11,7 +11,7 @@ var _dec, _class;
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _aureliaForm = require('../../aurelia-form');
+var _logger = require('../../logger');
 
 
 
@@ -42,7 +42,7 @@ var Conditional = exports.Conditional = (_dec = (0, _aureliaFramework.inject)(_a
         });
       }
 
-      _aureliaForm.logger.error(field.element.type + ' does not return a schema');
+      _logger.logger.error(field.element.type + ' does not return a schema');
     };
 
     calculateSchema();

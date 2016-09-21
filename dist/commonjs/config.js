@@ -5,22 +5,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Config = undefined;
 
-var _dec, _class;
-
 var _extend = require('extend');
 
 var _extend2 = _interopRequireDefault(_extend);
-
-var _aureliaDependencyInjection = require('aurelia-dependency-injection');
-
-var _aureliaViewManager = require('aurelia-view-manager');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 
 
-var Config = exports.Config = (_dec = (0, _aureliaDependencyInjection.inject)(_aureliaViewManager.ViewManager, _aureliaViewManager.Config), _dec(_class = function () {
-  function Config(viewManager, viewManagerConfig) {
+var Config = exports.Config = function () {
+  function Config() {
     
 
     this.configurations = {};
@@ -53,4 +47,4 @@ var Config = exports.Config = (_dec = (0, _aureliaDependencyInjection.inject)(_a
   };
 
   return Config;
-}()) || _class);
+}();

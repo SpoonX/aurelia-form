@@ -1,34 +1,40 @@
-var _dec, _class;
+var _dec, _dec2, _class;
 
-import { inject } from 'aurelia-dependency-injection';
+import { customAttribute, inject } from 'aurelia-framework';
+import { logger } from './logger';
 
-export let AttributesCustomAttribute = (_dec = inject(Element), _dec(_class = class AttributesCustomAttribute {
+export let AttributesCustomAttribute = (_dec = inject(Element), _dec2 = customAttribute('attributes'), _dec(_class = _dec2(_class = class AttributesCustomAttribute {
 
   constructor(element) {
     this.element = element;
   }
 
   valueChanged() {
-    Object.keys(normalizeAtttibutes(this.value)).forEach(attribute => {
-      this.element.setAttribute(attribute, this.value[attribute]);
+    let attributes = normalizedAttributes(this.value);
+
+    Object.keys(attributes).forEach(attribute => {
+      this.element.setAttribute(attribute, attributes[attribute]);
     });
   }
 
-}) || _class);
+}) || _class) || _class);
 
-function normalizeAtttibutes(value, result = {}) {
+export function normalizedAttributes(value) {
+  let result = {};
   if (typeof value === 'string') {
     result[value] = true;
-
-    return result;
   }
 
   if (Array.isArray(value)) {
-    value.forEach(v => {
-      result = normalizeAtttibutes(v, result);
-    });
+    value.forEach(string => {
+      if (typeof string !== 'string') {
+        logger.error(`does not support ${ typeof string } in a attributes array`);
+      }
 
-    return result;
+      result[string] = true;
+    });
+  } else if (typeof value === 'object') {
+    result = value;
   }
 
   return result;

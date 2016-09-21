@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../aurelia-form'], function (_export, _context) {
+System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../logger'], function (_export, _context) {
   "use strict";
 
   var Config, bindingMode, bindable, computedFrom, inject, customElement, resolvedView, ViewManager, logger, _createClass, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _class3, _temp, FormField;
@@ -62,8 +62,8 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../a
     }, function (_aureliaViewManager) {
       resolvedView = _aureliaViewManager.resolvedView;
       ViewManager = _aureliaViewManager.ViewManager;
-    }, function (_aureliaForm) {
-      logger = _aureliaForm.logger;
+    }, function (_logger) {
+      logger = _logger.logger;
     }],
     execute: function () {
       _createClass = function () {

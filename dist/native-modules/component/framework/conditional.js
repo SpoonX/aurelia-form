@@ -5,7 +5,7 @@ var _dec, _class;
 
 
 import { BindingEngine, inject } from 'aurelia-framework';
-import { logger } from '../../aurelia-form';
+import { logger } from '../../logger';
 
 export var Conditional = (_dec = inject(BindingEngine), _dec(_class = function () {
   function Conditional(bindingEngine) {

@@ -1,4 +1,4 @@
-define(['exports', '../config', 'aurelia-framework', 'aurelia-view-manager', '../aurelia-form'], function (exports, _config, _aureliaFramework, _aureliaViewManager, _aureliaForm) {
+define(['exports', '../config', 'aurelia-framework', 'aurelia-view-manager', '../logger'], function (exports, _config, _aureliaFramework, _aureliaViewManager, _logger) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -90,7 +90,7 @@ define(['exports', '../config', 'aurelia-framework', 'aurelia-view-manager', '..
 
     FormField.prototype.attached = function attached() {
       if (!this.element.key) {
-        _aureliaForm.logger.debug('key not defined in element of type ' + this.element.type + ' using model for value');
+        _logger.logger.debug('key not defined in element of type ' + this.element.type + ' using model for value');
       }
     };
 

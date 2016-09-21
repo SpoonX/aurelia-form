@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['../../aurelia-form'], function (_export, _context) {
+System.register(['../../logger'], function (_export, _context) {
   "use strict";
 
   var logger, Options;
@@ -8,8 +8,8 @@ System.register(['../../aurelia-form'], function (_export, _context) {
   
 
   return {
-    setters: [function (_aureliaForm) {
-      logger = _aureliaForm.logger;
+    setters: [function (_logger) {
+      logger = _logger.logger;
     }],
     execute: function () {
       _export('Options', Options = function () {

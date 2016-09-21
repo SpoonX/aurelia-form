@@ -1,13 +1,9 @@
-var _dec, _class;
-
 
 
 import extend from 'extend';
-import { inject } from 'aurelia-dependency-injection';
-import { Config as ViewManagerConfig, ViewManager } from 'aurelia-view-manager';
 
-export var Config = (_dec = inject(ViewManager, ViewManagerConfig), _dec(_class = function () {
-  function Config(viewManager, viewManagerConfig) {
+export var Config = function () {
+  function Config() {
     
 
     this.configurations = {};
@@ -40,4 +36,4 @@ export var Config = (_dec = inject(ViewManager, ViewManagerConfig), _dec(_class 
   };
 
   return Config;
-}()) || _class);
+}();

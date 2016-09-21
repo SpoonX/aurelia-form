@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['aurelia-framework', 'aurelia-view-manager', '../aurelia-form'], function (_export, _context) {
+System.register(['aurelia-framework', 'aurelia-view-manager', '../logger'], function (_export, _context) {
   "use strict";
 
   var bindable, bindingMode, customElement, resolvedView, logger, _typeof, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, FormFields;
@@ -57,8 +57,8 @@ System.register(['aurelia-framework', 'aurelia-view-manager', '../aurelia-form']
       customElement = _aureliaFramework.customElement;
     }, function (_aureliaViewManager) {
       resolvedView = _aureliaViewManager.resolvedView;
-    }, function (_aureliaForm) {
-      logger = _aureliaForm.logger;
+    }, function (_logger) {
+      logger = _logger.logger;
     }],
     execute: function () {
       _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {

@@ -1,5 +1,5 @@
 import {BindingEngine, inject} from 'aurelia-framework';
-import {logger}                from '../../aurelia-form';
+import {logger}                from '../../logger';
 
 @inject(BindingEngine)
 export class Conditional {

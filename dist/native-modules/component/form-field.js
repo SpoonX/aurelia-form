@@ -50,7 +50,7 @@ function _initializerWarningHelper(descriptor, context) {
 import { Config } from '../config';
 import { bindingMode, bindable, computedFrom, inject, customElement } from 'aurelia-framework';
 import { resolvedView, ViewManager } from 'aurelia-view-manager';
-import { logger } from '../aurelia-form';
+import { logger } from '../logger';
 
 export var FormField = (_dec = customElement('form-field'), _dec2 = resolvedView('spoonx/form', 'form-field'), _dec3 = inject(Config, ViewManager), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = computedFrom('value', 'element'), _dec6 = computedFrom('element'), _dec7 = computedFrom('element'), _dec8 = computedFrom('view'), _dec9 = computedFrom('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = (_temp = _class3 = function () {
   function FormField(config, viewManager) {
