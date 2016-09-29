@@ -31,7 +31,7 @@ configurations.
       view.configureNamespace('spoonx/form', {
         framework: 'bootstrap',
         map: {
-          vector: '/component/vector'
+          vector: '/component/vector',
           text: '/component/input.html'
         }
       });
