@@ -9,7 +9,7 @@ Aurelia is a great tool for generating forms, as it provides a lot of useful uti
 Some of the features this plugin provides include:
 
 - multi css-framework support ([is your framework missing](https://github.com/SpoonX/aurelia-form/tree/master/src/component/framework)? Submit a PR!)
-- [aurelia-orm](aurelia-orm.spoonx.org) support (forms based on entity definition, no need to make a schema)
+- [aurelia-orm](https://aurelia-orm.spoonx.org) support (forms based on entity definition, no need to make a schema)
 - validation
 - concise way of describing forms using schemas
 - easy override and extending of forms
