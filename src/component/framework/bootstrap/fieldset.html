@@ -2,7 +2,7 @@
   <require from="./../../../attributes"></require>
   <fieldset attributes.bind="element.attributes">
     <form-fields
-      model.bind="value"
+      model.bind="model[element.key]"
       schema.bind="element.schema">
     </form-fields>
   </fieldset>

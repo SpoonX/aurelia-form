@@ -50,22 +50,22 @@ export function configure(aurelia, configOrConfigure) {
       checkboxes: '{{framepath}}/checkboxes',
 
       /* all input components */
-      button: '{{framepath}}/input.html',
-      color: '{{framepath}}/input.html',
-      date: '{{framepath}}/input.html',
-      datetime: '{{framepath}}/input.html',
-      'datetime-local': '{{framepath}}/input.html',
-      string: '{{framepath}}/input.html',
-      email: '{{framepath}}/input.html',
-      month: '{{framepath}}/input.html',
-      number: '{{framepath}}/input.html',
-      password: '{{framepath}}/input.html',
-      range: '{{framepath}}/input.html',
-      search: '{{framepath}}/input.html',
-      tel: '{{framepath}}/input.html',
-      time: '{{framepath}}/input.html',
-      url: '{{framepath}}/input.html',
-      week: '{{framepath}}/input.html'
+      button: '{{framepath}}/input',
+      color: '{{framepath}}/input',
+      date: '{{framepath}}/input',
+      datetime: '{{framepath}}/input',
+      'datetime-local': '{{framepath}}/input',
+      string: '{{framepath}}/input',
+      email: '{{framepath}}/input',
+      month: '{{framepath}}/input',
+      number: '{{framepath}}/input',
+      password: '{{framepath}}/input',
+      range: '{{framepath}}/input',
+      search: '{{framepath}}/input',
+      tel: '{{framepath}}/input',
+      time: '{{framepath}}/input',
+      url: '{{framepath}}/input',
+      week: '{{framepath}}/input'
     }
   });
 

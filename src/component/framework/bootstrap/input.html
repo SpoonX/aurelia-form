@@ -8,6 +8,8 @@
       class="form-control"
       type.bind="element.type"
       name.bind="element.key"
-      value.bind="value">
+      value.bind="model[element.key] & validate"
+      blur.trigger = "triggerEvent('blur')"
+      change.trigger = "triggerEvent('change')">
   </form-group>
 </template>
