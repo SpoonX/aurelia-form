@@ -1,6 +1,6 @@
 {
   "name": "aurelia-form",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Makes working with forms just a tad more pleasant.",
   "keywords": [
     "aurelia",
@@ -42,34 +42,34 @@
       "dist": "dist/amd"
     },
     "dependencies": {
-      "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
-      "aurelia-framework": "^1.0.0-rc.1.0.0",
-      "aurelia-logging": "^1.0.0-rc.1.0.0",
-      "aurelia-validatejs": "^0.6.0",
-      "aurelia-view-manager": "^0.0.7",
+      "aurelia-dependency-injection": "^1.0.0",
+      "aurelia-framework": "^1.0.0",
+      "aurelia-logging": "^1.0.0",
+      "aurelia-validatejs": "^0.7.0",
+      "aurelia-view-manager": "^0.1.0",
       "extend": "^3.0.0"
     },
     "peerDependencies": {
-      "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
-      "aurelia-framework": "^1.0.0-rc.1.0.0",
-      "aurelia-logging": "^1.0.0-rc.1.0.0",
-      "aurelia-validatejs": "^0.6.0",
-      "aurelia-view-manager": "^0.0.7",
+      "aurelia-dependency-injection": "^1.0.0",
+      "aurelia-framework": "^1.0.0",
+      "aurelia-logging": "^1.0.0",
+      "aurelia-validatejs": "^0.7.0",
+      "aurelia-view-manager": "^0.1.0",
       "extend": "^3.0.0"
     },
     "devDependencies": {
-      "aurelia-bootstrapper": "^1.0.0-rc.1.0.0",
-      "aurelia-pal-browser": "^1.0.0-rc.1.0.0",
-      "aurelia-polyfills": "^1.0.0-rc.1.0.0",
+      "aurelia-bootstrapper": "^1.0.0",
+      "aurelia-pal-browser": "^1.0.0",
+      "aurelia-polyfills": "^1.0.0",
       "aurelia-testing": "^1.0.0-beta.1.0.3"
     }
   },
   "dependencies": {
-    "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
-    "aurelia-framework": "^1.0.0-rc.1.0.0",
-    "aurelia-logging": "^1.0.0-rc.1.0.0",
-    "aurelia-validatejs": "^0.6.0",
-    "aurelia-view-manager": "^0.0.7",
+    "aurelia-dependency-injection": "^1.0.0",
+    "aurelia-framework": "^1.0.0",
+    "aurelia-logging": "^1.0.0",
+    "aurelia-validatejs": "^0.7.0",
+    "aurelia-view-manager": "^0.1.0",
     "extend": "^3.0.0"
   },
   "devDependencies": {

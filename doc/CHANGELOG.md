@@ -1,5 +1,5 @@
-<a name="0.2.2"></a>
-## [0.2.2](https://github.com/SpoonX/aurelia-form/compare/0.2.0...v0.2.2) (2016-09-21)
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/SpoonX/aurelia-form/compare/0.2.0...v0.3.0) (2016-10-05)
 
 
 ### Bug Fixes
@@ -7,53 +7,6 @@
 * **attributes:** normalize bug ([937e656](https://github.com/SpoonX/aurelia-form/commit/937e656))
 * **attributes:** uses correct value in normalizeAttributes ([ca3df08](https://github.com/SpoonX/aurelia-form/commit/ca3df08))
 * **project:** exports Config ([cd72178](https://github.com/SpoonX/aurelia-form/commit/cd72178))
-
-
-
-<a name="0.2.2"></a>
-## [0.2.2](https://github.com/SpoonX/aurelia-form/compare/0.2.0...v0.2.2) (2016-09-21)
-
-
-### Bug Fixes
-
-* **attributes:** normalize bug ([937e656](https://github.com/SpoonX/aurelia-form/commit/937e656))
-* **attributes:** uses correct value in normalizeAttributes ([ca3df08](https://github.com/SpoonX/aurelia-form/commit/ca3df08))
-* **project:** exports Config ([cd72178](https://github.com/SpoonX/aurelia-form/commit/cd72178))
-
-
-
-<a name="0.2.3"></a>
-## [0.2.3](https://github.com/SpoonX/aurelia-form/compare/0.2.0...v0.2.3) (2016-09-21)
-
-
-### Bug Fixes
-
-* **attributes:** normalize bug ([937e656](https://github.com/SpoonX/aurelia-form/commit/937e656))
-* **attributes:** uses correct value in normalizeAttributes ([ca3df08](https://github.com/SpoonX/aurelia-form/commit/ca3df08))
-* **project:** exports Config ([cd72178](https://github.com/SpoonX/aurelia-form/commit/cd72178))
-
-
-
-<a name="0.2.2"></a>
-## [0.2.2](https://github.com/SpoonX/aurelia-form/compare/0.2.0...v0.2.2) (2016-09-21)
-
-
-### Bug Fixes
-
-* **attributes:** normalize bug ([937e656](https://github.com/SpoonX/aurelia-form/commit/937e656))
-* **attributes:** uses correct value in normalizeAttributes ([ca3df08](https://github.com/SpoonX/aurelia-form/commit/ca3df08))
-* **project:** exports Config ([cd72178](https://github.com/SpoonX/aurelia-form/commit/cd72178))
-
-
-
-<a name="0.2.1"></a>
-## [0.2.1](https://github.com/SpoonX/aurelia-form/compare/0.2.0...v0.2.1) (2016-09-16)
-
-
-### Bug Fixes
-
-* **attributes:** uses correct value in normalizeAttributes ([ca3df08](https://github.com/SpoonX/aurelia-form/commit/ca3df08))
-
 
 
 <a name="0.2.0"></a>
