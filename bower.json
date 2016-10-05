@@ -1,6 +1,6 @@
 {
   "name": "aurelia-form",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Makes working with forms just a tad more pleasant.",
   "keywords": [
     "aurelia",
@@ -28,11 +28,11 @@
     "url": "https://github.com/SpoonX/aurelia-form"
   },
   "dependencies": {
-    "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
-    "aurelia-framework": "^1.0.0-rc.1.0.0",
-    "aurelia-logging": "^1.0.0-rc.1.0.0",
-    "aurelia-validatejs": "^0.6.0",
-    "aurelia-view-manager": "^0.0.7",
+    "aurelia-dependency-injection": "^1.0.0",
+    "aurelia-framework": "^1.0.0",
+    "aurelia-logging": "^1.0.0",
+    "aurelia-validatejs": "^0.7.0",
+    "aurelia-view-manager": "^0.1.0",
     "extend": "^3.0.0"
-  },
+  }
 }

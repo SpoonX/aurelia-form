@@ -64,7 +64,7 @@ System.register(['aurelia-framework', 'aurelia-view-manager', '../logger'], func
       _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
         return typeof obj;
       } : function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
       };
 
       _export('FormFields', FormFields = (_dec = customElement('form-fields'), _dec2 = resolvedView('spoonx/form', 'form-fields'), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {

@@ -21,7 +21,7 @@ System.register(['aurelia-framework', '../../logger'], function (_export, _conte
       _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
         return typeof obj;
       } : function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
       };
 
       _export('Conditional', Conditional = (_dec = inject(BindingEngine), _dec(_class = function () {
