@@ -5,7 +5,7 @@ import {logger} from '../logger';
 
 @customElement('form-field')
 @resolvedView('spoonx/form', 'form-field')
-@inject(Config, ViewManager)
+@inject(Config, ViewManager, Element)
 export class FormField {
 
   static elementCount = 0;
@@ -19,15 +19,25 @@ export class FormField {
 
   @bindable message
 
-  constructor(config, viewManager) {
+  constructor(config, viewManager, element) {
     this.config      = config;
     this.viewManager = viewManager;
     this.formField   = this;
+    this.elementDOM  = element;
   }
 
   attached() {
     if (!this.element.key) {
       logger.debug(`key not defined in element of type ${this.element.type} using model for value`);
+    }
+    if (this.element.attached) {
+      this.element.attached.call(this, this.elementDOM);
+    }
+  }
+
+  detached() {
+    if (this.element.detached) {
+      this.element.detached.call(this, this.elementDOM);
     }
   }
 
@@ -82,8 +92,10 @@ export class FormField {
    */
   @computedFrom('element')
   get type() {
-    let type     = this.element.type;
-    let alias    = this.config.fetch('aliases', type);
+    let type  = this.element.type;
+    /* get an alias if it has one */
+    let alias = this.config.fetch('aliases', type);
+    /* used to avoid an infinite loop */
     let previous = [];
 
     /***
