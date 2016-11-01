@@ -45,6 +45,7 @@ Aurelia-form makes use of `extend`. So, add following to the `build.bundles.depe
     "path": "../node_modules/aurelia-form/dist/amd",
     "main": "aurelia-form",
     "resources": [
+      "attributes.html",
       "component/form-field.html",
       "component/form-fields.html",
       "component/schema-form.html",
