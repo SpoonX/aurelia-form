@@ -15,6 +15,7 @@ Aurelia-form needs an installation of [aurelia-view-manager](https://www.npmjs.c
     "path": "../node_modules/aurelia-form/dist/amd",
     "main": "aurelia-form",
     "resources": [
+      "attributes.html",
       "component/form-field.html",
       "component/form-fields.html",
       "component/schema-form.html",
