@@ -63,7 +63,8 @@ export class FormField {
    */
   @computedFrom('element')
   get view() {
-    let type          = this.type;
+    let type = this.type;
+
     this.element.type = type;
 
     return this.viewManager.resolve('spoonx/form', type);
@@ -114,7 +115,7 @@ export class FormField {
 
   elementChanged(element) {
     this.element.id = `sx-form-${element.type}-${element.key}-${FormField.elementCount}`;
-    FormField.elementCount++;
+    FormField.elementCount += 1;
 
     return this.element;
   }

@@ -29,6 +29,7 @@ export class AttributesCustomAttribute {
  */
 export function normalizedAttributes(value) {
   let result = {};
+
   if (typeof value === 'string') {
     result[value] = true;
   }

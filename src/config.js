@@ -21,11 +21,15 @@ export class Config {
    *
    * @returns {*} the value of that property
    */
-  fetch(props) {
+  fetch(...props) {
     let result = this.configurations;
 
-    for (let index in arguments) {
-      let key   = arguments[index];
+    for (let index in props) {
+      if (!props.hasOwnPrototype(index)) {
+        continue;
+      }
+
+      let key   = props[index];
       let value = result[key];
 
       if (!value) {
