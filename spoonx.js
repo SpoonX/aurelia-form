@@ -73,12 +73,12 @@ module.exports = {
     /* sort when concating
      * sort: true,
      */
-    sort: true,
+    sort: false,
 
     /* concat js files
      * concat: true,
      */
-    concat: true,
+    concat: false,
 
     /* default options overwrites for karma
      * karma: {browsers: ['Chrome']}
