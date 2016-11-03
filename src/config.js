@@ -25,7 +25,7 @@ export class Config {
     let result = this.configurations;
 
     for (let index in props) {
-      if (!props.hasOwnPrototype(index)) {
+      if (!props.hasOwnProperty(index)) {
         continue;
       }
 
