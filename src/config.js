@@ -21,15 +21,11 @@ export class Config {
    *
    * @returns {*} the value of that property
    */
-  fetch(...props) {
+  fetch(props) {
     let result = this.configurations;
 
-    for (let index in props) {
-      if (!props.hasOwnProperty(index)) {
-        continue;
-      }
-
-      let key   = props[index];
+    for (let index in arguments) {  // eslint-disable-line guard-for-in, prefer-rest-params
+      let key   = arguments[index]; // eslint-disable-line prefer-rest-params
       let value = result[key];
 
       if (!value) {
