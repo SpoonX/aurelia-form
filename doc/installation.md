@@ -43,12 +43,13 @@ Aurelia-form needs an installation of [aurelia-view-manager](https://www.npmjs.c
 
 Run `jspm i aurelia-form` from your project root.
 
-Add following to the desired `includes` section of `build/bundles.js`, eg:
+Aurelia-form makes use of `extend`. So, add following to the desired `includes` section of `build/bundles.js`, eg:
 
 ```js
 "aurelia": {
   "includes": [
     //...
+    "extend",
     "aurelia-form",
     "[aurelia-form/**/*.js]",
     "aurelia-form/**/*.html!text",
