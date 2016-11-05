@@ -24,8 +24,8 @@ export class Config {
   fetch(props) {
     let result = this.configurations;
 
-    for (let index in arguments) {
-      let key   = arguments[index];
+    for (let index in arguments) {  // eslint-disable-line guard-for-in, prefer-rest-params
+      let key   = arguments[index]; // eslint-disable-line prefer-rest-params
       let value = result[key];
 
       if (!value) {

@@ -17,6 +17,7 @@ export class Conditional {
 
       if (Array.isArray(schema)) {
         this.schema = schema;
+
         return schema;
       }
 
@@ -39,7 +40,9 @@ export class Conditional {
   }
 
   deactivate() {
-    this.observer && this.observer.dispose();
+    if (this.observer) {
+      this.observer.dispose();
+    }
   }
 
 }

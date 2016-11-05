@@ -10,7 +10,7 @@ export function normalizeOptions(options) {
   return options.map(option => {
     if (typeof option === 'string') {
       return {
-        name: option,
+        name : option,
         value: option
       };
     }
@@ -21,9 +21,11 @@ export function normalizeOptions(options) {
 
     if (option.name || option.value) {
       return {
-        name: option.name || option.value,
+        name : option.name || option.value,
         value: option.name || option.value
       };
     }
+
+    return {};
   });
 }

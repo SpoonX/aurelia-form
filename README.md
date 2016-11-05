@@ -73,12 +73,13 @@ Aurelia-form makes use of `extend`. So, add following to the `build.bundles.depe
 
 Run `jspm i aurelia-form` from your project root.
 
-Add following to the desired `includes` section of `build/bundles.js`, eg:
+Aurelia-form makes use of `extend`. So, add following to the desired `includes` section of `build/bundles.js`, eg:
 
 ```js
 "aurelia": {
   "includes": [
     //...
+    "extend",
     "aurelia-form",
     "[aurelia-form/**/*.js]",
     "aurelia-form/**/*.html!text",
