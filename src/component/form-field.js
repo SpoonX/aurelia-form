@@ -19,6 +19,8 @@ export class FormField {
 
   @bindable message
 
+  @bindable description
+
   constructor(config, viewManager, element) {
     this.config      = config;
     this.viewManager = viewManager;

@@ -12,6 +12,12 @@ export class EntityForm {
   @bindable({defaultBindingMode: bindingMode.twoWay})
   model
 
+  @bindable
+  messages = {};
+
+  @bindable
+  descriptions = {};
+
   bind() {
     this.schema = entitySchema(this.entity);
     this.model = this.entity; /* enables the reuse of the schema-form.html */

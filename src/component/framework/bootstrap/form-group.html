@@ -6,11 +6,19 @@
     <label
       for="${element.id}"
       t.bind="labelText"
-      if.bind="showsLabel">${labelText}</label>
+      if.bind="showsLabel">
+      ${labelText}
+    </label>
     <slot></slot>
+    <small
+      show.bind="showsDescription"
+      class="desc-block"
+      t.bind="description">
+      ${description}</small>
     <span
       show.bind="showsMessage"
-      class="help-block">
+      class="help-block"
+      t.bind="message">
       ${message}</span>
   </div>
 </template>
