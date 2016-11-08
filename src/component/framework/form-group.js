@@ -8,6 +8,8 @@ export class FormGroup {
 
   @bindable message
 
+  @bindable description
+
   constructor(config) {
     this.labelFormat = config.fetch('labelFormat');
   }
@@ -28,6 +30,14 @@ export class FormGroup {
   @computedFrom('message')
   get showsMessage() {
     return (!!this.message);
+  }
+
+  /**
+   * @returns {boolean} false if description is empty or null
+   */
+  @computedFrom('description')
+  get showsDescription() {
+    return (!!this.description);
   }
 
   /**
