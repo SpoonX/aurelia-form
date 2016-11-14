@@ -24,6 +24,8 @@ define(['exports'], function (exports) {
           value: option.name || option.value
         };
       }
+
+      return {};
     });
   }
 });

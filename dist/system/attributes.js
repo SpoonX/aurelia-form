@@ -9,6 +9,7 @@ System.register(['aurelia-framework', './logger'], function (_export, _context) 
 
   function normalizedAttributes(value) {
     var result = {};
+
     if (typeof value === 'string') {
       result[value] = true;
     }
@@ -41,7 +42,7 @@ System.register(['aurelia-framework', './logger'], function (_export, _context) 
       _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
         return typeof obj;
       } : function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
       };
 
       _export('AttributesCustomAttribute', AttributesCustomAttribute = (_dec = inject(Element), _dec2 = customAttribute('attributes'), _dec(_class = _dec2(_class = function () {

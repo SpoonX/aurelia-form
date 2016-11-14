@@ -12,6 +12,8 @@ export class FormFields {
 
   @bindable messages
 
+  @bindable descriptions
+
   attached() {
     if (typeof this.model !== 'object') {
       logger.warn('model is not an object');

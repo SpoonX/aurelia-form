@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Conditional = undefined;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 var _dec, _class;
 
@@ -33,6 +33,7 @@ var Conditional = exports.Conditional = (_dec = (0, _aureliaFramework.inject)(_a
 
       if (Array.isArray(schema)) {
         _this.schema = schema;
+
         return schema;
       }
 
@@ -53,7 +54,9 @@ var Conditional = exports.Conditional = (_dec = (0, _aureliaFramework.inject)(_a
   };
 
   Conditional.prototype.deactivate = function deactivate() {
-    this.observer && this.observer.dispose();
+    if (this.observer) {
+      this.observer.dispose();
+    }
   };
 
   return Conditional;

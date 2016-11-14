@@ -21,7 +21,7 @@ System.register(['aurelia-framework', '../../logger'], function (_export, _conte
       _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
         return typeof obj;
       } : function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
       };
 
       _export('Conditional', Conditional = (_dec = inject(BindingEngine), _dec(_class = function () {
@@ -42,6 +42,7 @@ System.register(['aurelia-framework', '../../logger'], function (_export, _conte
 
             if (Array.isArray(schema)) {
               _this.schema = schema;
+
               return schema;
             }
 
@@ -62,7 +63,9 @@ System.register(['aurelia-framework', '../../logger'], function (_export, _conte
         };
 
         Conditional.prototype.deactivate = function deactivate() {
-          this.observer && this.observer.dispose();
+          if (this.observer) {
+            this.observer.dispose();
+          }
         };
 
         return Conditional;

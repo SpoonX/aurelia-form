@@ -10,7 +10,7 @@ define(['exports', 'aurelia-framework', './logger'], function (exports, _aurelia
   var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
     return typeof obj;
   } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
   };
 
   
@@ -38,6 +38,7 @@ define(['exports', 'aurelia-framework', './logger'], function (exports, _aurelia
   }()) || _class) || _class);
   function normalizedAttributes(value) {
     var result = {};
+
     if (typeof value === 'string') {
       result[value] = true;
     }

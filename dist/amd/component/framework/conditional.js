@@ -9,7 +9,7 @@ define(['exports', 'aurelia-framework', '../../logger'], function (exports, _aur
   var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
     return typeof obj;
   } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
   };
 
   
@@ -34,6 +34,7 @@ define(['exports', 'aurelia-framework', '../../logger'], function (exports, _aur
 
         if (Array.isArray(schema)) {
           _this.schema = schema;
+
           return schema;
         }
 
@@ -54,7 +55,9 @@ define(['exports', 'aurelia-framework', '../../logger'], function (exports, _aur
     };
 
     Conditional.prototype.deactivate = function deactivate() {
-      this.observer && this.observer.dispose();
+      if (this.observer) {
+        this.observer.dispose();
+      }
     };
 
     return Conditional;

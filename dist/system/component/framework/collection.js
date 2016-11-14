@@ -22,6 +22,7 @@ System.register([], function (_export, _context) {
         Collection.prototype.itemSchema = function itemSchema(schema, index) {
           return schema.map(function (element) {
             var el = Object.create(element);
+
             el.index = index;
 
             return el;

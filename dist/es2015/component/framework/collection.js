@@ -7,6 +7,7 @@ export let Collection = class Collection {
   itemSchema(schema, index) {
     return schema.map(element => {
       let el = Object.create(element);
+
       el.index = index;
 
       return el;

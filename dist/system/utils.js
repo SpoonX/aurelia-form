@@ -22,6 +22,8 @@ System.register([], function (_export, _context) {
           value: option.name || option.value
         };
       }
+
+      return {};
     });
   }
 

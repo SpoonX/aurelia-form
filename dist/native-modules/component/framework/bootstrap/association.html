@@ -1,7 +1,7 @@
 <template>
   <require from="./../../../attributes"></require>
   <require from="./form-group"></require>
-  <form-group role="group" element.bind="formField.element" message.bind="formField.message">
+  <form-group role="group" element.bind="formField.element" message.bind="formField.message" description.bind="formField.description">
     <association-select
       attributes.bind      = "formField.element.attributes"
       multiple.bind        = "formField.element.multiple"
