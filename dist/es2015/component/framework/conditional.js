@@ -18,6 +18,7 @@ export let Conditional = (_dec = inject(BindingEngine), _dec(_class = class Cond
 
       if (Array.isArray(schema)) {
         this.schema = schema;
+
         return schema;
       }
 
@@ -38,7 +39,9 @@ export let Conditional = (_dec = inject(BindingEngine), _dec(_class = class Cond
   }
 
   deactivate() {
-    this.observer && this.observer.dispose();
+    if (this.observer) {
+      this.observer.dispose();
+    }
   }
 
 }) || _class);

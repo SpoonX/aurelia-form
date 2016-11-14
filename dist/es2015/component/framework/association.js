@@ -5,6 +5,7 @@ export let Association = class Association {
     this.formField = formField;
 
     let element = this.formField.element;
+
     element.property = element.property || 'name';
 
     if (this.association) {

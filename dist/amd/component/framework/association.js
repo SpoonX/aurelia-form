@@ -18,6 +18,7 @@ define(['exports'], function (exports) {
       this.formField = formField;
 
       var element = this.formField.element;
+
       element.property = element.property || 'name';
 
       if (this.association) {

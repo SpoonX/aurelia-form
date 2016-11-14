@@ -3,7 +3,7 @@
 System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../logger'], function (_export, _context) {
   "use strict";
 
-  var Config, bindingMode, bindable, computedFrom, inject, customElement, resolvedView, ViewManager, logger, _createClass, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _class3, _temp, FormField;
+  var Config, bindingMode, bindable, computedFrom, inject, customElement, resolvedView, ViewManager, logger, _createClass, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _class3, _temp, FormField;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -84,8 +84,8 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../l
         };
       }();
 
-      _export('FormField', FormField = (_dec = customElement('form-field'), _dec2 = resolvedView('spoonx/form', 'form-field'), _dec3 = inject(Config, ViewManager), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = computedFrom('value', 'element'), _dec6 = computedFrom('element'), _dec7 = computedFrom('element'), _dec8 = computedFrom('view'), _dec9 = computedFrom('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = (_temp = _class3 = function () {
-        function FormField(config, viewManager) {
+      _export('FormField', FormField = (_dec = customElement('form-field'), _dec2 = resolvedView('spoonx/form', 'form-field'), _dec3 = inject(Config, ViewManager, Element), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = computedFrom('value', 'element'), _dec6 = computedFrom('element'), _dec7 = computedFrom('element'), _dec8 = computedFrom('view'), _dec9 = computedFrom('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = (_temp = _class3 = function () {
+        function FormField(config, viewManager, element) {
           
 
           _initDefineProp(this, 'element', _descriptor, this);
@@ -96,20 +96,32 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../l
 
           _initDefineProp(this, 'message', _descriptor4, this);
 
+          _initDefineProp(this, 'description', _descriptor5, this);
+
           this.config = config;
           this.viewManager = viewManager;
           this.formField = this;
+          this.elementDOM = element;
         }
 
         FormField.prototype.attached = function attached() {
           if (!this.element.key) {
             logger.debug('key not defined in element of type ' + this.element.type + ' using model for value');
           }
+          if (this.element.attached) {
+            this.element.attached.call(this, this.elementDOM);
+          }
+        };
+
+        FormField.prototype.detached = function detached() {
+          if (this.element.detached) {
+            this.element.detached.call(this, this.elementDOM);
+          }
         };
 
         FormField.prototype.elementChanged = function elementChanged(element) {
           this.element.id = 'sx-form-' + element.type + '-' + element.key + '-' + FormField.elementCount;
-          FormField.elementCount++;
+          FormField.elementCount += 1;
 
           return this.element;
         };
@@ -128,6 +140,7 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../l
           key: 'view',
           get: function get() {
             var type = this.type;
+
             this.element.type = type;
 
             return this.viewManager.resolve('spoonx/form', type);
@@ -141,7 +154,9 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../l
           key: 'type',
           get: function get() {
             var type = this.element.type;
+
             var alias = this.config.fetch('aliases', type);
+
             var previous = [];
 
             while (alias && !(alias in previous)) {
@@ -166,6 +181,9 @@ System.register(['../config', 'aurelia-framework', 'aurelia-view-manager', '../l
         enumerable: true,
         initializer: null
       }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'message', [bindable], {
+        enumerable: true,
+        initializer: null
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'description', [bindable], {
         enumerable: true,
         initializer: null
       }), _applyDecoratedDescriptor(_class2.prototype, 'visible', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'visible'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'label', [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, 'label'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'view', [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, 'view'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'hasViewModel', [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, 'hasViewModel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'type', [_dec9], Object.getOwnPropertyDescriptor(_class2.prototype, 'type'), _class2.prototype)), _class2)) || _class) || _class) || _class));

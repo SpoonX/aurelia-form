@@ -11,7 +11,8 @@ export class Association {
     this.formField = formField;
 
     // defaults
-    let element      = this.formField.element;
+    let element = this.formField.element;
+
     element.property = element.property || 'name';
 
     // consider: should observe for changes on either the model or the element.

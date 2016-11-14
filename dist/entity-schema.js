@@ -28,7 +28,7 @@ export function entitySchema(entity) {
     }
 
     let element = {
-      key: key,
+      key : key,
       type: types[key]
     };
 

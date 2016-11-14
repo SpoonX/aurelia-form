@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.AttributesCustomAttribute = undefined;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 var _dec, _dec2, _class;
 
@@ -38,6 +38,7 @@ var AttributesCustomAttribute = exports.AttributesCustomAttribute = (_dec = (0, 
 }()) || _class) || _class);
 function normalizedAttributes(value) {
   var result = {};
+
   if (typeof value === 'string') {
     result[value] = true;
   }
