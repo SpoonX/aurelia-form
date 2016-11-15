@@ -157,6 +157,8 @@ export declare function normalizeOptions(options?: any): any;
 export declare class EntityForm {
   entity: any;
   model: any;
+  messages: any;
+  descriptions: any;
   bind(): any;
 }
 export declare class FormField {
@@ -165,8 +167,10 @@ export declare class FormField {
   model: any;
   value: any;
   message: any;
-  constructor(config?: any, viewManager?: any);
+  description: any;
+  constructor(config?: any, viewManager?: any, element?: any);
   attached(): any;
+  detached(): any;
   visible: any;
   label: any;
   view: any;
@@ -178,6 +182,7 @@ export declare class FormFields {
   schema: any;
   model: any;
   messages: any;
+  descriptions: any;
   attached(): any;
   hasKeyProp(element?: any): any;
 }
@@ -185,6 +190,7 @@ export declare class SchemaForm {
   schema: any;
   model: any;
   messages: any;
+  descriptions: any;
 }
 export declare class normalizeOptionsValueConverter {
   toView(options?: any): any;
@@ -223,9 +229,11 @@ export declare class Conditional {
 export declare class FormGroup {
   element: any;
   message: any;
+  description: any;
   constructor(config?: any);
   showsLabel: any;
   showsMessage: any;
+  showsDescription: any;
   labelText: any;
 }
 export declare class Options {

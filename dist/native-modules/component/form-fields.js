@@ -1,6 +1,6 @@
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -60,6 +60,8 @@ export var FormFields = (_dec = customElement('form-fields'), _dec2 = resolvedVi
     _initDefineProp(this, 'model', _descriptor2, this);
 
     _initDefineProp(this, 'messages', _descriptor3, this);
+
+    _initDefineProp(this, 'descriptions', _descriptor4, this);
   }
 
   FormFields.prototype.attached = function attached() {
@@ -80,6 +82,9 @@ export var FormFields = (_dec = customElement('form-fields'), _dec2 = resolvedVi
   enumerable: true,
   initializer: null
 }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'messages', [bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'descriptions', [bindable], {
   enumerable: true,
   initializer: null
 })), _class2)) || _class) || _class);

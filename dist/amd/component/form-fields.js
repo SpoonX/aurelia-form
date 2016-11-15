@@ -57,7 +57,7 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../logger'], fu
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
   }
 
-  var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+  var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
 
   var FormFields = exports.FormFields = (_dec = (0, _aureliaFramework.customElement)('form-fields'), _dec2 = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'form-fields'), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
     function FormFields() {
@@ -68,6 +68,8 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../logger'], fu
       _initDefineProp(this, 'model', _descriptor2, this);
 
       _initDefineProp(this, 'messages', _descriptor3, this);
+
+      _initDefineProp(this, 'descriptions', _descriptor4, this);
     }
 
     FormFields.prototype.attached = function attached() {
@@ -88,6 +90,9 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../logger'], fu
     enumerable: true,
     initializer: null
   }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'messages', [_aureliaFramework.bindable], {
+    enumerable: true,
+    initializer: null
+  }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'descriptions', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
   })), _class2)) || _class) || _class);

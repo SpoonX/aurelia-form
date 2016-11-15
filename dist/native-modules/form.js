@@ -19,13 +19,16 @@ export var Form = function () {
       _this.__defineGetter__('model', function () {
         return model;
       });
-      _this.observer && _this.observer.dispose();
+      if (_this.observer) {
+        _this.observer.dispose();
+      }
       _this.validator = new Validator(model);
       _this.reporter = ValidationEngine.getValidationReporter(model);
       _this.observer = _this.reporter.subscribe(function (validationErrors) {
         _this.isValid = Object.keys(validationErrors).length === 0;
         _this.messages = validationErrors.reduce(function (errors, error) {
           errors[error.propertyName] = error.message;
+
           return errors;
         }, {});
       });

@@ -23,5 +23,7 @@ function normalizeOptions(options) {
         value: option.name || option.value
       };
     }
+
+    return {};
   });
 }

@@ -69,15 +69,17 @@ define(['exports', 'aurelia-framework', '../../config'], function (exports, _aur
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
   }
 
-  var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2;
+  var _dec, _dec2, _dec3, _dec4, _dec5, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
 
-  var FormGroup = exports.FormGroup = (_dec = (0, _aureliaFramework.inject)(_config.Config), _dec2 = (0, _aureliaFramework.computedFrom)('element'), _dec3 = (0, _aureliaFramework.computedFrom)('message'), _dec4 = (0, _aureliaFramework.computedFrom)('element'), _dec(_class = (_class2 = function () {
+  var FormGroup = exports.FormGroup = (_dec = (0, _aureliaFramework.inject)(_config.Config), _dec2 = (0, _aureliaFramework.computedFrom)('element'), _dec3 = (0, _aureliaFramework.computedFrom)('message'), _dec4 = (0, _aureliaFramework.computedFrom)('description'), _dec5 = (0, _aureliaFramework.computedFrom)('element'), _dec(_class = (_class2 = function () {
     function FormGroup(config) {
       
 
       _initDefineProp(this, 'element', _descriptor, this);
 
       _initDefineProp(this, 'message', _descriptor2, this);
+
+      _initDefineProp(this, 'description', _descriptor3, this);
 
       this.labelFormat = config.fetch('labelFormat');
     }
@@ -93,6 +95,11 @@ define(['exports', 'aurelia-framework', '../../config'], function (exports, _aur
         return !!this.message;
       }
     }, {
+      key: 'showsDescription',
+      get: function get() {
+        return !!this.description;
+      }
+    }, {
       key: 'labelText',
       get: function get() {
         return this.labelFormat(this.element);
@@ -106,5 +113,8 @@ define(['exports', 'aurelia-framework', '../../config'], function (exports, _aur
   }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'message', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  }), _applyDecoratedDescriptor(_class2.prototype, 'showsLabel', [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsLabel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'showsMessage', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsMessage'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'labelText', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'labelText'), _class2.prototype)), _class2)) || _class);
+  }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'description', [_aureliaFramework.bindable], {
+    enumerable: true,
+    initializer: null
+  }), _applyDecoratedDescriptor(_class2.prototype, 'showsLabel', [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsLabel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'showsMessage', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsMessage'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'showsDescription', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsDescription'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'labelText', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'labelText'), _class2.prototype)), _class2)) || _class);
 });

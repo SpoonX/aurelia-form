@@ -10,4 +10,6 @@ export class SchemaForm {
   model
 
   @bindable messages
+
+  @bindable descriptions;
 }

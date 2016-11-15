@@ -9,6 +9,7 @@ System.register(['aurelia-framework', './logger'], function (_export, _context) 
 
   function normalizedAttributes(value) {
     var result = {};
+
     if (typeof value === 'string') {
       result[value] = true;
     }

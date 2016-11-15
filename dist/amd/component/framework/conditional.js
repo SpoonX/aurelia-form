@@ -34,6 +34,7 @@ define(['exports', 'aurelia-framework', '../../logger'], function (exports, _aur
 
         if (Array.isArray(schema)) {
           _this.schema = schema;
+
           return schema;
         }
 
@@ -54,7 +55,9 @@ define(['exports', 'aurelia-framework', '../../logger'], function (exports, _aur
     };
 
     Conditional.prototype.deactivate = function deactivate() {
-      this.observer && this.observer.dispose();
+      if (this.observer) {
+        this.observer.dispose();
+      }
     };
 
     return Conditional;

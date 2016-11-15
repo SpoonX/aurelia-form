@@ -38,6 +38,7 @@ var AttributesCustomAttribute = exports.AttributesCustomAttribute = (_dec = (0, 
 }()) || _class) || _class);
 function normalizedAttributes(value) {
   var result = {};
+
   if (typeof value === 'string') {
     result[value] = true;
   }

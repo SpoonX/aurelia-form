@@ -3,7 +3,7 @@
 System.register(['../entity-schema', 'aurelia-framework', 'aurelia-view-manager'], function (_export, _context) {
   "use strict";
 
-  var entitySchema, bindable, bindingMode, customElement, resolvedView, _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, EntityForm;
+  var entitySchema, bindable, bindingMode, customElement, resolvedView, _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, EntityForm;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -68,6 +68,10 @@ System.register(['../entity-schema', 'aurelia-framework', 'aurelia-view-manager'
           _initDefineProp(this, 'entity', _descriptor, this);
 
           _initDefineProp(this, 'model', _descriptor2, this);
+
+          _initDefineProp(this, 'messages', _descriptor3, this);
+
+          _initDefineProp(this, 'descriptions', _descriptor4, this);
         }
 
         EntityForm.prototype.bind = function bind() {
@@ -82,6 +86,16 @@ System.register(['../entity-schema', 'aurelia-framework', 'aurelia-view-manager'
       }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'model', [_dec4], {
         enumerable: true,
         initializer: null
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'messages', [bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+          return {};
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'descriptions', [bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+          return {};
+        }
       })), _class2)) || _class) || _class));
 
       _export('EntityForm', EntityForm);

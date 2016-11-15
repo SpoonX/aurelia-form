@@ -25,6 +25,7 @@ export var Conditional = (_dec = inject(BindingEngine), _dec(_class = function (
 
       if (Array.isArray(schema)) {
         _this.schema = schema;
+
         return schema;
       }
 
@@ -45,7 +46,9 @@ export var Conditional = (_dec = inject(BindingEngine), _dec(_class = function (
   };
 
   Conditional.prototype.deactivate = function deactivate() {
-    this.observer && this.observer.dispose();
+    if (this.observer) {
+      this.observer.dispose();
+    }
   };
 
   return Conditional;

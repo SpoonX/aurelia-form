@@ -38,6 +38,7 @@ define(['exports', 'aurelia-framework', './logger'], function (exports, _aurelia
   }()) || _class) || _class);
   function normalizedAttributes(value) {
     var result = {};
+
     if (typeof value === 'string') {
       result[value] = true;
     }

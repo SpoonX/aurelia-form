@@ -3,7 +3,7 @@
 System.register(['aurelia-framework', 'aurelia-view-manager', '../logger'], function (_export, _context) {
   "use strict";
 
-  var bindable, bindingMode, customElement, resolvedView, logger, _typeof, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, FormFields;
+  var bindable, bindingMode, customElement, resolvedView, logger, _typeof, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, FormFields;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -76,6 +76,8 @@ System.register(['aurelia-framework', 'aurelia-view-manager', '../logger'], func
           _initDefineProp(this, 'model', _descriptor2, this);
 
           _initDefineProp(this, 'messages', _descriptor3, this);
+
+          _initDefineProp(this, 'descriptions', _descriptor4, this);
         }
 
         FormFields.prototype.attached = function attached() {
@@ -96,6 +98,9 @@ System.register(['aurelia-framework', 'aurelia-view-manager', '../logger'], func
         enumerable: true,
         initializer: null
       }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'messages', [bindable], {
+        enumerable: true,
+        initializer: null
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'descriptions', [bindable], {
         enumerable: true,
         initializer: null
       })), _class2)) || _class) || _class));

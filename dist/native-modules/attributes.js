@@ -29,6 +29,7 @@ export var AttributesCustomAttribute = (_dec = inject(Element), _dec2 = customAt
 
 export function normalizedAttributes(value) {
   var result = {};
+
   if (typeof value === 'string') {
     result[value] = true;
   }
