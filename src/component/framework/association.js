@@ -5,6 +5,8 @@ export class Association {
 
   association;
   manyAssociation;
+  selectablePlaceholder = false;
+  placeholderValue      = 0;
 
   activate(formField) {
     // the form-fields view model
@@ -22,6 +24,14 @@ export class Association {
 
     if (this.manyAssociation) {
       this.manyAssociation = this.formField.model[this.formField.element.manyAssociation];
+    }
+
+    if (typeof element.selectablePlaceholder !== 'undefined') {
+      this.selectablePlaceholder = element.selectablePlaceholder;
+    }
+
+    if (typeof element.placeholderValue !== 'undefined') {
+      this.placeholderValue = element.placeholderValue;
     }
   }
 }
