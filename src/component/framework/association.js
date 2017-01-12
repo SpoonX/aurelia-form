@@ -26,13 +26,8 @@ export class Association {
       this.manyAssociation = this.formField.model[this.formField.element.manyAssociation];
     }
 
-    if (typeof element.selectablePlaceholder !== 'undefined') {
-      this.selectablePlaceholder = element.selectablePlaceholder;
-    }
-
-    if (typeof element.placeholderValue !== 'undefined') {
-      this.placeholderValue = element.placeholderValue;
-    }
+    element.selectablePlaceholder = element.selectablePlaceholder || false;
+    element.placeholderValue      = element.placeholderValue || 0;
   }
 }
 
