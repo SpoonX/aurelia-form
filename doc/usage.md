@@ -54,8 +54,8 @@ export class Page {
 
   <schema-form
     submit.delegate="loginForm.submit(loginForm.credentials)"
-    schema.bind="this.loginForm.schema"
-    model.bind="this.loginForm.credentials"
+    schema.bind="loginForm.schema"
+    model.bind="loginForm.credentials"
   ></schema-form>
 
 <template>
