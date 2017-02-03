@@ -1,6 +1,6 @@
 # Installation
 
-## Aureli-Cli
+## Aurelia-Cli
 
 Run `npm i aurelia-form --save` from your project root.
 
