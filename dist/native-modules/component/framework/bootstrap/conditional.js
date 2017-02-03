@@ -1,4 +1,13 @@
+'use strict';
+
+exports.__esModule = true;
+exports.ConditionalCustomElement = undefined;
+
 var _dec, _class;
+
+var _aureliaFramework = require('aurelia-framework');
+
+var _conditional = require('../conditional');
 
 
 
@@ -6,10 +15,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import { customElement } from 'aurelia-framework';
-import { Conditional as Base } from '../conditional';
-
-export var ConditionalCustomElement = (_dec = customElement('conditional'), _dec(_class = function (_Base) {
+var ConditionalCustomElement = exports.ConditionalCustomElement = (_dec = (0, _aureliaFramework.customElement)('conditional'), _dec(_class = function (_Base) {
   _inherits(ConditionalCustomElement, _Base);
 
   function ConditionalCustomElement() {
@@ -19,4 +25,4 @@ export var ConditionalCustomElement = (_dec = customElement('conditional'), _dec
   }
 
   return ConditionalCustomElement;
-}(Base)) || _class);
+}(_conditional.Conditional)) || _class);

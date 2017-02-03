@@ -1,6 +1,10 @@
+"use strict";
+
+exports.__esModule = true;
 
 
-export var Collection = function () {
+
+var Collection = exports.Collection = function () {
   function Collection() {
     
   }

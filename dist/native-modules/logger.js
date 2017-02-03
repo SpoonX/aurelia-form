@@ -1,3 +1,8 @@
-import { getLogger } from 'aurelia-logging';
+'use strict';
 
-export var logger = getLogger('aurelia-form');
+exports.__esModule = true;
+exports.logger = undefined;
+
+var _aureliaLogging = require('aurelia-logging');
+
+var logger = exports.logger = (0, _aureliaLogging.getLogger)('aurelia-form');

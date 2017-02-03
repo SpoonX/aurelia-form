@@ -1,6 +1,10 @@
+'use strict';
+
+exports.__esModule = true;
 
 
-export var Association = function () {
+
+var Association = exports.Association = function () {
   function Association() {
     
   }
@@ -23,6 +27,9 @@ export var Association = function () {
     if (this.manyAssociation) {
       this.manyAssociation = this.formField.model[this.formField.element.manyAssociation];
     }
+
+    element.selectablePlaceholder = element.selectablePlaceholder || false;
+    element.placeholderValue = element.placeholderValue || 0;
   };
 
   return Association;

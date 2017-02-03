@@ -1,6 +1,19 @@
+'use strict';
+
+exports.__esModule = true;
+exports.FormField = undefined;
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _class3, _temp;
+
+var _config = require('../config');
+
+var _aureliaFramework = require('aurelia-framework');
+
+var _aureliaViewManager = require('aurelia-view-manager');
+
+var _logger = require('../logger');
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -47,12 +60,7 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-import { Config } from '../config';
-import { bindingMode, bindable, computedFrom, inject, customElement } from 'aurelia-framework';
-import { resolvedView, ViewManager } from 'aurelia-view-manager';
-import { logger } from '../logger';
-
-export var FormField = (_dec = customElement('form-field'), _dec2 = resolvedView('spoonx/form', 'form-field'), _dec3 = inject(Config, ViewManager, Element), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = computedFrom('value', 'element'), _dec6 = computedFrom('element'), _dec7 = computedFrom('element'), _dec8 = computedFrom('view'), _dec9 = computedFrom('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = (_temp = _class3 = function () {
+var FormField = exports.FormField = (_dec = (0, _aureliaFramework.customElement)('form-field'), _dec2 = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'form-field'), _dec3 = (0, _aureliaFramework.inject)(_config.Config, _aureliaViewManager.ViewManager, Element), _dec4 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec5 = (0, _aureliaFramework.computedFrom)('value', 'element'), _dec6 = (0, _aureliaFramework.computedFrom)('element'), _dec7 = (0, _aureliaFramework.computedFrom)('element'), _dec8 = (0, _aureliaFramework.computedFrom)('view'), _dec9 = (0, _aureliaFramework.computedFrom)('element'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = (_temp = _class3 = function () {
   function FormField(config, viewManager, element) {
     
 
@@ -74,7 +82,7 @@ export var FormField = (_dec = customElement('form-field'), _dec2 = resolvedView
 
   FormField.prototype.attached = function attached() {
     if (!this.element.key) {
-      logger.debug('key not defined in element of type ' + this.element.type + ' using model for value');
+      _logger.logger.debug('key not defined in element of type ' + this.element.type + ' using model for value');
     }
     if (this.element.attached) {
       this.element.attached.call(this, this.elementDOM);
@@ -139,19 +147,19 @@ export var FormField = (_dec = customElement('form-field'), _dec2 = resolvedView
   }]);
 
   return FormField;
-}(), _class3.elementCount = 0, _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'element', [bindable], {
+}(), _class3.elementCount = 0, _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'element', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'model', [bindable], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'model', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
 }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'value', [_dec4], {
   enumerable: true,
   initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'message', [bindable], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'message', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'description', [bindable], {
+}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'description', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
 }), _applyDecoratedDescriptor(_class2.prototype, 'visible', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'visible'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'label', [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, 'label'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'view', [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, 'view'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'hasViewModel', [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, 'hasViewModel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'type', [_dec9], Object.getOwnPropertyDescriptor(_class2.prototype, 'type'), _class2.prototype)), _class2)) || _class) || _class) || _class);

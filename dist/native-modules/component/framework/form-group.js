@@ -1,6 +1,15 @@
+'use strict';
+
+exports.__esModule = true;
+exports.FormGroup = undefined;
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _dec, _dec2, _dec3, _dec4, _dec5, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+
+var _aureliaFramework = require('aurelia-framework');
+
+var _config = require('../../config');
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -47,10 +56,7 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-import { inject, bindable, computedFrom } from 'aurelia-framework';
-import { Config } from '../../config';
-
-export var FormGroup = (_dec = inject(Config), _dec2 = computedFrom('element'), _dec3 = computedFrom('message'), _dec4 = computedFrom('description'), _dec5 = computedFrom('element'), _dec(_class = (_class2 = function () {
+var FormGroup = exports.FormGroup = (_dec = (0, _aureliaFramework.inject)(_config.Config), _dec2 = (0, _aureliaFramework.computedFrom)('element'), _dec3 = (0, _aureliaFramework.computedFrom)('message'), _dec4 = (0, _aureliaFramework.computedFrom)('description'), _dec5 = (0, _aureliaFramework.computedFrom)('element'), _dec(_class = (_class2 = function () {
   function FormGroup(config) {
     
 
@@ -86,13 +92,13 @@ export var FormGroup = (_dec = inject(Config), _dec2 = computedFrom('element'), 
   }]);
 
   return FormGroup;
-}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'element', [bindable], {
+}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'element', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'message', [bindable], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'message', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'description', [bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'description', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
 }), _applyDecoratedDescriptor(_class2.prototype, 'showsLabel', [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsLabel'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'showsMessage', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsMessage'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'showsDescription', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'showsDescription'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'labelText', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'labelText'), _class2.prototype)), _class2)) || _class);

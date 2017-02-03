@@ -69,7 +69,7 @@ export let FormField = (_dec = customElement('form-field'), _dec2 = resolvedView
 
   attached() {
     if (!this.element.key) {
-      logger.debug(`key not defined in element of type ${ this.element.type } using model for value`);
+      logger.debug(`key not defined in element of type ${this.element.type} using model for value`);
     }
     if (this.element.attached) {
       this.element.attached.call(this, this.elementDOM);
@@ -120,7 +120,7 @@ export let FormField = (_dec = customElement('form-field'), _dec2 = resolvedView
   }
 
   elementChanged(element) {
-    this.element.id = `sx-form-${ element.type }-${ element.key }-${ FormField.elementCount }`;
+    this.element.id = `sx-form-${element.type}-${element.key}-${FormField.elementCount}`;
     FormField.elementCount += 1;
 
     return this.element;

@@ -29,7 +29,7 @@ export function normalizedAttributes(value) {
   if (Array.isArray(value)) {
     value.forEach(string => {
       if (typeof string !== 'string') {
-        logger.error(`does not support ${ typeof string } in a attributes array`);
+        logger.error(`does not support ${typeof string} in a attributes array`);
       }
 
       result[string] = true;

@@ -1,13 +1,19 @@
+'use strict';
+
+exports.__esModule = true;
+exports.Conditional = undefined;
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _dec, _class;
 
+var _aureliaFramework = require('aurelia-framework');
+
+var _logger = require('../../logger');
 
 
-import { BindingEngine, inject } from 'aurelia-framework';
-import { logger } from '../../logger';
 
-export var Conditional = (_dec = inject(BindingEngine), _dec(_class = function () {
+var Conditional = exports.Conditional = (_dec = (0, _aureliaFramework.inject)(_aureliaFramework.BindingEngine), _dec(_class = function () {
   function Conditional(bindingEngine) {
     
 
@@ -35,7 +41,7 @@ export var Conditional = (_dec = inject(BindingEngine), _dec(_class = function (
         });
       }
 
-      logger.error(field.element.type + ' does not return a schema');
+      _logger.logger.error(field.element.type + ' does not return a schema');
     };
 
     calculateSchema();
@@ -53,6 +59,7 @@ export var Conditional = (_dec = inject(BindingEngine), _dec(_class = function (
 
   return Conditional;
 }()) || _class);
+
 
 function isPromise(value) {
   return value instanceof Promise;

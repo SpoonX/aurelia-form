@@ -1,6 +1,15 @@
-import extend from 'extend';
+'use strict';
 
-export function entitySchema(entity) {
+exports.__esModule = true;
+exports.entitySchema = entitySchema;
+
+var _extend = require('extend');
+
+var _extend2 = _interopRequireDefault(_extend);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function entitySchema(entity) {
   var metadata = entity.getMeta();
   var types = metadata.fetch('types') || {};
   var associations = metadata.fetch('associations');
@@ -50,7 +59,7 @@ export function entitySchema(entity) {
       element.schema = entitySchema(entityManager.getEntity(key));
     }
 
-    element = extend(true, element, data[key] ? data[key].form || {} : {});
+    element = (0, _extend2.default)(true, element, data[key] ? data[key].form || {} : {});
 
     schema.push(element);
   }

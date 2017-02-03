@@ -1,8 +1,17 @@
+'use strict';
+
+exports.__esModule = true;
+exports.Config = undefined;
+
+var _extend = require('extend');
+
+var _extend2 = _interopRequireDefault(_extend);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 
-import extend from 'extend';
 
-export var Config = function () {
+var Config = exports.Config = function () {
   function Config() {
     
 
@@ -32,7 +41,7 @@ export var Config = function () {
   };
 
   Config.prototype.configure = function configure(configs) {
-    return extend(true, this.configurations, configs);
+    return (0, _extend2.default)(true, this.configurations, configs);
   };
 
   return Config;

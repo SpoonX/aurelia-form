@@ -1,15 +1,20 @@
+'use strict';
+
+exports.__esModule = true;
+exports.Options = undefined;
+
+var _logger = require('../../logger');
 
 
-import { logger } from '../../logger';
 
-export var Options = function () {
+var Options = exports.Options = function () {
   function Options() {
     
   }
 
   Options.prototype.activate = function activate(model) {
     if (!Array.isArray(model.element.options)) {
-      logger.error('element \'s options should be an array');
+      _logger.logger.error('element \'s options should be an array');
     }
 
     this.model = model;

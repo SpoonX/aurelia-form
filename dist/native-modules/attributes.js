@@ -1,13 +1,21 @@
+'use strict';
+
+exports.__esModule = true;
+exports.AttributesCustomAttribute = undefined;
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _dec, _dec2, _class;
 
+exports.normalizedAttributes = normalizedAttributes;
+
+var _aureliaFramework = require('aurelia-framework');
+
+var _logger = require('./logger');
 
 
-import { customAttribute, inject } from 'aurelia-framework';
-import { logger } from './logger';
 
-export var AttributesCustomAttribute = (_dec = inject(Element), _dec2 = customAttribute('attributes'), _dec(_class = _dec2(_class = function () {
+var AttributesCustomAttribute = exports.AttributesCustomAttribute = (_dec = (0, _aureliaFramework.inject)(Element), _dec2 = (0, _aureliaFramework.customAttribute)('attributes'), _dec(_class = _dec2(_class = function () {
   function AttributesCustomAttribute(element) {
     
 
@@ -26,8 +34,7 @@ export var AttributesCustomAttribute = (_dec = inject(Element), _dec2 = customAt
 
   return AttributesCustomAttribute;
 }()) || _class) || _class);
-
-export function normalizedAttributes(value) {
+function normalizedAttributes(value) {
   var result = {};
 
   if (typeof value === 'string') {
@@ -37,7 +44,7 @@ export function normalizedAttributes(value) {
   if (Array.isArray(value)) {
     value.forEach(function (string) {
       if (typeof string !== 'string') {
-        logger.error('does not support ' + (typeof string === 'undefined' ? 'undefined' : _typeof(string)) + ' in a attributes array');
+        _logger.logger.error('does not support ' + (typeof string === 'undefined' ? 'undefined' : _typeof(string)) + ' in a attributes array');
       }
 
       result[string] = true;

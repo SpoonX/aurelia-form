@@ -1,8 +1,13 @@
+'use strict';
+
+exports.__esModule = true;
+exports.Form = undefined;
+
+var _aureliaValidatejs = require('aurelia-validatejs');
 
 
-import { Validator, ValidationEngine } from 'aurelia-validatejs';
 
-export var Form = function () {
+var Form = exports.Form = function () {
   Form.prototype.onChange = function onChange() {};
 
   Form.prototype.onSubmit = function onSubmit() {};
@@ -22,8 +27,8 @@ export var Form = function () {
       if (_this.observer) {
         _this.observer.dispose();
       }
-      _this.validator = new Validator(model);
-      _this.reporter = ValidationEngine.getValidationReporter(model);
+      _this.validator = new _aureliaValidatejs.Validator(model);
+      _this.reporter = _aureliaValidatejs.ValidationEngine.getValidationReporter(model);
       _this.observer = _this.reporter.subscribe(function (validationErrors) {
         _this.isValid = Object.keys(validationErrors).length === 0;
         _this.messages = validationErrors.reduce(function (errors, error) {

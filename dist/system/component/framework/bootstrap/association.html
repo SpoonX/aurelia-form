@@ -3,16 +3,18 @@
   <require from="./form-group"></require>
   <form-group role="group" element.bind="formField.element" message.bind="formField.message" description.bind="formField.description">
     <association-select
-      attributes.bind      = "formField.element.attributes"
-      multiple.bind        = "formField.element.multiple"
-      value.bind           = "formField.value"
-      property.bind        = "formField.element.property"
-      repository.bind      = "formField.element.repository"
-      resource.bind        = "formField.element.resource"
+      attributes.bind        = "formField.element.attributes"
+      multiple.bind          = "formField.element.multiple"
+      value.bind             = "formField.value"
+      property.bind          = "formField.element.property"
+      repository.bind        = "formField.element.repository"
+      resource.bind          = "formField.element.resource"
 
-      association.bind     = "association"
-      manyAssociation.bind = "manyAssociation"
+      selectable-placeholder = "formField.element.selectablePlaceholder"
+      placeholder-value.bind = "formField.element.placeholderValue"
+      association.bind       = "association"
+      manyAssociation.bind   = "manyAssociation"
 
-      criteria.bind        = "formField.element.criteria"></association-select>
+      criteria.bind          = "formField.element.criteria"></association-select>
   </form-group>
 </template>

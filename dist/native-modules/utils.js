@@ -1,5 +1,8 @@
+'use strict';
 
-export function normalizeOptions(options) {
+exports.__esModule = true;
+exports.normalizeOptions = normalizeOptions;
+function normalizeOptions(options) {
   return options.map(function (option) {
     if (typeof option === 'string') {
       return {

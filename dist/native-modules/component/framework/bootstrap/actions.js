@@ -1,12 +1,17 @@
+'use strict';
+
+exports.__esModule = true;
+exports.ActionsCustomElement = undefined;
+
+var _actions = require('../actions');
+
 
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import { Actions } from '../actions';
-
-export var ActionsCustomElement = function (_Actions) {
+var ActionsCustomElement = exports.ActionsCustomElement = function (_Actions) {
   _inherits(ActionsCustomElement, _Actions);
 
   function ActionsCustomElement() {
@@ -16,4 +21,4 @@ export var ActionsCustomElement = function (_Actions) {
   }
 
   return ActionsCustomElement;
-}(Actions);
+}(_actions.Actions);

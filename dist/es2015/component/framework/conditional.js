@@ -28,7 +28,7 @@ export let Conditional = (_dec = inject(BindingEngine), _dec(_class = class Cond
         });
       }
 
-      logger.error(`${ field.element.type } does not return a schema`);
+      logger.error(`${field.element.type} does not return a schema`);
     };
 
     calculateSchema();

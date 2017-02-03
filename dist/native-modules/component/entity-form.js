@@ -1,4 +1,15 @@
+'use strict';
+
+exports.__esModule = true;
+exports.EntityForm = undefined;
+
 var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+
+var _entitySchema = require('../entity-schema');
+
+var _aureliaFramework = require('aurelia-framework');
+
+var _aureliaViewManager = require('aurelia-view-manager');
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -45,11 +56,7 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-import { entitySchema } from '../entity-schema';
-import { bindable, bindingMode, customElement } from 'aurelia-framework';
-import { resolvedView } from 'aurelia-view-manager';
-
-export var EntityForm = (_dec = customElement('entity-form'), _dec2 = resolvedView('spoonx/form', 'entity-form'), _dec3 = bindable({ defaultBindingMode: bindingMode.oneTime }), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
+var EntityForm = exports.EntityForm = (_dec = (0, _aureliaFramework.customElement)('entity-form'), _dec2 = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'entity-form'), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.oneTime }), _dec4 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
   function EntityForm() {
     
 
@@ -63,7 +70,7 @@ export var EntityForm = (_dec = customElement('entity-form'), _dec2 = resolvedVi
   }
 
   EntityForm.prototype.bind = function bind() {
-    this.schema = entitySchema(this.entity);
+    this.schema = (0, _entitySchema.entitySchema)(this.entity);
     this.model = this.entity;
   };
 
@@ -74,12 +81,12 @@ export var EntityForm = (_dec = customElement('entity-form'), _dec2 = resolvedVi
 }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'model', [_dec4], {
   enumerable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'messages', [bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'messages', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: function initializer() {
     return {};
   }
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'descriptions', [bindable], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'descriptions', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: function initializer() {
     return {};

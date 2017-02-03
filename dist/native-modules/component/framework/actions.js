@@ -1,6 +1,10 @@
+"use strict";
+
+exports.__esModule = true;
 
 
-export var Actions = function () {
+
+var Actions = exports.Actions = function () {
   function Actions() {
     
   }
