@@ -14,7 +14,6 @@ export class Config {
       // ValidationResult instance
       errorMessage: error => error.message,
       errorValid  : error => error.valid
-
     });
   }
 

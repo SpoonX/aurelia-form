@@ -5,14 +5,14 @@ import {logger} from '../logger';
 @customElement('form-fields')
 @resolvedView('spoonx/form', 'form-fields')
 export class FormFields {
-  @bindable schema
+  @bindable schema;
 
   @bindable({defaultBindingMode: bindingMode.twoWay})
-  model
+  model;
 
-  @bindable errors
+  @bindable errors;
 
-  @bindable descriptions
+  @bindable descriptions;
 
   attached() {
     if (typeof this.model !== 'object') {

@@ -13,7 +13,7 @@ export class FormGroup {
   @bindable errors = []
 
   constructor(config) {
-    this.config = config.configurations;
+    this.config      = config.configurations;
     this.labelFormat = config.fetch('labelFormat');
   }
 

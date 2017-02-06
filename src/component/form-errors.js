@@ -6,8 +6,7 @@ import {Config} from '../config';
 @inject(Config)
 export class FormErrors {
 
-  @bindable
-  errors;
+  @bindable errors;
 
   constructor(config) {
     this.config = config.configurations;
@@ -24,4 +23,3 @@ export class FormErrors {
   }
 
 }
-
