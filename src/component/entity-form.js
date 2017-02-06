@@ -13,7 +13,7 @@ export class EntityForm {
   model
 
   @bindable
-  messages = {};
+  errors = {};
 
   @bindable
   descriptions = {};

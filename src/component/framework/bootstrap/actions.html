@@ -1,7 +1,7 @@
 <template>
   <require from="./form-group"></require>
   <require from="./../../../attributes"></require>
-  <form-group role="group" element.bind="element" message.bind="message" description.bind="description">
+  <form-group errors.bind="errors" role="group" element.bind="element" message.bind="message" description.bind="description">
     <div class="btn-group" attributes.bind="element.attributes">
       <button repeat.for="action of element.actions"
         class="btn btn-default"

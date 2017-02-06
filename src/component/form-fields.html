@@ -5,7 +5,7 @@
       if.bind="hasKeyProp(element)"
       value.bind="model[element.key]"
       model.bind="model"
-      message.bind="messages[element.key]"
+      errors.bind="errors[element.key]"
       description.bind="descriptions[element.key]"
       element.bind="element">
     </form-field>
@@ -13,8 +13,8 @@
     <form-field
       if.bind="!hasKeyProp(element)"
       value.bind="model"
+      errors.bind="errors"
       model.bind="model"
-      message.bind="messages"
       description.bind="descriptions"
       element.bind="element">
     </form-field>

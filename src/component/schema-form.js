@@ -9,7 +9,11 @@ export class SchemaForm {
   @bindable({defaultBindingMode: bindingMode.twoWay})
   model
 
-  @bindable messages
+  @bindable errors;
+
+  errorsChanged(...args) {
+    console.log(args);
+  }
 
   @bindable descriptions;
 }

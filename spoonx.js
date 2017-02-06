@@ -21,10 +21,10 @@ module.exports = {
      * useTypeScriptForDTS: false,
      */
 
-    /* Imports to append to the import block of the main file. 
-     * Add here eg. non-concated local imports in the main file as they will 
+    /* Imports to append to the import block of the main file.
+     * Add here eg. non-concated local imports in the main file as they will
      * get removed during the build process (ValueConverters, CustomElements).
-     *  
+     *
      * importsToAdd: ["import {AssociationSelect} from './association-select';"],
      */
     importsToAdd: ["import {Config} from './config';"],
@@ -42,6 +42,7 @@ module.exports = {
       appRoot + "aurelia-form/utils.js",
       appRoot + "aurelia-form/converter/normalizeOptions.js",
       appRoot + "aurelia-form/component/entity-form.js",
+      appRoot + "aurelia-form/component/form-errors.js",
       appRoot + "aurelia-form/component/form-field.js",
       appRoot + "aurelia-form/component/form-fields.js",
       appRoot + "aurelia-form/component/schema-form.js",
@@ -57,13 +58,13 @@ module.exports = {
       appRoot + "aurelia-form/component/framework/bootstrap/form-group.js",
       appRoot + "aurelia-form/component/framework/bootstrap/radios.js",
       appRoot + "aurelia-form/component/framework/bootstrap/select.js"
-	],
+    ],
 
     /* other resources that need to get copied keeping their path
      * resources: appRoot + '{** / *.css,** / *.html}',
      */
     resources: appRoot + '{**/*.css,**/*.html}',
-  
+
     /* imports that are only used internally, eg 'extend'. no need to d.ts export them
      *
      * importsToIgnoreForDts: ['extend'],
