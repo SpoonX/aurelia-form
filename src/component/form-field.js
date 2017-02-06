@@ -14,6 +14,8 @@ export class FormField {
 
   @bindable model
 
+  @bindable errors;
+
   @bindable({defaultBindingMode: bindingMode.twoWay})
   value
 

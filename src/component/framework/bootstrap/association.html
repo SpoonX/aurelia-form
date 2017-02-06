@@ -1,7 +1,7 @@
 <template>
   <require from="./../../../attributes"></require>
   <require from="./form-group"></require>
-  <form-group role="group" element.bind="formField.element" message.bind="formField.message" description.bind="formField.description">
+  <form-group errors.bind="errors" role="group" element.bind="formField.element" message.bind="formField.message" description.bind="formField.description">
     <association-select
       attributes.bind        = "formField.element.attributes"
       multiple.bind          = "formField.element.multiple"
@@ -9,12 +9,11 @@
       property.bind          = "formField.element.property"
       repository.bind        = "formField.element.repository"
       resource.bind          = "formField.element.resource"
-
+      type.bind              = "formField.element.selectType"
       selectable-placeholder = "formField.element.selectablePlaceholder"
       placeholder-value.bind = "formField.element.placeholderValue"
       association.bind       = "association"
       manyAssociation.bind   = "manyAssociation"
-
       criteria.bind          = "formField.element.criteria"></association-select>
   </form-group>
 </template>

@@ -10,8 +10,20 @@ export class FormGroup {
 
   @bindable description
 
+  @bindable errors = []
+
   constructor(config) {
+    this.config = config.configurations;
     this.labelFormat = config.fetch('labelFormat');
+  }
+
+  @computedFrom('errors')
+  get isValid() {
+    if (!this.errors || this.errors.length === 0) {
+      return true;
+    }
+
+    return !this.errors.some(error => !this.config.errorValid(error));
   }
 
   /**

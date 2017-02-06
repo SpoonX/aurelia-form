@@ -2,7 +2,7 @@
   <require from="./../../../attributes"></require>
   <require from="./../../../converter/normalizeOptions"></require>
   <require from="./form-group"></require>
-  <form-group element.bind="model.element" attributes.bind="model.element.attributes">
+  <form-group errors.bind="errors" element.bind="model.element" attributes.bind="model.element.attributes">
     <div class="checkbox" repeat.for="option of model.element.options | normalizeOptions">
       <label>
         <input

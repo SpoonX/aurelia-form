@@ -10,7 +10,7 @@ export class FormFields {
   @bindable({defaultBindingMode: bindingMode.twoWay})
   model
 
-  @bindable messages
+  @bindable errors
 
   @bindable descriptions
 

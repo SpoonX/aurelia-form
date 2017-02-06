@@ -8,7 +8,13 @@ export class Config {
     this.configure({
       labelFormat: element => {
         return element.label || element.key;
-      }
+      },
+
+      // By default is configured to work with aurelia validation
+      // ValidationResult instance
+      errorMessage: error => error.message,
+      errorValid  : error => error.valid
+
     });
   }
 

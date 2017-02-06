@@ -2,7 +2,7 @@
   <require from="./../../../attributes"></require>
   <require from="./../../../converter/normalizeOptions"></require>
   <require from="./form-group"></require>
-  <form-group element.bind="model.element" message.bind="message" description.bind="description">
+  <form-group errors.bind="errors" element.bind="model.element" message.bind="message" description.bind="description">
     <select
       id="${model.element.id}"
       attributes.bind="model.element.attributes"

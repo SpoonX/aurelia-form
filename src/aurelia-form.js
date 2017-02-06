@@ -11,6 +11,7 @@ export {EntityForm}                     from './component/entity-form';
 export {SchemaForm}                     from './component/schema-form';
 export {FormFields}                     from './component/form-fields';
 export {FormField}                      from './component/form-field';
+export {FormErrors}                     from './component/form-errors';
 export {Options}                        from './component/framework/options';
 export {FormGroup}                      from './component/framework/form-group';
 export {Conditional}                    from './component/framework/conditional';
@@ -37,6 +38,7 @@ export function configure(aurelia, configOrConfigure) {
       /* aurelia-form specific view are also overwritable */
       'form-field' : './form-field.html',
       'form-fields': './form-fields.html',
+      'form-errors': './form-errors.html',
       'schema-form': './schema-form.html',
       'entity-form': './schema-form.html',
 
@@ -98,6 +100,7 @@ export function configure(aurelia, configOrConfigure) {
   }
 
   aurelia.globalResources(
+    './component/form-errors',
     './component/entity-form',
     './component/schema-form',
     './component/form-fields',
