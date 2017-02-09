@@ -3,7 +3,7 @@
 /* @see https://github.com/SpoonX/spoonx-tools  */
 /************************************************/
 
-var appRoot = 'src/';
+const appRoot = 'src/';
 
 module.exports = {
   path: {
@@ -41,12 +41,12 @@ module.exports = {
     /* sort when concating
      * sort: true,
      */
-     sort: true,
+     sort: false,
 
     /* concat js files
      * concat: true,
      */
-     concat: true,
+     concat: false,
 
     /* options overwrites for karma. defaults are in ./node_modules/spoonx-tools/karma.conf.js
      *
