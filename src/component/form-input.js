@@ -10,5 +10,5 @@ export class FormInput {
 
   @bindable name = '';
 
-  @bindable classes = 'form-control';
+  @bindable classes = '';
 }
