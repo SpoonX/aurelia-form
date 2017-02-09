@@ -15,6 +15,7 @@ export function configure(aurelia) {
     './component/form-input',
     './component/form-help',
     './component/form-error',
+    './component/form-group',
   );
 }
 
