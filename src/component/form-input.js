@@ -11,4 +11,10 @@ export class FormInput {
   @bindable name = '';
 
   @bindable classes = '';
+
+  @bindable placeholder = '';
+
+  @bindable readonly = false;
+
+  @bindable disabled = false;
 }
