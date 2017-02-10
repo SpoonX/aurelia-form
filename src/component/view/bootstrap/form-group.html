@@ -1,5 +1,29 @@
 <template>
   <div class="form-group${state ? ' has-' + state : ''} ${classes}">
-    <slot></slot>
+    <slot>
+      <slot name="before"></slot>
+
+      <slot name="label">
+        <form-label
+          if.bind="label"
+          value.bind="label"
+          classes="${behavior === 'horizontal' ? 'col-sm-2' : ''}"
+        ></form-label>
+      </slot>
+
+      <div class="${behavior === 'horizontal' ? 'col-sm-10' : ''}">
+        <slot name="element"></slot>
+
+        <slot name="help">
+          <form-help if.bind="message" message.bind="message"></form-help>
+        </slot>
+
+        <slot name="error">
+          <form-error if.bind="error" error.bind="error"></form-error>
+        </slot>
+      </div>
+
+      <slot name="after"></slot>
+    </slot>
   </div>
 </template>

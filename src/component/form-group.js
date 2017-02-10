@@ -7,4 +7,14 @@ export class FormGroup {
   @bindable classes;
 
   @bindable state;
+
+  @bindable label;
+
+  @bindable error;
+
+  @bindable message;
+
+  @bindable type;
+
+  @bindable behavior;
 }

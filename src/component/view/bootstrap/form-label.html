@@ -1,3 +1,7 @@
 <template>
-  <label t.bind="value" class.bind="classes">${value}</label>
+  <label class="control-label ${classes}">
+    <slot name="before"></slot>
+    <span t.bind="value">${value}</span>
+    <slot name="after"></slot>
+  </label>
 </template>
