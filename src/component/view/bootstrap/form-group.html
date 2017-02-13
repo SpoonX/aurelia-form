@@ -6,12 +6,15 @@
       <slot name="label">
         <form-label
           if.bind="label"
-          value.bind="label"
+          label.bind="label"
           classes="${behavior === 'horizontal' ? 'col-sm-2' : ''}"
         ></form-label>
       </slot>
 
-      <div class="${behavior === 'horizontal' ? 'col-sm-10' : ''}">
+      <div
+        class="${behavior === 'horizontal' ? 'col-sm-10' : ''}"
+        css.bind="{display: behavior === 'inline' ? 'inline' : 'block'}"
+      >
         <slot name="element"></slot>
 
         <slot name="help">

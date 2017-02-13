@@ -4,7 +4,7 @@ import {resolvedView} from 'aurelia-view-manager';
 @resolvedView('spoonx/form', 'form-label')
 @customElement('form-label')
 export class FormLabel {
-  @bindable value = null;
+  @bindable label = null;
 
   @bindable classes;
 }
