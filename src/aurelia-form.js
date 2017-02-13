@@ -11,8 +11,12 @@ export function configure(aurelia) {
   });
 
   aurelia.globalResources(
+    './attribute/attributes',
+    './attribute/prefixed',
+    './component/aurelia-form',
     './component/form-label',
     './component/form-input',
+    './component/form-button',
     './component/form-help',
     './component/form-error',
     './component/form-group',
