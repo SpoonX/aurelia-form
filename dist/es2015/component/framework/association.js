@@ -16,6 +16,7 @@ export let Association = class Association {
       this.manyAssociation = this.formField.model[this.formField.element.manyAssociation];
     }
 
+    element.hidePlaceholder = element.hidePlaceholder || false;
     element.selectablePlaceholder = element.selectablePlaceholder || false;
     element.placeholderValue = element.placeholderValue || 0;
   }

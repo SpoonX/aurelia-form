@@ -1,3 +1,13 @@
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/SpoonX/aurelia-form/compare/v0.5.0...v0.6.0) (2017-02-13)
+
+
+### Features
+
+* **association:** add option to hide placeholder ([9e12389](https://github.com/SpoonX/aurelia-form/commit/9e12389))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/SpoonX/aurelia-form/compare/v0.4.0...v0.5.0) (2017-02-03)
 
