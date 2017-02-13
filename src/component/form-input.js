@@ -17,4 +17,6 @@ export class FormInput {
   @bindable readonly = false;
 
   @bindable disabled = false;
+
+  @bindable options = {};
 }
