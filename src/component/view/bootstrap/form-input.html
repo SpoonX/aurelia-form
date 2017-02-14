@@ -1,12 +1,14 @@
 <template>
+  <!-- The order of attributes `checked` and `value` is important. No touch. -->
   <input
-    class="form-control ${classes}"
+    checked.two-way="checked"
+    value.two-way="value"
+    class="${type !== 'radio' && type !== 'checkbox' ? 'form-control' : ''} ${classes}"
     type.bind="type"
     name.bind="name"
-    value.two-way="value"
     placeholder.bind="placeholder"
-    readonly.bind="readonly"
+    readonly.bind="readonly !== false"
     prefixed="options.bind: options; prefix: input-"
-    disabled.bind="disabled"
+    disabled.bind="disabled !== false"
   >
 </template>
