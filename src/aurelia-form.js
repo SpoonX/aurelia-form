@@ -1,5 +1,5 @@
-import {Config as ViewManagerConfig} from "aurelia-view-manager";
-import {getLogger} from "aurelia-logging";
+import {Config as ViewManagerConfig} from 'aurelia-view-manager';
+import {getLogger} from 'aurelia-logging';
 
 export const logger = getLogger('aurelia-form');
 
@@ -21,7 +21,9 @@ export function configure(aurelia, config) {
   ];
 
   let defaultElements = [
-    'input'
+    'input',
+    'checkbox',
+    'radio'
   ];
 
   aurelia.globalResources(
@@ -39,6 +41,6 @@ export function configure(aurelia, config) {
 export const config = {
   'aurelia-form': {
     defaultElement: 'input',
-    components    : {}
+    elements      : {}
   }
 };
