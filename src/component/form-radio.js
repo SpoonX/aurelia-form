@@ -1,16 +1,16 @@
 import {bindable, customElement, bindingMode} from 'aurelia-framework';
 import {resolvedView} from 'aurelia-view-manager';
 
-@resolvedView('spoonx/form', 'form-input')
-@customElement('form-input')
-export class FormInput {
+@resolvedView('spoonx/form', 'form-radio')
+@customElement('form-radio')
+export class FormRadio {
+  @bindable name;
+
   @bindable({defaultBindingMode: bindingMode.twoWay}) value;
 
-  @bindable({defaultBindingMode: bindingMode.twoWay}) checked;
+  @bindable({defaultBindingMode: bindingMode.twoWay}) option;
 
   @bindable type = 'text';
-
-  @bindable name = '';
 
   @bindable classes = '';
 
