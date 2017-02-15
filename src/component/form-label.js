@@ -6,5 +6,7 @@ import {resolvedView} from 'aurelia-view-manager';
 export class FormLabel {
   @bindable label = null;
 
+  @bindable visible = true;
+
   @bindable classes;
 }
