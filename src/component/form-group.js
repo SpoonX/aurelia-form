@@ -21,4 +21,19 @@ export class FormGroup {
   @bindable type;
 
   @bindable behavior;
+
+  is(oneOf, then, source) {
+    if (typeof oneOf === 'string') {
+      oneOf = oneOf.split(',').map(one => one.trim());
+    }
+
+    source = source || this.element;
+    then   = then || true;
+
+    return oneOf.indexOf(source) > -1 ? then : false;
+  }
+
+  when(conditional, value, otherwise) {
+    return conditional ? value : (otherwise || '');
+  }
 }
