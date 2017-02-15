@@ -41,6 +41,16 @@ export function configure(aurelia, config) {
 export const config = {
   'aurelia-form': {
     defaultElement: 'input',
-    elements      : {}
+    elements      : {},
+    aliases       : {
+      enum   : 'radio',
+      int    : 'input',
+      integer: 'input',
+      number : 'input',
+      float  : 'input',
+      bool   : 'checkbox',
+      boolean: 'checkbox',
+      text   : 'input'
+    }
   }
 };

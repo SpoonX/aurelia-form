@@ -58,7 +58,7 @@ export class FormElement {
   }
 
   getElementName() {
-    let elementName = this.config.elements[this.element];
+    let elementName = this.config.elements[this.config.aliases[this.element] || this.element];
 
     if (!elementName) {
       logger.warn(
