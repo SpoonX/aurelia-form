@@ -1,85 +1,97 @@
 # aurelia-form
 
 [![Build Status](https://travis-ci.org/SpoonX/aurelia-form.svg?branch=master)](https://travis-ci.org/SpoonX/aurelia-form)
-[![Known Vulnerabilities](https://snyk.io/test/npm/name/badge.svg)](https://snyk.io/test/npm/aurelia-form)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=plastic)](https://gitter.im/SpoonX/Dev)
 
-> This library is a plugin for the [Aurelia](http://www.aurelia.io/) platform.
+> Form generation, validation and fun. This is a plugin for the [Aurelia](http://www.aurelia.io/) platform.
 
-Makes working with forms just a tad more pleasant.
-
-- A standardized schema for describing forms
-- Elements for generating forms with two way databinding by default
-- Support for multiple css frameworks enabled by view manager
-- Ability to define your own custom elements and overwrite the default elements
+- Easy to use with clear [documentation](http://aurelia-form.spoonx.org/)
+- [Form validation](https://aurelia-form-validation.spoonx.org/)
+- Support for multiple css frameworks enabled by [aurelia view manager](https://aurelia-view-manager.spoonx.org/)
+- Configuration simplified through [aurelia-config](https://aurelia-config.spoonx.org/)
+- Automatic forms for [aurelia-orm](https://aurelia-orm.spoonx.org/) entities
+- Built inside-out (everything is optional)
+- Auto translations (if [aurelia-i18n](https://github.com/aurelia/i18n) is configured)
+- Declarative way of building forms
+- Multi css-framework support ([is your framework missing](https://github.com/SpoonX/aurelia-form/tree/master/src/component/view)? Submit a PR!)
 - Aliases for types so you can reuse elements for similar or different types
-- A descent amount of types so you can start generating forms out of the box
 
 ## Documentation
 
-You can find usage examples and the documentation at [aurelia-form](http://aurelia-form.spoonx.org/).
+You can find detailed documentation over at the [aurelia-form documentation](http://aurelia-form.spoonx.org/).
 
-The [changelog](doc/CHANGELOG.md) provides you with information about important changes.
+The [changelog](https://aurelia-form.spoonx.org/CHANGELOG.html) provides you with information about important changes made over releases.
 
-## Uses
+# Installation
 
-Aurelia-form needs following plugins installed and configured:
+## Enabling the plugin
+The following code snippets illustrate how to set up aurelia-form for your project.
 
-- [aurelia-view-manager](https://www.npmjs.com/package/aurelia-view-manager)
-- [aurelia-validatejs](https://www.npmjs.com/package/aurelia-validatejs)
+In your main.js file, add the following:
 
-## Installation
+### Using aurelia-config
+[Aurelia-config](https://aurelia-config.spoonx.org/) makes it easy to register plugins and configure them.
 
-### Aureli-Cli
+```js
+aurelia.use.plugin('aurelia-config', configure => {
+  return configure([
+    'aurelia-form'
+  ]);
+});
+```
+
+Here's an example including validation, and aurelia-orm (for `<entity-form />`):
+
+```js
+aurelia.use.plugin('aurelia-config', configure => {
+  return configure([
+    'aurelia-api',
+    'aurelia-orm',
+    'aurelia-form',
+    'aurelia-form-validation'
+  ], yourConfiguration);
+});
+```
+
+### Without aurelia-config
+Aurelia-config is optional (but recommended!).
+Without aurelia-config, registering the plugins works exactly like expected:
+
+```js
+aurelia.use.plugin('aurelia-form');
+```
+
+Configurations can be supplied using the second argument.
+
+## Aurelia-Cli
 
 Run `npm i aurelia-form --save` from your project root.
 
-Aurelia-form makes use of `extend`. So, add following to the `build.bundles.dependencies` section of `aurelia-project/aurelia.json`.
-
 ```js
 "dependencies": [
-  // ...
-  "extend",
   {
     "name": "aurelia-form",
     "path": "../node_modules/aurelia-form/dist/amd",
     "main": "aurelia-form",
     "resources": [
-      "attributes.html",
-      "component/form-field.html",
-      "component/form-fields.html",
-      "component/schema-form.html",
-      "component/framework/bootstrap/actions.html",
-      "component/framework/bootstrap/association.html",
-      "component/framework/bootstrap/checkbox.html",
-      "component/framework/bootstrap/checkboxes.html",
-      "component/framework/bootstrap/collection.html",
-      "component/framework/bootstrap/conditional.html",
-      "component/framework/bootstrap/fieldset.html",
-      "component/framework/bootstrap/file.html",
-      "component/framework/bootstrap/form-group.html",
-      "component/framework/bootstrap/input.html",
-      "component/framework/bootstrap/radios.html",
-      "component/framework/bootstrap/select.html",
-      "component/framework/bootstrap/submit.html",
-      "component/framework/bootstrap/textarea.html"            
+      "**/*.html",
+      "**/*.js"      
     ]
   },
   // ...
 ],
 ```
 
-### Jspm
+## Jspm
 
 Run `jspm i aurelia-form` from your project root.
 
-Aurelia-form makes use of `extend`. So, add following to the desired `includes` section of `build/bundles.js`, eg:
+Add following to the desired `includes` section of `build/bundles.js`, eg:
 
 ```js
 "aurelia": {
   "includes": [
     //...
-    "extend",
     "aurelia-form",
     "[aurelia-form/**/*.js]",
     "aurelia-form/**/*.html!text",
@@ -95,13 +107,13 @@ jspm inspect --forks
 jspm resolve --only registry:package-name@version
 ```
 
-### Webpack
+## Webpack
 
 Run `npm i aurelia-form --save` from your project root.
 
 And add `aurelia-form` in the `coreBundles.aurelia` section of your `webpack.config.js`.
 
-### Typescript
+## Typescript
 
 Npm-based installations pick up the typings automatically. For Jspm-based installations, run `typings i github:spoonx/aurelia-form` or add `"aurelia-form": "github:spoonx/aurelia-form",` to your `typings.json` and run `typings i`.
 
