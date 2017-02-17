@@ -17,7 +17,8 @@ export function configure(aurelia, config) {
     'form-button',
     'form-help',
     'form-error',
-    'form-group'
+    'form-group',
+    'entity-form'
   ];
 
   let defaultElements = [
