@@ -1,4 +1,4 @@
-import {bindable, customElement, bindingMode} from 'aurelia-framework';
+import {bindable, customElement, bindingMode, computedFrom} from 'aurelia-framework';
 import {resolvedView} from 'aurelia-view-manager';
 
 @resolvedView('spoonx/form', 'form-select')
@@ -21,6 +21,18 @@ export class FormSelect {
   @bindable options = {};
 
   @bindable optionLabel = 'name';
+
+  @computedFrom('selectOptions', 'optionLabel')
+  get optionLabels() {
+    return this.selectOptions.map(option => {
+      if (typeof option === 'object' && this.optionLabel) {
+        option.label = option[this.optionLabel] || '';
+      }
+
+      return option;
+    });
+  }
+
 
   getOptionLabel(option) {
     if (typeof option === 'object' && this.optionLabel) {

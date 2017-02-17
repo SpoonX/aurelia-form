@@ -64,9 +64,11 @@ export class FormElement {
 
   setAttributes(DOMElement) {
     this.proxyAttributes.forEach(attribute => {
-      let formattedAttribute = styleHyphenFormat(attribute);
+      let attributeName = attribute.replace(/[A-Z]/g, (match, offset) => {
+        return (offset ? '-' : '') + match.toLowerCase();
+      });
 
-      DOMElement.setAttribute(`${formattedAttribute}.bind`, attribute)
+      DOMElement.setAttribute(`${attributeName}.bind`, attribute)
     });
   }
 
@@ -83,11 +85,4 @@ export class FormElement {
 
     return elementName;
   }
-}
-
-function styleHyphenFormat(propertyName) {
-  function upperToHyphenLower(match, offset) {
-    return (offset ? '-' : '') + match.toLowerCase();
-  }
-  return propertyName.replace(/[A-Z]/g, upperToHyphenLower);
 }

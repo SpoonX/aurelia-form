@@ -8,6 +8,6 @@
     disabled.bind="disabled !== false"
     multiple.bind="multiple !== false"
   >
-    <option repeat.for="option of selectOptions" model.bind="option" t="${getOptionLabel(option)}">${getOptionLabel(option)}</option>
+    <option repeat.for="option of optionLabels" model.bind="option" t="${option.label || option}">${option.label || option}</option>
   </select>
 </template>
