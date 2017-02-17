@@ -1,20 +1,21 @@
-# Aurelia-form
+# aurelia-form
+
+[![Build Status](https://travis-ci.org/SpoonX/aurelia-form.svg?branch=master)](https://travis-ci.org/SpoonX/aurelia-form)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=plastic)](https://gitter.im/SpoonX/Dev)
 
 [View on github](https://github.com/spoonx/aurelia-form)
 
-Almost all interactive applications contain forms. A lot of applications, like dashboards, contain many forms. This repetitive, mind-numbing process of writing forms is something that motivated us to write a plugin to do the work for us, and you.
+> Form generation, validation and fun. This is a plugin for the [Aurelia](http://www.aurelia.io/) platform.
 
-Aurelia is a great tool for generating forms, as it provides a lot of useful utilities and plugins to do so. What Aurelia form does, is leverage Aurelia's strengths, and create a standardized way of describing forms simply using objects and arrays.
-
-Some of the features this plugin provides include:
-
-- multi css-framework support ([is your framework missing](https://github.com/SpoonX/aurelia-form/tree/master/src/component/framework)? Submit a PR!)
-- [aurelia-orm](https://aurelia-orm.spoonx.org) support (forms based on entity definition, no need to make a schema)
-- validation
-- concise way of describing forms using schemas
-- easy override and extending of forms
-- helpers for individual components, for forms with a special need
-- generate forms programmatically
+- Easy to use with clear [documentation](http://aurelia-form.spoonx.org/)
+- [Form validation](https://aurelia-form-validation.spoonx.org/)
+- Support for multiple css frameworks enabled by [aurelia view manager](https://aurelia-view-manager.spoonx.org/) ([is your framework missing](https://github.com/SpoonX/aurelia-form/tree/master/src/component/view)? Submit a PR!)
+- Configuration simplified through [aurelia-config](https://aurelia-config.spoonx.org/)
+- Automatic forms for [aurelia-orm](https://aurelia-orm.spoonx.org/) entities
+- Built inside-out (everything is optional)
+- Auto translations (if [aurelia-i18n](https://github.com/aurelia/i18n) is configured)
+- Declarative way of building forms
+- Aliases for types so you can reuse elements for similar or different types
 
 ## Enjoy
 
