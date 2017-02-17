@@ -10,7 +10,7 @@ import {DOM} from 'aurelia-pal';
 export class FormElement {
   @bindable type = 'text';
 
-  @bindable element;
+  @bindable element = 'input';
 
   @bindable DOMElement;
 
