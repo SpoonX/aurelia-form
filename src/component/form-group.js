@@ -24,6 +24,16 @@ export class FormGroup {
 
   @bindable behavior;
 
+  @bindable readonly = false;
+
+  @bindable disabled = false;
+
+  @bindable multiple = false;
+
+  @bindable selectOptions = [];
+
+  @bindable optionLabel;
+
   is(oneOf, then, source) {
     if (typeof oneOf === 'string') {
       oneOf = oneOf.split(',').map(one => one.trim());

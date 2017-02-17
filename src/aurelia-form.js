@@ -24,7 +24,8 @@ export function configure(aurelia, config) {
   let defaultElements = [
     'input',
     'checkbox',
-    'radio'
+    'radio',
+    'select'
   ];
 
   aurelia.globalResources(
@@ -52,7 +53,8 @@ export const config = {
       float  : 'input',
       bool   : 'checkbox',
       boolean: 'checkbox',
-      text   : 'input'
+      text   : 'input',
+      select : 'select'
     }
   }
 };

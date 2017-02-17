@@ -1,0 +1,13 @@
+<template>
+  <select
+    value.bind="value"
+    class="form-control ${classes}"
+    name.bind="name"
+    readonly.bind="readonly !== false"
+    prefixed="options.bind: options; prefix: input-"
+    disabled.bind="disabled !== false"
+    multiple.bind="multiple !== false"
+  >
+    <option repeat.for="option of selectOptions" model.bind="option" t="${getOptionLabel(option)}">${getOptionLabel(option)}</option>
+  </select>
+</template>

@@ -26,7 +26,13 @@ export class FormElement {
 
   @bindable disabled = false;
 
+  @bindable multiple = false;
+
   @bindable options = {};
+
+  @bindable selectOptions = [];
+
+  @bindable optionLabel;
 
   proxyAttributes = [
     'value',
@@ -36,7 +42,10 @@ export class FormElement {
     'readonly',
     'disabled',
     'options',
-    'type'
+    'type',
+    'multiple',
+    'selectOptions',
+    'optionLabel'
   ];
 
   constructor(config, DOMElement, templatingEngine) {
@@ -54,7 +63,11 @@ export class FormElement {
   }
 
   setAttributes(DOMElement) {
-    this.proxyAttributes.forEach(attribute => DOMElement.setAttribute(`${attribute}.bind`, attribute));
+    this.proxyAttributes.forEach(attribute => {
+      let formattedAttribute = styleHyphenFormat(attribute);
+
+      DOMElement.setAttribute(`${formattedAttribute}.bind`, attribute)
+    });
   }
 
   getElementName() {
@@ -70,4 +83,11 @@ export class FormElement {
 
     return elementName;
   }
+}
+
+function styleHyphenFormat(propertyName) {
+  function upperToHyphenLower(match, offset) {
+    return (offset ? '-' : '') + match.toLowerCase();
+  }
+  return propertyName.replace(/[A-Z]/g, upperToHyphenLower);
 }
