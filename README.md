@@ -26,7 +26,7 @@ The [changelog](doc/CHANGELOG.md) provides you with information about important 
 Aurelia-form needs following plugins installed and configured:
 
 - [aurelia-view-manager](https://www.npmjs.com/package/aurelia-view-manager)
-- [aurelia-validatejs](https://www.npmjs.com/package/aurelia-validatejs)
+- [aurelia-validation](https://www.npmjs.com/package/aurelia-validation)
 
 ## Installation
 

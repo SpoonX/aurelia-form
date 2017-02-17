@@ -8,9 +8,11 @@ export class FormGroup {
 
   @bindable classes;
 
-  @bindable element;
+  @bindable element = 'input';
 
   @bindable state;
+
+  @bindable name;
 
   @bindable label;
 
@@ -18,7 +20,7 @@ export class FormGroup {
 
   @bindable message;
 
-  @bindable type;
+  @bindable type = 'text';
 
   @bindable behavior;
 
