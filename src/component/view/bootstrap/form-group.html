@@ -1,25 +1,35 @@
 <template>
-  <div class="form-group${state ? ' has-' + state : ''} ${classes}">
+  <div class="form-group ${when(state, 'has-' + state)} ${classes}">
     <slot>
-      <slot name="before"></slot>
+      <slot name="start"></slot>
 
       <slot name="label">
+        <!-- No label here if horizontal and (checkbox or radio) -->
         <form-label
-          if.bind="label"
+          show.bind="label && (behavior === 'horizontal' || !is('checkbox,radio'))"
           label.bind="label"
-          classes="${behavior === 'horizontal' ? 'col-sm-2' : ''}"
-        ></form-label>
+          classes="${is('horizontal', 'col-sm-2', behavior)} control-label"
+        >
+          <slot name="element">
+            <form-element slot="before" if.bind="element" element.bind="element" value.bind="value"></form-element>
+          </slot>
+        </form-label>
       </slot>
 
+      <!-- Don't forget to add offset -->
       <div
-        class="
-          ${behavior === 'horizontal' ? 'col-sm-10' : ''}
-          ${['checkbox', 'radio'].indexOf(element) > -1 ? element : ''}
-        "
+        class="${is('horizontal', 'col-sm-10', behavior)} ${is('checkbox,radio', element)}"
         css.bind="{display: behavior === 'inline' ? 'inline' : 'block'}"
       >
         <slot name="element">
-          <form-element if.bind="element" element.bind="element" value.bind="value"></form-element>
+          <!-- Wrap in a label for checkbox and radio -->
+          <form-label show.bind="is('checkbox,radio')" classes.one-time="true" label.bind="label" visible.bind="behavior !== 'horizontal'">
+            <form-element slot="before" show.bind="element" element.bind="element" value.bind="value">
+            </form-element>
+          </form-label>
+
+          <!-- No need to wrap for regular elements -->
+          <form-element show.bind="!is('checkbox,radio')" element.bind="element" value.bind="value"></form-element>
         </slot>
 
         <slot name="help">
@@ -31,7 +41,7 @@
         </slot>
       </div>
 
-      <slot name="after"></slot>
+      <slot name="end"></slot>
     </slot>
   </div>
 </template>
