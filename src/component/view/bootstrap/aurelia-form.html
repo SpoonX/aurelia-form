@@ -1,5 +1,11 @@
 <template>
-  <form class="${classes} ${behavior ? 'form-' + behavior : ''}">
+  <form
+    class="${classes} ${behavior ? 'form-' + behavior : ''}"
+    submit.delegate="submit()"
+    keyup.delegate="changed('change', $event)"
+    change.delegate="changed('change', $event)"
+    blur.capture="changed('blur', $event)"
+  >
     <slot></slot>
   </form>
 </template>

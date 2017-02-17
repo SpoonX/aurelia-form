@@ -43,6 +43,7 @@ export const config = {
   'aurelia-form': {
     defaultElement: 'input',
     elements      : {},
+    validation    : {},
     aliases       : {
       enum   : 'radio',
       int    : 'input',
