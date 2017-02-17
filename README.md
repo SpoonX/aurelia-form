@@ -7,13 +7,12 @@
 
 - Easy to use with clear [documentation](http://aurelia-form.spoonx.org/)
 - [Form validation](https://aurelia-form-validation.spoonx.org/)
-- Support for multiple css frameworks enabled by [aurelia view manager](https://aurelia-view-manager.spoonx.org/)
+- Support for multiple css frameworks enabled by [aurelia view manager](https://aurelia-view-manager.spoonx.org/) ([is your framework missing](https://github.com/SpoonX/aurelia-form/tree/master/src/component/view)? Submit a PR!)
 - Configuration simplified through [aurelia-config](https://aurelia-config.spoonx.org/)
 - Automatic forms for [aurelia-orm](https://aurelia-orm.spoonx.org/) entities
 - Built inside-out (everything is optional)
 - Auto translations (if [aurelia-i18n](https://github.com/aurelia/i18n) is configured)
 - Declarative way of building forms
-- Multi css-framework support ([is your framework missing](https://github.com/SpoonX/aurelia-form/tree/master/src/component/view)? Submit a PR!)
 - Aliases for types so you can reuse elements for similar or different types
 
 ## Documentation
