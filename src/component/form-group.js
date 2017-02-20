@@ -10,6 +10,8 @@ export class FormGroup {
 
   @bindable element = 'input';
 
+  @bindable placeholder = '';
+
   @bindable state;
 
   @bindable name;

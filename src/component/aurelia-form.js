@@ -22,6 +22,8 @@ export class AureliaForm {
 
   mapped = {};
 
+  element;
+
   validateTrigger;
 
   constructor(config, element) {
@@ -45,7 +47,7 @@ export class AureliaForm {
     }
 
     this.validate().then(result => {
-      if (!result || !result.length) {
+      if (result.valid) {
         return this.emit('valid');
       }
 
@@ -57,22 +59,24 @@ export class AureliaForm {
     let controller = this.validationController;
 
     if (!controller) {
-      return;
+      return true;
     }
 
     let setTrigger = controller.validateTrigger;
     let triggers   = this.validateTrigger;
 
     if (setTrigger === triggers.manual) {
-      return;
+      return true;
     }
 
     // Specific configured, something else triggered. Return.
     if (setTrigger < triggers.changeOrBlur && triggers[trigger] !== setTrigger) {
-      return;
+      return true;
     }
 
     this.validate(event.target.name);
+
+    return true;
   }
 
   validate(property) {
@@ -80,7 +84,7 @@ export class AureliaForm {
   }
 
   emit(event, data = {}) {
-    this.element.dispatchEvent(DOM.createCustomEvent(event, {detail: data}));
+    this.element.dispatchEvent(DOM.createCustomEvent(event, {detail: data, bubbles: true}));
   }
 
   formGroupsChanged() {
