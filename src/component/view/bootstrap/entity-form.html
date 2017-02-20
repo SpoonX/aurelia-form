@@ -7,9 +7,9 @@
 
     <form-group
       repeat.for="element of elements"
-      show.bind="isVisible(element.field)"
+      show.bind="isVisible(element.field) && !element.meta.noRender"
       label.bind="element.meta.label || element.field"
-      element.bind="element.element"
+      element.bind="element.meta.element || element.element"
       name.bind="element.field"
       placeholder.bind="element.meta.placeholder"
       value.bind="entity[element.field]"
