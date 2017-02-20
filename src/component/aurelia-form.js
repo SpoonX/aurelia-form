@@ -18,6 +18,12 @@ export class AureliaForm {
 
   @bindable entity;
 
+  @bindable buttonOptions;
+
+  @bindable buttonLabel;
+
+  @bindable buttonEnabled;
+
   @children('form-group') formGroups = [];
 
   mapped = {};
@@ -27,8 +33,12 @@ export class AureliaForm {
   validateTrigger;
 
   constructor(config, element) {
-    this.config    = config;
-    this.element   = element;
+    this.config        = config;
+    this.element       = element;
+    this.buttonEnabled = config.submitButton.enabled;
+    this.buttonOptions = config.submitButton.options;
+    this.buttonLabel   = config.submitButton.label;
+
     let validation = config.validation;
 
     if (validation) {
