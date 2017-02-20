@@ -46,6 +46,11 @@ export function configure(aurelia, config) {
 export const config = {
   'aurelia-form': {
     defaultElement: 'input',
+    submitButton  : {
+      enabled: true,
+      options: ['primary'],
+      label  : 'Submit'
+    },
     elements      : {},
     validation    : {},
     aliases       : {
