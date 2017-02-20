@@ -3,6 +3,9 @@ import {getLogger} from 'aurelia-logging';
 
 export const logger = getLogger('aurelia-form');
 
+export {placeholder} from './decorator/placeholder';
+export {label} from './decorator/label';
+
 export function configure(aurelia, config) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
 
@@ -50,6 +53,7 @@ export const config = {
       integer: 'input',
       number : 'input',
       float  : 'input',
+      string : 'input',
       bool   : 'checkbox',
       boolean: 'checkbox',
       text   : 'input'
