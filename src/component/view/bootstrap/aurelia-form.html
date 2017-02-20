@@ -6,6 +6,8 @@
     change.delegate="changed('change', $event)"
     blur.capture="changed('blur', $event)"
   >
+    <slot name="before"></slot>
     <slot></slot>
+    <slot name="after"></slot>
   </form>
 </template>
