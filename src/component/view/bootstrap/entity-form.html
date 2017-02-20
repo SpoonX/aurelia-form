@@ -1,19 +1,20 @@
 <template>
-  <aurelia-form behavior.bind="behavior">
-    <div>
-      <slot>
-        <slot name="before"></slot>
+  <aurelia-form
+    behavior.bind="behavior"
+    entity.bind="entity"
+  >
+    <slot name="before"></slot>
 
-        <form-group repeat.for="element of elements"
-          show.bind="isVisible(element.field)"
-          label.bind="element.field"
-          element.bind="element.element"
-          value.bind="entity[element.field]"
-          behavior.bind="behavior"
-        ></form-group>
+    <form-group
+      repeat.for="element of elements"
+      show.bind="isVisible(element.field)"
+      label.bind="element.meta.label || element.field"
+      element.bind="element.element"
+      name.bind="element.field"
+      placeholder.bind="element.meta.placeholder"
+      value.bind="entity[element.field]"
+    ></form-group>
 
-        <slot name="after"></slot>
-      </slot>
-    </div>
+    <slot name="after"></slot>
   </aurelia-form>
 </template>
