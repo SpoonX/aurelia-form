@@ -26,7 +26,13 @@ export class FormElement {
 
   @bindable disabled = false;
 
+  @bindable multiple = false;
+
   @bindable options = {};
+
+  @bindable selectOptions = [];
+
+  @bindable optionLabel;
 
   proxyAttributes = [
     'value',
@@ -36,7 +42,10 @@ export class FormElement {
     'readonly',
     'disabled',
     'options',
-    'type'
+    'type',
+    'multiple',
+    'selectOptions',
+    'optionLabel'
   ];
 
   constructor(config, DOMElement, templatingEngine) {
@@ -54,7 +63,13 @@ export class FormElement {
   }
 
   setAttributes(DOMElement) {
-    this.proxyAttributes.forEach(attribute => DOMElement.setAttribute(`${attribute}.bind`, attribute));
+    this.proxyAttributes.forEach(attribute => {
+      let attributeName = attribute.replace(/[A-Z]/g, (match, offset) => {
+        return (offset ? '-' : '') + match.toLowerCase();
+      });
+
+      DOMElement.setAttribute(`${attributeName}.bind`, attribute)
+    });
   }
 
   getElementName() {
