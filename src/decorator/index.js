@@ -7,3 +7,4 @@ export {disabled} from './disabled';
 export {readonly} from './readonly';
 export {required} from './required';
 export {noRender} from './noRender';
+export {inputType} from './inputType';
