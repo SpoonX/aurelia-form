@@ -17,7 +17,7 @@ Generate an entire form with validation:
 </entity-form>
 ```
 
-_**Note:** (requires an entity from [aurelia-orm](https://aurelia-orm.spoonx.org/quick-start.html), and [form validation](https://aurelia-form-validation.spoonx.org/))_
+_**Note:** (requires an entity from [aurelia-orm](https://aurelia-orm.spoonx.org/entities.html), and [form validation](https://aurelia-form-validation.spoonx.org/))_
 
 ### Button
 So [ehm](http://getbootstrap.com/css/#buttons), code:
