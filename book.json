@@ -3,7 +3,8 @@
     "root": "./doc",
     "plugins": [
         "edit-link",
-        "github"
+        "github",
+        "versions"
     ],
     "pluginsConfig": {
         "edit-link": {
@@ -12,6 +13,9 @@
         },
         "github": {
             "url": "https://github.com/spoonx/aurelia-form"
+        },
+        "versions": {
+            "type": "tags"
         }
     }
 }
