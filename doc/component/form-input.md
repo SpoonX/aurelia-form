@@ -18,3 +18,23 @@ The following attributes (bindables) are available for this component.
 | autofocus | boolean | `false` | Specifies to autofocus the radio buttons |
 | required | boolean | `false` | Required to select a value |
 | options | object | `{}` | Options to pass to the input element |
+
+## Example
+
+
+#### Input field
+```html
+  <form-input value="42"></form-input>
+```
+
+#### Radio buttons
+```html
+  <form-input value="male" name="gender" type="radio"></form-input>
+  <form-input value="female" name="gender" type="radio"></form-input>
+```
+
+#### Checkboxes
+```html
+  <form-input value="cheese" name="pizza-toppings" type="checkbox"></form-input>
+  <form-input value="bacon" name="pizza-toppings" type="checkbox"></form-input>
+```
