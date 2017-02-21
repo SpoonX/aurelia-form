@@ -22,6 +22,10 @@ export class FormSelect {
 
   @bindable optionLabel = 'name';
 
+  @bindable autofocus;
+
+  @bindable required;
+
   @computedFrom('selectOptions', 'optionLabel')
   get optionLabels() {
     return this.selectOptions.map(option => {

@@ -7,6 +7,8 @@
     prefixed="options.bind: options; prefix: input-"
     disabled.bind="disabled !== false"
     multiple.bind="multiple !== false"
+    autofocus.bind="autofocus"
+    required.bind="required"
   >
     <option repeat.for="option of optionLabels" model.bind="option" t="${option.label || option}">${option.label || option}</option>
   </select>

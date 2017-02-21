@@ -34,6 +34,10 @@ export class FormElement {
 
   @bindable optionLabel;
 
+  @bindable autofocus;
+
+  @bindable required;
+
   proxyAttributes = [
     'value',
     'name',
@@ -45,7 +49,9 @@ export class FormElement {
     'type',
     'multiple',
     'selectOptions',
-    'optionLabel'
+    'optionLabel',
+    'autofocus',
+    'required'
   ];
 
   constructor(config, DOMElement, templatingEngine) {

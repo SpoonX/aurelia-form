@@ -9,4 +9,22 @@ export class FormTextarea {
   @bindable classes;
 
   @bindable({defaultBindingMode: bindingMode.twoWay}) value;
+
+  @bindable placeholder;
+
+  @bindable autofocus;
+
+  @bindable required;
+
+  @bindable cols;
+
+  @bindable rows;
+
+  @bindable disabled;
+
+  @bindable maxlength;
+
+  @bindable readonly;
+
+  @bindable wrap;
 }
