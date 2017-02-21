@@ -1,10 +1,10 @@
-
 {
     "root": "./doc",
     "plugins": [
         "edit-link",
         "github",
-        "versions"
+        "versions",
+        "anchors"
     ],
     "pluginsConfig": {
         "edit-link": {
