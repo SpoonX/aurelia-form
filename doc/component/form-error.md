@@ -10,3 +10,11 @@ The following attributes (bindables) are available for this component.
 |---|---|---|---|
 | error | string | `''` | The message to show |
 | classes | string | `''` | Classes to add |
+
+## Examples
+
+This is a simple component, with a simple example.
+
+```html
+<form-error error="stuff is broken!" classes="custom-class other-class"></form-error>
+```
