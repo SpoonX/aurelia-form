@@ -19,22 +19,66 @@ The following attributes (bindables) are available for this component.
 | required | boolean | `false` | Required to select a value |
 | options | object | `{}` | Options to pass to the input element |
 
-## Example
+## Examples
 
-
-#### Input field
+### Input field
 ```html
-  <form-input value="42"></form-input>
+  <form-input value.bind="42"></form-input>
 ```
 
-#### Radio buttons
-```html
-  <form-input value="male" name="gender" type="radio"></form-input>
-  <form-input value="female" name="gender" type="radio"></form-input>
+### Radio buttons
+
+```js
+  gender = 'male';
 ```
 
-#### Checkboxes
 ```html
-  <form-input value="cheese" name="pizza-toppings" type="checkbox"></form-input>
-  <form-input value="bacon" name="pizza-toppings" type="checkbox"></form-input>
+  <form-input 
+    option="male" 
+    value.bind="gender" 
+    name="gender" 
+    type="radio">
+  </form-input>
+
+  <form-input 
+    option="female" 
+    value.bind="gender" 
+    name="gender" 
+    type="radio">
+  </form-input>
+```
+
+### Checkboxes
+```js
+  selectedToppings = ['cheese', 'bacon'];
+```
+
+```html
+  <form-input 
+    option="cheese" 
+    value.bind="selectedToppings" 
+    name="pizza-toppings" 
+    type="checkbox">
+  </form-input>
+
+  <form-input 
+    option="bacon" 
+    value.bind="selectedToppings" 
+    name="pizza-toppings" 
+    type="checkbox">
+  </form-input>
+
+  <form-input 
+    option="ansjovis" 
+    value.bind="selectedToppings" 
+    name="pizza-toppings" 
+    type="checkbox">
+  </form-input>
+
+  <form-input 
+    option="pineapple" 
+    value.bind="selectedToppings" 
+    name="pizza-toppings" 
+    type="checkbox">
+  </form-input>
 ```
