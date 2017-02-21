@@ -11,7 +11,7 @@
       label.bind="element.meta.label || element.field"
       element.bind="element.meta.element || element.element"
       name.bind="element.field"
-      placeholder.bind="element.meta.placeholder"
+      placeholder.bind="element.meta.placeholder || ''"
       value.bind="entity[element.field]"
     ></form-group>
 

@@ -9,5 +9,17 @@
     <slot name="before"></slot>
     <slot></slot>
     <slot name="after"></slot>
+
+    <slot name="button">
+      <form-group behavior.bind="behavior">
+        <form-button
+          slot="element"
+          type="submit"
+          options.bind="buttonOptions"
+          show.bind="buttonEnabled"
+          label.bind="buttonLabel"
+        ></form-button>
+      </form-group>
+    </slot>
   </form>
 </template>

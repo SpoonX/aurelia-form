@@ -15,13 +15,13 @@ export class EntityForm {
   @computedFrom('entity')
   get elements() {
     let types  = this.entity.getMeta().metadata.types;
-    let fields = Metadata.forTarget(this.entity).fetch('fields');
+    let fields = Metadata.forTarget(this.entity).fetch('fields', {});
 
     return Object.keys(types).map(field => {
       return {
         element: types[field],
         field  : field,
-        meta   : fields[field]
+        meta   : fields[field] || {}
       }
     });
   }
