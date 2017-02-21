@@ -30,7 +30,8 @@ export function configure(aurelia, config) {
     'input',
     'checkbox',
     'radio',
-    'select'
+    'select',
+    'textarea',
   ];
 
   aurelia.globalResources(
@@ -59,8 +60,7 @@ export const config = {
       string : 'input',
       bool   : 'checkbox',
       boolean: 'checkbox',
-      text   : 'input',
-      select : 'select'
+      text   : 'textarea'
     }
   }
 };
