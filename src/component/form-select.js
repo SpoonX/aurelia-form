@@ -37,7 +37,6 @@ export class FormSelect {
     });
   }
 
-
   getOptionLabel(option) {
     if (typeof option === 'object' && this.optionLabel) {
       return option[this.optionLabel] || option;
