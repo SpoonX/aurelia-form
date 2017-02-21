@@ -5,4 +5,6 @@ import {resolvedView} from 'aurelia-view-manager';
 @customElement('form-error')
 export class FormError {
   @bindable error;
+
+  @bindable classes;
 }
