@@ -27,4 +27,8 @@ export class FormCheckbox {
   @bindable disabled = false;
 
   @bindable options = {};
+
+  @bindable autofocus;
+
+  @bindable required;
 }

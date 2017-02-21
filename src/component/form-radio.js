@@ -21,4 +21,8 @@ export class FormRadio {
   @bindable disabled = false;
 
   @bindable options = {};
+
+  @bindable autofocus;
+
+  @bindable required;
 }
