@@ -12,11 +12,9 @@ export class AureliaForm {
 
   @bindable classes = '';
 
-  @bindable validationController;
+  @bindable entity;
 
   @bindable validated = true;
-
-  @bindable entity;
 
   @bindable buttonOptions;
 
@@ -25,6 +23,8 @@ export class AureliaForm {
   @bindable buttonEnabled;
 
   @children('form-group') formGroups = [];
+
+  validationController;
 
   mapped = {};
 
