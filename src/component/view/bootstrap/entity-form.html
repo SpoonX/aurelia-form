@@ -12,6 +12,10 @@
       element.bind="element.meta.element || element.element"
       name.bind="element.field"
       placeholder.bind="element.meta.placeholder || ''"
+      autofocus.bind="element.meta.autofocus || false"
+      disabled.bind="element.meta.disabled || false"
+      readonly.bind="element.meta.readonly || false"
+      required.bind="element.meta.required || false"
       value.bind="entity[element.field]"
     ></form-group>
 

@@ -30,6 +30,10 @@ export class FormGroup {
 
   @bindable disabled = false;
 
+  @bindable autofocus;
+
+  @bindable required;
+
   @bindable multiple = false;
 
   @bindable selectOptions = [];

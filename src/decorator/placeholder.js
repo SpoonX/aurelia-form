@@ -1,7 +1,5 @@
-import {Metadata} from '../Metadata';
+import {field} from './field';
 
 export function placeholder(value) {
-  return function(target, property) {
-    Metadata.forTarget(target.constructor).put(`fields.${property}.placeholder`, value);
-  };
+  return field(value, 'placeholder');
 }
