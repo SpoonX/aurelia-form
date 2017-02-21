@@ -12,8 +12,6 @@ export class AureliaForm {
 
   @bindable classes = '';
 
-  @bindable options = {};
-
   @bindable validationController;
 
   @bindable validated = true;
