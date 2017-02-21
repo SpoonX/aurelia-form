@@ -17,13 +17,28 @@ export class EntityForm {
     let types  = this.entity.getMeta().metadata.types;
     let fields = Metadata.forTarget(this.entity).fetch('fields', {});
 
-    return Object.keys(types).map(field => {
-      return {
-        element: types[field],
-        field  : field,
-        meta   : fields[field] || {}
-      }
-    });
+    return Object.keys(types)
+      .map(field => {
+        return {
+          element: types[field],
+          field  : field,
+          meta   : fields[field] || {}
+        }
+      })
+      .sort((left, right) => {
+        let leftPosition  = left.meta.position || 0;
+        let rightPosition = right.meta.position || 0;
+
+        if (leftPosition < rightPosition) {
+          return -1;
+        }
+
+        if (leftPosition > rightPosition) {
+          return 1;
+        }
+
+        return 0;
+      });
   }
 
   isVisible(fieldName) {
