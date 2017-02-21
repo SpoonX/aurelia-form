@@ -1,7 +1,5 @@
-import {Metadata} from '../Metadata';
+import {field} from './field';
 
-export function noRender(value = true) {
-  return function(target, property) {
-    Metadata.forTarget(target.constructor).put(`fields.${property}.noRender`, value);
-  };
+export function noRender(value) {
+  return field(value, 'noRender');
 }

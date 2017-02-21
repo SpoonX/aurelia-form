@@ -1,7 +1,5 @@
-import {Metadata} from '../Metadata';
+import {field} from './field';
 
 export function label(value) {
-  return function(target, property) {
-    Metadata.forTarget(target.constructor).put(`fields.${property}.label`, value);
-  };
+  return field(value, 'label');
 }
