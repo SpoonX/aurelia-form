@@ -46,14 +46,16 @@ export function configure(aurelia, config) {
 export const config = {
   'aurelia-form': {
     defaultElement: 'input',
-    submitButton  : {
+    elements      : {},
+    validation    : {},
+
+    submitButton: {
       enabled: true,
       options: ['primary'],
       label  : 'Submit'
     },
-    elements      : {},
-    validation    : {},
-    aliases       : {
+
+    aliases: {
       enum   : 'radio',
       int    : 'input',
       integer: 'input',
