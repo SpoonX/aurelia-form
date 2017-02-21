@@ -16,6 +16,8 @@ export class AureliaForm {
 
   @bindable validationController;
 
+  @bindable validated = true;
+
   @bindable entity;
 
   @bindable buttonOptions;
@@ -48,7 +50,7 @@ export class AureliaForm {
   }
 
   submit() {
-    if (!this.validationController) {
+    if (!this.validationController || !this.validated) {
       return;
     }
 
@@ -68,7 +70,7 @@ export class AureliaForm {
   changed(trigger, event) {
     let controller = this.validationController;
 
-    if (!controller) {
+    if (!controller || !this.validated) {
       return true;
     }
 
