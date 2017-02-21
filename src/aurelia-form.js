@@ -3,15 +3,7 @@ import {getLogger} from 'aurelia-logging';
 
 export const logger = getLogger('aurelia-form');
 
-export {placeholder} from './decorator/placeholder';
-export {label} from './decorator/label';
-export {element} from './decorator/element';
-export {position} from './decorator/position';
-export {autofocus} from './decorator/autofocus';
-export {disabled} from './decorator/disabled';
-export {readonly} from './decorator/readonly';
-export {required} from './decorator/required';
-export {noRender} from './decorator/noRender';
+export * from './decorator/index';
 
 export function configure(aurelia, config) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
