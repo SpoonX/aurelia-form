@@ -1,8 +1,32 @@
 # Summary
-
 * [Introduction](readme.md)
 * [Installation](installation.md)
+* [Configuration](configuration.md)
 * [Quick start](quick-start.md)
-* [Components](components.md)
 * [Changelog](CHANGELOG.md)
 * [License](license.md)
+
+## Components
+* [aurelia-form](component/aurelia-form.md)
+* [entity-form](component/entity-form.md)
+* [form-button](component/form-button.md)
+* [form-checkbox](component/form-checkbox.md)
+* [form-element](component/form-element.md)
+* [form-error](component/form-error.md)
+* [form-group](component/form-group.md)
+* [form-help](component/form-help.md)
+* [form-input](component/form-input.md)
+* [form-label](component/form-label.md)
+* [form-radio](component/form-radio.md)
+* [form-select](component/form-select.md)
+* [form-textarea](component/form-textarea.md)
+
+## Cookbook
+* [Custom components](cookbook/custom-components.md)
+* [Setting up validation](cookbook/setting-up-validation.md)
+* [Element sorting](cookbook/element-sorting.md)
+* [Changing css framework](cookbook/changing-css-framework.md)
+* [Aliases](cookbook/aliases.md)
+* [Auto submit button](cookbook/auto-submit-button.md)
+* [Disable rendering](cookbook/disable-rendering.md)
+* [Overriding templates](cookbook/overriding-templates.md)
