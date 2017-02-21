@@ -1,26 +1,47 @@
-import {entitySchema} from '../entity-schema';
-import {bindable, bindingMode, customElement} from 'aurelia-framework';
+import {customElement, bindable, computedFrom} from 'aurelia-framework';
 import {resolvedView} from 'aurelia-view-manager';
+import {Metadata} from '../Metadata';
 
-@customElement('entity-form')
 @resolvedView('spoonx/form', 'entity-form')
+@customElement('entity-form')
 export class EntityForm {
 
-  @bindable({defaultBindingMode: bindingMode.oneTime})
-  entity
+  @bindable entity;
 
-  @bindable({defaultBindingMode: bindingMode.twoWay})
-  model
+  @bindable behavior;
 
-  @bindable
-  messages = {};
+  @bindable skip = [];
 
-  @bindable
-  descriptions = {};
+  @computedFrom('entity')
+  get elements() {
+    let types  = this.entity.getMeta().metadata.types;
+    let fields = Metadata.forTarget(this.entity).fetch('fields', {});
 
-  bind() {
-    this.schema = entitySchema(this.entity);
-    this.model = this.entity; /* enables the reuse of the schema-form.html */
+    return Object.keys(types)
+      .map(field => {
+        return {
+          element: types[field],
+          field  : field,
+          meta   : fields[field] || {}
+        }
+      })
+      .sort((left, right) => {
+        let leftPosition  = left.meta.position || 0;
+        let rightPosition = right.meta.position || 0;
+
+        if (leftPosition < rightPosition) {
+          return -1;
+        }
+
+        if (leftPosition > rightPosition) {
+          return 1;
+        }
+
+        return 0;
+      });
   }
 
+  isVisible(fieldName) {
+    return this.skip.indexOf(fieldName) === -1;
+  }
 }

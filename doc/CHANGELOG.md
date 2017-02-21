@@ -1,3 +1,62 @@
+<a name="1.0.0-0"></a>
+# [1.0.0-0](https://github.com/SpoonX/aurelia-form/compare/v0.6.0...v1.0.0-0) (2017-02-21)
+
+
+### Bug Fixes
+
+* **aurelia-form:** bubble event ([d72b157](https://github.com/SpoonX/aurelia-form/commit/d72b157))
+* **entity-form:** fix meta bugs ([8a0c811](https://github.com/SpoonX/aurelia-form/commit/8a0c811))
+* **entity-form:** validation and behavior binding ([7582a37](https://github.com/SpoonX/aurelia-form/commit/7582a37))
+* **entityForm:** use show.bind instead of if.bind ([930b135](https://github.com/SpoonX/aurelia-form/commit/930b135))
+* **project:** default to two-way ([5e02ca5](https://github.com/SpoonX/aurelia-form/commit/5e02ca5))
+* **project:** move framework logic to view ([988efc7](https://github.com/SpoonX/aurelia-form/commit/988efc7))
+* **project:** use computedFrom ([a8ad270](https://github.com/SpoonX/aurelia-form/commit/a8ad270))
+
+
+### Features
+
+* **aurelia-form:** add support for before and after ([7c009ca](https://github.com/SpoonX/aurelia-form/commit/7c009ca))
+* **aurelia-form:** allow disabling form validation ([601d9cb](https://github.com/SpoonX/aurelia-form/commit/601d9cb))
+* **component:** add attributes ([8ec27c6](https://github.com/SpoonX/aurelia-form/commit/8ec27c6))
+* **component:** add form-button ([ca0c4ae](https://github.com/SpoonX/aurelia-form/commit/ca0c4ae))
+* **component:** add textarea ([31a9b4d](https://github.com/SpoonX/aurelia-form/commit/31a9b4d))
+* **component:** added aurelia-form component ([aa430ed](https://github.com/SpoonX/aurelia-form/commit/aa430ed))
+* **decorator:** add autofocus decorator ([db62971](https://github.com/SpoonX/aurelia-form/commit/db62971))
+* **decorator:** add base field decorator ([5182947](https://github.com/SpoonX/aurelia-form/commit/5182947))
+* **decorator:** add disabled decorator ([f408f05](https://github.com/SpoonX/aurelia-form/commit/f408f05))
+* **decorator:** add element decorator ([51309c8](https://github.com/SpoonX/aurelia-form/commit/51309c8))
+* **decorator:** add noRender decorator ([6d74af2](https://github.com/SpoonX/aurelia-form/commit/6d74af2))
+* **decorator:** add position decorator ([61633cb](https://github.com/SpoonX/aurelia-form/commit/61633cb))
+* **decorator:** add readonly decorator ([f79c58c](https://github.com/SpoonX/aurelia-form/commit/f79c58c))
+* **decorator:** add required decorator ([3a5c554](https://github.com/SpoonX/aurelia-form/commit/3a5c554))
+* **element:** add checkbox ([118ec91](https://github.com/SpoonX/aurelia-form/commit/118ec91))
+* **element:** add radio ([a57d144](https://github.com/SpoonX/aurelia-form/commit/a57d144))
+* **entity-form:** apply new decorators ([712fc3b](https://github.com/SpoonX/aurelia-form/commit/712fc3b))
+* **entity-form:** use decorator values ([17b92f7](https://github.com/SpoonX/aurelia-form/commit/17b92f7))
+* **form-group:** add element render support ([0bf39e0](https://github.com/SpoonX/aurelia-form/commit/0bf39e0))
+* **form-group:** add inline support ([8ce494a](https://github.com/SpoonX/aurelia-form/commit/8ce494a))
+* **form-group:** add new attributes ([a4eba5d](https://github.com/SpoonX/aurelia-form/commit/a4eba5d))
+* **form-group:** add placeholder bindable ([a6f29ed](https://github.com/SpoonX/aurelia-form/commit/a6f29ed))
+* **form-group:** add support for radio and checkbox ([b6b44c9](https://github.com/SpoonX/aurelia-form/commit/b6b44c9))
+* **form-group:** support label-less groups by offset ([9cc2705](https://github.com/SpoonX/aurelia-form/commit/9cc2705))
+* **form-input:** add attributes ([6675bb6](https://github.com/SpoonX/aurelia-form/commit/6675bb6))
+* **form-input:** add checked support ([c308c3f](https://github.com/SpoonX/aurelia-form/commit/c308c3f))
+* **form-input:** add options ([10894cd](https://github.com/SpoonX/aurelia-form/commit/10894cd))
+* **form-label:** allow appending and prepending ([983f955](https://github.com/SpoonX/aurelia-form/commit/983f955))
+* **form-label:** allow hiding the label text ([65cc2ed](https://github.com/SpoonX/aurelia-form/commit/65cc2ed))
+* **formElement:** add support for aliases ([084c800](https://github.com/SpoonX/aurelia-form/commit/084c800))
+* **project:** add attributes ([fc1d18d](https://github.com/SpoonX/aurelia-form/commit/fc1d18d))
+* **project:** add entity-form ([f70d5be](https://github.com/SpoonX/aurelia-form/commit/f70d5be))
+* **project:** add form-element component ([a3e4bc9](https://github.com/SpoonX/aurelia-form/commit/a3e4bc9))
+* **project:** add form-group component ([31344ab](https://github.com/SpoonX/aurelia-form/commit/31344ab))
+* **project:** add label and placeholder decorators ([c9fa544](https://github.com/SpoonX/aurelia-form/commit/c9fa544))
+* **project:** add metadata class ([2e3b10e](https://github.com/SpoonX/aurelia-form/commit/2e3b10e))
+* **project:** add select ([0a9c051](https://github.com/SpoonX/aurelia-form/commit/0a9c051))
+* **project:** add validation support ([4701683](https://github.com/SpoonX/aurelia-form/commit/4701683))
+* **project:** add versions to docs ([342f389](https://github.com/SpoonX/aurelia-form/commit/342f389))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/SpoonX/aurelia-form/compare/v0.5.0...v0.6.0) (2017-02-13)
 

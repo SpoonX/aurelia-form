@@ -1,0 +1,84 @@
+<template>
+  <div class="form-group ${when(state, 'has-' + state)} ${classes}">
+    <slot>
+      <slot name="before"></slot>
+
+      <slot name="label">
+        <!-- No label here if horizontal and (checkbox or radio) -->
+        <form-label
+          show.bind="label && (behavior === 'horizontal' || !is('checkbox,radio'))"
+          label.bind="label"
+          classes="${is('horizontal', 'col-sm-2', behavior)} control-label"
+        >
+          <slot name="element">
+            <form-element
+              slot="before"
+              name.bind="name"
+              if.bind="element"
+              element.bind="element"
+              placeholder.bind="placeholder"
+              autofocus.bind="autofocus"
+              disabled.bind="disabled"
+              readonly.bind="readonly"
+              required.bind="required"
+              type.bind="type"
+              value.bind="value"
+            ></form-element>
+          </slot>
+        </form-label>
+      </slot>
+
+      <!-- Don't forget to add offset -->
+      <div
+        class="${is('horizontal', 'col-sm-10', behavior)} ${behavior === 'horizontal' && !label ? 'col-sm-offset-2' : ''} ${is('checkbox,radio', element)}"
+        css.bind="{display: behavior === 'inline' ? 'inline' : 'block'}"
+      >
+        <slot name="element">
+          <!-- Wrap in a label for checkbox and radio -->
+          <form-label show.bind="is('checkbox,radio')" classes.one-time="true" label.bind="label" visible.bind="behavior !== 'horizontal'">
+            <form-element
+              slot="before"
+              name.bind="name"
+              show.bind="element"
+              element.bind="element"
+              placeholder.bind="placeholder"
+              autofocus.bind="autofocus"
+              disabled.bind="disabled"
+              readonly.bind="readonly"
+              required.bind="required"
+              type.bind="type"
+              value.bind="value"
+            ></form-element>
+          </form-label>
+
+          <!-- No need to wrap for regular elements -->
+          <form-element
+            show.bind="!is('checkbox,radio')"
+            name.bind="name"
+            element.bind="element"
+            placeholder.bind="placeholder"
+            type.bind="type"
+            value.bind="value"
+            autofocus.bind="autofocus"
+            disabled.bind="disabled"
+            readonly.bind="readonly"
+            required.bind="required"
+            multiple.bind="multiple"
+            select-options.bind="selectOptions"
+            option-label.bind="optionLabel"
+          ></form-element>
+        </slot>
+
+        <slot name="help">
+          <form-help if.bind="message" message.bind="message"></form-help>
+        </slot>
+
+        <slot name="error">
+          <form-error if.bind="error" error.bind="error"></form-error>
+        </slot>
+      </div>
+
+      <slot name="after"></slot>
+    </slot>
+  </div>
+</template>

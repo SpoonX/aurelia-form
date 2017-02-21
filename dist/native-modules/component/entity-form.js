@@ -3,13 +3,15 @@
 exports.__esModule = true;
 exports.EntityForm = undefined;
 
-var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _entitySchema = require('../entity-schema');
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
 
 var _aureliaFramework = require('aurelia-framework');
 
 var _aureliaViewManager = require('aurelia-view-manager');
+
+var _Metadata = require('../Metadata');
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -56,39 +58,60 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var EntityForm = exports.EntityForm = (_dec = (0, _aureliaFramework.customElement)('entity-form'), _dec2 = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'entity-form'), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.oneTime }), _dec4 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
+var EntityForm = exports.EntityForm = (_dec = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'entity-form'), _dec2 = (0, _aureliaFramework.customElement)('entity-form'), _dec3 = (0, _aureliaFramework.computedFrom)('entity'), _dec(_class = _dec2(_class = (_class2 = function () {
   function EntityForm() {
     
 
     _initDefineProp(this, 'entity', _descriptor, this);
 
-    _initDefineProp(this, 'model', _descriptor2, this);
+    _initDefineProp(this, 'behavior', _descriptor2, this);
 
-    _initDefineProp(this, 'messages', _descriptor3, this);
-
-    _initDefineProp(this, 'descriptions', _descriptor4, this);
+    _initDefineProp(this, 'skip', _descriptor3, this);
   }
 
-  EntityForm.prototype.bind = function bind() {
-    this.schema = (0, _entitySchema.entitySchema)(this.entity);
-    this.model = this.entity;
+  EntityForm.prototype.isVisible = function isVisible(fieldName) {
+    return this.skip.indexOf(fieldName) === -1;
   };
 
+  _createClass(EntityForm, [{
+    key: 'elements',
+    get: function get() {
+      var types = this.entity.getMeta().metadata.types;
+      var fields = _Metadata.Metadata.forTarget(this.entity).fetch('fields', {});
+
+      return Object.keys(types).map(function (field) {
+        return {
+          element: types[field],
+          field: field,
+          meta: fields[field] || {}
+        };
+      }).sort(function (left, right) {
+        var leftPosition = left.meta.position || 0;
+        var rightPosition = right.meta.position || 0;
+
+        if (leftPosition < rightPosition) {
+          return -1;
+        }
+
+        if (leftPosition > rightPosition) {
+          return 1;
+        }
+
+        return 0;
+      });
+    }
+  }]);
+
   return EntityForm;
-}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'entity', [_dec3], {
+}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'entity', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'model', [_dec4], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'behavior', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'messages', [_aureliaFramework.bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'skip', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: function initializer() {
-    return {};
+    return [];
   }
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'descriptions', [_aureliaFramework.bindable], {
-  enumerable: true,
-  initializer: function initializer() {
-    return {};
-  }
-})), _class2)) || _class) || _class);
+}), _applyDecoratedDescriptor(_class2.prototype, 'elements', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'elements'), _class2.prototype)), _class2)) || _class) || _class);

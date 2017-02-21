@@ -1,268 +1,229 @@
-import {customAttribute,inject,bindable,bindingMode,customElement,computedFrom,BindingEngine} from 'aurelia-framework';
-import {Config as ViewManagerConfig,resolvedView,ViewManager} from 'aurelia-view-manager';
-import {Validator,ValidationEngine} from 'aurelia-validatejs';
+import {Config as ViewManagerConfig,resolvedView} from 'aurelia-view-manager';
 import {getLogger} from 'aurelia-logging';
+import {metadata} from 'aurelia-metadata';
+import {Homefront} from 'homefront';
+import {bindable,inject,customAttribute,customElement,children,computedFrom,bindingMode,TemplatingEngine} from 'aurelia-framework';
+import {Configuration} from 'aurelia-config';
+import {DOM} from 'aurelia-pal';
 
-/***
- * is only used internally. In future might make this a seperate plugin
- */
-export declare class AttributesCustomAttribute {
-  constructor(element?: any);
-  valueChanged(): any;
-}
-
-/**
- * @param {object|string|string[]} value
- * @returns {object} where all the values are strings or boolean
- */
-export declare function normalizedAttributes(value?: any): any;
-// added for bundling and extending
-export declare {
-  AttributesCustomAttribute
-} from 'aurelia-form/attributes';
-export declare {
-  entitySchema
-} from 'aurelia-form/entity-schema';
-export declare {
-  Form
-} from 'aurelia-form/form';
-export declare {
-  normalizeOptions
-} from 'aurelia-form/utils';
-export declare {
-  normalizeOptionsValueConverter
-} from 'aurelia-form/converter/normalizeOptions';
-export declare {
-  EntityForm
-} from 'aurelia-form/component/entity-form';
-export declare {
-  SchemaForm
-} from 'aurelia-form/component/schema-form';
-export declare {
-  FormFields
-} from 'aurelia-form/component/form-fields';
-export declare {
-  FormField
-} from 'aurelia-form/component/form-field';
-export declare {
-  Options
-} from 'aurelia-form/component/framework/options';
-export declare {
-  FormGroup
-} from 'aurelia-form/component/framework/form-group';
-export declare {
-  Conditional
-} from 'aurelia-form/component/framework/conditional';
-export declare {
-  Collection
-} from 'aurelia-form/component/framework/collection';
-export declare {
-  Actions
-} from 'aurelia-form/component/framework/actions';
-export declare {
-  ActionsCustomElement
-} from 'aurelia-form/component/framework/bootstrap/actions';
-export declare {
-  CheckboxesElement
-} from 'aurelia-form/component/framework/bootstrap/checkboxes';
-export declare {
-  CollectionCustomElement
-} from 'aurelia-form/component/framework/bootstrap/collection';
-export declare {
-  ConditionalCustomElement
-} from 'aurelia-form/component/framework/bootstrap/conditional';
-export declare {
-  FormGroupCustomElement
-} from 'aurelia-form/component/framework/bootstrap/form-group';
-export declare {
-  RadiosElement
-} from 'aurelia-form/component/framework/bootstrap/radios';
-export declare {
-  SelectElement
-} from 'aurelia-form/component/framework/bootstrap/select';
-export declare function configure(aurelia?: any, configOrConfigure?: any): any;
-export declare {
-  Config
-};
-export declare class Config {
-  configurations: any;
-  constructor();
-  
-  /**
-     * convenient for getting a (nested) property in the configurations
-     * object.
-     *
-     * @param {...string} props when prop is falsy it returns the whole
-     * configurations object
-     *
-     * @returns {*} the value of that property
-     */
-  fetch(props?: any): any;
-  
-  /**
-     * extend the config to your liking. A convenient function when you would want
-     * more control over the configs.
-     */
-  configure(configs?: any): any;
-}
-/**
- * Takes an entity and uses it's metadata to generate a form-schema. Entities
- * behave like normal objects in the way one can get and set the values on
- * it's properties.
- *
- * @param {object} entity
- *
- * @returns {object[]} a schema consisting out of element objects
- */
-export declare function entitySchema(entity?: any): any;
-/***
- * Some functionalities are desired in a view model of a form. Responsibilites
- * include validation and submit.
- *
- * This class is optional and serves as a convenience class.
- *
- * - creates a messages property for storing error strings
- * - allows you to set the model which
- * - automatically triggers validation
- * - convenient methods that can be overwritten to perform action on submit and
- *   change
- */
-export declare class Form {
-  messages: any;
-  isValid: any;
-  
-  /***
-     * Used to get access to onSubmit and model changes could also wrap the
-     * change and submit methods instead
-     */
-  onChange(): any;
-  onSubmit(): any;
-  constructor();
-  validate(): any;
-  detached(): any;
-  submit(): any;
-  change(): any;
-}
 export declare const logger: any;
-
-/**
- * Used to make options that are defined in schema element comply with a
- * specific format which is used to render them
- *
- * @param {object[]|string[]} options
- * @returns {array} which is transformed to an object with name and value
- * properties
- */
-export declare function normalizeOptions(options?: any): any;
+export * from 'aurelia-form/decorator/index';
+export declare function configure(aurelia?: any, config?: any): any;
+export declare const config: any;
+export declare class Metadata {
+  static forTarget(target?: any): any;
+}
+export declare class Prefixed {
+  attribute: any;
+  options: any;
+  prefix: any;
+  constructor(element?: any);
+  optionsChanged(): any;
+  updateAttribute(): any;
+  prefixChanged(next?: any, previous?: any): any;
+  attributeChanged(next?: any, previous?: any): any;
+  resetAttribute(prefix?: any, attribute?: any): any;
+}
+export declare class AureliaForm {
+  behavior: any;
+  classes: any;
+  options: any;
+  validationController: any;
+  validated: any;
+  entity: any;
+  buttonOptions: any;
+  buttonLabel: any;
+  buttonEnabled: any;
+  formGroups: any;
+  mapped: any;
+  element: any;
+  validateTrigger: any;
+  constructor(config?: any, element?: any);
+  submit(): any;
+  changed(trigger?: any, event?: any): any;
+  validate(property?: any): any;
+  emit(event?: any, data?: any): any;
+  formGroupsChanged(): any;
+  behaviorChanged(): any;
+  updateFormGroups(): any;
+}
 export declare class EntityForm {
   entity: any;
-  model: any;
-  messages: any;
-  descriptions: any;
-  bind(): any;
+  behavior: any;
+  skip: any;
+  elements: any;
+  isVisible(fieldName?: any): any;
 }
-export declare class FormField {
-  static elementCount: any;
-  element: any;
-  model: any;
-  value: any;
-  message: any;
-  description: any;
-  constructor(config?: any, viewManager?: any, element?: any);
-  attached(): any;
-  detached(): any;
-  visible: any;
+export declare class FormButton {
   label: any;
-  view: any;
-  hasViewModel: any;
   type: any;
-  elementChanged(element?: any): any;
+  classes: any;
+  disabled: any;
+  options: any;
 }
-export declare class FormFields {
-  schema: any;
-  model: any;
-  messages: any;
-  descriptions: any;
-  attached(): any;
-  hasKeyProp(element?: any): any;
-}
-export declare class SchemaForm {
-  schema: any;
-  model: any;
-  messages: any;
-  descriptions: any;
-}
-export declare class normalizeOptionsValueConverter {
-  toView(options?: any): any;
-}
-export declare class Actions {
-  activate(vm?: any): any;
-}
-
 /**
- * @class used to extend the association components for each and every render strategy(framework)
+ * FormCheckbox should inherit FormInput, so the bindables don't need to be copied.
+ *
+ * To achieve this, we will need this pull request to be merged:
+ * https://github.com/aurelia/templating/pull/507
  */
-export declare class Association {
-  association: any;
-  manyAssociation: any;
-  activate(formField?: any): any;
+export declare class FormCheckbox {
+  name: any;
+  value: any;
+  option: any;
+  type: any;
+  classes: any;
+  placeholder: any;
+  readonly: any;
+  disabled: any;
+  options: any;
+  autofocus: any;
+  required: any;
 }
-export declare class Collection {
-  activate(vm?: any): any;
-  
-  /**
-     * Generates a schema for each of the items in the collection. This is done
-     * to add an index to the each of the schema elements of the collection.
-     *
-     * @param {number} index
-     * @param {object[]} schema for a single item
-     *
-     * @returns {object[]} schema elements with an index property
-     */
-  itemSchema(schema?: any, index?: any): any;
+export declare class FormElement {
+  type: any;
+  element: any;
+  DOMElement: any;
+  value: any;
+  name: any;
+  classes: any;
+  placeholder: any;
+  readonly: any;
+  disabled: any;
+  multiple: any;
+  options: any;
+  selectOptions: any;
+  optionLabel: any;
+  autofocus: any;
+  required: any;
+  proxyAttributes: any;
+  constructor(config?: any, DOMElement?: any, templatingEngine?: any);
+  attached(): any;
+  setAttributes(DOMElement?: any): any;
+  getElementName(): any;
 }
-export declare class Conditional {
-  constructor(bindingEngine?: any);
-  activate(field?: any): any;
-  deactivate(): any;
+export declare class FormError {
+  error: any;
 }
 export declare class FormGroup {
+  value: any;
+  classes: any;
   element: any;
+  placeholder: any;
+  state: any;
+  name: any;
+  label: any;
+  error: any;
   message: any;
-  description: any;
-  constructor(config?: any);
-  showsLabel: any;
-  showsMessage: any;
-  showsDescription: any;
-  labelText: any;
+  type: any;
+  behavior: any;
+  readonly: any;
+  disabled: any;
+  autofocus: any;
+  required: any;
+  multiple: any;
+  selectOptions: any;
+  optionLabel: any;
+  is(oneOf?: any, then?: any, source?: any): any;
+  when(conditional?: any, value?: any, otherwise?: any): any;
 }
-export declare class Options {
-  activate(model?: any): any;
+export declare class FormHelp {
+  message: any;
 }
-export declare class ActionsCustomElement extends Actions {
-
+export declare class FormInput {
+  value: any;
+  checked: any;
+  type: any;
+  name: any;
+  classes: any;
+  placeholder: any;
+  readonly: any;
+  disabled: any;
+  options: any;
+  autofocus: any;
+  required: any;
 }
-export declare class AssociationElement extends Association {
-
+export declare class FormLabel {
+  label: any;
+  visible: any;
+  classes: any;
 }
-export declare class CheckboxesElement extends Options {
-
+export declare class FormRadio {
+  name: any;
+  value: any;
+  option: any;
+  type: any;
+  classes: any;
+  placeholder: any;
+  readonly: any;
+  disabled: any;
+  options: any;
+  autofocus: any;
+  required: any;
 }
-export declare class CollectionCustomElement extends Collection {
-
+export declare class FormSelect {
+  value: any;
+  name: any;
+  classes: any;
+  readonly: any;
+  disabled: any;
+  multiple: any;
+  selectOptions: any;
+  options: any;
+  optionLabel: any;
+  autofocus: any;
+  required: any;
+  optionLabels: any;
+  getOptionLabel(option?: any): any;
 }
-export declare class ConditionalCustomElement extends Base {
-
+export declare class FormTextarea {
+  name: any;
+  classes: any;
+  value: any;
+  placeholder: any;
+  autofocus: any;
+  required: any;
+  cols: any;
+  rows: any;
+  disabled: any;
+  maxlength: any;
+  readonly: any;
+  wrap: any;
 }
-/***
- * in case behaviour has to be altered
- */
-export declare class FormGroupCustomElement extends FormGroup {
-
-}
-export declare class RadiosElement extends Options {
-
-}
-export declare class SelectElement extends Options {
-
-}
+export declare function autofocus(value?: any): any;
+export declare function disabled(value?: any): any;
+export declare function element(value?: any): any;
+export declare function field(value?: any, option?: any): any;
+export declare {
+  placeholder
+} from 'aurelia-form/placeholder';
+export declare {
+  label
+} from 'aurelia-form/label';
+export declare {
+  element
+} from 'aurelia-form/element';
+export declare {
+  position
+} from 'aurelia-form/position';
+export declare {
+  autofocus
+} from 'aurelia-form/autofocus';
+export declare {
+  disabled
+} from 'aurelia-form/disabled';
+export declare {
+  readonly
+} from 'aurelia-form/readonly';
+export declare {
+  required
+} from 'aurelia-form/required';
+export declare {
+  noRender
+} from 'aurelia-form/noRender';
+export declare function label(value?: any): any;
+export declare function noRender(value?: any): any;
+export declare function placeholder(value?: any): any;
+export declare function position(value?: any): any;
+export declare function readonly(value?: any): any;
+export declare function required(value?: any): any;

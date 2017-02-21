@@ -1,6 +1,6 @@
 {
   "name": "aurelia-form",
-  "version": "0.6.0",
+  "version": "1.0.0-0",
   "description": "Makes working with forms just a tad more pleasant.",
   "keywords": [
     "aurelia",
@@ -58,14 +58,26 @@
       "aurelia-pal-browser": "^1.0.0",
       "aurelia-polyfills": "^1.0.0",
       "aurelia-testing": "^1.0.0-beta.1.0.3"
+    },
+    "jspmPackage": true,
+    "peerDependencies": {
+      "aurelia-dependency-injection": "^1.0.0",
+      "aurelia-framework": "^1.0.0",
+      "aurelia-logging": "^1.0.0",
+      "aurelia-metadata": "^1.0.3",
+      "aurelia-view-manager": "^0.1.0",
+      "extend": "^3.0.0",
+      "homefront": "^1.3.3"
     }
   },
   "dependencies": {
     "aurelia-dependency-injection": "^1.0.0",
     "aurelia-framework": "^1.0.0",
     "aurelia-logging": "^1.0.0",
+    "aurelia-metadata": "^1.0.3",
     "aurelia-view-manager": "^0.1.0",
-    "extend": "^3.0.0"
+    "extend": "^3.0.0",
+    "homefront": "^1.3.3"
   },
   "devDependencies": {
     "spoonx-tools": "^1.0.0-0"

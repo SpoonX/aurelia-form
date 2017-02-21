@@ -1,0 +1,7 @@
+<template>
+  <label class="${classes || 'control-label'}">
+    <slot name="before"></slot>
+    <span t.bind="label" show.bind="visible">${label}</span>
+    <slot name="after"></slot>
+  </label>
+</template>

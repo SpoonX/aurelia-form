@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -43,40 +43,57 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-import { entitySchema } from '../entity-schema';
-import { bindable, bindingMode, customElement } from 'aurelia-framework';
+import { customElement, bindable, computedFrom } from 'aurelia-framework';
 import { resolvedView } from 'aurelia-view-manager';
+import { Metadata } from '../Metadata';
 
-export let EntityForm = (_dec = customElement('entity-form'), _dec2 = resolvedView('spoonx/form', 'entity-form'), _dec3 = bindable({ defaultBindingMode: bindingMode.oneTime }), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = class EntityForm {
+export let EntityForm = (_dec = resolvedView('spoonx/form', 'entity-form'), _dec2 = customElement('entity-form'), _dec3 = computedFrom('entity'), _dec(_class = _dec2(_class = (_class2 = class EntityForm {
   constructor() {
     _initDefineProp(this, 'entity', _descriptor, this);
 
-    _initDefineProp(this, 'model', _descriptor2, this);
+    _initDefineProp(this, 'behavior', _descriptor2, this);
 
-    _initDefineProp(this, 'messages', _descriptor3, this);
-
-    _initDefineProp(this, 'descriptions', _descriptor4, this);
+    _initDefineProp(this, 'skip', _descriptor3, this);
   }
 
-  bind() {
-    this.schema = entitySchema(this.entity);
-    this.model = this.entity;
+  get elements() {
+    let types = this.entity.getMeta().metadata.types;
+    let fields = Metadata.forTarget(this.entity).fetch('fields', {});
+
+    return Object.keys(types).map(field => {
+      return {
+        element: types[field],
+        field: field,
+        meta: fields[field] || {}
+      };
+    }).sort((left, right) => {
+      let leftPosition = left.meta.position || 0;
+      let rightPosition = right.meta.position || 0;
+
+      if (leftPosition < rightPosition) {
+        return -1;
+      }
+
+      if (leftPosition > rightPosition) {
+        return 1;
+      }
+
+      return 0;
+    });
   }
 
-}, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'entity', [_dec3], {
+  isVisible(fieldName) {
+    return this.skip.indexOf(fieldName) === -1;
+  }
+}, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'entity', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'model', [_dec4], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'behavior', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'messages', [bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'skip', [bindable], {
   enumerable: true,
   initializer: function () {
-    return {};
+    return [];
   }
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'descriptions', [bindable], {
-  enumerable: true,
-  initializer: function () {
-    return {};
-  }
-})), _class2)) || _class) || _class);
+}), _applyDecoratedDescriptor(_class2.prototype, 'elements', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'elements'), _class2.prototype)), _class2)) || _class) || _class);

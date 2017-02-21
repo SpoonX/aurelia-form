@@ -1,0 +1,25 @@
+<template>
+  <form
+    class="${classes} ${behavior ? 'form-' + behavior : ''}"
+    submit.delegate="submit()"
+    keyup.delegate="changed('change', $event)"
+    change.delegate="changed('change', $event)"
+    blur.capture="changed('blur', $event)"
+  >
+    <slot name="before"></slot>
+    <slot></slot>
+    <slot name="after"></slot>
+
+    <slot name="button">
+      <form-group behavior.bind="behavior">
+        <form-button
+          slot="element"
+          type="submit"
+          options.bind="buttonOptions"
+          show.bind="buttonEnabled"
+          label.bind="buttonLabel"
+        ></form-button>
+      </form-group>
+    </slot>
+  </form>
+</template>
