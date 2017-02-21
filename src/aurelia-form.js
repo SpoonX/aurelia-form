@@ -32,7 +32,6 @@ export function configure(aurelia, config) {
   ];
 
   aurelia.globalResources(
-    './attribute/attributes',
     './attribute/prefixed',
     ...defaultComponents.map(component => `./component/${component}`),
     ...defaultElements.map(component => `./component/form-${component}`)
