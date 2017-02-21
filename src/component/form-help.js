@@ -5,4 +5,6 @@ import {resolvedView} from 'aurelia-view-manager';
 @customElement('form-help')
 export class FormHelp {
   @bindable message;
+
+  @bindable classes;
 }
