@@ -10,7 +10,17 @@ export class EntityForm {
 
   @bindable behavior;
 
+  @bindable classes;
+
   @bindable skip = [];
+
+  @bindable validated = true;
+
+  @bindable buttonOptions;
+
+  @bindable buttonLabel;
+
+  @bindable buttonEnabled;
 
   @computedFrom('entity')
   get elements() {
