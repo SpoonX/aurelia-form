@@ -23,7 +23,7 @@
 * [form-textarea](component/form-textarea.md)
 
 ## Cookbook
-* [Custom components](cookbook/custom-components.md)
+* [Custom elements](cookbook/custom-elements.md)
 * [Setting up validation](cookbook/setting-up-validation.md)
 * [Element sorting](cookbook/element-sorting.md)
 * [Changing css framework](cookbook/changing-css-framework.md)
