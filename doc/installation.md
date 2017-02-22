@@ -1,48 +1,5 @@
 # Installation
 
-## Validation
-For validation, take a look at the [validation plugin](https://github.com/SpoonX/aurelia-form-validation) for aurelia-form.
-All it requires is installation, and you'll have validation!
-
-## Enabling the plugin
-The following code snippets illustrate how to set up aurelia-form for your project.
-
-In your main.js file, add the following:
-
-### Using aurelia-config
-[Aurelia-config](https://aurelia-config.spoonx.org/) makes it easy to register plugins and configure them.
-
-```js
-aurelia.use.plugin('aurelia-config', configure => {
-  return configure([
-    'aurelia-form'
-  ]);
-});
-```
-
-Here's an example including validation, and aurelia-orm (for `<entity-form />`):
-
-```js
-aurelia.use.plugin('aurelia-config', configure => {
-  return configure([
-    'aurelia-api',
-    'aurelia-orm',
-    'aurelia-form',
-    'aurelia-form-validation'
-  ], yourConfiguration);
-});
-```
-
-### Without aurelia-config
-Aurelia-config is optional (but recommended!).
-Without aurelia-config, registering the plugins works exactly like expected:
-
-```js
-aurelia.use.plugin('aurelia-form');
-```
-
-Configurations can be supplied using the second argument.
-
 ## Aurelia-Cli
 
 Run `npm i aurelia-form --save` from your project root.
