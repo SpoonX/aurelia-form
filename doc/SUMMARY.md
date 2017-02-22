@@ -6,7 +6,8 @@
 * [Changelog](CHANGELOG.md)
 * [License](license.md)
 
-## Components
+## API
+* [decorators](./decorators.md)
 * [aurelia-form](component/aurelia-form.md)
 * [entity-form](component/entity-form.md)
 * [form-button](component/form-button.md)
