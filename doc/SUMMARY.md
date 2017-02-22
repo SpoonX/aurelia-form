@@ -29,5 +29,5 @@
 * [Changing css framework](cookbook/changing-css-framework.md)
 * [Aliases](cookbook/aliases.md)
 * [Auto submit button](cookbook/auto-submit-button.md)
-* [Disable rendering](cookbook/disable-rendering.md)
+* [Exclude from form](cookbook/exclude-from-form.md)
 * [Overriding templates](cookbook/overriding-templates.md)

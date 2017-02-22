@@ -1,2 +1,0 @@
-# Disable rendering
-[TBD]
