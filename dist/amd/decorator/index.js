@@ -1,4 +1,4 @@
-define(['exports', './placeholder', './label', './element', './position', './autofocus', './disabled', './readonly', './required', './noRender'], function (exports, _placeholder, _label, _element, _position, _autofocus, _disabled, _readonly, _required, _noRender) {
+define(['exports', './placeholder', './label', './element', './position', './autofocus', './disabled', './readonly', './required', './noRender', './inputType'], function (exports, _placeholder, _label, _element, _position, _autofocus, _disabled, _readonly, _required, _noRender, _inputType) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -56,6 +56,12 @@ define(['exports', './placeholder', './label', './element', './position', './aut
     enumerable: true,
     get: function () {
       return _noRender.noRender;
+    }
+  });
+  Object.defineProperty(exports, 'inputType', {
+    enumerable: true,
+    get: function () {
+      return _inputType.inputType;
     }
   });
 });

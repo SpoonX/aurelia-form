@@ -3,7 +3,7 @@
 exports.__esModule = true;
 exports.FormError = undefined;
 
-var _dec, _dec2, _class, _desc, _value, _class2, _descriptor;
+var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2;
 
 var _aureliaFramework = require('aurelia-framework');
 
@@ -58,7 +58,12 @@ var FormError = exports.FormError = (_dec = (0, _aureliaViewManager.resolvedView
   
 
   _initDefineProp(this, 'error', _descriptor, this);
+
+  _initDefineProp(this, 'classes', _descriptor2, this);
 }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'error', [_aureliaFramework.bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'classes', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
 })), _class2)) || _class) || _class);

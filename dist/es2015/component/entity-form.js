@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -53,7 +53,17 @@ export let EntityForm = (_dec = resolvedView('spoonx/form', 'entity-form'), _dec
 
     _initDefineProp(this, 'behavior', _descriptor2, this);
 
-    _initDefineProp(this, 'skip', _descriptor3, this);
+    _initDefineProp(this, 'classes', _descriptor3, this);
+
+    _initDefineProp(this, 'skip', _descriptor4, this);
+
+    _initDefineProp(this, 'validated', _descriptor5, this);
+
+    _initDefineProp(this, 'buttonOptions', _descriptor6, this);
+
+    _initDefineProp(this, 'buttonLabel', _descriptor7, this);
+
+    _initDefineProp(this, 'buttonEnabled', _descriptor8, this);
   }
 
   get elements() {
@@ -91,9 +101,26 @@ export let EntityForm = (_dec = resolvedView('spoonx/form', 'entity-form'), _dec
 }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'behavior', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'skip', [bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'classes', [bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'skip', [bindable], {
   enumerable: true,
   initializer: function () {
     return [];
   }
+}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'validated', [bindable], {
+  enumerable: true,
+  initializer: function () {
+    return true;
+  }
+}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'buttonOptions', [bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'buttonLabel', [bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'buttonEnabled', [bindable], {
+  enumerable: true,
+  initializer: null
 }), _applyDecoratedDescriptor(_class2.prototype, 'elements', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'elements'), _class2.prototype)), _class2)) || _class) || _class);

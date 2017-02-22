@@ -51,13 +51,18 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager'], function (expor
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
   }
 
-  var _dec, _dec2, _class, _desc, _value, _class2, _descriptor;
+  var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2;
 
   var FormHelp = exports.FormHelp = (_dec = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'form-help'), _dec2 = (0, _aureliaFramework.customElement)('form-help'), _dec(_class = _dec2(_class = (_class2 = function FormHelp() {
     
 
     _initDefineProp(this, 'message', _descriptor, this);
+
+    _initDefineProp(this, 'classes', _descriptor2, this);
   }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'message', [_aureliaFramework.bindable], {
+    enumerable: true,
+    initializer: null
+  }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'classes', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
   })), _class2)) || _class) || _class);

@@ -3,7 +3,7 @@
 System.register(['aurelia-framework', 'aurelia-view-manager'], function (_export, _context) {
   "use strict";
 
-  var bindable, customElement, resolvedView, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, FormHelp;
+  var bindable, customElement, resolvedView, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, FormHelp;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -62,7 +62,12 @@ System.register(['aurelia-framework', 'aurelia-view-manager'], function (_export
         
 
         _initDefineProp(this, 'message', _descriptor, this);
+
+        _initDefineProp(this, 'classes', _descriptor2, this);
       }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'message', [bindable], {
+        enumerable: true,
+        initializer: null
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'classes', [bindable], {
         enumerable: true,
         initializer: null
       })), _class2)) || _class) || _class));

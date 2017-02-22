@@ -3,7 +3,7 @@
 System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 'aurelia-pal', '../aurelia-form'], function (_export, _context) {
   "use strict";
 
-  var bindable, customElement, children, inject, Configuration, resolvedView, DOM, logger, _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, AureliaForm;
+  var bindable, customElement, children, inject, Configuration, resolvedView, DOM, logger, _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, AureliaForm;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -74,21 +74,17 @@ System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 
 
           _initDefineProp(this, 'classes', _descriptor2, this);
 
-          _initDefineProp(this, 'options', _descriptor3, this);
+          _initDefineProp(this, 'entity', _descriptor3, this);
 
-          _initDefineProp(this, 'validationController', _descriptor4, this);
+          _initDefineProp(this, 'validated', _descriptor4, this);
 
-          _initDefineProp(this, 'validated', _descriptor5, this);
+          _initDefineProp(this, 'buttonOptions', _descriptor5, this);
 
-          _initDefineProp(this, 'entity', _descriptor6, this);
+          _initDefineProp(this, 'buttonLabel', _descriptor6, this);
 
-          _initDefineProp(this, 'buttonOptions', _descriptor7, this);
+          _initDefineProp(this, 'buttonEnabled', _descriptor7, this);
 
-          _initDefineProp(this, 'buttonLabel', _descriptor8, this);
-
-          _initDefineProp(this, 'buttonEnabled', _descriptor9, this);
-
-          _initDefineProp(this, 'formGroups', _descriptor10, this);
+          _initDefineProp(this, 'formGroups', _descriptor8, this);
 
           this.mapped = {};
 
@@ -194,32 +190,24 @@ System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 
         initializer: function initializer() {
           return '';
         }
-      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'options', [bindable], {
-        enumerable: true,
-        initializer: function initializer() {
-          return {};
-        }
-      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'validationController', [bindable], {
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'entity', [bindable], {
         enumerable: true,
         initializer: null
-      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'validated', [bindable], {
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'validated', [bindable], {
         enumerable: true,
         initializer: function initializer() {
           return true;
         }
-      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'entity', [bindable], {
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'buttonOptions', [bindable], {
         enumerable: true,
         initializer: null
-      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'buttonOptions', [bindable], {
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'buttonLabel', [bindable], {
         enumerable: true,
         initializer: null
-      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'buttonLabel', [bindable], {
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'buttonEnabled', [bindable], {
         enumerable: true,
         initializer: null
-      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, 'buttonEnabled', [bindable], {
-        enumerable: true,
-        initializer: null
-      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, 'formGroups', [_dec4], {
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'formGroups', [_dec4], {
         enumerable: true,
         initializer: function initializer() {
           return [];

@@ -1,3 +1,16 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/SpoonX/aurelia-form/compare/v1.0.0-0...v1.0.0) (2017-02-22)
+
+
+### Features
+
+* **book:** add anchors ([246514d](https://github.com/SpoonX/aurelia-form/commit/246514d))
+* **component:** added classes ([05d159c](https://github.com/SpoonX/aurelia-form/commit/05d159c))
+* **decorator:** add inputType decorator ([bf28f89](https://github.com/SpoonX/aurelia-form/commit/bf28f89))
+* **entity-form:** add type usage ([5b2a69a](https://github.com/SpoonX/aurelia-form/commit/5b2a69a))
+
+
+
 <a name="1.0.0-0"></a>
 # [1.0.0-0](https://github.com/SpoonX/aurelia-form/compare/v0.6.0...v1.0.0-0) (2017-02-21)
 

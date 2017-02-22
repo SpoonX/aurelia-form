@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['./placeholder', './label', './element', './position', './autofocus', './disabled', './readonly', './required', './noRender'], function (_export, _context) {
+System.register(['./placeholder', './label', './element', './position', './autofocus', './disabled', './readonly', './required', './noRender', './inputType'], function (_export, _context) {
   "use strict";
 
   return {
@@ -49,6 +49,11 @@ System.register(['./placeholder', './label', './element', './position', './autof
       _exportObj9.noRender = _noRender.noRender;
 
       _export(_exportObj9);
+    }, function (_inputType) {
+      var _exportObj10 = {};
+      _exportObj10.inputType = _inputType.inputType;
+
+      _export(_exportObj10);
     }],
     execute: function () {}
   };

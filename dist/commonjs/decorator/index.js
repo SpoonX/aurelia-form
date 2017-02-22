@@ -84,3 +84,12 @@ Object.defineProperty(exports, 'noRender', {
     return _noRender.noRender;
   }
 });
+
+var _inputType = require('./inputType');
+
+Object.defineProperty(exports, 'inputType', {
+  enumerable: true,
+  get: function get() {
+    return _inputType.inputType;
+  }
+});

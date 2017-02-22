@@ -1,4 +1,4 @@
-var _dec, _dec2, _class, _desc, _value, _class2, _descriptor;
+var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -49,9 +49,14 @@ import { resolvedView } from 'aurelia-view-manager';
 export let FormHelp = (_dec = resolvedView('spoonx/form', 'form-help'), _dec2 = customElement('form-help'), _dec(_class = _dec2(_class = (_class2 = class FormHelp {
   constructor() {
     _initDefineProp(this, 'message', _descriptor, this);
+
+    _initDefineProp(this, 'classes', _descriptor2, this);
   }
 
 }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'message', [bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'classes', [bindable], {
   enumerable: true,
   initializer: null
 })), _class2)) || _class) || _class);
