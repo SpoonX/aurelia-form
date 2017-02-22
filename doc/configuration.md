@@ -16,10 +16,12 @@ And then you can set up configuration as follows in main.js:
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .plugin('aurelia-config', [
-      'aurelia-form'
-      // Other plugins
-    ], myConfiguration);
+    .plugin('aurelia-config', configure => {
+      return configure([
+        'aurelia-form'
+        // Other plugins
+      ], myConfiguration);
+    });
 }
 ```
 
@@ -64,10 +66,12 @@ const myConfiguration = {
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .plugin('aurelia-config', [
-      'aurelia-form'
-      // Other plugins
-    ], myConfiguration);
+    .plugin('aurelia-config', configure => {
+      return configure([
+        'aurelia-form'
+        // Other plugins
+      ], myConfiguration);
+    });
 }
 ```
 
