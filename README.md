@@ -23,7 +23,7 @@ The [changelog](https://aurelia-form.spoonx.org/CHANGELOG.html) provides you wit
 
 ## Updating from 0.x
 
-- Basic entity-forms will not have to be changed
+- Basic entity-forms will not have to be changed.
 - Any custom form will be completely different, but simple to implement.
 - Schemas have been dropped in favor or [declarative components](https://aurelia-form.spoonx.org/).
 - ValidateJS has been dropped in favor of the new aurelia-validation, but is easier to [set up in your project](https://aurelia-form.spoonx.org/cookbook/setting-up-validation.html).
