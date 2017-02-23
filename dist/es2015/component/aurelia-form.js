@@ -75,6 +75,7 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
     this.buttonEnabled = config.submitButton.enabled;
     this.buttonOptions = config.submitButton.options;
     this.buttonLabel = config.submitButton.label;
+    this.behavior = config.defaultBehavior;
 
     let validation = config.validation;
 
@@ -139,7 +140,13 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
     this.updateFormGroups();
   }
 
-  behaviorChanged() {
+  behaviorChanged(newValue) {
+    if (!newValue) {
+      this.behavior = this.config.defaultBehavior;
+
+      return;
+    }
+
     this.updateFormGroups();
   }
 
@@ -149,7 +156,9 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
     }
 
     this.formGroups.forEach(group => {
-      group.behavior = this.behavior;
+      if (this.behavior) {
+        group.behavior = this.behavior;
+      }
 
       if (group.name) {
         this.mapped[group.name] = group;
@@ -158,9 +167,7 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
   }
 }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'behavior', [bindable], {
   enumerable: true,
-  initializer: function () {
-    return '';
-  }
+  initializer: null
 }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'classes', [bindable], {
   enumerable: true,
   initializer: function () {

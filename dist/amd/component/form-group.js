@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'aurelia-view-manager'], function (exports, _aureliaFramework, _aureliaViewManager) {
+define(['exports', 'aurelia-framework', 'aurelia-view-manager', 'aurelia-config'], function (exports, _aureliaFramework, _aureliaViewManager, _aureliaConfig) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -51,10 +51,10 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager'], function (expor
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
   }
 
-  var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18;
+  var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19;
 
-  var FormGroup = exports.FormGroup = (_dec = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'form-group'), _dec2 = (0, _aureliaFramework.customElement)('form-group'), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
-    function FormGroup() {
+  var FormGroup = exports.FormGroup = (_dec = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'form-group'), _dec2 = (0, _aureliaFramework.customElement)('form-group'), _dec3 = (0, _aureliaFramework.inject)(_aureliaConfig.Configuration.of('aurelia-form')), _dec4 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = function () {
+    function FormGroup(config) {
       
 
       _initDefineProp(this, 'value', _descriptor, this);
@@ -87,11 +87,16 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager'], function (expor
 
       _initDefineProp(this, 'required', _descriptor15, this);
 
-      _initDefineProp(this, 'multiple', _descriptor16, this);
+      _initDefineProp(this, 'options', _descriptor16, this);
 
-      _initDefineProp(this, 'selectOptions', _descriptor17, this);
+      _initDefineProp(this, 'multiple', _descriptor17, this);
 
-      _initDefineProp(this, 'optionLabel', _descriptor18, this);
+      _initDefineProp(this, 'selectOptions', _descriptor18, this);
+
+      _initDefineProp(this, 'optionLabel', _descriptor19, this);
+
+      this.config = config;
+      this.behavior = config.defaultBehavior;
     }
 
     FormGroup.prototype.is = function is(oneOf, then, source) {
@@ -112,7 +117,7 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager'], function (expor
     };
 
     return FormGroup;
-  }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'value', [_dec3], {
+  }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'value', [_dec4], {
     enumerable: true,
     initializer: function initializer() {
       return null;
@@ -169,18 +174,21 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager'], function (expor
   }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, 'required', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, 'multiple', [_aureliaFramework.bindable], {
+  }), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, 'options', [_aureliaFramework.bindable], {
+    enumerable: true,
+    initializer: null
+  }), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, 'multiple', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: function initializer() {
       return false;
     }
-  }), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, 'selectOptions', [_aureliaFramework.bindable], {
+  }), _descriptor18 = _applyDecoratedDescriptor(_class2.prototype, 'selectOptions', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: function initializer() {
       return [];
     }
-  }), _descriptor18 = _applyDecoratedDescriptor(_class2.prototype, 'optionLabel', [_aureliaFramework.bindable], {
+  }), _descriptor19 = _applyDecoratedDescriptor(_class2.prototype, 'optionLabel', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  })), _class2)) || _class) || _class);
+  })), _class2)) || _class) || _class) || _class);
 });

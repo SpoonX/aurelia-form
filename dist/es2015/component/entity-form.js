@@ -67,14 +67,37 @@ export let EntityForm = (_dec = resolvedView('spoonx/form', 'entity-form'), _dec
   }
 
   get elements() {
-    let types = this.entity.getMeta().metadata.types;
+    let entityMeta = {};
+
+    if (typeof this.entity.getMeta === 'function') {
+      entityMeta = this.entity.getMeta().metadata;
+    }
+
+    let types = entityMeta.types || {};
+    let associations = entityMeta.associations || {};
     let fields = Metadata.forTarget(this.entity).fetch('fields', {});
 
-    return Object.keys(types).map(field => {
+    return Object.keys(this.entity).map(name => {
+      let field = fields[name] || {};
+      let association = associations[name];
+      let options = field.options || {};
+      let element = types[name] || 'input';
+
+      if (association) {
+        element = 'association';
+        options.resource = association.entity;
+        options.multiple = association.type === 'collection';
+      }
+
+      if (field.element) {
+        element = field.element;
+      }
+
       return {
-        element: types[field],
-        field: field,
-        meta: fields[field] || {}
+        element: element,
+        field: name,
+        meta: field,
+        options: options
       };
     }).sort((left, right) => {
       let leftPosition = left.meta.position || 0;

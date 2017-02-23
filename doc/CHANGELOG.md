@@ -1,3 +1,20 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/SpoonX/aurelia-form/compare/v1.0.5...v1.1.0) (2017-02-23)
+
+
+### Bug Fixes
+
+* **form-element:** trigger attached on components ([3ae5861](https://github.com/SpoonX/aurelia-form/commit/3ae5861))
+
+
+### Features
+
+* **component:** add association component ([1735148](https://github.com/SpoonX/aurelia-form/commit/1735148))
+* **decorator:** add options decorator ([c218208](https://github.com/SpoonX/aurelia-form/commit/c218208))
+* **entity-form:** render based on fields, and render associations ([8e965cf](https://github.com/SpoonX/aurelia-form/commit/8e965cf))
+
+
+
 <a name="1.0.5"></a>
 ## [1.0.5](https://github.com/SpoonX/aurelia-form/compare/v1.0.4...v1.0.5) (2017-02-23)
 

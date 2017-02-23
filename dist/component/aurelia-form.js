@@ -8,7 +8,7 @@ import {logger} from '../aurelia-form';
 @customElement('aurelia-form')
 @inject(Configuration.of('aurelia-form'), DOM.Element)
 export class AureliaForm {
-  @bindable behavior = '';
+  @bindable behavior;
 
   @bindable classes = '';
 
@@ -38,6 +38,7 @@ export class AureliaForm {
     this.buttonEnabled = config.submitButton.enabled;
     this.buttonOptions = config.submitButton.options;
     this.buttonLabel   = config.submitButton.label;
+    this.behavior      = config.defaultBehavior;
 
     let validation = config.validation;
 
@@ -103,7 +104,13 @@ export class AureliaForm {
     this.updateFormGroups();
   }
 
-  behaviorChanged() {
+  behaviorChanged(newValue) {
+    if (!newValue) {
+      this.behavior = this.config.defaultBehavior;
+
+      return;
+    }
+
     this.updateFormGroups();
   }
 
@@ -113,7 +120,9 @@ export class AureliaForm {
     }
 
     this.formGroups.forEach(group => {
-      group.behavior = this.behavior;
+      if (this.behavior) {
+        group.behavior = this.behavior;
+      }
 
       if (group.name) {
         this.mapped[group.name] = group;

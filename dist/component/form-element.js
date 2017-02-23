@@ -65,7 +65,7 @@ export class FormElement {
 
     this.setAttributes(element);
     this.DOMElement.appendChild(element);
-    this.templatingEngine.enhance({element: element, bindingContext: this});
+    this.templatingEngine.enhance({element: element, bindingContext: this}).attached();
   }
 
   setAttributes(DOMElement) {

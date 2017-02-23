@@ -108,7 +108,7 @@ var FormElement = exports.FormElement = (_dec = (0, _aureliaViewManager.resolved
 
     this.setAttributes(element);
     this.DOMElement.appendChild(element);
-    this.templatingEngine.enhance({ element: element, bindingContext: this });
+    this.templatingEngine.enhance({ element: element, bindingContext: this }).attached();
   };
 
   FormElement.prototype.setAttributes = function setAttributes(DOMElement) {

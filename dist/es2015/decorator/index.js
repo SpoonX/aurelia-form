@@ -8,3 +8,4 @@ export { readonly } from './readonly';
 export { required } from './required';
 export { noRender } from './noRender';
 export { inputType } from './inputType';
+export { options } from './options';

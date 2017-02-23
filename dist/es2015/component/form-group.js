@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18;
+var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -43,11 +43,13 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-import { bindable, customElement, bindingMode } from 'aurelia-framework';
+import { bindable, customElement, bindingMode, inject } from 'aurelia-framework';
 import { resolvedView } from 'aurelia-view-manager';
+import { Configuration } from 'aurelia-config';
 
-export let FormGroup = (_dec = resolvedView('spoonx/form', 'form-group'), _dec2 = customElement('form-group'), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = class FormGroup {
-  constructor() {
+export let FormGroup = (_dec = resolvedView('spoonx/form', 'form-group'), _dec2 = customElement('form-group'), _dec3 = inject(Configuration.of('aurelia-form')), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = class FormGroup {
+
+  constructor(config) {
     _initDefineProp(this, 'value', _descriptor, this);
 
     _initDefineProp(this, 'classes', _descriptor2, this);
@@ -78,11 +80,16 @@ export let FormGroup = (_dec = resolvedView('spoonx/form', 'form-group'), _dec2 
 
     _initDefineProp(this, 'required', _descriptor15, this);
 
-    _initDefineProp(this, 'multiple', _descriptor16, this);
+    _initDefineProp(this, 'options', _descriptor16, this);
 
-    _initDefineProp(this, 'selectOptions', _descriptor17, this);
+    _initDefineProp(this, 'multiple', _descriptor17, this);
 
-    _initDefineProp(this, 'optionLabel', _descriptor18, this);
+    _initDefineProp(this, 'selectOptions', _descriptor18, this);
+
+    _initDefineProp(this, 'optionLabel', _descriptor19, this);
+
+    this.config = config;
+    this.behavior = config.defaultBehavior;
   }
 
   is(oneOf, then, source) {
@@ -99,7 +106,7 @@ export let FormGroup = (_dec = resolvedView('spoonx/form', 'form-group'), _dec2 
   when(conditional, value, otherwise) {
     return conditional ? value : otherwise || '';
   }
-}, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'value', [_dec3], {
+}, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'value', [_dec4], {
   enumerable: true,
   initializer: function () {
     return null;
@@ -156,17 +163,20 @@ export let FormGroup = (_dec = resolvedView('spoonx/form', 'form-group'), _dec2 
 }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, 'required', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, 'multiple', [bindable], {
+}), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, 'options', [bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, 'multiple', [bindable], {
   enumerable: true,
   initializer: function () {
     return false;
   }
-}), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, 'selectOptions', [bindable], {
+}), _descriptor18 = _applyDecoratedDescriptor(_class2.prototype, 'selectOptions', [bindable], {
   enumerable: true,
   initializer: function () {
     return [];
   }
-}), _descriptor18 = _applyDecoratedDescriptor(_class2.prototype, 'optionLabel', [bindable], {
+}), _descriptor19 = _applyDecoratedDescriptor(_class2.prototype, 'optionLabel', [bindable], {
   enumerable: true,
   initializer: null
-})), _class2)) || _class) || _class);
+})), _class2)) || _class) || _class) || _class);

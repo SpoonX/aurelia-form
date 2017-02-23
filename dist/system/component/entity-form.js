@@ -107,14 +107,37 @@ System.register(['aurelia-framework', 'aurelia-view-manager', '../metadata'], fu
         _createClass(EntityForm, [{
           key: 'elements',
           get: function get() {
-            var types = this.entity.getMeta().metadata.types;
+            var entityMeta = {};
+
+            if (typeof this.entity.getMeta === 'function') {
+              entityMeta = this.entity.getMeta().metadata;
+            }
+
+            var types = entityMeta.types || {};
+            var associations = entityMeta.associations || {};
             var fields = Metadata.forTarget(this.entity).fetch('fields', {});
 
-            return Object.keys(types).map(function (field) {
+            return Object.keys(this.entity).map(function (name) {
+              var field = fields[name] || {};
+              var association = associations[name];
+              var options = field.options || {};
+              var element = types[name] || 'input';
+
+              if (association) {
+                element = 'association';
+                options.resource = association.entity;
+                options.multiple = association.type === 'collection';
+              }
+
+              if (field.element) {
+                element = field.element;
+              }
+
               return {
-                element: types[field],
-                field: field,
-                meta: fields[field] || {}
+                element: element,
+                field: name,
+                meta: field,
+                options: options
               };
             }).sort(function (left, right) {
               var leftPosition = left.meta.position || 0;

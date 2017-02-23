@@ -14,7 +14,7 @@
       repeat.for="element of elements"
       show.bind="isVisible(element.field) && !element.meta.noRender"
       label.bind="element.meta.label || element.field"
-      element.bind="element.meta.element || element.element"
+      element.bind="element.element"
       name.bind="element.field"
       placeholder.bind="element.meta.placeholder || ''"
       autofocus.bind="element.meta.autofocus || false"
@@ -23,6 +23,7 @@
       required.bind="element.meta.required || false"
       type.bind="element.meta.type || 'text'"
       value.bind="entity[element.field]"
+      options.bind="element.options"
     ></form-group>
 
     <slot name="after"></slot>

@@ -89,6 +89,7 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
     this.buttonEnabled = config.submitButton.enabled;
     this.buttonOptions = config.submitButton.options;
     this.buttonLabel = config.submitButton.label;
+    this.behavior = config.defaultBehavior;
 
     var validation = config.validation;
 
@@ -157,7 +158,13 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
     this.updateFormGroups();
   };
 
-  AureliaForm.prototype.behaviorChanged = function behaviorChanged() {
+  AureliaForm.prototype.behaviorChanged = function behaviorChanged(newValue) {
+    if (!newValue) {
+      this.behavior = this.config.defaultBehavior;
+
+      return;
+    }
+
     this.updateFormGroups();
   };
 
@@ -169,7 +176,9 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
     }
 
     this.formGroups.forEach(function (group) {
-      group.behavior = _this2.behavior;
+      if (_this2.behavior) {
+        group.behavior = _this2.behavior;
+      }
 
       if (group.name) {
         _this2.mapped[group.name] = group;
@@ -180,9 +189,7 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
   return AureliaForm;
 }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'behavior', [_aureliaFramework.bindable], {
   enumerable: true,
-  initializer: function initializer() {
-    return '';
-  }
+  initializer: null
 }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'classes', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: function initializer() {

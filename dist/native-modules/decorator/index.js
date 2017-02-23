@@ -91,3 +91,12 @@ Object.defineProperty(exports, 'inputType', {
     return _inputType.inputType;
   }
 });
+
+var _options = require('./options');
+
+Object.defineProperty(exports, 'options', {
+  enumerable: true,
+  get: function get() {
+    return _options.options;
+  }
+});

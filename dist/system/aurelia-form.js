@@ -13,7 +13,7 @@ System.register(['aurelia-view-manager', 'aurelia-logging', './decorator/index']
 
     var defaultComponents = ['aurelia-form', 'form-element', 'form-label', 'form-button', 'form-help', 'form-error', 'form-group', 'entity-form'];
 
-    var defaultElements = ['input', 'checkbox', 'radio', 'select', 'textarea'];
+    var defaultElements = ['input', 'checkbox', 'radio', 'select', 'textarea', 'association'];
 
     aurelia.globalResources.apply(aurelia, ['./attribute/prefixed'].concat(defaultComponents.map(function (component) {
       return './component/' + component;
@@ -52,6 +52,7 @@ System.register(['aurelia-view-manager', 'aurelia-logging', './decorator/index']
       _export('config', config = {
         'aurelia-form': {
           defaultElement: 'input',
+          defaultBehavior: 'regular',
           elements: {},
           validation: {},
 

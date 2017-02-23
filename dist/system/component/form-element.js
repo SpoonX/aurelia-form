@@ -113,7 +113,7 @@ System.register(['aurelia-config', 'aurelia-framework', 'aurelia-view-manager', 
 
           this.setAttributes(element);
           this.DOMElement.appendChild(element);
-          this.templatingEngine.enhance({ element: element, bindingContext: this });
+          this.templatingEngine.enhance({ element: element, bindingContext: this }).attached();
         };
 
         FormElement.prototype.setAttributes = function setAttributes(DOMElement) {

@@ -14,7 +14,7 @@ export function configure(aurelia, config) {
 
   let defaultComponents = ['aurelia-form', 'form-element', 'form-label', 'form-button', 'form-help', 'form-error', 'form-group', 'entity-form'];
 
-  let defaultElements = ['input', 'checkbox', 'radio', 'select', 'textarea'];
+  let defaultElements = ['input', 'checkbox', 'radio', 'select', 'textarea', 'association'];
 
   aurelia.globalResources('./attribute/prefixed', ...defaultComponents.map(component => `./component/${component}`), ...defaultElements.map(component => `./component/form-${component}`));
 
@@ -28,6 +28,7 @@ export function configure(aurelia, config) {
 export const config = {
   'aurelia-form': {
     defaultElement: 'input',
+    defaultBehavior: 'regular',
     elements: {},
     validation: {},
 
