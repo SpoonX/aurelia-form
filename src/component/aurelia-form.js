@@ -41,7 +41,7 @@ export class AureliaForm {
 
     let validation = config.validation;
 
-    if (validation) {
+    if (validation && validation.controller) {
       this.validationController = validation.controller.getController(this.mapped, validation.trigger);
       this.validateTrigger      = validation.controller.getTriggers();
     }
