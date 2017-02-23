@@ -1,3 +1,13 @@
+<a name="1.0.4"></a>
+## [1.0.4](https://github.com/SpoonX/aurelia-form/compare/v1.0.3...v1.0.4) (2017-02-23)
+
+
+### Bug Fixes
+
+* **aurelia-form:** hide group ([3f37a72](https://github.com/SpoonX/aurelia-form/commit/3f37a72))
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/SpoonX/aurelia-form/compare/v1.0.2...v1.0.3) (2017-02-23)
 

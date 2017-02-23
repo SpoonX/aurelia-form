@@ -11,12 +11,11 @@
     <slot name="after"></slot>
 
     <slot name="button">
-      <form-group behavior.bind="behavior">
+      <form-group behavior.bind="behavior" show.bind="buttonEnabled">
         <form-button
           slot="element"
           type="submit"
           options.bind="buttonOptions"
-          show.bind="buttonEnabled"
           label.bind="buttonLabel"
         ></form-button>
       </form-group>
