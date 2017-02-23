@@ -109,7 +109,7 @@ export class AureliaForm {
   }
 
   validate(property, force = false) {
-    if (property && !this.mapped[property] && !force) {
+    if (!this.mapped[property] && !force) {
       return;
     }
 
