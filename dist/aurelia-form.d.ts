@@ -24,47 +24,6 @@ export declare class Prefixed {
   attributeChanged(next?: any, previous?: any): any;
   resetAttribute(prefix?: any, attribute?: any): any;
 }
-export declare function autofocus(value?: any): any;
-export declare function disabled(value?: any): any;
-export declare function element(value?: any): any;
-export declare function field(value?: any, option?: any): any;
-export declare {
-  placeholder
-} from 'aurelia-form/placeholder';
-export declare {
-  label
-} from 'aurelia-form/label';
-export declare {
-  element
-} from 'aurelia-form/element';
-export declare {
-  position
-} from 'aurelia-form/position';
-export declare {
-  autofocus
-} from 'aurelia-form/autofocus';
-export declare {
-  disabled
-} from 'aurelia-form/disabled';
-export declare {
-  readonly
-} from 'aurelia-form/readonly';
-export declare {
-  required
-} from 'aurelia-form/required';
-export declare {
-  noRender
-} from 'aurelia-form/noRender';
-export declare {
-  inputType
-} from 'aurelia-form/inputType';
-export declare function inputType(value?: any): any;
-export declare function label(value?: any): any;
-export declare function noRender(value?: any): any;
-export declare function placeholder(value?: any): any;
-export declare function position(value?: any): any;
-export declare function readonly(value?: any): any;
-export declare function required(value?: any): any;
 export declare class AureliaForm {
   behavior: any;
   classes: any;
@@ -237,3 +196,44 @@ export declare class FormTextarea {
   readonly: any;
   wrap: any;
 }
+export declare function autofocus(value?: any): any;
+export declare function disabled(value?: any): any;
+export declare function element(value?: any): any;
+export declare function field(value?: any, option?: any): any;
+export declare {
+  placeholder
+} from 'aurelia-form/placeholder';
+export declare {
+  label
+} from 'aurelia-form/label';
+export declare {
+  element
+} from 'aurelia-form/element';
+export declare {
+  position
+} from 'aurelia-form/position';
+export declare {
+  autofocus
+} from 'aurelia-form/autofocus';
+export declare {
+  disabled
+} from 'aurelia-form/disabled';
+export declare {
+  readonly
+} from 'aurelia-form/readonly';
+export declare {
+  required
+} from 'aurelia-form/required';
+export declare {
+  noRender
+} from 'aurelia-form/noRender';
+export declare {
+  inputType
+} from 'aurelia-form/inputType';
+export declare function inputType(value?: any): any;
+export declare function label(value?: any): any;
+export declare function noRender(value?: any): any;
+export declare function placeholder(value?: any): any;
+export declare function position(value?: any): any;
+export declare function readonly(value?: any): any;
+export declare function required(value?: any): any;

@@ -45,7 +45,7 @@ function _initializerWarningHelper(descriptor, context) {
 
 import { customElement, bindable, computedFrom } from 'aurelia-framework';
 import { resolvedView } from 'aurelia-view-manager';
-import { Metadata } from '../Metadata';
+import { Metadata } from '../metadata';
 
 export let EntityForm = (_dec = resolvedView('spoonx/form', 'entity-form'), _dec2 = customElement('entity-form'), _dec3 = computedFrom('entity'), _dec(_class = _dec2(_class = (_class2 = class EntityForm {
   constructor() {

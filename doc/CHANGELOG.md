@@ -1,3 +1,13 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/SpoonX/aurelia-form/compare/v1.0.0...v1.0.1) (2017-02-23)
+
+
+### Bug Fixes
+
+* **project:** use lower-case dep name ([f4a10ca](https://github.com/SpoonX/aurelia-form/commit/f4a10ca))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/SpoonX/aurelia-form/compare/v1.0.0-0...v1.0.0) (2017-02-22)
 

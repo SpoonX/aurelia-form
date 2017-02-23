@@ -1,4 +1,4 @@
-define(['exports', '../Metadata'], function (exports, _Metadata) {
+define(['exports', '../metadata'], function (exports, _metadata) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -7,7 +7,7 @@ define(['exports', '../Metadata'], function (exports, _Metadata) {
   exports.field = field;
   function field(value, option) {
     return function (target, property) {
-      _Metadata.Metadata.forTarget(target.constructor).put('fields.' + property + '.' + option, value);
+      _metadata.Metadata.forTarget(target.constructor).put('fields.' + property + '.' + option, value);
     };
   }
 });

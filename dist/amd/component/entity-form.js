@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../Metadata'], function (exports, _aureliaFramework, _aureliaViewManager, _Metadata) {
+define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../metadata'], function (exports, _aureliaFramework, _aureliaViewManager, _metadata) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -100,7 +100,7 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../Metadata'], 
       key: 'elements',
       get: function get() {
         var types = this.entity.getMeta().metadata.types;
-        var fields = _Metadata.Metadata.forTarget(this.entity).fetch('fields', {});
+        var fields = _metadata.Metadata.forTarget(this.entity).fetch('fields', {});
 
         return Object.keys(types).map(function (field) {
           return {

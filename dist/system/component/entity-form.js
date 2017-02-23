@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['aurelia-framework', 'aurelia-view-manager', '../Metadata'], function (_export, _context) {
+System.register(['aurelia-framework', 'aurelia-view-manager', '../metadata'], function (_export, _context) {
   "use strict";
 
   var customElement, bindable, computedFrom, resolvedView, Metadata, _createClass, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, EntityForm;
@@ -57,8 +57,8 @@ System.register(['aurelia-framework', 'aurelia-view-manager', '../Metadata'], fu
       computedFrom = _aureliaFramework.computedFrom;
     }, function (_aureliaViewManager) {
       resolvedView = _aureliaViewManager.resolvedView;
-    }, function (_Metadata) {
-      Metadata = _Metadata.Metadata;
+    }, function (_metadata) {
+      Metadata = _metadata.Metadata;
     }],
     execute: function () {
       _createClass = function () {

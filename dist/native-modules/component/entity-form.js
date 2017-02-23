@@ -11,7 +11,7 @@ var _aureliaFramework = require('aurelia-framework');
 
 var _aureliaViewManager = require('aurelia-view-manager');
 
-var _Metadata = require('../Metadata');
+var _metadata = require('../metadata');
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -87,7 +87,7 @@ var EntityForm = exports.EntityForm = (_dec = (0, _aureliaViewManager.resolvedVi
     key: 'elements',
     get: function get() {
       var types = this.entity.getMeta().metadata.types;
-      var fields = _Metadata.Metadata.forTarget(this.entity).fetch('fields', {});
+      var fields = _metadata.Metadata.forTarget(this.entity).fetch('fields', {});
 
       return Object.keys(types).map(function (field) {
         return {

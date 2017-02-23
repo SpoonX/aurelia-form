@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['../Metadata'], function (_export, _context) {
+System.register(['../metadata'], function (_export, _context) {
   "use strict";
 
   var Metadata;
@@ -13,8 +13,8 @@ System.register(['../Metadata'], function (_export, _context) {
   _export('field', field);
 
   return {
-    setters: [function (_Metadata) {
-      Metadata = _Metadata.Metadata;
+    setters: [function (_metadata) {
+      Metadata = _metadata.Metadata;
     }],
     execute: function () {}
   };

@@ -5,10 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.field = field;
 
-var _Metadata = require('../Metadata');
+var _metadata = require('../metadata');
 
 function field(value, option) {
   return function (target, property) {
-    _Metadata.Metadata.forTarget(target.constructor).put('fields.' + property + '.' + option, value);
+    _metadata.Metadata.forTarget(target.constructor).put('fields.' + property + '.' + option, value);
   };
 }
