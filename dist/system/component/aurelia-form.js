@@ -114,7 +114,13 @@ System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 
             return logger.warn('Validation on forms requires a entity to validate.');
           }
 
-          this.validate().then(function (result) {
+          var validate = this.validate();
+
+          if (!validate) {
+            return;
+          }
+
+          validate.then(function (result) {
             if (result.valid) {
               return _this.emit('valid');
             }

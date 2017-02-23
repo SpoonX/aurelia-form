@@ -108,7 +108,13 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
       return _aureliaForm.logger.warn('Validation on forms requires a entity to validate.');
     }
 
-    this.validate().then(function (result) {
+    var validate = this.validate();
+
+    if (!validate) {
+      return;
+    }
+
+    validate.then(function (result) {
       if (result.valid) {
         return _this.emit('valid');
       }
