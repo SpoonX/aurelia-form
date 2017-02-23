@@ -51,8 +51,6 @@ export class EntityForm {
           element = field.element;
         }
 
-        console.log(options);
-
         return {
           element: element,
           field  : name,
