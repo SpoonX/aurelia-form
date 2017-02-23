@@ -1,4 +1,4 @@
-import {Metadata} from '../Metadata';
+import {Metadata} from '../metadata';
 
 export function field(value, option) {
   return function(target, property) {
