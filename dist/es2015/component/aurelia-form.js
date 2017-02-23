@@ -145,7 +145,7 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
   }
 
   validate(property, force = false) {
-    if (property && !this.mapped[property] && !force) {
+    if (!this.mapped[property] && !force) {
       return;
     }
 

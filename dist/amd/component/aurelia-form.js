@@ -160,7 +160,7 @@ define(['exports', 'aurelia-framework', 'aurelia-config', 'aurelia-view-manager'
     AureliaForm.prototype.validate = function validate(property) {
       var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-      if (property && !this.mapped[property] && !force) {
+      if (!this.mapped[property] && !force) {
         return;
       }
 

@@ -1,3 +1,13 @@
+<a name="1.1.5"></a>
+## [1.1.5](https://github.com/SpoonX/aurelia-form/compare/v1.1.4...v1.1.5) (2017-02-23)
+
+
+### Bug Fixes
+
+* **aurelia-form:** force for submit ([04f1ad5](https://github.com/SpoonX/aurelia-form/commit/04f1ad5))
+
+
+
 <a name="1.1.4"></a>
 ## [1.1.4](https://github.com/SpoonX/aurelia-form/compare/v1.1.3...v1.1.4) (2017-02-23)
 
