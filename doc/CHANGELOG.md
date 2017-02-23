@@ -1,3 +1,13 @@
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/SpoonX/aurelia-form/compare/v1.1.1...v1.1.2) (2017-02-23)
+
+
+### Bug Fixes
+
+* **project:** no override if already registered ([c5f2c2d](https://github.com/SpoonX/aurelia-form/commit/c5f2c2d))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/SpoonX/aurelia-form/compare/v1.1.0...v1.1.1) (2017-02-23)
 

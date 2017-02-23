@@ -42,7 +42,7 @@ function configure(aurelia, config) {
   config.elements = config.elements || {};
 
   defaultElements.forEach(function (element) {
-    config.elements[element] = 'form-' + element;
+    config.elements[element] = config.elements[element] || 'form-' + element;
   });
 }
 
