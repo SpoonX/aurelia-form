@@ -112,7 +112,7 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
       return logger.warn('Validation on forms requires a entity to validate.');
     }
 
-    this.validate().then(result => {
+    this.validate(null, true).then(result => {
       if (result.valid) {
         return this.emit('valid');
       }
@@ -144,8 +144,8 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
     return true;
   }
 
-  validate(property) {
-    if (property && !this.mapped[property]) {
+  validate(property, force = false) {
+    if (property && !this.mapped[property] && !force) {
       return;
     }
 

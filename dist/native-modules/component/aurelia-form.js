@@ -128,7 +128,7 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
       return _aureliaForm.logger.warn('Validation on forms requires a entity to validate.');
     }
 
-    this.validate().then(function (result) {
+    this.validate(null, true).then(function (result) {
       if (result.valid) {
         return _this.emit('valid');
       }
@@ -161,7 +161,9 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
   };
 
   AureliaForm.prototype.validate = function validate(property) {
-    if (property && !this.mapped[property]) {
+    var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+    if (property && !this.mapped[property] && !force) {
       return;
     }
 
