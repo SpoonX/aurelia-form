@@ -1,3 +1,14 @@
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/SpoonX/aurelia-form/compare/v1.0.1...v1.0.2) (2017-02-23)
+
+
+### Bug Fixes
+
+* **aurelia-form:** check for validation controller ([499adff](https://github.com/SpoonX/aurelia-form/commit/499adff))
+* **project:** config fallback for element ([b418d3a](https://github.com/SpoonX/aurelia-form/commit/b418d3a))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/SpoonX/aurelia-form/compare/v1.0.0...v1.0.1) (2017-02-23)
 

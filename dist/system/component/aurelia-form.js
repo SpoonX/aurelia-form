@@ -96,7 +96,7 @@ System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 
 
           var validation = config.validation;
 
-          if (validation) {
+          if (validation && validation.controller) {
             this.validationController = validation.controller.getController(this.mapped, validation.trigger);
             this.validateTrigger = validation.controller.getTriggers();
           }

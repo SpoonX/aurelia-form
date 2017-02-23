@@ -41,6 +41,8 @@ function configure(aurelia, config) {
     return './component/form-' + component;
   })));
 
+  config.elements = config.elements || {};
+
   defaultElements.forEach(function (element) {
     config.elements[element] = 'form-' + element;
   });

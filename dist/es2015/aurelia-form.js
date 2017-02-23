@@ -18,6 +18,8 @@ export function configure(aurelia, config) {
 
   aurelia.globalResources('./attribute/prefixed', ...defaultComponents.map(component => `./component/${component}`), ...defaultElements.map(component => `./component/form-${component}`));
 
+  config.elements = config.elements || {};
+
   defaultElements.forEach(element => {
     config.elements[element] = `form-${element}`;
   });

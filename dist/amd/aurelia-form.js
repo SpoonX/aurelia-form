@@ -34,6 +34,8 @@ define(['exports', './decorator/index', 'aurelia-view-manager', 'aurelia-logging
       return './component/form-' + component;
     })));
 
+    config.elements = config.elements || {};
+
     defaultElements.forEach(function (element) {
       config.elements[element] = 'form-' + element;
     });

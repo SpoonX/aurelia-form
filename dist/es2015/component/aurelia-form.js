@@ -78,7 +78,7 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
 
     let validation = config.validation;
 
-    if (validation) {
+    if (validation && validation.controller) {
       this.validationController = validation.controller.getController(this.mapped, validation.trigger);
       this.validateTrigger = validation.controller.getTriggers();
     }

@@ -90,7 +90,7 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
 
     var validation = config.validation;
 
-    if (validation) {
+    if (validation && validation.controller) {
       this.validationController = validation.controller.getController(this.mapped, validation.trigger);
       this.validateTrigger = validation.controller.getTriggers();
     }
