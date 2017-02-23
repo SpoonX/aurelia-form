@@ -6,6 +6,8 @@ import {resolvedView} from 'aurelia-view-manager';
 export class FormAssociation {
   @bindable({defaultBindingMode: bindingMode.twoWay}) value;
 
+  @bindable name;
+
   @bindable options;
 
   @bindable disabled;
