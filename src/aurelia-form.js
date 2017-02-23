@@ -41,7 +41,7 @@ export function configure(aurelia, config) {
   config.elements = config.elements || {};
 
   defaultElements.forEach(element => {
-    config.elements[element] = `form-${element}`
+    config.elements[element] = config.elements[element] || `form-${element}`
   });
 }
 
