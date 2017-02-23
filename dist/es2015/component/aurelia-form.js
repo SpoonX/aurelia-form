@@ -126,7 +126,9 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
   }
 
   validate(property) {
-    return this.validationController.validate({ object: this.entity, propertyName: property });
+    if (this.mapped[property]) {
+      return this.validationController.validate({ object: this.entity, propertyName: property });
+    }
   }
 
   emit(event, data = {}) {

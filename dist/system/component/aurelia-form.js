@@ -146,7 +146,9 @@ System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 
         };
 
         AureliaForm.prototype.validate = function validate(property) {
-          return this.validationController.validate({ object: this.entity, propertyName: property });
+          if (this.mapped[property]) {
+            return this.validationController.validate({ object: this.entity, propertyName: property });
+          }
         };
 
         AureliaForm.prototype.emit = function emit(event) {
