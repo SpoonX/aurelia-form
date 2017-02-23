@@ -1,8 +1,10 @@
-import {bindable, customElement, bindingMode} from 'aurelia-framework';
+import {bindable, customElement, bindingMode, inject} from 'aurelia-framework';
 import {resolvedView} from 'aurelia-view-manager';
+import {Configuration} from 'aurelia-config';
 
 @resolvedView('spoonx/form', 'form-group')
 @customElement('form-group')
+@inject(Configuration.of('aurelia-form'))
 export class FormGroup {
   @bindable({defaultBindingMode: bindingMode.twoWay}) value = null;
 
@@ -34,11 +36,20 @@ export class FormGroup {
 
   @bindable required;
 
+  @bindable options;
+
   @bindable multiple = false;
 
   @bindable selectOptions = [];
 
   @bindable optionLabel;
+
+  config;
+
+  constructor(config) {
+    this.config   = config;
+    this.behavior = config.defaultBehavior;
+  }
 
   is(oneOf, then, source) {
     if (typeof oneOf === 'string') {
