@@ -1,3 +1,13 @@
+<a name="1.0.5"></a>
+## [1.0.5](https://github.com/SpoonX/aurelia-form/compare/v1.0.4...v1.0.5) (2017-02-23)
+
+
+### Bug Fixes
+
+* **entity-form:** use dash separated attributes ([e277ace](https://github.com/SpoonX/aurelia-form/commit/e277ace))
+
+
+
 <a name="1.0.4"></a>
 ## [1.0.4](https://github.com/SpoonX/aurelia-form/compare/v1.0.3...v1.0.4) (2017-02-23)
 
