@@ -29,6 +29,7 @@ export function configure(aurelia, config) {
     'radio',
     'select',
     'textarea',
+    'association',
   ];
 
   aurelia.globalResources(
@@ -46,9 +47,10 @@ export function configure(aurelia, config) {
 
 export const config = {
   'aurelia-form': {
-    defaultElement: 'input',
-    elements      : {},
-    validation    : {},
+    defaultElement : 'input',
+    defaultBehavior: 'regular',
+    elements       : {},
+    validation     : {},
 
     submitButton: {
       enabled: true,
