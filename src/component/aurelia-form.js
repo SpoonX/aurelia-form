@@ -57,7 +57,7 @@ export class AureliaForm {
       return logger.warn('Validation on forms requires a entity to validate.');
     }
 
-    this.validate().then(result => {
+    this.entity.validate().then(result => {
       if (result.valid) {
         return this.emit('valid');
       }
