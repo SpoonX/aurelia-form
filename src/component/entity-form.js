@@ -1,6 +1,6 @@
 import {customElement, bindable, computedFrom} from 'aurelia-framework';
 import {resolvedView} from 'aurelia-view-manager';
-import {Metadata} from '../Metadata';
+import {Metadata} from '../metadata';
 
 @resolvedView('spoonx/form', 'entity-form')
 @customElement('entity-form')
