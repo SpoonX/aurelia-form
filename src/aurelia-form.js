@@ -37,6 +37,8 @@ export function configure(aurelia, config) {
     ...defaultElements.map(component => `./component/form-${component}`)
   );
 
+  config.elements = config.elements || {};
+
   defaultElements.forEach(element => {
     config.elements[element] = `form-${element}`
   });
