@@ -75,7 +75,7 @@ export class AureliaForm {
       return logger.warn('Validation on forms requires a entity to validate.');
     }
 
-    this.validate().then(result => {
+    this.validate(null, true).then(result => {
       if (result.valid) {
         return this.emit('valid');
       }
@@ -108,8 +108,8 @@ export class AureliaForm {
     return true;
   }
 
-  validate(property) {
-    if (property && !this.mapped[property]) {
+  validate(property, force = false) {
+    if (property && !this.mapped[property] && !force) {
       return;
     }
 
