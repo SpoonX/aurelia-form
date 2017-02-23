@@ -1,3 +1,13 @@
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/SpoonX/aurelia-form/compare/v1.1.2...v1.1.3) (2017-02-23)
+
+
+### Bug Fixes
+
+* **aurelia-form:** fix button and validation ([3297c24](https://github.com/SpoonX/aurelia-form/commit/3297c24))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/SpoonX/aurelia-form/compare/v1.1.1...v1.1.2) (2017-02-23)
 

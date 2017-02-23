@@ -85,6 +85,24 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
     }
   }
 
+  buttonLabelChanged(newValue, oldValue) {
+    if (typeof newValue !== 'string') {
+      this.buttonLabel = oldValue;
+    }
+  }
+
+  buttonEnabledChanged(newValue, oldValue) {
+    if (typeof newValue !== 'boolean') {
+      this.buttonEnabled = oldValue;
+    }
+  }
+
+  buttonOptionsChanged(newValue, oldValue) {
+    if (typeof newValue !== 'object' || newValue === null) {
+      this.buttonOptions = oldValue;
+    }
+  }
+
   submit() {
     if (!this.validationController || !this.validated) {
       return;
@@ -94,13 +112,7 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
       return logger.warn('Validation on forms requires a entity to validate.');
     }
 
-    let validate = this.validate();
-
-    if (!validate) {
-      return;
-    }
-
-    validate.then(result => {
+    this.validate().then(result => {
       if (result.valid) {
         return this.emit('valid');
       }
@@ -133,9 +145,11 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
   }
 
   validate(property) {
-    if (this.mapped[property]) {
-      return this.validationController.validate({ object: this.entity, propertyName: property });
+    if (property && !this.mapped[property]) {
+      return;
     }
+
+    return this.validationController.validate({ object: this.entity, propertyName: property });
   }
 
   emit(event, data = {}) {

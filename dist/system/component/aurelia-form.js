@@ -3,7 +3,7 @@
 System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 'aurelia-pal', '../aurelia-form'], function (_export, _context) {
   "use strict";
 
-  var bindable, customElement, children, inject, Configuration, resolvedView, DOM, logger, _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, AureliaForm;
+  var bindable, customElement, children, inject, Configuration, resolvedView, DOM, logger, _typeof, _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, AureliaForm;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -66,6 +66,12 @@ System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 
       logger = _aureliaForm.logger;
     }],
     execute: function () {
+      _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+        return typeof obj;
+      } : function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+      };
+
       _export('AureliaForm', AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _dec2 = customElement('aurelia-form'), _dec3 = inject(Configuration.of('aurelia-form'), DOM.Element), _dec4 = children('form-group'), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = function () {
         function AureliaForm(config, element) {
           
@@ -103,6 +109,24 @@ System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 
           }
         }
 
+        AureliaForm.prototype.buttonLabelChanged = function buttonLabelChanged(newValue, oldValue) {
+          if (typeof newValue !== 'string') {
+            this.buttonLabel = oldValue;
+          }
+        };
+
+        AureliaForm.prototype.buttonEnabledChanged = function buttonEnabledChanged(newValue, oldValue) {
+          if (typeof newValue !== 'boolean') {
+            this.buttonEnabled = oldValue;
+          }
+        };
+
+        AureliaForm.prototype.buttonOptionsChanged = function buttonOptionsChanged(newValue, oldValue) {
+          if ((typeof newValue === 'undefined' ? 'undefined' : _typeof(newValue)) !== 'object' || newValue === null) {
+            this.buttonOptions = oldValue;
+          }
+        };
+
         AureliaForm.prototype.submit = function submit() {
           var _this = this;
 
@@ -114,13 +138,7 @@ System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 
             return logger.warn('Validation on forms requires a entity to validate.');
           }
 
-          var validate = this.validate();
-
-          if (!validate) {
-            return;
-          }
-
-          validate.then(function (result) {
+          this.validate().then(function (result) {
             if (result.valid) {
               return _this.emit('valid');
             }
@@ -153,9 +171,11 @@ System.register(['aurelia-framework', 'aurelia-config', 'aurelia-view-manager', 
         };
 
         AureliaForm.prototype.validate = function validate(property) {
-          if (this.mapped[property]) {
-            return this.validationController.validate({ object: this.entity, propertyName: property });
+          if (property && !this.mapped[property]) {
+            return;
           }
+
+          return this.validationController.validate({ object: this.entity, propertyName: property });
         };
 
         AureliaForm.prototype.emit = function emit(event) {

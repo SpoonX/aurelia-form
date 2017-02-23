@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.AureliaForm = undefined;
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
 
 var _aureliaFramework = require('aurelia-framework');
@@ -99,6 +101,24 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
     }
   }
 
+  AureliaForm.prototype.buttonLabelChanged = function buttonLabelChanged(newValue, oldValue) {
+    if (typeof newValue !== 'string') {
+      this.buttonLabel = oldValue;
+    }
+  };
+
+  AureliaForm.prototype.buttonEnabledChanged = function buttonEnabledChanged(newValue, oldValue) {
+    if (typeof newValue !== 'boolean') {
+      this.buttonEnabled = oldValue;
+    }
+  };
+
+  AureliaForm.prototype.buttonOptionsChanged = function buttonOptionsChanged(newValue, oldValue) {
+    if ((typeof newValue === 'undefined' ? 'undefined' : _typeof(newValue)) !== 'object' || newValue === null) {
+      this.buttonOptions = oldValue;
+    }
+  };
+
   AureliaForm.prototype.submit = function submit() {
     var _this = this;
 
@@ -110,13 +130,7 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
       return _aureliaForm.logger.warn('Validation on forms requires a entity to validate.');
     }
 
-    var validate = this.validate();
-
-    if (!validate) {
-      return;
-    }
-
-    validate.then(function (result) {
+    this.validate().then(function (result) {
       if (result.valid) {
         return _this.emit('valid');
       }
@@ -149,9 +163,11 @@ var AureliaForm = exports.AureliaForm = (_dec = (0, _aureliaViewManager.resolved
   };
 
   AureliaForm.prototype.validate = function validate(property) {
-    if (this.mapped[property]) {
-      return this.validationController.validate({ object: this.entity, propertyName: property });
+    if (property && !this.mapped[property]) {
+      return;
     }
+
+    return this.validationController.validate({ object: this.entity, propertyName: property });
   };
 
   AureliaForm.prototype.emit = function emit(event) {
