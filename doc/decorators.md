@@ -148,3 +148,18 @@ class SomeEntity {
   someProperty;
 }
 ```
+
+## @options
+The `@options` decorator allows you to set the `options` that get passed to the element.
+
+### Example
+```js
+import {options} from 'aurelia-form';
+import {association, Entity} from 'aurelia-orm';
+
+class SomeEntity extends Entity {
+  @options({property: 'label'})
+  @association('foo')
+  foo;
+}
+```

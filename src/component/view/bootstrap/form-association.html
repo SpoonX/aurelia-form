@@ -1,0 +1,15 @@
+<template>
+  <association-select
+    resource.bind="options.resource"
+    value.bind="value"
+    name.bind="name"
+    multiple.bind="options.multiple"
+    property.bind="options.property || 'name'"
+    identifier.bind="options.identifier || 'id'"
+    criteria.bind="options.criteria || {}"
+    disabled.bind="disabled"
+    placeholder-text.bind="placeholder"
+    hide-placeholder.bind="options.hidePlaceholder || false"
+    selectable-placeholder.bind="options.selectablePlaceholder || false"
+  ></association-select>
+</template>

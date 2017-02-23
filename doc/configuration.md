@@ -31,10 +31,13 @@ The following is a piece of configuration with inline documentation explaining t
 ```js
 const myConfiguration = {
   'aurelia-form': {
-    // The default element used, probably best left unchanged.
+    // The default element used, probably best left unchanged
     defaultElement: 'input',
 
-    // Register your (custom) elements here.
+    // The default behavior to use for forms
+    defaultBehavior: 'regular',
+
+    // Register your (custom) elements here
     elements      : {},
 
     // Configured by aurelia-form-validation

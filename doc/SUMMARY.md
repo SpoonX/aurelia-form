@@ -21,6 +21,7 @@
 * [form-radio](component/form-radio.md)
 * [form-select](component/form-select.md)
 * [form-textarea](component/form-textarea.md)
+* [form-association](component/form-association.md)
 
 ## Cookbook
 * [Custom elements](cookbook/custom-elements.md)
