@@ -22,8 +22,8 @@ The following attributes (bindables) are available for this component.
 ```html
 <form-select
   value.bind="[1,3]"
-  selectOptions.bind="[{id: 55}, {id: 120}, {id: 99}]"
-  optionLabel.bind="id">
+  select-options.bind="[{id: 55}, {id: 120}, {id: 99}]"
+  option-label.bind="id">
 </form-select>
 ```
 
@@ -31,6 +31,6 @@ The following attributes (bindables) are available for this component.
 <form-select
   multiple.bind="true"
   value.bind="['bob', 'John']"
-  selectOptions.bind="[{name: 'Bob'}, {name: 'Kees'}, {name: 'John'}]">
+  select-options.bind="[{name: 'Bob'}, {name: 'Kees'}, {name: 'John'}]">
 </form-select>
 ```
