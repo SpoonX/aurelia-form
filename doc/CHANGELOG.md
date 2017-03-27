@@ -1,3 +1,13 @@
+<a name="1.1.6"></a>
+## [1.1.6](https://github.com/SpoonX/aurelia-form/compare/v1.1.5...v1.1.6) (2017-03-27)
+
+
+### Bug Fixes
+
+* **project:** add resources ([512a93b](https://github.com/SpoonX/aurelia-form/commit/512a93b))
+
+
+
 <a name="1.1.5"></a>
 ## [1.1.5](https://github.com/SpoonX/aurelia-form/compare/v1.1.4...v1.1.5) (2017-02-23)
 
