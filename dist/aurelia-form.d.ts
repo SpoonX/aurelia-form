@@ -50,6 +50,7 @@ export declare class AureliaForm {
   updateFormGroups(): any;
 }
 export declare class EntityForm {
+  form: any;
   entity: any;
   behavior: any;
   classes: any;
@@ -60,6 +61,7 @@ export declare class EntityForm {
   buttonEnabled: any;
   elements: any;
   isVisible(fieldName?: any): any;
+  submit(): any;
 }
 export declare class FormAssociation {
   value: any;

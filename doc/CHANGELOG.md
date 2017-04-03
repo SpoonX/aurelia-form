@@ -1,3 +1,13 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/SpoonX/aurelia-form/compare/v1.1.6...v1.2.0) (2017-04-03)
+
+
+### Features
+
+* **entity-form:** expose submit method ([555c8d4](https://github.com/SpoonX/aurelia-form/commit/555c8d4))
+
+
+
 <a name="1.1.6"></a>
 ## [1.1.6](https://github.com/SpoonX/aurelia-form/compare/v1.1.5...v1.1.6) (2017-03-27)
 

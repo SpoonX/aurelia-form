@@ -69,31 +69,37 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../metadata'], 
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
   }
 
-  var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
+  var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9;
 
   var EntityForm = exports.EntityForm = (_dec = (0, _aureliaViewManager.resolvedView)('spoonx/form', 'entity-form'), _dec2 = (0, _aureliaFramework.customElement)('entity-form'), _dec3 = (0, _aureliaFramework.computedFrom)('entity'), _dec(_class = _dec2(_class = (_class2 = function () {
     function EntityForm() {
       
 
-      _initDefineProp(this, 'entity', _descriptor, this);
+      _initDefineProp(this, 'form', _descriptor, this);
 
-      _initDefineProp(this, 'behavior', _descriptor2, this);
+      _initDefineProp(this, 'entity', _descriptor2, this);
 
-      _initDefineProp(this, 'classes', _descriptor3, this);
+      _initDefineProp(this, 'behavior', _descriptor3, this);
 
-      _initDefineProp(this, 'skip', _descriptor4, this);
+      _initDefineProp(this, 'classes', _descriptor4, this);
 
-      _initDefineProp(this, 'validated', _descriptor5, this);
+      _initDefineProp(this, 'skip', _descriptor5, this);
 
-      _initDefineProp(this, 'buttonOptions', _descriptor6, this);
+      _initDefineProp(this, 'validated', _descriptor6, this);
 
-      _initDefineProp(this, 'buttonLabel', _descriptor7, this);
+      _initDefineProp(this, 'buttonOptions', _descriptor7, this);
 
-      _initDefineProp(this, 'buttonEnabled', _descriptor8, this);
+      _initDefineProp(this, 'buttonLabel', _descriptor8, this);
+
+      _initDefineProp(this, 'buttonEnabled', _descriptor9, this);
     }
 
     EntityForm.prototype.isVisible = function isVisible(fieldName) {
       return this.skip.indexOf(fieldName) === -1;
+    };
+
+    EntityForm.prototype.submit = function submit() {
+      this.form.submit();
     };
 
     _createClass(EntityForm, [{
@@ -149,32 +155,35 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../metadata'], 
     }]);
 
     return EntityForm;
-  }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'entity', [_aureliaFramework.bindable], {
+  }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'form', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'behavior', [_aureliaFramework.bindable], {
+  }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'entity', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'classes', [_aureliaFramework.bindable], {
+  }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'behavior', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'skip', [_aureliaFramework.bindable], {
+  }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'classes', [_aureliaFramework.bindable], {
+    enumerable: true,
+    initializer: null
+  }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'skip', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: function initializer() {
       return [];
     }
-  }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'validated', [_aureliaFramework.bindable], {
+  }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'validated', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: function initializer() {
       return true;
     }
-  }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'buttonOptions', [_aureliaFramework.bindable], {
+  }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'buttonOptions', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'buttonLabel', [_aureliaFramework.bindable], {
+  }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'buttonLabel', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'buttonEnabled', [_aureliaFramework.bindable], {
+  }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, 'buttonEnabled', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
   }), _applyDecoratedDescriptor(_class2.prototype, 'elements', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'elements'), _class2.prototype)), _class2)) || _class) || _class);
