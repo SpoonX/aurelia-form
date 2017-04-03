@@ -6,6 +6,8 @@ import {Metadata} from '../metadata';
 @customElement('entity-form')
 export class EntityForm {
 
+  @bindable form;
+
   @bindable entity;
 
   @bindable behavior;
@@ -76,5 +78,9 @@ export class EntityForm {
 
   isVisible(fieldName) {
     return this.skip.indexOf(fieldName) === -1;
+  }
+
+  submit() {
+    this.form.submit();
   }
 }
