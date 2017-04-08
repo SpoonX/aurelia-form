@@ -8,15 +8,15 @@ The following attributes (bindables) are available for this component.
 | attribute | type | default | description |
 |---|---|---|---|
 | behavior | string | `undefined` | The form behavior (horizontal, inline, etc) |
-| element | string | `'input'` | The component to render (doesn't render label when empty) |
+| element | string | `'input'` | The component to render (doesn't render element when empty) |
 | type | string | `'text'` | The type of component to render (text, radio, ect...)|
 | value | string | `undefined` | The value of the element |
 | name | string | `''` | The name of the element |
 | label  | string | `''` | The label of the element (doesn't render label when empty) |
 | classes | string | `''` | Classes to add |
 | state  | string | `undefined` | The state of the element, for instance "error" |
-| error  | string | `undefined` | The error message to show (doesn't render label when empty) |
-| message  | string | `undefined` | The message to show (doesn't render label when empty) |
+| error  | string | `undefined` | The error message to show (doesn't render error when empty) |
+| message  | string | `undefined` | The message to show (doesn't render message when empty) |
 | placeholder | string | `''` | A short hint that describes the expected value |
 | readonly | boolean | `false` | Specifies that the select should be read-only |
 | disabled | boolean | `false` | Specifies that the select should be disabled |
