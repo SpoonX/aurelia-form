@@ -158,7 +158,6 @@ export class AureliaForm {
     this.updateFormGroups();
   }
 
-
   updateFormGroups() {
     if (this.formGroups.length === 0) {
       return;
