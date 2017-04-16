@@ -8,7 +8,10 @@
         <form-label
           show.bind="label && (behavior === 'horizontal' || !is('checkbox,radio'))"
           label.bind="label"
-          classes="${is('horizontal', 'col-sm-2', behavior)} control-label"
+          classes="${byPattern(
+            '\\bcol-[a-z]+(-offset)?-\\d+\\b',
+            is('horizontal', 'col-sm-2', behavior),
+            labelClasses)} control-label"
         >
           <slot name="element">
             <form-element
@@ -31,8 +34,11 @@
 
       <!-- Don't forget to add offset -->
       <div
-        class="${is('horizontal', 'col-sm-10', behavior)} ${behavior === 'horizontal' && !label ? 'col-sm-offset-2' : ''} ${is('checkbox,radio', element)}"
-        css.bind="{display: behavior === 'inline' ? 'inline' : 'block'}"
+        class="${byPattern(
+          '\\bcol-[a-z]+(-offset)?-\\d+\\b',
+          is('horizontal', 'col-sm-10', behavior) + ' ' + (behavior === 'horizontal' && !label ? 'col-sm-offset-2' : '') + ' ' + is('checkbox,radio', element),
+          elementClasses
+         )}" css.bind="{display: behavior === 'inline' ? 'inline' : 'block'}"
       >
         <slot name="element">
           <!-- Wrap in a label for checkbox and radio -->

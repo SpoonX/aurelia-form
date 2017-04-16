@@ -27,6 +27,8 @@ export declare class Prefixed {
 export declare class AureliaForm {
   behavior: any;
   classes: any;
+  labelClasses: any;
+  elementClasses: any;
   entity: any;
   validated: any;
   buttonOptions: any;
@@ -47,6 +49,8 @@ export declare class AureliaForm {
   emit(event?: any, data?: any): any;
   formGroupsChanged(): any;
   behaviorChanged(newValue?: any): any;
+  labelClassesChanged(newValue?: any): any;
+  elementClassesChanged(newValue?: any): any;
   updateFormGroups(): any;
 }
 export declare class EntityForm {
@@ -54,6 +58,8 @@ export declare class EntityForm {
   entity: any;
   behavior: any;
   classes: any;
+  elementClasses: any;
+  labelClasses: any;
   skip: any;
   validated: any;
   buttonOptions: any;
@@ -125,6 +131,8 @@ export declare class FormError {
 export declare class FormGroup {
   value: any;
   classes: any;
+  elementClasses: any;
+  labelClasses: any;
   element: any;
   placeholder: any;
   state: any;
@@ -145,6 +153,7 @@ export declare class FormGroup {
   config: any;
   constructor(config?: any);
   is(oneOf?: any, then?: any, source?: any): any;
+  byPattern(pattern?: any, defaults?: any, overrides?: any): any;
   when(conditional?: any, value?: any, otherwise?: any): any;
 }
 export declare class FormHelp {

@@ -1,3 +1,13 @@
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/SpoonX/aurelia-form/compare/v1.2.0...v1.3.0) (2017-04-16)
+
+
+### Features
+
+* **project:** add `labelClasses` and `elementClasses` as attributes ([13c9c92](https://github.com/SpoonX/aurelia-form/commit/13c9c92))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/SpoonX/aurelia-form/compare/v1.1.6...v1.2.0) (2017-04-03)
 
