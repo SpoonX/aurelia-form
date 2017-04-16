@@ -37,6 +37,12 @@ const myConfiguration = {
     // The default behavior to use for forms
     defaultBehavior: 'regular',
 
+    // The default classes for labels
+    defaultLabelClasses: '',
+
+    // The default classes for input elements
+    defaultElementClasses: '',
+
     // Register your (custom) elements here
     elements      : {},
 

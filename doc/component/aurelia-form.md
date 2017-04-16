@@ -10,6 +10,8 @@ The following attributes (bindables) are available for this component.
 |---|---|---|---|
 | behavior | string | `''` | The form behavior (horizontal, inline, etc) |
 | classes | string | `''` | Classes to add |
+| labelClasses | string | `''` | Classes to be applied to labels. _(overrides defaultLabelClasses from config)_ |
+| elementClasses | string | `''` | Classes to be applied to input fields _(overrides defaultElementClasses from config)_ |
 | validated | boolean | `true` | Enable / disable validation on this form |
 | entity | {} / Entity | `undefined` | The entity to validate |
 | buttonOptions | Array | `['primary']` | Options to pass to the button _(read more in [button docs](./form-button.md))_ |
