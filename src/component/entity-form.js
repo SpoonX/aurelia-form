@@ -14,6 +14,10 @@ export class EntityForm {
 
   @bindable classes;
 
+  @bindable elementClasses;
+
+  @bindable labelClasses;
+
   @bindable skip = [];
 
   @bindable validated = true;

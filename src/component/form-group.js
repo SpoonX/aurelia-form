@@ -10,6 +10,10 @@ export class FormGroup {
 
   @bindable classes;
 
+  @bindable elementClasses = this.config.defaultElementClasses;
+
+  @bindable labelClasses = this.config.defaultLabelClasses;
+
   @bindable element = 'input';
 
   @bindable placeholder = '';
@@ -60,6 +64,16 @@ export class FormGroup {
     then   = then || true;
 
     return oneOf.indexOf(source) > -1 ? then : false;
+  }
+
+  byPattern(pattern, defaults, overrides = '') {
+    let regex = new RegExp(pattern, 'gi');
+
+    if (regex.test(overrides)) {
+      defaults = defaults.replace(regex, '');
+    }
+
+    return `${defaults} ${overrides}`.replace('  ', ' ').trim();
   }
 
   when(conditional, value, otherwise) {

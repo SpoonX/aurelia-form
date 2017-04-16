@@ -14,6 +14,8 @@ The following attributes (bindables) are available for this component.
 | name | string | `''` | The name of the element |
 | label  | string | `''` | The label of the element (doesn't render label when empty) |
 | classes | string | `''` | Classes to add |
+| labelClasses | string | `''` | Classes to be applied to the label container. (overrides defaultLabelClasses from config) |
+| elementClasses | string | `''` | Classes to be applied to the element container (overrides defaultElementClasses from config) |
 | state  | string | `undefined` | The state of the element, for instance "error" |
 | error  | string | `undefined` | The error message to show (doesn't render error when empty) |
 | message  | string | `undefined` | The message to show (doesn't render message when empty) |
