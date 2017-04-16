@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
+var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -56,17 +56,21 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
 
     _initDefineProp(this, 'classes', _descriptor2, this);
 
-    _initDefineProp(this, 'entity', _descriptor3, this);
+    _initDefineProp(this, 'labelClasses', _descriptor3, this);
 
-    _initDefineProp(this, 'validated', _descriptor4, this);
+    _initDefineProp(this, 'elementClasses', _descriptor4, this);
 
-    _initDefineProp(this, 'buttonOptions', _descriptor5, this);
+    _initDefineProp(this, 'entity', _descriptor5, this);
 
-    _initDefineProp(this, 'buttonLabel', _descriptor6, this);
+    _initDefineProp(this, 'validated', _descriptor6, this);
 
-    _initDefineProp(this, 'buttonEnabled', _descriptor7, this);
+    _initDefineProp(this, 'buttonOptions', _descriptor7, this);
 
-    _initDefineProp(this, 'formGroups', _descriptor8, this);
+    _initDefineProp(this, 'buttonLabel', _descriptor8, this);
+
+    _initDefineProp(this, 'buttonEnabled', _descriptor9, this);
+
+    _initDefineProp(this, 'formGroups', _descriptor10, this);
 
     this.mapped = {};
 
@@ -170,6 +174,26 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
     this.updateFormGroups();
   }
 
+  labelClassesChanged(newValue) {
+    if (!newValue) {
+      this.labelClasses = this.config.defaultLabelClasses;
+
+      return;
+    }
+
+    this.updateFormGroups();
+  }
+
+  elementClassesChanged(newValue) {
+    if (!newValue) {
+      this.elementClasses = this.config.defaultElementClasses;
+
+      return;
+    }
+
+    this.updateFormGroups();
+  }
+
   updateFormGroups() {
     if (this.formGroups.length === 0) {
       return;
@@ -178,6 +202,14 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
     this.formGroups.forEach(group => {
       if (this.behavior) {
         group.behavior = this.behavior;
+      }
+
+      if (this.labelClasses) {
+        group.labelClasses = this.labelClasses;
+      }
+
+      if (this.elementClasses) {
+        group.elementClasses = this.elementClasses;
       }
 
       if (group.name) {
@@ -193,24 +225,30 @@ export let AureliaForm = (_dec = resolvedView('spoonx/form', 'aurelia-form'), _d
   initializer: function () {
     return '';
   }
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'entity', [bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'labelClasses', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'validated', [bindable], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'elementClasses', [bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'entity', [bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'validated', [bindable], {
   enumerable: true,
   initializer: function () {
     return true;
   }
-}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'buttonOptions', [bindable], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'buttonOptions', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'buttonLabel', [bindable], {
+}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'buttonLabel', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'buttonEnabled', [bindable], {
+}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, 'buttonEnabled', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'formGroups', [_dec4], {
+}), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, 'formGroups', [_dec4], {
   enumerable: true,
   initializer: function () {
     return [];

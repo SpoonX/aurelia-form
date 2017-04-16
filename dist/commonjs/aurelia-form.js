@@ -52,6 +52,8 @@ var config = exports.config = {
   'aurelia-form': {
     defaultElement: 'input',
     defaultBehavior: 'regular',
+    defaultLabelClasses: '',
+    defaultElementClasses: '',
     elements: {},
     validation: {},
 
