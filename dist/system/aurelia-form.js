@@ -53,8 +53,6 @@ System.register(['aurelia-view-manager', 'aurelia-logging', './decorator/index']
         'aurelia-form': {
           defaultElement: 'input',
           defaultBehavior: 'regular',
-          defaultLabelClasses: '',
-          defaultElementClasses: '',
           elements: {},
           validation: {},
 

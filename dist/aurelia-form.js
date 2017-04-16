@@ -29,7 +29,7 @@ export function configure(aurelia, config) {
     'radio',
     'select',
     'textarea',
-    'association'
+    'association',
   ];
 
   aurelia.globalResources(
@@ -41,18 +41,16 @@ export function configure(aurelia, config) {
   config.elements = config.elements || {};
 
   defaultElements.forEach(element => {
-    config.elements[element] = config.elements[element] || `form-${element}`;
+    config.elements[element] = config.elements[element] || `form-${element}`
   });
 }
 
 export const config = {
   'aurelia-form': {
-    defaultElement       : 'input',
-    defaultBehavior      : 'regular',
-    defaultLabelClasses  : '',
-    defaultElementClasses: '',
-    elements             : {},
-    validation           : {},
+    defaultElement : 'input',
+    defaultBehavior: 'regular',
+    elements       : {},
+    validation     : {},
 
     submitButton: {
       enabled: true,

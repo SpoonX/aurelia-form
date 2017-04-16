@@ -45,8 +45,6 @@ define(['exports', './decorator/index', 'aurelia-view-manager', 'aurelia-logging
     'aurelia-form': {
       defaultElement: 'input',
       defaultBehavior: 'regular',
-      defaultLabelClasses: '',
-      defaultElementClasses: '',
       elements: {},
       validation: {},
 
