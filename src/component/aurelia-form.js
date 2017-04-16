@@ -12,6 +12,10 @@ export class AureliaForm {
 
   @bindable classes = '';
 
+  @bindable labelClasses;
+
+  @bindable elementClasses;
+
   @bindable entity;
 
   @bindable validated = true;
@@ -134,6 +138,27 @@ export class AureliaForm {
     this.updateFormGroups();
   }
 
+  labelClassesChanged(newValue) {
+    if (!newValue) {
+      this.labelClasses = this.config.defaultLabelClasses;
+
+      return;
+    }
+
+    this.updateFormGroups();
+  }
+
+  elementClassesChanged(newValue) {
+    if (!newValue) {
+      this.elementClasses = this.config.defaultElementClasses;
+
+      return;
+    }
+
+    this.updateFormGroups();
+  }
+
+
   updateFormGroups() {
     if (this.formGroups.length === 0) {
       return;
@@ -142,6 +167,14 @@ export class AureliaForm {
     this.formGroups.forEach(group => {
       if (this.behavior) {
         group.behavior = this.behavior;
+      }
+
+      if (this.labelClasses) {
+        group.labelClasses = this.labelClasses;
+      }
+
+      if (this.elementClasses) {
+        group.elementClasses = this.elementClasses;
       }
 
       if (group.name) {
