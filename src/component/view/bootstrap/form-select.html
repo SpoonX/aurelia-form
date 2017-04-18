@@ -24,7 +24,7 @@
     multiple.bind="multiple !== false"
     autofocus.bind="autofocus"
     required.bind="required"
-    if.bind="!translate"
+    if.bind="translate === false"
   >
     <option repeat.for="option of optionLabels" model.bind="option.value">${option.label}</option>
   </select>

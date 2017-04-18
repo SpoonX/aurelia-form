@@ -32,9 +32,7 @@ export class FormSelect {
   get optionLabels() {
     return this.selectOptions.map(option => {
       if (typeof option !== 'object') {
-        option = {value: option, label: option};
-
-        return option;
+        return {value: option, label: option};
       }
 
       if (this.optionLabel) {
