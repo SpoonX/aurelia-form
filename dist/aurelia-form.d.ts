@@ -150,6 +150,7 @@ export declare class FormGroup {
   multiple: any;
   selectOptions: any;
   optionLabel: any;
+  translate: any;
   config: any;
   constructor(config?: any);
   is(oneOf?: any, then?: any, source?: any): any;
@@ -203,6 +204,7 @@ export declare class FormSelect {
   optionLabel: any;
   autofocus: any;
   required: any;
+  translate: any;
   optionLabels: any;
   getOptionLabel(option?: any): any;
 }

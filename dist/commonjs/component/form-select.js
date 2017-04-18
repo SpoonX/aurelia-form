@@ -9,7 +9,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
+var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12;
 
 var _aureliaFramework = require('aurelia-framework');
 
@@ -85,6 +85,8 @@ var FormSelect = exports.FormSelect = (_dec = (0, _aureliaViewManager.resolvedVi
     _initDefineProp(this, 'autofocus', _descriptor10, this);
 
     _initDefineProp(this, 'required', _descriptor11, this);
+
+    _initDefineProp(this, 'translate', _descriptor12, this);
   }
 
   FormSelect.prototype.getOptionLabel = function getOptionLabel(option) {
@@ -101,7 +103,11 @@ var FormSelect = exports.FormSelect = (_dec = (0, _aureliaViewManager.resolvedVi
       var _this = this;
 
       return this.selectOptions.map(function (option) {
-        if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) === 'object' && _this.optionLabel) {
+        if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) !== 'object') {
+          return { value: option, label: option };
+        }
+
+        if (_this.optionLabel) {
           option.label = option[_this.optionLabel] || '';
         }
 
@@ -160,4 +166,9 @@ var FormSelect = exports.FormSelect = (_dec = (0, _aureliaViewManager.resolvedVi
 }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, 'required', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
+}), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, 'translate', [_aureliaFramework.bindable], {
+  enumerable: true,
+  initializer: function initializer() {
+    return true;
+  }
 }), _applyDecoratedDescriptor(_class2.prototype, 'optionLabels', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'optionLabels'), _class2.prototype)), _class2)) || _class) || _class);

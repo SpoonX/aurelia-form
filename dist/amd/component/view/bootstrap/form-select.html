@@ -9,7 +9,23 @@
     multiple.bind="multiple !== false"
     autofocus.bind="autofocus"
     required.bind="required"
+    if.bind="translate !== false"
   >
-    <option repeat.for="option of optionLabels" model.bind="option" t="${option.label || option}">${option.label || option}</option>
+    <option repeat.for="option of optionLabels" model.bind="option.value" t="${option.label}"></option>
+  </select>
+
+  <select
+    value.bind="value"
+    class="form-control ${classes}"
+    name.bind="name"
+    readonly.bind="readonly !== false"
+    prefixed="options.bind: options; prefix: input-"
+    disabled.bind="disabled !== false"
+    multiple.bind="multiple !== false"
+    autofocus.bind="autofocus"
+    required.bind="required"
+    if.bind="translate === false"
+  >
+    <option repeat.for="option of optionLabels" model.bind="option.value">${option.label}</option>
   </select>
 </template>

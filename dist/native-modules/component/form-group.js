@@ -3,7 +3,7 @@
 exports.__esModule = true;
 exports.FormGroup = undefined;
 
-var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21;
+var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22;
 
 var _aureliaFramework = require('aurelia-framework');
 
@@ -101,6 +101,8 @@ var FormGroup = exports.FormGroup = (_dec = (0, _aureliaViewManager.resolvedView
     _initDefineProp(this, 'selectOptions', _descriptor20, this);
 
     _initDefineProp(this, 'optionLabel', _descriptor21, this);
+
+    _initDefineProp(this, 'translate', _descriptor22, this);
 
     this.config = config;
     this.behavior = config.defaultBehavior;
@@ -217,6 +219,9 @@ var FormGroup = exports.FormGroup = (_dec = (0, _aureliaViewManager.resolvedView
     return [];
   }
 }), _descriptor21 = _applyDecoratedDescriptor(_class2.prototype, 'optionLabel', [_aureliaFramework.bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor22 = _applyDecoratedDescriptor(_class2.prototype, 'translate', [_aureliaFramework.bindable], {
   enumerable: true,
   initializer: null
 })), _class2)) || _class) || _class) || _class);

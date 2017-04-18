@@ -3,7 +3,7 @@
 System.register(['aurelia-framework', 'aurelia-view-manager'], function (_export, _context) {
   "use strict";
 
-  var bindable, customElement, bindingMode, computedFrom, resolvedView, _typeof, _createClass, _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, FormSelect;
+  var bindable, customElement, bindingMode, computedFrom, resolvedView, _typeof, _createClass, _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, FormSelect;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -109,6 +109,8 @@ System.register(['aurelia-framework', 'aurelia-view-manager'], function (_export
           _initDefineProp(this, 'autofocus', _descriptor10, this);
 
           _initDefineProp(this, 'required', _descriptor11, this);
+
+          _initDefineProp(this, 'translate', _descriptor12, this);
         }
 
         FormSelect.prototype.getOptionLabel = function getOptionLabel(option) {
@@ -125,7 +127,11 @@ System.register(['aurelia-framework', 'aurelia-view-manager'], function (_export
             var _this = this;
 
             return this.selectOptions.map(function (option) {
-              if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) === 'object' && _this.optionLabel) {
+              if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) !== 'object') {
+                return { value: option, label: option };
+              }
+
+              if (_this.optionLabel) {
                 option.label = option[_this.optionLabel] || '';
               }
 
@@ -184,6 +190,11 @@ System.register(['aurelia-framework', 'aurelia-view-manager'], function (_export
       }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, 'required', [bindable], {
         enumerable: true,
         initializer: null
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, 'translate', [bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+          return true;
+        }
       }), _applyDecoratedDescriptor(_class2.prototype, 'optionLabels', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'optionLabels'), _class2.prototype)), _class2)) || _class) || _class));
 
       _export('FormSelect', FormSelect);

@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
+var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -69,11 +69,17 @@ export let FormSelect = (_dec = resolvedView('spoonx/form', 'form-select'), _dec
     _initDefineProp(this, 'autofocus', _descriptor10, this);
 
     _initDefineProp(this, 'required', _descriptor11, this);
+
+    _initDefineProp(this, 'translate', _descriptor12, this);
   }
 
   get optionLabels() {
     return this.selectOptions.map(option => {
-      if (typeof option === 'object' && this.optionLabel) {
+      if (typeof option !== 'object') {
+        return { value: option, label: option };
+      }
+
+      if (this.optionLabel) {
         option.label = option[this.optionLabel] || '';
       }
 
@@ -137,4 +143,9 @@ export let FormSelect = (_dec = resolvedView('spoonx/form', 'form-select'), _dec
 }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, 'required', [bindable], {
   enumerable: true,
   initializer: null
+}), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, 'translate', [bindable], {
+  enumerable: true,
+  initializer: function () {
+    return true;
+  }
 }), _applyDecoratedDescriptor(_class2.prototype, 'optionLabels', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'optionLabels'), _class2.prototype)), _class2)) || _class) || _class);
