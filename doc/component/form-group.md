@@ -27,6 +27,7 @@ The following attributes (bindables) are available for this component.
 | selectOptions | array | `[]` | The available options (for "select" element) |
 | optionLabel | string | `'name'` | Which attribute to show in the option (for "select" element) |
 | multiple | boolean | `false` | Make the select a multi-select block (for "select" element) |
+| translate | boolean | `true` | Enable/disable translation for the option label (for "select" element) |
 | options | object | `{}` | Options to pass to the input element |
 
 ## Examples
