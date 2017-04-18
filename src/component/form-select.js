@@ -26,10 +26,18 @@ export class FormSelect {
 
   @bindable required;
 
+  @bindable translate = true;
+
   @computedFrom('selectOptions', 'optionLabel')
   get optionLabels() {
     return this.selectOptions.map(option => {
-      if (typeof option === 'object' && this.optionLabel) {
+      if (typeof option !== 'object') {
+        option = {value: option, label: option};
+
+        return option;
+      }
+
+      if (this.optionLabel) {
         option.label = option[this.optionLabel] || '';
       }
 

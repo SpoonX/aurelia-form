@@ -48,6 +48,8 @@ export class FormGroup {
 
   @bindable optionLabel;
 
+  @bindable translate;
+
   config;
 
   constructor(config) {
