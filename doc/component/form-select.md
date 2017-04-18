@@ -17,6 +17,7 @@ The following attributes (bindables) are available for this component.
 | optionLabel | string | `'name'` | Which attribute to show in the option |
 | autofocus | boolean | `false` | Specifies to enable the autofocus of the select |
 | required | boolean | `false` | Make the select required |
+| translate | boolean | `true` | Enable/disable translation for the option label |
 
 ## Examples
 ```html
