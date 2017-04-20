@@ -3,11 +3,11 @@ import {getLogger} from 'aurelia-logging';
 import {metadata} from 'aurelia-metadata';
 import {Homefront} from 'homefront';
 import {bindable,inject,customAttribute,customElement,children,computedFrom,bindingMode,TemplatingEngine} from 'aurelia-framework';
-import {Configuration} from 'aurelia-config';
+import {Config} from 'aurelia-config';
 import {DOM} from 'aurelia-pal';
 
 export declare const logger: any;
-export * from 'aurelia-form/decorator/index';
+export * from 'aurelia-form/dist/decorator/index';
 export declare function configure(aurelia?: any, config?: any): any;
 export declare const config: any;
 export declare class Metadata {
@@ -226,39 +226,6 @@ export declare function autofocus(value?: any): any;
 export declare function disabled(value?: any): any;
 export declare function element(value?: any): any;
 export declare function field(value?: any, option?: any): any;
-export declare {
-  placeholder
-} from 'aurelia-form/placeholder';
-export declare {
-  label
-} from 'aurelia-form/label';
-export declare {
-  element
-} from 'aurelia-form/element';
-export declare {
-  position
-} from 'aurelia-form/position';
-export declare {
-  autofocus
-} from 'aurelia-form/autofocus';
-export declare {
-  disabled
-} from 'aurelia-form/disabled';
-export declare {
-  readonly
-} from 'aurelia-form/readonly';
-export declare {
-  required
-} from 'aurelia-form/required';
-export declare {
-  noRender
-} from 'aurelia-form/noRender';
-export declare {
-  inputType
-} from 'aurelia-form/inputType';
-export declare {
-  options
-} from 'aurelia-form/options';
 export declare function inputType(value?: any): any;
 export declare function label(value?: any): any;
 export declare function noRender(value?: any): any;
