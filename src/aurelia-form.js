@@ -3,8 +3,6 @@ import {getLogger} from 'aurelia-logging';
 
 export const logger = getLogger('aurelia-form');
 
-export * from './decorator/index';
-
 export function configure(aurelia, config) {
   aurelia.aurelia.use.plugin('aurelia-view-manager');
 
