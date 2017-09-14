@@ -12,7 +12,22 @@ module.exports = {
     importsToAdd: [],
 
     // JS to be transpiled, but not be concated (ValueConverters, CustomElements)
-    jsResources: [],
+    jsResources: [
+       appRoot + 'attribute/prefixed.js',
+       appRoot + 'component/aurelia-form.js', 
+       appRoot + 'component/entity-form.js', 
+       appRoot + 'component/form-association.js', 
+       appRoot + 'component/form-button.js', 
+       appRoot + 'component/form-element.js', 
+       appRoot + 'component/form-error.js', 
+       appRoot + 'component/form-group.js', 
+       appRoot + 'component/form-help.js', 
+       appRoot + 'component/form-input.js', 
+       appRoot + 'component/form-label.js', 
+       appRoot + 'component/form-radio.js', 
+       appRoot + 'component/form-select.js', 
+       appRoot + 'component/form-textarea.js'
+    ],
 
     // Other resources that need to get copied keeping their path
     resources: appRoot + '{**/*.css,**/*.html}',
@@ -24,6 +39,6 @@ module.exports = {
     sort: false,
 
     // concat js files
-    concat: false,
+    concat: true,
   }
 };
