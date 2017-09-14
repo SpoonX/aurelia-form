@@ -2,16 +2,47 @@ import {Config as ViewManagerConfig,resolvedView} from 'aurelia-view-manager';
 import {getLogger} from 'aurelia-logging';
 import {metadata} from 'aurelia-metadata';
 import {Homefront} from 'homefront';
-import {bindable,inject,customAttribute,customElement,children,computedFrom,bindingMode,TemplatingEngine} from 'aurelia-framework';
+import {bindable,customElement,bindingMode,inject,customAttribute,children,computedFrom,TemplatingEngine} from 'aurelia-framework';
 import {Configuration} from 'aurelia-config';
 import {DOM} from 'aurelia-pal';
 
 export declare const logger: any;
-export * from 'aurelia-form/decorator/index';
 export declare function configure(aurelia?: any, config?: any): any;
 export declare const config: any;
 export declare class Metadata {
   static forTarget(target?: any): any;
+}
+export declare function autofocus(value?: any): any;
+export declare function disabled(value?: any): any;
+export declare function element(value?: any): any;
+export declare function field(value?: any, option?: any): any;
+export declare function inputType(value?: any): any;
+export declare function label(value?: any): any;
+export declare function noRender(value?: any): any;
+export declare function options(value?: any): any;
+export declare function placeholder(value?: any): any;
+export declare function position(value?: any): any;
+export declare function readonly(value?: any): any;
+export declare function required(value?: any): any;
+
+/**
+ * FormCheckbox should inherit FormInput, so the bindables don't need to be copied.
+ *
+ * To achieve this, we will need this pull request to be merged:
+ * https://github.com/aurelia/templating/pull/507
+ */
+export declare class FormCheckbox {
+  name: any;
+  value: any;
+  option: any;
+  type: any;
+  classes: any;
+  placeholder: any;
+  readonly: any;
+  disabled: any;
+  options: any;
+  autofocus: any;
+  required: any;
 }
 export declare class Prefixed {
   attribute: any;
@@ -82,25 +113,6 @@ export declare class FormButton {
   classes: any;
   disabled: any;
   options: any;
-}
-/**
- * FormCheckbox should inherit FormInput, so the bindables don't need to be copied.
- *
- * To achieve this, we will need this pull request to be merged:
- * https://github.com/aurelia/templating/pull/507
- */
-export declare class FormCheckbox {
-  name: any;
-  value: any;
-  option: any;
-  type: any;
-  classes: any;
-  placeholder: any;
-  readonly: any;
-  disabled: any;
-  options: any;
-  autofocus: any;
-  required: any;
 }
 export declare class FormElement {
   type: any;
@@ -222,48 +234,3 @@ export declare class FormTextarea {
   readonly: any;
   wrap: any;
 }
-export declare function autofocus(value?: any): any;
-export declare function disabled(value?: any): any;
-export declare function element(value?: any): any;
-export declare function field(value?: any, option?: any): any;
-export declare {
-  placeholder
-} from 'aurelia-form/placeholder';
-export declare {
-  label
-} from 'aurelia-form/label';
-export declare {
-  element
-} from 'aurelia-form/element';
-export declare {
-  position
-} from 'aurelia-form/position';
-export declare {
-  autofocus
-} from 'aurelia-form/autofocus';
-export declare {
-  disabled
-} from 'aurelia-form/disabled';
-export declare {
-  readonly
-} from 'aurelia-form/readonly';
-export declare {
-  required
-} from 'aurelia-form/required';
-export declare {
-  noRender
-} from 'aurelia-form/noRender';
-export declare {
-  inputType
-} from 'aurelia-form/inputType';
-export declare {
-  options
-} from 'aurelia-form/options';
-export declare function inputType(value?: any): any;
-export declare function label(value?: any): any;
-export declare function noRender(value?: any): any;
-export declare function options(value?: any): any;
-export declare function placeholder(value?: any): any;
-export declare function position(value?: any): any;
-export declare function readonly(value?: any): any;
-export declare function required(value?: any): any;

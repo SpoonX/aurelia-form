@@ -1,3 +1,14 @@
+<a name="1.3.2-0"></a>
+## [1.3.2-0](https://github.com/SpoonX/aurelia-form/compare/v1.3.1...v1.3.2-0) (2017-09-14)
+
+
+### Bug Fixes
+
+* **aurelia-form:** remove decorator ([8422f7d](https://github.com/SpoonX/aurelia-form/commit/8422f7d))
+* **project:** concat all files but components ([37ee657](https://github.com/SpoonX/aurelia-form/commit/37ee657))
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/SpoonX/aurelia-form/compare/v1.3.0...v1.3.1) (2017-04-18)
 
