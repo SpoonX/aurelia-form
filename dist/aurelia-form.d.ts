@@ -2,7 +2,7 @@ import {Config as ViewManagerConfig,resolvedView} from 'aurelia-view-manager';
 import {getLogger} from 'aurelia-logging';
 import {metadata} from 'aurelia-metadata';
 import {Homefront} from 'homefront';
-import {bindable,customElement,bindingMode,inject,customAttribute,children,computedFrom,TemplatingEngine} from 'aurelia-framework';
+import {bindable,inject,customAttribute,customElement,children,computedFrom,bindingMode,TemplatingEngine} from 'aurelia-framework';
 import {Configuration} from 'aurelia-config';
 import {DOM} from 'aurelia-pal';
 
@@ -24,26 +24,6 @@ export declare function placeholder(value?: any): any;
 export declare function position(value?: any): any;
 export declare function readonly(value?: any): any;
 export declare function required(value?: any): any;
-
-/**
- * FormCheckbox should inherit FormInput, so the bindables don't need to be copied.
- *
- * To achieve this, we will need this pull request to be merged:
- * https://github.com/aurelia/templating/pull/507
- */
-export declare class FormCheckbox {
-  name: any;
-  value: any;
-  option: any;
-  type: any;
-  classes: any;
-  placeholder: any;
-  readonly: any;
-  disabled: any;
-  options: any;
-  autofocus: any;
-  required: any;
-}
 export declare class Prefixed {
   attribute: any;
   options: any;
@@ -113,6 +93,25 @@ export declare class FormButton {
   classes: any;
   disabled: any;
   options: any;
+}
+/**
+ * FormCheckbox should inherit FormInput, so the bindables don't need to be copied.
+ *
+ * To achieve this, we will need this pull request to be merged:
+ * https://github.com/aurelia/templating/pull/507
+ */
+export declare class FormCheckbox {
+  name: any;
+  value: any;
+  option: any;
+  type: any;
+  classes: any;
+  placeholder: any;
+  readonly: any;
+  disabled: any;
+  options: any;
+  autofocus: any;
+  required: any;
 }
 export declare class FormElement {
   type: any;

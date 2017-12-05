@@ -1,3 +1,8 @@
+<a name="1.3.2-1"></a>
+## [1.3.2-1](https://github.com/SpoonX/aurelia-form/compare/v1.3.2-0...v1.3.2-1) (2017-12-05)
+
+
+
 <a name="1.3.2-0"></a>
 ## [1.3.2-0](https://github.com/SpoonX/aurelia-form/compare/v1.3.1...v1.3.2-0) (2017-09-14)
 

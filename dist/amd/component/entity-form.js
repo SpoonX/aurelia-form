@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../metadata'], function (exports, _aureliaFramework, _aureliaViewManager, _metadata) {
+define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../aurelia-form'], function (exports, _aureliaFramework, _aureliaViewManager, _aureliaForm) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -117,7 +117,7 @@ define(['exports', 'aurelia-framework', 'aurelia-view-manager', '../metadata'], 
 
         var types = entityMeta.types || {};
         var associations = entityMeta.associations || {};
-        var fields = _metadata.Metadata.forTarget(this.entity).fetch('fields', {});
+        var fields = _aureliaForm.Metadata.forTarget(this.entity).fetch('fields', {});
 
         return Object.keys(this.entity).map(function (name) {
           var field = fields[name] || {};
